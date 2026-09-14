@@ -1,0 +1,6 @@
+# Example: payment flow, vendor-neutral.
+# Expected outcome: GATE FAIL (exit 1) — a B0 Critical survivor violates zero-tolerance.
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
+M1,Payment submits successfully,element_remove,B0,Y,pass,,
+M2,Payment rejects invalid card,validation_removed,B0,Y,fail,,
+M3,Payment confirmation visible,text_change,B1,Y,fail,,

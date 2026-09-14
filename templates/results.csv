@@ -1,0 +1,18 @@
+# VerdictGate input template — recorded mutation results.
+#
+# Columns:
+#   mutation_id   unique id (M1, M2, ...)
+#   behavior      what the suite claims to verify
+#   operator      mutation type (id_change, text_change, element_remove, swap_targets, ...)
+#   risk_tier     B0 Critical | B1 High | B2 Medium | B3 Low
+#   expected      Y = this suite should catch it | N = out of scope for this suite
+#   suite_result  pass = suite stayed green on the mutant | fail = suite went red
+#   observed      optional: passive observation flag (any text); empty = silent
+#   decision      optional: open | dismissed | fixed — required for B2 survivors
+#
+# No-op rule: a mutant that changes nothing observable is a seeder defect.
+# Refuse it PRE-SEED (it stays out of N) — never record it here.
+# Rows with expected=E are rejected by the calculator.
+#
+# Run: python3 verdictgate.py results.csv
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision

@@ -1,0 +1,5 @@
+# Pre-run template: define the behaviors your suite claims to verify.
+# Fill BEFORE seeding mutations — one behavior per row, then pick one mutation each
+# (see templates/mutation-matrix-lite.md for the minimal mutation set).
+behavior_name,acceptance_criteria,description
+Valid login shows welcome,"Given valid username and password when clicking Sign in then the welcome message is visible",User can sign in
