@@ -1,0 +1,5 @@
+# Example: no-op mutant recorded — must be REJECTED (exit 2).
+# A mutant that changes nothing observable is a seeder defect: refuse pre-seed,
+# never record it post-hoc. The calculator refuses this input.
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
+M1,Label swap between identical labels,text_swap,B1,E,pass,,

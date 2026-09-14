@@ -1,0 +1,118 @@
+{
+  "scorer_version": "0.1.0",
+  "deterministic": true,
+  "totals": {
+    "rows": 9,
+    "seeded": 7,
+    "caught": 4,
+    "observed_only": 1,
+    "survived": 2
+  },
+  "note": "gates and scores are per-tier by design; no global percentage is computed",
+  "tiers": {
+    "B0": {
+      "label": "Critical",
+      "scope": "payment, auth, credential, data-integrity paths",
+      "seeded": 2,
+      "caught": 2,
+      "observed_only": 0,
+      "survived": 0,
+      "mutation_score": 100.0,
+      "survival_rate": 0.0,
+      "gate": "PASS",
+      "gate_detail": "zero-tolerance held (survived 0 of 2)",
+      "signals": [
+        "B0 sign-off additionally requires a confirmatory re-run (two consecutive passing runs)"
+      ],
+      "survivors": [],
+      "not_expected": []
+    },
+    "B1": {
+      "label": "High",
+      "scope": "core user journeys, primary CRUD, search, notifications",
+      "seeded": 2,
+      "caught": 1,
+      "observed_only": 1,
+      "survived": 0,
+      "mutation_score": 50.0,
+      "survival_rate": 0.0,
+      "gate": "PASS",
+      "gate_detail": "zero-tolerance held (survived 0 of 2)",
+      "signals": [
+        "mutation score 50.0% below target 80% - mandatory signed Assessor comment",
+        "observed-only 50.0% exceeds budget 20% at survived=0 - signed comment required"
+      ],
+      "survivors": [],
+      "not_expected": []
+    },
+    "B2": {
+      "label": "Medium",
+      "scope": "secondary flows, edge cases",
+      "seeded": 2,
+      "caught": 1,
+      "observed_only": 0,
+      "survived": 1,
+      "mutation_score": 50.0,
+      "survival_rate": 50.0,
+      "gate": "PASS",
+      "gate_detail": "small-N floor held (max 1 at N=2 < 20)",
+      "signals": [
+        "mutation score 50.0% below target 90% - mandatory signed Assessor comment"
+      ],
+      "survivors": [
+        {
+          "mutation_id": "M6",
+          "behavior": "Forgotten password link",
+          "operator": "element_remove",
+          "decision": "open"
+        }
+      ],
+      "not_expected": []
+    },
+    "B3": {
+      "label": "Low",
+      "scope": "cosmetic, copy, layout, non-critical polish",
+      "seeded": 1,
+      "caught": 0,
+      "observed_only": 0,
+      "survived": 1,
+      "mutation_score": 0.0,
+      "survival_rate": 100.0,
+      "gate": "TREND-ONLY",
+      "gate_detail": "never blocks; alerts on regression vs rolling-3-run baseline",
+      "signals": [
+        "1 survivor(s) recorded - trend-only alert; compare against the rolling-3-run baseline"
+      ],
+      "survivors": [
+        {
+          "mutation_id": "M9",
+          "behavior": "Welcome banner copy",
+          "operator": "text_change",
+          "decision": null
+        }
+      ],
+      "not_expected": [
+        "M7",
+        "M8"
+      ]
+    }
+  },
+  "fix_first": [
+    "B2 · M6 · Forgotten password link (element_remove) - SURVIVED, decision: open",
+    "B3 · M9 · Welcome banner copy (text_change) - SURVIVED, decision: NO RECORDED DECISION"
+  ],
+  "not_expected_rows": [
+    {
+      "mutation_id": "M7",
+      "risk_tier": "B3",
+      "reason": "expected=N"
+    },
+    {
+      "mutation_id": "M8",
+      "risk_tier": "B3",
+      "reason": "expected=N"
+    }
+  ],
+  "gate_summary": "PASS",
+  "exit_code": 0
+}

@@ -1,0 +1,53 @@
+name: selfcheck
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  verdicts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Clean pass (demo-math) - expect exit 0
+        run: python3 verdictgate.py examples/demo-math/results.csv --out-dir /tmp/vg
+
+      - name: Pass with signals (web-login) - expect exit 0
+        run: python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg
+
+      - name: Golden verdict - web-login
+        run: |
+          python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/gold-web
+          diff /tmp/vg/gold-web/results.verdict.json examples/web-login/expected.verdict.json
+
+      - name: Golden verdict - demo-math
+        run: |
+          python3 verdictgate.py examples/demo-math/results.csv --out-dir /tmp/vg/gold-math
+          diff /tmp/vg/gold-math/results.verdict.json examples/demo-math/expected.verdict.json
+
+      - name: Hard gate fail (payment-critical) - expect exit 1
+        run: |
+          set +e
+          python3 verdictgate.py examples/payment-critical-fail/results.csv --out-dir /tmp/vg/fail
+          code=$?
+          set -e
+          [ "$code" -eq 1 ]
+
+      - name: No-op rejected pre-seed - expect exit 2
+        run: |
+          set +e
+          python3 verdictgate.py examples/noop-row/results.csv --out-dir /tmp/vg/noop
+          code=$?
+          set -e
+          [ "$code" -eq 2 ]
+
+      - name: Determinism - same input, byte-identical output
+        run: |
+          python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d1
+          python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d2
+          diff /tmp/vg/d1/results.verdict.json /tmp/vg/d2/results.verdict.json
+          diff /tmp/vg/d1/results.verdict.md /tmp/vg/d2/results.verdict.md

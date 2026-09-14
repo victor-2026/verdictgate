@@ -1,0 +1,13 @@
+# Example: web login suite, vendor-neutral recorded results.
+# Exercises every verdict path: Caught, Observed-only, Survived (with and without gate impact), n/a.
+# Expected outcome: PASS with signals (exit 0) — findings exist, no hard-gate violation.
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
+M1,Valid login shows welcome,id_change,B0,Y,fail,,
+M2,Login rejects wrong password,validation_removed,B0,Y,fail,,
+M3,Login button visible,element_remove,B1,Y,fail,,
+M4,Username placeholder,duplicate_field,B1,Y,pass,two identical username inputs,
+M5,Password masked,selector_broadening,B2,Y,fail,,
+M6,Forgotten password link,element_remove,B2,Y,pass,,open
+M7,Welcome banner copy,text_change,B3,N,pass,,
+M8,Page footer layout,style_change,B3,N,pass,,
+M9,Welcome banner copy,text_change,B3,Y,pass,,
