@@ -3,3 +3,5 @@ __pycache__/
 *.verdict.md
 *.verdict.json
 !examples/*/expected.verdict.json
+# Local-only: external reviews never go to GitHub (even after repo opening)
+reviews/
