@@ -75,6 +75,8 @@ B0/B1 zero-tolerance is **not** configurable: no decision can pass a zero-tolera
 The calculator judges what was RECORDED — it cannot verify the recording. Three paths stay human-owned:
 
 - **Scope (N):** marking a mutant out-of-scope removes it from every denominator. Scope truth lives in `requirements.csv` + reviewer sign-off, not in the CSV. Unrestricted N is a known bypass path; a strict cross-check mode is roadmap (v0.2).
+- **Tier assignment:** demoting a mutant to a lower tier (e.g. B0 → B2) moves it from zero-tolerance to the 5% band without touching any denominator. Nothing in the CSV proves a tier label — tier truth is a reviewer check against `requirements.csv` risk levels.
+- **Run fragmentation:** thresholds apply per file. Splitting 25 B2 mutants into two files of 12+13 dodges the N ≥ 20 band via the small-N floor. One scope = one file = one verdict; multi-file scopes need a run id (roadmap, v0.2).
 - **Equivalence (E):** assessed equivalents are recorded and visibly excluded — but the assessment itself is trusted. Mass-E (hard mutants re-labeled E) is the top gaming path; the E-justification guard is roadmap (v0.2).
 - **NOT EXERCISED ≠ PASS for release:** a tier with no Y rows exits 0 with the tier marked NOT EXERCISED. For release decisions treat unexercised B0/B1 as a blocker by policy; a `--fail-on-unexercised` flag is roadmap (v0.2).
 
