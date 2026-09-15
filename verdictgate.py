@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.1.0"
+SCORER_VERSION = "0.1.1"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -38,8 +38,8 @@ GATE_RULES = {
 }
 
 REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result")
-NOOP_TOKENS = {"E", "EQUIVALENT", "NOOP", "NO-OP"}
-VALID_EXPECTED = {"Y", "N"}
+NOOP_TOKENS = {"NOOP", "NO-OP"}
+VALID_EXPECTED = {"Y", "N", "E"}
 VALID_RESULT = {"pass", "fail"}
 
 
@@ -85,7 +85,7 @@ def parse_rows(path):
                 "never accept it post-hoc. Remove the row, re-seed, re-run."
             )
         if expected not in VALID_EXPECTED:
-            raise InputError(f"{rowno} ({mid}): expected must be Y or N")
+            raise InputError(f"{rowno} ({mid}): expected must be Y, N, or E (Equivalent: recorded, excluded from the denominator)")
         result = (raw.get("suite_result") or "").strip().lower()
         if result not in VALID_RESULT:
             raise InputError(f"{rowno} ({mid}): suite_result must be pass or fail")
@@ -107,6 +107,8 @@ def parse_rows(path):
 
 
 def row_verdict(row):
+    if row["expected"] == "E":
+        return "Equivalent"
     if row["expected"] == "N":
         return "n/a"
     if row["suite_result"] == "fail":
@@ -131,7 +133,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max):
     any_fail = False
     for tier in TIER_ORDER:
         t_rows = [e for e in enriched if e["risk_tier"] == tier]
-        seeded = [e for e in t_rows if e["verdict"] != "n/a"]
+        seeded = [e for e in t_rows if e["verdict"] not in ("n/a", "Equivalent")]
         caught = [e for e in seeded if e["verdict"] == "Caught"]
         observed = [e for e in seeded if e["verdict"] == "Observed-only"]
         survivors = [e for e in seeded if e["verdict"] == "Survived"]
@@ -142,6 +144,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max):
             "caught": len(caught),
             "observed_only": len(observed),
             "survived": len(survivors),
+            "equivalent": len([e for e in t_rows if e["verdict"] == "Equivalent"]),
             "mutation_score": pct(len(caught), len(seeded)),
             "survival_rate": pct(len(survivors), len(seeded)),
             "gate": None,
@@ -236,12 +239,19 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max):
         if e["verdict"] == "n/a"
     ]
 
+    equivalent_rows = [
+        {"mutation_id": e["mutation_id"], "risk_tier": e["risk_tier"], "reason": "expected=E (no observable behavior change)"}
+        for e in enriched
+        if e["verdict"] == "Equivalent"
+    ]
+
     totals = {
         "rows": len(enriched),
         "seeded": sum(tiers[t]["seeded"] for t in TIER_ORDER),
         "caught": sum(tiers[t]["caught"] for t in TIER_ORDER),
         "observed_only": sum(tiers[t]["observed_only"] for t in TIER_ORDER),
         "survived": sum(tiers[t]["survived"] for t in TIER_ORDER),
+        "equivalent": sum(tiers[t]["equivalent"] for t in TIER_ORDER),
     }
 
     verdict = {
@@ -252,6 +262,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max):
         "tiers": tiers,
         "fix_first": fix_first,
         "not_expected_rows": not_expected_rows,
+        "equivalent_rows": equivalent_rows,
         "gate_summary": "FAIL" if any_fail else "PASS",
         "exit_code": 1 if any_fail else 0,
     }
@@ -298,6 +309,12 @@ def render_md(verdict, input_name):
         lines.append("## Not expected (out of scope)")
         lines.append("")
         for r in verdict["not_expected_rows"]:
+            lines.append(f"- {r['mutation_id']} ({r['risk_tier']}) - {r['reason']}")
+        lines.append("")
+    if verdict["equivalent_rows"]:
+        lines.append("## Equivalent (recorded, excluded from the denominator)")
+        lines.append("")
+        for r in verdict["equivalent_rows"]:
             lines.append(f"- {r['mutation_id']} ({r['risk_tier']}) - {r['reason']}")
         lines.append("")
     signal_count = sum(len(t[tier]["signals"]) for tier in TIER_ORDER)

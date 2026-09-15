@@ -1,5 +1,9 @@
 # Pre-run template: define the behaviors your suite claims to verify.
 # Fill BEFORE seeding mutations — one behavior per row, then pick one mutation each
 # (see templates/mutation-matrix-lite.md for the minimal mutation set).
+# Audit-trail rule: behavior_name here must match the `behavior` column in
+# results.csv VERBATIM (same spelling, same case) — otherwise the verdict
+# cannot be traced back to the claim. The calculator does not enforce this;
+# the reviewer does (sign-off table, Reviewer of record).
 behavior_name,acceptance_criteria,description
 Valid login shows welcome,"Given valid username and password when clicking Sign in then the welcome message is visible",User can sign in

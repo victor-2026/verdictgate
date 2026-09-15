@@ -39,7 +39,7 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 - **Version stamp:** any change to GATE_RULES or verdict logic bumps SCORER_VERSION and updates both golden files (lesson: scorer 0.2.34 → 0.2.40 silently shifted rankings).
 - **Exit-code contract:** 0 = pass, 1 = gate fail, 2 = input error. CI and the future GitHub Action depend on it.
 - **Zero-tolerance is not configurable:** B0/B1 survived=0 always. Only the disputed B2 band is CLI-configurable.
-- **No-op discipline:** `expected=E` rows are rejected at input — refuse pre-seed, never post-hoc.
+- **No-op discipline:** `NOOP` / `NO-OP` rows (seeder admits nothing changed) are rejected at input — refuse pre-seed, never post-hoc. `E` rows are the opposite case: ASSESSED equivalent, RECORDED as Equivalent verdicts, visibly excluded from the denominator (v0.1.1+).
 
 ## Anti-Patterns
 
