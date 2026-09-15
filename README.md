@@ -16,17 +16,19 @@ Requirements: Python 3.10+, standard library only, no dependencies.
 
 ## Quick start (30 seconds, no setup)
 
-```bash
-cp templates/results.csv results.csv
-# fill in your recorded mutations (see Input format below)
-python3 verdictgate.py results.csv
-```
-
-Or skip the form and see a verdict immediately:
+See a verdict immediately (expected: FAIL, exit 1 — a B0 survivor violates zero-tolerance):
 
 ```bash
 python3 verdictgate.py examples/payment-critical-fail/results.csv
 # B0 FAIL · B1 PASS · B2 NOT EXERCISED · B3 NOT EXERCISED - FAIL (exit 1)
+```
+
+Then run your own recorded mutations:
+
+```bash
+cp templates/results.csv results.csv
+# fill in your recorded mutations (see Input format below)
+python3 verdictgate.py results.csv
 ```
 
 Outputs `results.verdict.md` (evidence pack with RACI sign-off) and `results.verdict.json` (machine-readable, version-stamped).
@@ -64,9 +66,19 @@ Verdict per row: **Caught** (suite went red) · **Observed-only** (green but fla
 | B2 Medium | ≤ 5% survived (N ≥ 20) or max 1 survivor with a recorded decision (N < 20) | < 90% → mandatory signed Assessor comment |
 | B3 Low | never blocks; trend vs rolling-3-run baseline | — |
 
-Survived count is the hard gate; mutation score is a signal bar — a low score triggers a mandatory signed comment, never a silent auto-fail. Observed-only has its own budget at survived=0 (B0 ≤ 10%, B1 ≤ 20%): exceeding it is a signal, not a pass.
+Survived count is the hard gate; mutation score is a signal bar — a low score triggers a mandatory signed comment, never a silent auto-fail. Displayed rates are rounded to one decimal; the B2 band gate itself uses exact integer arithmetic. Observed-only has its own budget at survived=0 (B0 ≤ 10%, B1 ≤ 20%): exceeding it is a signal, not a pass.
 
 B0/B1 zero-tolerance is **not** configurable: no decision can pass a zero-tolerance tier. The B2 band is the one disputed knob, so it is CLI-configurable with a strict default (`--b2-band-pct`, default 5; `--b2-small-n-max`, default 1).
+
+## Trust boundaries (read before disputing a vendor report)
+
+The calculator judges what was RECORDED — it cannot verify the recording. Three paths stay human-owned:
+
+- **Scope (N):** marking a mutant out-of-scope removes it from every denominator. Scope truth lives in `requirements.csv` + reviewer sign-off, not in the CSV. Unrestricted N is a known bypass path; a strict cross-check mode is roadmap (v0.2).
+- **Equivalence (E):** assessed equivalents are recorded and visibly excluded — but the assessment itself is trusted. Mass-E (hard mutants re-labeled E) is the top gaming path; the E-justification guard is roadmap (v0.2).
+- **NOT EXERCISED ≠ PASS for release:** a tier with no Y rows exits 0 with the tier marked NOT EXERCISED. For release decisions treat unexercised B0/B1 as a blocker by policy; a `--fail-on-unexercised` flag is roadmap (v0.2).
+
+Reproducibility contract: same CSV + same scorer version + same CLI flags → byte-identical verdict files. The B2 flags used are stamped into every verdict artifact.
 
 ## Exit codes
 

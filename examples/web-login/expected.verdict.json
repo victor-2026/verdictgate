@@ -1,6 +1,8 @@
 {
-  "scorer_version": "0.1.1",
+  "scorer_version": "0.1.2",
   "deterministic": true,
+  "b2_band_pct": 5,
+  "b2_small_n_max": 1,
   "totals": {
     "rows": 9,
     "seeded": 7,
