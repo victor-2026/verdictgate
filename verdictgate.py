@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.1.2"
+SCORER_VERSION = "0.1.3"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -54,24 +54,44 @@ def parse_rows(path):
         text = Path(path).read_text(encoding="utf-8-sig")
     except OSError as exc:
         raise InputError(f"cannot read {path}: {exc}")
-    numbered = [(i + 1, ln) for i, ln in enumerate(text.splitlines())]
-    lines = [(n, ln) for n, ln in numbered if ln.strip() and not ln.lstrip().startswith("#")]
-    if not lines:
+    phys = text.splitlines()
+    hdr_idx = next(
+        (i for i, ln in enumerate(phys) if ln.strip() and not ln.lstrip().startswith("#")),
+        None,
+    )
+    if hdr_idx is None:
         raise InputError("empty input")
-    reader = csv.DictReader([ln for _, ln in lines])
+    # Single csv pass over all lines: quoted multiline fields stay intact
+    # (pre-filtering text would silently mangle an embedded '#' or blank line).
+    reader = csv.DictReader(phys[hdr_idx:])
     fieldnames = reader.fieldnames or []
     missing = [c for c in REQUIRED_COLUMNS if c not in fieldnames]
     if missing:
         raise InputError(f"missing required column(s): {', '.join(missing)}")
     if len(set(fieldnames)) != len(fieldnames):
         raise InputError("duplicate column name(s) in header")
+    if "" in fieldnames:
+        raise InputError("empty column name in header (trailing comma?)")
     unknown = [c for c in fieldnames if c not in KNOWN_COLUMNS]
     if unknown:
         raise InputError(f"unknown column(s): {', '.join(unknown)}")
     rows = []
     seen = set()
-    for (lineno, _), raw in zip(lines[1:], reader):
-        rowno = f"line {lineno}"
+    consumed = hdr_idx  # physical lines consumed before the current record
+    for raw in reader:
+        end = hdr_idx + reader.line_num
+        start = consumed + 1
+        while start <= end and (
+            not phys[start - 1].strip() or phys[start - 1].lstrip().startswith("#")
+        ):
+            start += 1
+        consumed = end
+        if start > end or phys[start - 1].lstrip().startswith("#"):
+            continue  # comment-only span
+        vals = [v for v in raw.values() if v is not None]
+        if all(v.strip() == "" for v in vals):
+            continue  # whitespace-only row
+        rowno = f"line {start}" if start == end else f"lines {start}-{end}"
         if None in raw:
             raise InputError(f"{rowno}: extra value(s) beyond declared columns")
         mid = (raw.get("mutation_id") or "").strip()
@@ -99,7 +119,7 @@ def parse_rows(path):
         result = (raw.get("suite_result") or "").strip().lower()
         if result not in VALID_RESULT:
             raise InputError(f"{rowno} ({mid}): suite_result must be pass or fail")
-        decision = (raw.get("decision") or "").strip()
+        decision = (raw.get("decision") or "").strip().lower()
         if decision and decision not in VALID_DECISIONS:
             raise InputError(f"{rowno} ({mid}): decision must be one of open, dismissed, fixed (or empty)")
         if expected == "E" and result == "fail":
@@ -374,8 +394,9 @@ def main():
     args = ap.parse_args()
     if not 0 <= args.b2_band_pct <= 100:
         ap.error("--b2-band-pct must be 0..100")
-    if args.b2_small_n_max < 0:
-        ap.error("--b2-small-n-max must be >= 0")
+    small_n_cap = GATE_RULES["B2"]["small_n_threshold"] - 1
+    if not 0 <= args.b2_small_n_max <= small_n_cap:
+        ap.error(f"--b2-small-n-max must be 0..{small_n_cap} (at the small-N threshold the floor is vacuous)")
 
     try:
         rows = parse_rows(args.results)
