@@ -91,6 +91,6 @@ Per-risk-tier gating and the mutation matrix come from the field methodology des
 
 Alpha (0.1.x). MIT.
 
-Roadmap: v0.2 configurable thresholds + vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs.
+Roadmap: v0.2 configurable thresholds + vendor threshold profiles + E-justification guard (NOOP-vs-E abuse heuristic) · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs.
 
 Seeding mutants is out of scope — by design. This is the verdict layer, not another executor.

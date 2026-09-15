@@ -52,5 +52,5 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 
 - Commits: `feat:`, `fix:`, `docs:`, `chore:`
 - Repo starts private; public opening is gated on Article 27 publication
-- Roadmap: v0.2 configurable thresholds + vendor profiles · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
+- Roadmap: v0.2 configurable thresholds + vendor profiles + E-justification guard (NOOP-vs-E abuse heuristic: E requires an `observed` rationale, mass-E flag) · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
 - Seeding mutants is out of scope by design — this is the verdict layer, not another executor
