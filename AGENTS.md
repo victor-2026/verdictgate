@@ -33,6 +33,14 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 3. `templates/mutation-matrix-{lite,full}.md` — the methodology
 4. Product PRD — `ai-qa-wiki/outputs/product-concept-mutation-verifier-mvp.md`
 
+## Open decisions (need human approve, framework-adjacent)
+
+- **D1 — Observed-budget promotion (Perplexity P1.2): DECIDED 2026-09-16 → Option C.**
+  - C (fixed): budget stays signal; observed rows require structured evidence (who/when/run-ref + names mutated element per framework L71); calculator checks presence, Assessor verifies substance; mass-observed rate fires its own signal. No frozen-semantics change, no external dependency.
+  - Rejected A (status quo leaves zero-tolerance evadable) and B (gate promotion needs framework v0.4).
+  - Vendor status: cooperation paused (resumes only under enterprise scope). No cross-check expected; framework decisions are unilateral from here.
+  - Calculator MUST NOT implement B without a new explicit decision.
+
 ## Hard Rules
 
 - **Determinism:** same input → byte-identical output. No timestamps, no randomness, no absolute paths in verdicts.
@@ -52,5 +60,6 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 
 - Commits: `feat:`, `fix:`, `docs:`, `chore:`
 - Repo starts private; public opening is gated on Article 27 publication
-- Roadmap: v0.2 input-trust hardening (Perplexity review 2026-09-15) — E-justification guard + mass-E signal · observed-flag control (structured evidence; budget→gate promotion DECISION needed) · NOT EXERCISED policy + --fail-on-unexercised · decision enum + CLI ranges + thresholds stamp (shipped in 0.1.2) · vendor profiles · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
+- Roadmap: scorer 0.2.0 input-trust hardening (Perplexity review 2026-09-15) — E-justification guard + mass-E signal · observed-flag control (structured evidence; budget→gate promotion DECISION needed, see D1) · NOT EXERCISED policy + --fail-on-unexercised · decision enum + CLI ranges + thresholds stamp (shipped in 0.1.2) · vendor profiles · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
+- Versioning rule: `scorer x.y.z` (SCORER_VERSION, this calculator) and `framework v0.x` (per-risk-tier methodology, Rupesh dir) are DIFFERENT lines. Never write a bare `v0.x` — always qualify. Framework v0.3 is frozen; its next would be framework v0.4, not scorer 0.4.
 - Seeding mutants is out of scope by design — this is the verdict layer, not another executor
