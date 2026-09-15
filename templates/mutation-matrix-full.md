@@ -96,6 +96,8 @@ For each mutation, run the associated test in an **ephemeral/sandbox environment
 - **Equivalent** — mutation does not change observable behavior; excluded from survival rate
 - **n/a** — mutation not expected to be caught by this test
 
+> Calculator mapping: only Caught / Survived / Equivalent / n/a (+ Observed-only via the `observed` column) are CSV verdicts. **Flaky** and **False alert** are working states, not recordable outcomes — resolve them BEFORE recording: re-run a flaky case until stable (or quarantine the test, not the mutant), fix the assertion behind a false alert, then record the clean Caught/Survived. Recording an unstable row as a verdict corrupts the denominator.
+
 ### Equivalent mutants
 A mutant is **equivalent** when it changes the code but not the observable behavior (e.g., `if (x > 0)` → `if (x >= 1)` when x is integer). These must be marked **Equivalent** and excluded from the denominator of survival rate — otherwise the metric is artificially inflated.
 
@@ -131,6 +133,8 @@ Pattern: functional failures caught, structural fragility missed
 ---
 
 ## Step 5: Interpret
+> Generic guidance for manual runs. When you feed results.csv to the calculator, the ENFORCED rules are the per-risk-tier gates (framework v0.3: B0/B1 zero-tolerance, B2 band, B3 trend-only) — this table does not override them.
+
 | Survival rate | Meaning                     | Action                              |
 |---------------|-----------------------------|-------------------------------------|
 | 0%            | Tests catch every expected defect | Strong — trust the signal          |

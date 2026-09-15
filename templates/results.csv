@@ -6,13 +6,18 @@
 #   operator      mutation type (id_change, text_change, element_remove, swap_targets, ...)
 #   risk_tier     B0 Critical | B1 High | B2 Medium | B3 Low
 #   expected      Y = this suite should catch it | N = out of scope for this suite
+#                 E = assessed equivalent: analysis shows no observable behavior
+#                     change (e.g. x>0 -> x>=1 for integers). RECORDED as an
+#                     Equivalent verdict, visibly excluded from the denominator.
+#                     (Equivalence is often known only post-hoc — hiding it would
+#                     silently skew the rate; recording it keeps the audit honest.)
 #   suite_result  pass = suite stayed green on the mutant | fail = suite went red
 #   observed      optional: passive observation flag (any text); empty = silent
 #   decision      optional: open | dismissed | fixed — required for B2 survivors
 #
-# No-op rule: a mutant that changes nothing observable is a seeder defect.
-# Refuse it PRE-SEED (it stays out of N) — never record it here.
-# Rows with expected=E are rejected by the calculator.
+# No-op rule: a NOOP / NO-OP row means the seeder ADMITS nothing was changed.
+# That is a process violation: refuse pre-seed (it stays out of N), exit 2 —
+# never record it post-hoc. Contrast with E (above): assessed, recorded, excluded.
 #
 # Run: python3 verdictgate.py results.csv
 mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision

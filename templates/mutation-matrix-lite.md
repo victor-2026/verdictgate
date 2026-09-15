@@ -18,7 +18,8 @@ Not every test must catch every mutation. A login test should not be expected to
 Mark `Expected = Yes` only if:
 
 - the mutation changes behavior in the area the test checks, and
-- the mutation is on the same layer (UI/API/logic) that the test covers.
+- the mutation is on the same layer (UI/API/logic) that the test covers, and
+- the mutation is NOT equivalent (it changes observable behavior — if analysis later shows it doesn't, re-mark `Expected = E`, never silently drop the row).
 
 If not → mark `Expected = No` and use verdict `n/a`.
 
@@ -94,6 +95,8 @@ Survival rate = (Survived (Expected=Yes)) / (Total Expected=Yes) × 100%
 ---
 
 ## Step 5: Interpret
+> Generic guidance for manual runs. When you feed results.csv to the calculator, the ENFORCED rules are the per-risk-tier gates (framework v0.3: B0/B1 zero-tolerance, B2 band, B3 trend-only) — this table does not override them.
+
 | Survival rate | Meaning                     | Action                              |
 |---------------|-----------------------------|-------------------------------------|
 | 0%            | Tests catch every expected defect | Strong — trust the signal          |

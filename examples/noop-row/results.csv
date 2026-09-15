@@ -1,5 +1,8 @@
-# Example: no-op mutant recorded — must be REJECTED (exit 2).
-# A mutant that changes nothing observable is a seeder defect: refuse pre-seed,
-# never record it post-hoc. The calculator refuses this input.
+# Example: seeder-defect row — must be REJECTED (exit 2).
+# The seeder admits nothing was changed (NOOP token): process violation,
+# refuse pre-seed, never record post-hoc. The calculator refuses this input.
+# Contrast: expected=E means ASSESSED equivalent (analysis shows no observable
+# behavior change, e.g. x>0 -> x>=1 for integers). E rows are RECORDED as
+# Equivalent verdicts, visibly excluded from the denominator — not rejected.
 mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
-M1,Label swap between identical labels,text_swap,B1,E,pass,,
+M1,Label swap between identical labels,text_swap,B1,NOOP,pass,,
