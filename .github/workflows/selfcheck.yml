@@ -45,6 +45,30 @@ jobs:
           set -e
           [ "$code" -eq 2 ]
 
+      - name: B2 boundary matrix (small-N floors and band edges)
+        run: |
+          hdr="mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision"
+          mkb2() { # $1=file $2=B2-Y-count $3=pass-rows(survivors) $4=decision-or-empty
+            echo "$hdr" > "$1"
+            i=1
+            while [ $i -le "$2" ]; do
+              if [ $i -le "$3" ]; then res=pass; else res=fail; fi
+              echo "M$i,flow $i,text_change,B2,Y,$res,,$4" >> "$1"
+              i=$((i+1))
+            done
+          }
+          expect() { # $1=file $2=expected-exit
+            set +e; python3 verdictgate.py "$1" --out-dir /tmp/vg/b >/dev/null 2>&1; code=$?; set -e
+            [ "$code" -eq "$2" ] || { echo "FAIL: $1 expected exit $2 got $code"; exit 1; }
+          }
+          mkb2 /tmp/b2a.csv 3 0 "";       expect /tmp/b2a.csv 0
+          mkb2 /tmp/b2b.csv 3 1 "fixed";  expect /tmp/b2b.csv 0
+          mkb2 /tmp/b2c.csv 3 1 "";       expect /tmp/b2c.csv 1
+          mkb2 /tmp/b2d.csv 3 2 "fixed";  expect /tmp/b2d.csv 1
+          mkb2 /tmp/b2e.csv 20 1 "fixed"; expect /tmp/b2e.csv 0
+          mkb2 /tmp/b2f.csv 20 2 "fixed"; expect /tmp/b2f.csv 1
+          echo "B2 boundaries OK"
+
       - name: Determinism - same input, byte-identical output
         run: |
           python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d1

@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.1.1"
+SCORER_VERSION = "0.1.2"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -41,6 +41,8 @@ REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expecte
 NOOP_TOKENS = {"NOOP", "NO-OP"}
 VALID_EXPECTED = {"Y", "N", "E"}
 VALID_RESULT = {"pass", "fail"}
+VALID_DECISIONS = {"open", "dismissed", "fixed"}
+KNOWN_COLUMNS = REQUIRED_COLUMNS + ("observed", "decision")
 
 
 class InputError(Exception):
@@ -52,18 +54,26 @@ def parse_rows(path):
         text = Path(path).read_text(encoding="utf-8-sig")
     except OSError as exc:
         raise InputError(f"cannot read {path}: {exc}")
-    lines = [ln for ln in text.splitlines() if ln.strip() and not ln.lstrip().startswith("#")]
+    numbered = [(i + 1, ln) for i, ln in enumerate(text.splitlines())]
+    lines = [(n, ln) for n, ln in numbered if ln.strip() and not ln.lstrip().startswith("#")]
     if not lines:
         raise InputError("empty input")
-    reader = csv.DictReader(lines)
+    reader = csv.DictReader([ln for _, ln in lines])
     fieldnames = reader.fieldnames or []
     missing = [c for c in REQUIRED_COLUMNS if c not in fieldnames]
     if missing:
         raise InputError(f"missing required column(s): {', '.join(missing)}")
+    if len(set(fieldnames)) != len(fieldnames):
+        raise InputError("duplicate column name(s) in header")
+    unknown = [c for c in fieldnames if c not in KNOWN_COLUMNS]
+    if unknown:
+        raise InputError(f"unknown column(s): {', '.join(unknown)}")
     rows = []
     seen = set()
-    for idx, raw in enumerate(reader, start=1):
-        rowno = f"row {idx}"
+    for (lineno, _), raw in zip(lines[1:], reader):
+        rowno = f"line {lineno}"
+        if None in raw:
+            raise InputError(f"{rowno}: extra value(s) beyond declared columns")
         mid = (raw.get("mutation_id") or "").strip()
         if not mid:
             raise InputError(f"{rowno}: mutation_id is empty")
@@ -89,6 +99,14 @@ def parse_rows(path):
         result = (raw.get("suite_result") or "").strip().lower()
         if result not in VALID_RESULT:
             raise InputError(f"{rowno} ({mid}): suite_result must be pass or fail")
+        decision = (raw.get("decision") or "").strip()
+        if decision and decision not in VALID_DECISIONS:
+            raise InputError(f"{rowno} ({mid}): decision must be one of open, dismissed, fixed (or empty)")
+        if expected == "E" and result == "fail":
+            raise InputError(
+                f"{rowno} ({mid}): contradictory row: expected=E claims no observable behavior change, "
+                "but suite_result=fail means the suite observed it. Re-assess equivalence."
+            )
         rows.append(
             {
                 "mutation_id": mid,
@@ -98,7 +116,7 @@ def parse_rows(path):
                 "expected": expected,
                 "suite_result": result,
                 "observed": (raw.get("observed") or "").strip(),
-                "decision": (raw.get("decision") or "").strip(),
+                "decision": decision,
             }
         )
     if not rows:
@@ -212,6 +230,9 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max):
                     else:
                         d["gate_detail"] = f"small-N floor held (max {b2_small_n_max} at N={d['seeded']} < {threshold})"
                 missing_decision = [s for s in survivors if not s["decision"]]
+                # Declared B2 rule (mirrors README + framework v0.3): every recorded
+                # survivor carries an enumerated decision (open/dismissed/fixed).
+                # Boundary-locked in selfcheck (b2a-b2f matrix).
                 if missing_decision:
                     ok = False
                     ids = ", ".join(s["mutation_id"] for s in missing_decision)
@@ -257,6 +278,8 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max):
     verdict = {
         "scorer_version": SCORER_VERSION,
         "deterministic": True,
+        "b2_band_pct": b2_band_pct,
+        "b2_small_n_max": b2_small_n_max,
         "totals": totals,
         "note": "gates and scores are per-tier by design; no global percentage is computed",
         "tiers": tiers,
@@ -277,6 +300,7 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
+    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s)")
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
@@ -348,6 +372,10 @@ def main():
     ap.add_argument("--json", action="store_true", help="print verdict JSON to stdout, write no files")
     ap.add_argument("--md", action="store_true", help="print verdict markdown to stdout, write no files")
     args = ap.parse_args()
+    if not 0 <= args.b2_band_pct <= 100:
+        ap.error("--b2-band-pct must be 0..100")
+    if args.b2_small_n_max < 0:
+        ap.error("--b2-small-n-max must be >= 0")
 
     try:
         rows = parse_rows(args.results)
