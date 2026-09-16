@@ -35,7 +35,7 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 
 ## Open decisions (need human approve, framework-adjacent)
 
-- **D1 — Observed-budget promotion (Perplexity P1.2): DECIDED 2026-09-16 → Option C.**
+- **D1 — Observed-budget promotion (Perplexity P1.2): DECIDED 2026-09-16 → Option C. IMPLEMENTED in scorer 0.2.0** (structured observed evidence required at parse; mass-observed presence B0/B1 + 10% B2 as review-queue signals; budget stays signal). CLOSED.
   - C (fixed): budget stays signal; observed rows require structured evidence (who/when/run-ref + names mutated element per framework L71); calculator checks presence, Assessor verifies substance; mass-observed rate fires its own signal. No frozen-semantics change, no external dependency.
   - Rejected A (status quo leaves zero-tolerance evadable) and B (gate promotion needs framework v0.4).
   - Rupesh status (corrected 2026-09-16): NOT silent — DECLINED to continue; resumes only with an enterprise customer on that customer's money. No cross-check expected; framework decisions are unilateral from here. His index/correspondence needs sync (Positions-CV-CL side).
@@ -61,7 +61,7 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 
 - Commits: `feat:`, `fix:`, `docs:`, `chore:`
 - Repo starts private; public opening is gated on Article 27 publication
-- Roadmap: scorer 0.2.0 input-trust hardening (Perplexity review 2026-09-15) — E-justification guard + mass-E signal (PRESENCE B0/B1, 5% B2 provisional per sweep-v1) · observed-flag control (structured evidence; PRESENCE B0/B1, 10% B2 provisional; budget→gate promotion DECISION needed, see D1) · NOT EXERCISED policy + --fail-on-unexercised · decision enum + CLI ranges + thresholds stamp (shipped in 0.1.2) · vendor profiles · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
+- Roadmap: scorer 0.2.0 SHIPPED (E-justification + mass-E presence/5% · observed evidence + mass-observed presence/10% · --fail-on-unexercised · dismissed-signal). Next: vendor profiles · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
 - Phase 2 (APPROVED 2026-09-16): honest-run distributions on Buzzhive local (own substrate) — 6–8 mutants × admin flows incl. 1–2 genuine equivalents + 1 observed case. Goal: E/observed base rates + presence-signal noise-floor test (does presence fire on every honest run?). Multi-app deferred to v0.3+.
 - Versioning rule: `scorer x.y.z` (SCORER_VERSION, this calculator) and `framework v0.x` (per-risk-tier methodology, Rupesh dir) are DIFFERENT lines. Never write a bare `v0.x` — always qualify. Framework v0.3 is frozen; its next would be framework v0.4, not scorer 0.4.
 - Seeding mutants is out of scope by design — this is the verdict layer, not another executor

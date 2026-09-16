@@ -12,12 +12,22 @@
 #                     (Equivalence is often known only post-hoc — hiding it would
 #                     silently skew the rate; recording it keeps the audit honest.)
 #   suite_result  pass = suite stayed green on the mutant | fail = suite went red
-#   observed      optional: passive observation flag (any text); empty = silent
-#   decision      optional: open | dismissed | fixed — required for B2 survivors
+#   observed      optional: passive observation flag (any text); empty = silent.
+#                 If non-empty, observed_by + observed_run_ref + observed_element
+#                 become REQUIRED (who noted it, which run — opaque ref, never a
+#                 live timestamp — and the specific element that fired).
+#                 Bare observed flags are rejected.
+#   decision      optional: open | dismissed | fixed — required for B2 survivors.
+#                 B2 survivors marked `dismissed` fire a mandatory signal.
+#   e_reason / e_assessor / e_basis
+#                 REQUIRED when expected=E: one-line reason (≤280 chars), who
+#                 assessed it, on what basis (code-review | diff-analysis |
+#                 no-observable-path | dead-code | other). Unassessed E is
+#                 rejected — equivalence must be justified, not asserted.
 #
 # No-op rule: a NOOP / NO-OP row means the seeder ADMITS nothing was changed.
 # That is a process violation: refuse pre-seed (it stays out of N), exit 2 —
 # never record it post-hoc. Contrast with E (above): assessed, recorded, excluded.
 #
 # Run: python3 verdictgate.py results.csv
-mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision,e_reason,e_assessor,e_basis,observed_by,observed_run_ref,observed_element

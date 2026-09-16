@@ -69,6 +69,20 @@ jobs:
           mkb2 /tmp/b2f.csv 20 2 "fixed"; expect /tmp/b2f.csv 1
           echo "B2 boundaries OK"
 
+      - name: Mass-E signal example (B2, exit 0 with signal)
+        run: |
+          python3 verdictgate.py examples/mass-e-signal/results.csv --out-dir /tmp/vg/me
+          python3 verdictgate.py examples/mass-e-signal/results.csv --out-dir /tmp/vg/me --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert any('mass-equivalent' in s for s in v['tiers']['B2']['signals']), 'mass-E signal missing'"
+
+      - name: Fail on unexercised (B0/B1 empty tiers)
+        run: |
+          set +e
+          python3 verdictgate.py examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu >/dev/null 2>&1
+          code=$?
+          set -e
+          [ "$code" -eq 1 ]
+          python3 verdictgate.py examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert v['unexercised_policy_applied'] is True"
+
       - name: Determinism - same input, byte-identical output
         run: |
           python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d1

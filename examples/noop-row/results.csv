@@ -4,5 +4,5 @@
 # Contrast: expected=E means ASSESSED equivalent (analysis shows no observable
 # behavior change, e.g. x>0 -> x>=1 for integers). E rows are RECORDED as
 # Equivalent verdicts, visibly excluded from the denominator — not rejected.
-mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
-M1,Label swap between identical labels,text_swap,B1,NOOP,pass,,
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision,e_reason,e_assessor,e_basis,observed_by,observed_run_ref,observed_element
+M1,Label swap between identical labels,text_swap,B1,NOOP,pass,,,,,,,,
