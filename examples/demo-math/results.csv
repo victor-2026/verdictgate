@@ -1,7 +1,7 @@
 # Example: unit-level math suite (logic mutations), vendor-neutral.
 # Expected outcome: clean PASS (exit 0) — all seeded mutants caught, no signals.
-mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
-M1,add returns correct sum,operator_flip,B1,Y,fail,,
-M2,add handles negative operands,operand_drop,B1,Y,fail,,
-M3,add boundary at zero,boundary_flip,B2,Y,fail,,
-M4,add result is a number,type_coercion,B2,Y,fail,,
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision,e_reason,e_assessor,e_basis,observed_by,observed_run_ref,observed_element
+M1,add returns correct sum,operator_flip,B1,Y,fail,,,,,,,,
+M2,add handles negative operands,operand_drop,B1,Y,fail,,,,,,,,
+M3,add boundary at zero,boundary_flip,B2,Y,fail,,,,,,,,
+M4,add result is a number,type_coercion,B2,Y,fail,,,,,,,,
