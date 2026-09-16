@@ -52,3 +52,9 @@
 - All 0.2.0 mechanics fired correctly first try: E-justification accepted,
   presence signals (B0/B1), mass-E 25%, mass-obs 66.7%, observed review-queue
   section with attribution, dismissed path untouched. B1 FAIL is genuine (M4).
+
+## 2026-09-16 — B2 band validated live (5.0% PASS / 10.0% FAIL) + M4 confirmed
+- 20-row B2 batch (phase2b-band.spec, API-mock self-contained): file A exit 0, file B exit 1. Exact-edge `>` semantics hold.
+- M4 staleness probe: IDENTICAL content + 0 error banners on posts-500. Genuine product bug (sandbox).
+- B2 5% band: mechanics validated. mass 5%/10%: fired live, values provisional pending volume.
+- Lesson: detection batches with --retries=0 (default retries=2 hung one file 30 min).
