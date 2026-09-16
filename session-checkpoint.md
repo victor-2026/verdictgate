@@ -32,3 +32,9 @@
 - Question driving it: do presence-based B0/B1 signals fire on every honest run (noise-floor test)? Decides presence-vs-% viability.
 - Substrate: Buzzhive local (own code, real mutants, fast) — NOT OrangeHRM (vendor image, nothing to seed into). Batch: 6–8 mutants x admin flows incl. 1–2 genuine equivalents + 1 observed case → E/observed base rates.
 - Multi-app deferred to v0.3+ (thresholds are gate-design choices, diminishing returns now).
+
+## 2026-09-16 — Phase 2 batch executed (Buzzhive)
+- Batch: 10 rows (1 Y-caught DBMUT-001, 7 N resilience/defense, 2 E controls). Verdict: B1 PASS, rest NOT EXERCISED, exit 0. E-path verified on real runs.
+- Key methodology finding: N-scope load-bearing (7/10 defense greens would pervert a kill-rate gate). Defense-verification ≠ regression-detection.
+- Debts: DBMUT-008 broken (schema drift, sandbox side) · distributions need volume (Phase 2b) · no natural observed case yet.
+- Files: `reviews/phase2-batch-2026-09-16.csv`, `reviews/phase2-batch-results-2026-09-16.md`; spec in sandbox (uncommitted).
