@@ -38,3 +38,10 @@
 - Key methodology finding: N-scope load-bearing (7/10 defense greens would pervert a kill-rate gate). Defense-verification ≠ regression-detection.
 - Debts: DBMUT-008 broken (schema drift, sandbox side) · distributions need volume (Phase 2b) · no natural observed case yet.
 - Files: `reviews/phase2-batch-2026-09-16.csv`, `reviews/phase2-batch-results-2026-09-16.md`; spec in sandbox (uncommitted).
+
+## 2026-09-16 — Phase 2b executed: 17-row honest roster, B1 FAIL on genuine survivor
+- New specs: phase2b-roster (E3/E4/O1/O2/D1-D3). Blank-mock caught by probe: `**/api/posts*` never matches `/api/posts/feed` (`*` vs `/`) — fixed to `**/api/posts**` in phase2* files. 12 existing-suite occurrences still blank (sandbox debt flagged, not touched).
+- D1 invalidated then re-run valid (probe discipline). D2/D3 genuine red. M4 genuine Survived (stale feed on 500).
+- Verdict: B0 PASS · B1 FAIL (M4 + score 50%) · B2 PASS (score signal 33%) · exit 1. All rows correct.
+- Noise-floor answer: presence signals would fire routinely on honest mixes → design as REVIEW QUEUE (wording!), not alarm. Review cost ~10 min / 6 flags.
+- Files: `reviews/phase2b-roster-2026-09-16.csv`, `reviews/phase2b-roster-results-2026-09-16.md`.
