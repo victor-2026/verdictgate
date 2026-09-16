@@ -45,3 +45,10 @@
 - Verdict: B0 PASS · B1 FAIL (M4 + score 50%) · B2 PASS (score signal 33%) · exit 1. All rows correct.
 - Noise-floor answer: presence signals would fire routinely on honest mixes → design as REVIEW QUEUE (wording!), not alarm. Review cost ~10 min / 6 flags.
 - Files: `reviews/phase2b-roster-2026-09-16.csv`, `reviews/phase2b-roster-results-2026-09-16.md`.
+
+## 2026-09-16 — 0.2.0 validated live on Phase 2b roster v2 (9 rows, exit 1)
+- Split-brain: :3000 nginx proxies /api past local postgres (proxy 4 vs local 6).
+  DB rows out of CSV; db-spec edits reverted; MUT greens out (blank family).
+- All 0.2.0 mechanics fired correctly first try: E-justification accepted,
+  presence signals (B0/B1), mass-E 25%, mass-obs 66.7%, observed review-queue
+  section with attribution, dismissed path untouched. B1 FAIL is genuine (M4).
