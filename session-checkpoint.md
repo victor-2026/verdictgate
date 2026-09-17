@@ -61,3 +61,6 @@
 
 ## 2026-09-16 — roster v3 (12 rows): XSS pair + avatar caught
 - Fallout triage: MUT-008 XSS reflected unescaped (B1, real sec finding) + MUT-006 no-fallback (B3) added as Y/fail. Verdict: B0 PASS · B1 FAIL (M4) · B2 PASS · B3 TREND-ONLY.
+
+## 2026-09-17 — Aamir follow-up parked until post-27
+- Aamir (OrangePro) dark after our data+remarks letter. Resume AFTER Article 27 publication (19.09) with launch context (0.2.2 + behavior-inventory→requirements.csv pipeline pitch).
