@@ -68,7 +68,7 @@ Verdict per row: **Caught** (suite went red) · **Observed-only** (green but fla
 | B2 Medium | ≤ 5% survived (N ≥ 20) or max 1 survivor with a recorded decision (N < 20) | < 90% → mandatory signed Assessor comment |
 | B3 Low | never blocks; trend vs rolling-3-run baseline | — |
 
-Survived count is the hard gate; mutation score is a signal bar — a low score triggers a mandatory signed comment, never a silent auto-fail. Displayed rates are rounded to one decimal; the B2 band gate itself uses exact integer arithmetic. Observed-only has its own budget at survived=0 (B0 ≤ 10%, B1 ≤ 20%): exceeding it is a signal, not a pass. Mass-exclusion signals (0.2.0): any Equivalent rows on B0/B1 fire a review-exclusions signal; mass-E over 5% / mass-observed over 10% of B2 fire review signals. Presence signals are a REVIEW QUEUE ("review the exclusions"), not an alarm — see sweep provenance in AGENTS.md D1.
+Survived count is the hard gate; mutation score is a signal bar — a low score triggers a mandatory signed comment, never a silent auto-fail. Displayed rates are rounded to one decimal; the B2 band gate itself uses exact integer arithmetic. Observed-only has its own budget at survived=0 (B0 ≤ 10%, B1 ≤ 20%): exceeding it is a signal, not a pass. Mass-exclusion signals (0.2.0, provisional values from sweep-v1 — review triggers, not calibrated boundaries): any Equivalent rows on B0/B1 fire a review-exclusions signal; mass-E over 5% / mass-observed over 10% of B2 fire review signals. Presence signals are a REVIEW QUEUE ("review the exclusions"), not an alarm — see sweep provenance in AGENTS.md D1.
 
 B0/B1 zero-tolerance is **not** configurable: no decision can pass a zero-tolerance tier. The B2 band is the one disputed knob, so it is CLI-configurable with a strict default (`--b2-band-pct`, default 5; `--b2-small-n-max`, default 1).
 
@@ -79,7 +79,6 @@ The calculator judges what was RECORDED — it cannot verify the recording. Thre
 - **Scope (N):** marking a mutant out-of-scope removes it from every denominator. Scope truth lives in `requirements.csv` + reviewer sign-off, not in the CSV. Unrestricted N is a known bypass path; a strict cross-check mode is roadmap (v0.2).
 - **Tier assignment:** demoting a mutant to a lower tier (e.g. B0 → B2) moves it from zero-tolerance to the 5% band without touching any denominator. Nothing in the CSV proves a tier label — tier truth is a reviewer check against `requirements.csv` risk levels.
 - **Run fragmentation:** thresholds apply per file. Splitting 25 B2 mutants into two files of 12+13 dodges the N ≥ 20 band via the small-N floor. One scope = one file = one verdict; multi-file scopes need a run id (roadmap, v0.2).
-- **Equivalence (E):** assessed equivalents are recorded and visibly excluded — but the assessment itself is trusted. Mass-E (hard mutants re-labeled E) is the top gaming path; the E-justification guard is roadmap (v0.2).
 - **Equivalence (E):** assessed equivalents are recorded with justification (`e_reason`/`e_assessor`/`e_basis`) and visibly excluded — unassessed E is rejected at input. Mass-E fires review signals (any on B0/B1, over 5% on B2).
 - **NOT EXERCISED ≠ PASS for release:** a tier with no Y rows exits 0 with the tier marked NOT EXERCISED. For release decisions treat unexercised B0/B1 as a blocker by policy; `--fail-on-unexercised` enforces it (B0/B1 only, display stays NOT EXERCISED).
 
@@ -106,7 +105,7 @@ Per-risk-tier gating and the mutation matrix come from the field methodology des
 
 ## Status & roadmap
 
-Alpha (0.1.x). MIT.
+Beta (0.2.x). MIT.
 
 Roadmap: scorer 0.2.0 shipped (E-justification, observed evidence, mass signals, --fail-on-unexercised). Next: vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines, see AGENTS.md.)
 
