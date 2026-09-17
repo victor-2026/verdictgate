@@ -58,3 +58,6 @@
 - M4 staleness probe: IDENTICAL content + 0 error banners on posts-500. Genuine product bug (sandbox).
 - B2 5% band: mechanics validated. mass 5%/10%: fired live, values provisional pending volume.
 - Lesson: detection batches with --retries=0 (default retries=2 hung one file 30 min).
+
+## 2026-09-16 — roster v3 (12 rows): XSS pair + avatar caught
+- Fallout triage: MUT-008 XSS reflected unescaped (B1, real sec finding) + MUT-006 no-fallback (B3) added as Y/fail. Verdict: B0 PASS · B1 FAIL (M4) · B2 PASS · B3 TREND-ONLY.
