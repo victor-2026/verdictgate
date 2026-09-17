@@ -1,5 +1,5 @@
 {
-  "scorer_version": "0.2.1",
+  "scorer_version": "0.2.2",
   "deterministic": true,
   "b2_band_pct": 5,
   "b2_small_n_max": 1,
@@ -84,5 +84,6 @@
   "observed_rows": [],
   "unexercised_policy_applied": false,
   "gate_summary": "PASS",
-  "exit_code": 0
+  "exit_code": 0,
+  "requirements_checked": false
 }
