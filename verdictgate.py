@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.2.0"
+SCORER_VERSION = "0.2.1"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -387,9 +387,10 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
     observed_rows = [
         {"mutation_id": e["mutation_id"], "risk_tier": e["risk_tier"],
          "observed_element": e["observed_element"], "observed_by": e["observed_by"],
-         "observed_run_ref": e["observed_run_ref"]}
+         "observed_run_ref": e["observed_run_ref"],
+         "context": "observed-only" if e["verdict"] == "Observed-only" else "on-caught-row"}
         for e in enriched
-        if e["verdict"] == "Observed-only"
+        if e["observed"] and e["verdict"] in ("Observed-only", "Caught")
     ]
 
     totals = {
@@ -428,7 +429,7 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
-    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s)")
+    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}")
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
@@ -473,8 +474,9 @@ def render_md(verdict, input_name):
         lines.append("## Observed-only (green with noted anomaly — review queue, not alarm)")
         lines.append("")
         for r in verdict["observed_rows"]:
+            tag = "" if r["context"] == "observed-only" else " [on Caught row — note, not verdict]"
             lines.append(f"- {r['mutation_id']} ({r['risk_tier']}) - element: {r['observed_element']} "
-                         f"(by {r['observed_by']}, ref {r['observed_run_ref']})")
+                         f"(by {r['observed_by']}, ref {r['observed_run_ref']}){tag}")
         lines.append("")
     signal_count = sum(len(t[tier]["signals"]) for tier in TIER_ORDER)
     assessor_note = "signed comment required - signals fired" if signal_count else "none required - no signals fired"

@@ -1,5 +1,5 @@
 {
-  "scorer_version": "0.2.0",
+  "scorer_version": "0.2.1",
   "deterministic": true,
   "b2_band_pct": 5,
   "b2_small_n_max": 1,
@@ -128,7 +128,8 @@
       "risk_tier": "B1",
       "observed_element": "username input #2",
       "observed_by": "reviewer",
-      "observed_run_ref": "run-042"
+      "observed_run_ref": "run-042",
+      "context": "observed-only"
     }
   ],
   "unexercised_policy_applied": false,

@@ -1,5 +1,5 @@
 {
-  "scorer_version": "0.2.0",
+  "scorer_version": "0.2.1",
   "deterministic": true,
   "b2_band_pct": 5,
   "b2_small_n_max": 1,
