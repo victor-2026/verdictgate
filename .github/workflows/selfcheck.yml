@@ -83,6 +83,16 @@ jobs:
           [ "$code" -eq 1 ]
           python3 verdictgate.py examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert v['unexercised_policy_applied'] is True"
 
+      - name: Requirements cross-check (pass + laundering refused)
+        run: |
+          printf 'behavior_name,risk_tier,acceptance_criteria,description\nValid login shows welcome,B0,crit,desc\n' > /tmp/req-ok.csv
+          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,Valid login shows welcome,id_change,B0,Y,fail,,\n' > /tmp/req-t.csv
+          python3 verdictgate.py /tmp/req-t.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rk
+          python3 verdictgate.py /tmp/req-t.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rk --json | python3 -c "import json,sys; assert json.load(sys.stdin)['requirements_checked'] is True"
+          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,Valid login shows welcome,id_change,B2,Y,fail,,\n' > /tmp/req-bad.csv
+          set +e; python3 verdictgate.py /tmp/req-bad.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rb >/dev/null 2>&1; code=$?; set -e
+          [ "$code" -eq 2 ]
+
       - name: Determinism - same input, byte-identical output
         run: |
           python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d1

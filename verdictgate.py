@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.2.1"
+SCORER_VERSION = "0.2.2"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -56,6 +56,53 @@ KNOWN_COLUMNS = REQUIRED_COLUMNS + ("observed", "decision", "e_reason", "e_asses
 
 class InputError(Exception):
     pass
+
+
+def parse_requirements(path):
+    """behavior_name -> risk_tier map. Verbatim keys: the linkage rule."""
+    try:
+        text = Path(path).read_text(encoding="utf-8-sig")
+    except OSError as exc:
+        raise InputError(f"cannot read requirements {path}: {exc}")
+    lines = [ln for ln in text.splitlines() if ln.strip() and not ln.lstrip().startswith("#")]
+    if not lines:
+        raise InputError("empty requirements file")
+    reader = csv.DictReader(lines)
+    fieldnames = reader.fieldnames or []
+    for col in ("behavior_name", "risk_tier"):
+        if col not in fieldnames:
+            raise InputError(f"requirements missing required column: {col}")
+    mapping = {}
+    for idx, raw in enumerate(reader, start=2):
+        name = (raw.get("behavior_name") or "").strip()
+        tier = (raw.get("risk_tier") or "").strip().upper()
+        if not name:
+            raise InputError(f"requirements line {idx}: behavior_name is empty")
+        if name in mapping:
+            raise InputError(f"requirements line {idx}: duplicate behavior_name '{name}'")
+        if tier not in TIER_ORDER:
+            raise InputError(
+                f"requirements line {idx} ('{name}'): risk_tier must be one of {', '.join(TIER_ORDER)}"
+            )
+        mapping[name] = tier
+    if not mapping:
+        raise InputError("no requirement rows found")
+    return mapping
+
+
+def cross_check_tiers(rows, requirements):
+    for r in rows:
+        declared = requirements.get(r["behavior"])
+        if declared is None:
+            raise InputError(
+                f"{r['mutation_id']}: behavior '{r['behavior']}' matches no requirements.csv "
+                "behavior_name (verbatim linkage rule) — add it or fix the spelling"
+            )
+        if declared != r["risk_tier"]:
+            raise InputError(
+                f"{r['mutation_id']}: risk_tier {r['risk_tier']} does not match requirements "
+                f"tier {declared} for behavior '{r['behavior']}' (tier laundering refused)"
+            )
 
 
 def parse_rows(path):
@@ -429,7 +476,7 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
-    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}")
+    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off (tiers unverified)'})")
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
@@ -508,6 +555,8 @@ def main():
     ap.add_argument("--b2-small-n-max", type=int, default=1, help="B2 max survivors below the small-N threshold (default: 1)")
     ap.add_argument("--fail-on-unexercised", action="store_true",
                     help="treat unexercised B0/B1 tiers as release blockers (default: off)")
+    ap.add_argument("--requirements", default=None, metavar="REQUIREMENTS_CSV",
+                    help="cross-check behavior tiers against requirements.csv (tier-laundering guard; default: off, tiers unverified)")
     ap.add_argument("--json", action="store_true", help="print verdict JSON to stdout, write no files")
     ap.add_argument("--md", action="store_true", help="print verdict markdown to stdout, write no files")
     args = ap.parse_args()
@@ -519,11 +568,14 @@ def main():
 
     try:
         rows = parse_rows(args.results)
+        if args.requirements:
+            cross_check_tiers(rows, parse_requirements(args.requirements))
     except InputError as exc:
         print(f"verdictgate: input error: {exc}", file=sys.stderr)
         return 2
 
     verdict = build_verdict(rows, args.b2_band_pct, args.b2_small_n_max, args.fail_on_unexercised)
+    verdict["requirements_checked"] = bool(args.requirements)
     input_name = Path(args.results).name
     md_text = render_md(verdict, input_name)
     json_text = json.dumps(verdict, indent=2, ensure_ascii=False) + "\n"
