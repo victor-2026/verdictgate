@@ -69,3 +69,7 @@
 - Aamir: behavior-inventory → requirements.csv pipeline + joint pilot on Buzzhive local (no Render needed).
 - Megi: repo open + Review-effort credit + Monday numbers ask.
 - Adam Pierce: skipped per owner.
+
+## 2026-09-19 — Oleg letter SENT, H1 #1 locked for 28
+- Oleg+Larisa letter sent by owner. Waiting reply. (Hiring closure + pilot offer + repo link.)
+- Article 28 H1: #1 ("Your Vendor's Green Report Is a Claim...") final.
