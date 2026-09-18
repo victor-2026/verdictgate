@@ -60,7 +60,7 @@ results.csv (recorded mutations) → verdictgate.py → <stem>.verdict.md + <ste
 ## Conventions
 
 - Commits: `feat:`, `fix:`, `docs:`, `chore:`
-- Repo starts private; public opening is gated on Article 27 publication
+- Repo PUBLIC since 2026-09-18 (opened with Article 27 publication)
 - Roadmap: scorer 0.2.2 SHIPPED (--requirements tier-laundering guard). Effectiveness recheck DUE 2026-10-17 (Schaper ceremony: provisional mass thresholds recalibrated against accumulated Step-7 volume; regressions become own issues). Next: vendor profiles · v1 importers (Stryker/opro JSON) · v2 GitHub Action posting verdicts to PRs
 - Phase 2 (APPROVED 2026-09-16): honest-run distributions on Buzzhive local (own substrate) — 6–8 mutants × admin flows incl. 1–2 genuine equivalents + 1 observed case. Goal: E/observed base rates + presence-signal noise-floor test (does presence fire on every honest run?). Multi-app deferred to v0.3+.
 - Versioning rule: `scorer x.y.z` (SCORER_VERSION, this calculator) and `framework v0.x` (per-risk-tier methodology, Rupesh dir) are DIFFERENT lines. Never write a bare `v0.x` — always qualify. Framework v0.3 is frozen; its next would be framework v0.4, not scorer 0.4.
