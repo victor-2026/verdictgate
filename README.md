@@ -33,6 +33,10 @@ python3 verdictgate.py results.csv
 
 Outputs `results.verdict.md` (evidence pack with RACI sign-off) and `results.verdict.json` (machine-readable, version-stamped).
 
+![Verdict sample](docs/verdict-sample.png)
+
+![Pipeline](docs/pipeline.png)
+
 ## Example verdict (real output, `payment-critical-fail`)
 
 | Tier | Seeded | Caught | Survived | Gate |
