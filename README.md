@@ -107,6 +107,13 @@ Per-risk-tier gating and the mutation matrix come from the field methodology des
 
 Beta (0.2.x). MIT.
 
-Roadmap: scorer 0.2.0 shipped (E-justification, observed evidence, mass signals, --fail-on-unexercised). Next: vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines, see AGENTS.md.)
+Roadmap: scorer 0.2.2 shipped (E-justification, observed evidence, mass signals, --fail-on-unexercised, --requirements guard). Next: vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines, see AGENTS.md.)
+
+## 1.0 exit criteria (public gate — 0.x means "contract maturing", not "unfinished")
+
+1. CSV schema frozen ≥ 4 weeks (no new columns/flags).
+2. ≥ 3 independent pilot verdicts on record.
+3. Mass thresholds calibrated from Step-7 volume (effectiveness recheck DUE 2026-10-17).
+4. Vendor threshold profiles shipped.
 
 Seeding mutants is out of scope — by design. This is the verdict layer, not another executor.
