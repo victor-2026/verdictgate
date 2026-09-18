@@ -64,3 +64,8 @@
 
 ## 2026-09-17 — Aamir follow-up parked until post-27
 - Aamir (OrangePro) dark after our data+remarks letter. Resume AFTER Article 27 publication (19.09) with launch context (0.2.2 + behavior-inventory→requirements.csv pipeline pitch).
+
+## 2026-09-18 — Launch outreach sent: Aamir + Megi (Adam skipped)
+- Aamir: behavior-inventory → requirements.csv pipeline + joint pilot on Buzzhive local (no Render needed).
+- Megi: repo open + Review-effort credit + Monday numbers ask.
+- Adam Pierce: skipped per owner.
