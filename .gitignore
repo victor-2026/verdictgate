@@ -5,3 +5,8 @@ __pycache__/
 !examples/*/expected.verdict.json
 # Local-only: external reviews never go to GitHub (even after repo opening)
 reviews/
+# Local-only: editor config + internal multi-window ops doc
+.obsidian/
+docs/window-discipline.md
+# SPEC not ready for public: names vendor defaults without consent
+docs/vendor-profiles-spec.md

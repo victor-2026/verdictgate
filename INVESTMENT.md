@@ -14,4 +14,4 @@ Pre-0.1.1 product work (Phase 0–4 MVP session, 2026-09-15 afternoon): unmeasur
 
 | Period | Scope | Hours | Running total |
 |---|---|---|---|
-| 2026-08-08/09 → 2026-09 | QAEverest pilots (seed runs, drift, B1 100%, sign-off), per-risk-tier framework v0.2→v0.3 (co-draft and cross-checks), vendor outreach (commercial thread, private), testRigor 3+3 re-verification, review-effort dimension | 60+ | 60+ |
+| 2026-08-08/09 → 2026-09 | Field pilots (seed runs, drift re-checks, tier sensitivity, sign-off), per-risk-tier framework v0.2→v0.3 (co-draft, cross-checks), vendor tool re-verification rounds, review-effort dimension | 60+ | 60+ |
