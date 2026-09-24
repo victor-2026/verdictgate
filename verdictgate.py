@@ -19,6 +19,9 @@ import json
 import sys
 from pathlib import Path
 
+# ─── RMT Integration ─────────────────────────────────────────────────
+from rmt import generate_mutants_for_file
+
 SCORER_VERSION = "0.2.2"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
@@ -52,7 +55,6 @@ E_REASON_MAX_LEN = 280
 KNOWN_COLUMNS = REQUIRED_COLUMNS + ("observed", "decision", "e_reason", "e_assessor",
                                      "e_basis", "observed_by", "observed_run_ref",
                                      "observed_element")
-
 
 class InputError(Exception):
     pass
@@ -405,9 +407,9 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
                     d["signals"].append(
                         f"mutation score {d['mutation_score']}% below target {GATE_RULES['B2']['score_target']}% - mandatory signed Assessor comment"
                     )
-            d["gate"] = "PASS" if ok else "FAIL"
-            if not ok:
-                any_fail = True
+                d["gate"] = "PASS" if ok else "FAIL"
+                if not ok:
+                    any_fail = True
         tiers[tier] = d
 
     for tier in TIER_ORDER:
@@ -476,7 +478,7 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
-    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'}")
+    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'})")
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
@@ -502,9 +504,9 @@ def render_md(verdict, input_name):
     if verdict["fix_first"]:
         for i, item in enumerate(verdict["fix_first"], start=1):
             lines.append(f"{i}. **{item}**")
-    else:
-        lines.append("None - no survivors recorded.")
-    lines.append("")
+        else:
+            lines.append("None - no survivors recorded.")
+        lines.append("")
     if verdict["not_expected_rows"]:
         lines.append("## Not expected (out of scope)")
         lines.append("")
@@ -549,54 +551,153 @@ def main():
         prog="verdictgate",
         description="Mutation Matrix Evaluator: per-risk-tier verdict calculator (static, deterministic).",
     )
-    ap.add_argument("results", help="recorded mutation results CSV")
-    ap.add_argument("--out-dir", default=None, help="output directory (default: alongside the input)")
-    ap.add_argument("--b2-band-pct", type=int, default=5, help="B2 survived band in percent at N>=20 (default: 5)")
-    ap.add_argument("--b2-small-n-max", type=int, default=1, help="B2 max survivors below the small-N threshold (default: 1)")
-    ap.add_argument("--fail-on-unexercised", action="store_true",
-                    help="treat unexercised B0/B1 tiers as release blockers (default: off)")
-    ap.add_argument("--requirements", default=None, metavar="REQUIREMENTS_CSV",
-                    help="cross-check behavior tiers against requirements.csv (tier-laundering guard; default: off, tiers unverified)")
-    ap.add_argument("--json", action="store_true", help="print verdict JSON to stdout, write no files")
-    ap.add_argument("--md", action="store_true", help="print verdict markdown to stdout, write no files")
-    args = ap.parse_args()
-    if not 0 <= args.b2_band_pct <= 100:
-        ap.error("--b2-band-pct must be 0..100")
-    small_n_cap = GATE_RULES["B2"]["small_n_threshold"] - 1
-    if not 0 <= args.b2_small_n_max <= small_n_cap:
-        ap.error(f"--b2-small-n-max must be 0..{small_n_cap} (at the small-N threshold the floor is vacuous)")
+    subparsers = ap.add_subparsers(dest="command", help="subcommands")
 
-    try:
-        rows = parse_rows(args.results)
-        if args.requirements:
-            cross_check_tiers(rows, parse_requirements(args.requirements))
-    except InputError as exc:
-        print(f"verdictgate: input error: {exc}", file=sys.stderr)
+    # Main verdict command (default)
+    verdict_parser = subparsers.add_parser("verdict", help="Run verdict on mutation results CSV")
+    verdict_parser.add_argument("results", help="recorded mutation results CSV")
+    verdict_parser.add_argument("--out-dir", default=None, help="output directory (default: alongside the input)")
+    verdict_parser.add_argument("--b2-band-pct", type=int, default=5, help="B2 survived band in percent at N>=20 (default: 5)")
+    verdict_parser.add_argument("--b2-small-n-max", type=int, default=1, help="B2 max survivors below the small-N threshold (default: 1)")
+    verdict_parser.add_argument("--fail-on-unexercised", action="store_true",
+                                help="treat unexercised B0/B1 tiers as release blockers (default: off)")
+    verdict_parser.add_argument("--requirements", default=None, metavar="REQUIREMENTS_CSV",
+                                help="cross-check behavior tiers against requirements.csv (tier-laundering guard; default: off, tiers unverified)")
+    verdict_parser.add_argument("--json", action="store_true", help="print verdict JSON to stdout, write no files")
+    verdict_parser.add_argument("--md", action="store_true", help="print verdict markdown to stdout, write no files")
+
+    # RMT subcommand
+    rmt_parser = subparsers.add_parser("rmt", help="RMT-lite mutation generation")
+    rmt_parser.add_argument("input", help="input test file or directory")
+    rmt_parser.add_argument("--tier", default="B2", choices=["B0", "B1", "B2", "B3"], help="risk tier for mutation depth")
+    rmt_parser.add_argument("--out-dir", default="./rmt_output/", help="output directory (default: ./rmt_output/)")
+    rmt_parser.add_argument("--format", choices=["json", "summary", "csv"], default="summary", help="output format")
+    rmt_parser.add_argument("--exclude", default="node_modules", help="comma-separated directories to exclude from recursive scan")
+
+    args = ap.parse_args()
+
+    if not hasattr(args, 'command') or args.command is None:
+        # Default to verdict command for backward compatibility
+        args.command = "verdict"
+
+    if args.command == "verdict":
+        if not 0 <= args.b2_band_pct <= 100:
+            ap.error("--b2-band-pct must be 0..100")
+        small_n_cap = GATE_RULES["B2"]["small_n_threshold"] - 1
+        if not 0 <= args.b2_small_n_max <= small_n_cap:
+            ap.error(f"--b2-small-n-max must be 0..{small_n_cap} (at the small-N threshold the floor is vacuous)")
+
+        try:
+            rows = parse_rows(args.results)
+            if args.requirements:
+                cross_check_tiers(rows, parse_requirements(args.requirements))
+        except InputError as exc:
+            print(f"verdictgate: input error: {exc}", file=sys.stderr)
+            return 2
+
+        verdict = build_verdict(rows, args.b2_band_pct, args.b2_small_n_max, args.fail_on_unexercised)
+        verdict["requirements_checked"] = bool(args.requirements)
+        input_name = Path(args.results).name
+        md_text = render_md(verdict, input_name)
+        json_text = json.dumps(verdict, indent=2, ensure_ascii=False) + "\n"
+
+        if args.json:
+            print(json_text, end="")
+            return verdict["exit_code"]
+        if args.md:
+            print(md_text, end="")
+            return verdict["exit_code"]
+
+        out_dir = Path(args.out_dir) if args.out_dir else Path(args.results).parent
+        out_dir.mkdir(parents=True, exist_ok=True)
+        stem = Path(args.results).stem
+        (out_dir / f"{stem}.verdict.md").write_text(md_text, encoding="utf-8")
+        (out_dir / f"{stem}.verdict.json").write_text(json_text, encoding="utf-8")
+
+        summary = " · ".join(f"{tier} {verdict['tiers'][tier]['gate']}" for tier in TIER_ORDER)
+        print(f"{summary} - {verdict['gate_summary']} (exit {verdict['exit_code']})", file=sys.stderr)
+        print(f"evidence pack: {out_dir / (stem + '.verdict.md')}", file=sys.stderr)
+        return verdict["exit_code"]
+
+    # RMT subcommand
+    elif args.command == "rmt":
+        return run_rmt(args)
+    else:
+        ap.error(f"Unknown command: {args.command}")
+
+
+def run_rmt(args):
+    """Run RMT-lite mutation generation."""
+    from rmt import generate_mutants_for_file
+    from pathlib import Path
+    import json
+    import sys
+
+    input_path = Path(args.input)
+    if not input_path.exists():
+        print(f"Error: input path does not exist: {args.input}", file=sys.stderr)
         return 2
 
-    verdict = build_verdict(rows, args.b2_band_pct, args.b2_small_n_max, args.fail_on_unexercised)
-    verdict["requirements_checked"] = bool(args.requirements)
-    input_name = Path(args.results).name
-    md_text = render_md(verdict, input_name)
-    json_text = json.dumps(verdict, indent=2, ensure_ascii=False) + "\n"
-
-    if args.json:
-        print(json_text, end="")
-        return verdict["exit_code"]
-    if args.md:
-        print(md_text, end="")
-        return verdict["exit_code"]
-
-    out_dir = Path(args.out_dir) if args.out_dir else Path(args.results).parent
+    tier = args.tier
+    out_dir = Path(args.out_dir) if args.out_dir else Path.cwd() / "rmt_output"
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = Path(args.results).stem
-    (out_dir / f"{stem}.verdict.md").write_text(md_text, encoding="utf-8")
-    (out_dir / f"{stem}.verdict.json").write_text(json_text, encoding="utf-8")
 
-    summary = " · ".join(f"{tier} {verdict['tiers'][tier]['gate']}" for tier in TIER_ORDER)
-    print(f"{summary} - {verdict['gate_summary']} (exit {verdict['exit_code']})", file=sys.stderr)
-    print(f"evidence pack: {out_dir / (stem + '.verdict.md')}", file=sys.stderr)
-    return verdict["exit_code"]
+    # Determine files to process
+    if input_path.is_file():
+        files = [input_path]
+    elif input_path.is_dir():
+        # Recursive scan with exclusions
+        exclude_dirs = set(args.exclude.split(",")) if args.exclude else {"node_modules"}
+        files = []
+        for ext in ("*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"):
+            for f in input_path.rglob(ext):
+                if not any(excl in f.parts for excl in exclude_dirs):
+                    files.append(f)
+        if not files:
+            print("No test files found", file=sys.stderr)
+            return 1
+    else:
+        print(f"Error: input path is not a file or directory: {args.input}", file=sys.stderr)
+        return 1
+
+    all_mutants = []
+    for file_path in files:
+        try:
+            file_content = Path(file_path).read_text(encoding="utf-8")
+            mutants = generate_mutants_for_file(str(file_path), tier)
+            for m in mutants:
+                m["file"] = str(file_path)
+                m["line"] = get_line_number(file_content, m["original"])
+                m["tier"] = tier
+                all_mutants.append(m)
+        except Exception as e:
+            print(f"Error processing {file_path}: {e}", file=sys.stderr)
+
+    # Output based on format
+    if args.format == "json":
+        print(json.dumps(all_mutants, indent=2, ensure_ascii=False))
+    elif args.format == "csv":
+        if all_mutants:
+            import csv
+            fieldnames = ["file", "operator", "original", "mutated"]
+            writer = csv.DictWriter(sys.stdout, fieldnames=fieldnames)
+            writer.writeheader()
+            for m in all_mutants:
+                writer.writerow({"file": m["file"], "operator": m["operator"], "original": m["original"], "mutated": m["mutated"]})
+    else:
+        # Summary format
+        print(f"{len(all_mutants)} mutants @ {tier} from {len(files)} file(s)")
+        for m in all_mutants:
+            print(f"  L{m['line']} [{m['operator']}] {m['original'][:80]}")
+            print(f"    -> {m['mutated'][:80]}")
+
+    print(f"\nTotal: {len(all_mutants)} mutants @ {tier} from {len(files)} file(s)", file=sys.stderr)
+    return 0
+
+
+def get_line_number(content: str, substring: str) -> int:
+    """Get line number of substring in content."""
+    return content.count("\n", 0, content.find(substring)) + 1
 
 
 if __name__ == "__main__":

@@ -370,3 +370,49 @@ python3 -m rmt /tmp/test_rmt/test_sample.test.ts --tier B2 --format summary
 - CI integration for automated runs
 - W3 pilot execution on OpenClaw
 
+---
+
+## 2026-09-24 — CLI Integration Complete + Full Smoke Test Pass
+
+### CLI Integration into `verdictgate.py`
+- Added `rmt` subcommand to `verdictgate.py` (lines 570-576, 625-626, 631-698)
+- Arguments: `--tier {B0,B1,B2,B3}`, `--out-dir`, `--format {json,summary,csv}`, `--exclude`
+- Fixed 4 issues in `run_rmt()`:
+  1. Line 671: `content` undefined → read file content before use
+  2. Line 684: duplicate `"operator"` in CSV fieldnames → removed duplicate
+  3. Lines 696-697: broken f-string with literal newline → fixed `\n` escape
+  4. Lines 703-704: same in `get_line_number()` → fixed `\n` escape
+- Also fixed two stray broken f-strings in main verdict command (lines 546, 602)
+
+### Full Smoke Test Matrix ✅
+| Test | Result |
+|------|--------|
+| Summary format (single file) | ✅ 6 mutants @ B2 |
+| JSON format | ✅ 6 mutants array |
+| CSV format | ✅ 6 mutants with headers |
+| Exit code 2 (file not found) | ✅ |
+| Exit code 0 (success) | ✅ |
+| Recursive dir scan | ✅ 12 mutants from 2 files |
+| Default `--exclude node_modules` | ✅ excluded |
+| Custom `--exclude` | ✅ works |
+| Original `verdict` command | ✅ still works |
+
+### Acceptance Matrix Confirmed
+| Assertion | Operator | Tier | Status |
+|-----------|----------|------|--------|
+| `toBeVisible` (4x) | EQ_NEGATION | B2 | ✅ PASS |
+| `toHaveText` | EQ_NEGATION | B2 | ✅ PASS |
+| `toHaveLength` | COLLECTION_EMPTY | B2 | ✅ PASS |
+
+### Ready for W3 Pilot
+- `verdictgate rmt` subcommand fully operational
+- Paren-aware regex handles nested Playwright locators (e.g., `expect(page.locator('.x')).toBeVisible()`)
+- Output: JSON + CLI summary + CSV (for pilot)
+- Exit codes: 0=success, 1=error, 2=input error
+- Recursive scan with `--exclude node_modules` default
+
+### Next: W3 Pilot on OpenClaw
+```bash
+verdictgate rmt <openclaw-tests> --tier B2 --format summary
+```
+
