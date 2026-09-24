@@ -1,0 +1,10 @@
+{
+  "name": "qeaverest",
+  "version": 1,
+  "score_target": {"B0": 90, "B1": 80, "B2": 90},
+  "observed_budget_pct": {"B0": 10, "B1": 20},
+  "mass_e_pct": {"B2": 5},
+  "mass_observed_pct": {"B2": 10},
+  "b2_band_pct": 5,
+  "b2_small_n_max": 1
+}
