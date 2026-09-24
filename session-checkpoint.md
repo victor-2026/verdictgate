@@ -515,3 +515,8 @@ unit specs + `expect.soft().toHaveLength` rows from `session-management.trailing
 and `chat-session-companion-manual-open-focus` e2e files. Batch #1 (55 rows, 5 e2e
 files, pre-0.1.0 engine) completes as-is — verified 0 no-op / 0 element / 0 soft rows.
 
+### B5 accepted (owner independent verification, 2026-09-24)
+Chain case mutates correctly (negation on terminal matcher, chain intact),
+`rmt_version` stamped, RMT_VERSION in code. **B5 CLOSED.** W3 handover (batch #2
+with engine 0.1.0) stands.
+
