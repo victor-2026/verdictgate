@@ -407,9 +407,9 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
                     d["signals"].append(
                         f"mutation score {d['mutation_score']}% below target {GATE_RULES['B2']['score_target']}% - mandatory signed Assessor comment"
                     )
-                d["gate"] = "PASS" if ok else "FAIL"
-                if not ok:
-                    any_fail = True
+            d["gate"] = "PASS" if ok else "FAIL"
+            if not ok:
+                any_fail = True
         tiers[tier] = d
 
     for tier in TIER_ORDER:
@@ -478,7 +478,7 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
-    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'})")
+    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'}")
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
@@ -504,9 +504,9 @@ def render_md(verdict, input_name):
     if verdict["fix_first"]:
         for i, item in enumerate(verdict["fix_first"], start=1):
             lines.append(f"{i}. **{item}**")
-        else:
-            lines.append("None - no survivors recorded.")
-        lines.append("")
+    else:
+        lines.append("None - no survivors recorded.")
+    lines.append("")
     if verdict["not_expected_rows"]:
         lines.append("## Not expected (out of scope)")
         lines.append("")
