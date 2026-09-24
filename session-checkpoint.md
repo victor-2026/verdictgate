@@ -520,3 +520,30 @@ Chain case mutates correctly (negation on terminal matcher, chain intact),
 `rmt_version` stamped, RMT_VERSION in code. **B5 CLOSED.** W3 handover (batch #2
 with engine 0.1.0) stands.
 
+---
+
+## 2026-09-24 — Batch #1 analysis: B2 FAIL (verdict pack built, local-only)
+
+W3 campaign 58/58 (53 killed / 5 survived). W2 built `results.csv` from the
+campaign jsonl (killed→fail, survived→pass, tier=B2 provisional = seeder tier,
+expected=Y) and ran scorer 0.2.2. Pack at `reviews/openclaw-pilot-batch1/`
+(local-only per repo policy — handover to W3 as plain text, not files).
+
+Batch integrity pre-checks: 0 no-op rows · uniform B2 · killed↔exit_code consistent ·
+multiline assertions handled. Batch seeded pre-0.1.0 (UNSTAMPED) — single batch,
+single engine, lineage clean.
+
+**Verdict: B2 FAIL (exit 1), on TWO independent grounds:**
+1. Band violated: 5 survived = 8.6% > 5% of 58 seeded (N≥20).
+2. All 5 survivors without recorded decision (M5, M17, M26, M28, M36).
+Score 91.4% ≥ 90 target → no score signal; no other signals fired.
+
+Fix-first: profile-page:677 (xai option picker) · agent-github-auth:59 (Copied!
+button) / :275 (GitHub wait-longer text) / :295 (@agent-octocat text) ·
+session-suggestions:255 (chat avatar anchor). All EQ_NEGATION on visibility.
+
+Sensitivity note for W3: decisions alone do NOT flip the gate (band arithmetic
+holds regardless). Tier reassignment flips only if ≥3 of 5 survivors are
+genuinely B3 (then 2/55 = 3.6% PASS + decisions) — tiers must come from behavior
+semantics, not gate shopping (tier-laundering guard).
+
