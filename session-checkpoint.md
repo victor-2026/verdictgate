@@ -547,3 +547,45 @@ holds regardless). Tier reassignment flips only if ≥3 of 5 survivors are
 genuinely B3 (then 2/55 = 3.6% PASS + decisions) — tiers must come from behavior
 semantics, not gate shopping (tier-laundering guard).
 
+---
+
+## 2026-09-24 — Final pack with W3 decisions: B2 FAIL stands (band only)
+
+W3 closed batch #1 (commit 85974b9): S1 open, S2/S3 dismissed (transient timing),
+S4 open (confirmation run), S5 open (selector review). Jev 5/5 recorded as
+noise/FP with weight honestly assigned to code inspection. B5 protocol honored
+(batch #1 untouched mid-batch).
+
+W2 merged the 5 decisions into the 58-row csv (S→M map verified by file:line)
+and re-ran scorer 0.2.2. **Final: B2 FAIL (exit 1) on band alone** — 8.6% > 5%;
+the missing-decision clause is gone; the dismissed-without-fix signal fired for
+S2/S3 (mandatory signed Assessor comment — by design, now W3/W4's to close).
+
+### Observed-column ruling (load-bearing, recorded explicitly)
+W3's csv put post-hoc analysis notes into `observed`. Merged pack keeps
+`observed` EMPTY. Rationale: contract `observed` = passive observation that
+fired AT RUN TIME with element attribution; the jsonl rows record no run-time
+anomaly (exit 0, no observed field). Carrying the notes over would relabel 5
+Survived as Observed-only → survived=0 → band holds → **FAIL flips to PASS on
+a column technicality** — the exact observed-abuse gaming path from the threat
+model (Perplexity R1). No accusation: W3's transparency (notes in the open,
+Seeds inspectable) is what made this checkable. Their notes belong in the pilot
+report (done: pilot-report.md), not the observed column. If W4's article cites
+this episode, cite it as the guardrail working, not as a dispute.
+
+Pack at `reviews/openclaw-pilot-batch1/` (local-only); full text available to
+W4 on request. Report → W4 confirmed.
+
+---
+
+## 2026-09-24 — Split executed: run_rmt → rmt.py (9e3dc27, precondition discharged)
+
+Standing approval covered B5/stamp/CLI-leftovers without per-step sign-off.
+`verdictgate rmt` is now a thin lazy-import wrapper; single implementation in
+`rmt.py` (also fixes the double import). D2 (standalone csv parity), D3 (drop line
+recompute), D4 (B3 note in standalone help) closed in the same commit.
+Standalone output unified to N-file(s) form; W3 campaign contract verified safe
+(stdout JSON list, exit codes, stderr only on failure — script parses stdout only).
+Sizes: verdictgate.py 32750 → 29930 B; rmt.py 9218 B. Full smoke green
+(standalone + verdictgate rmt + all 4 verdict examples, exit codes intact).
+
