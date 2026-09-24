@@ -593,6 +593,26 @@ labels as assessor — hence cannot arbitrate).
 
 ---
 
+## 2026-09-24 — B0 closed: mini survives 77 options (76.7%, systematic errors)
+
+W5 ran the Banking77 handover case (30 queries × 3 runs = 90 measurements):
+accuracy 69/90 = 76.7%, stability 3/3 everywhere (errors systematic, not noise),
+warm ~0.1s, batch 13.2s/90, parse 87/90 exact-label + **3 invented labels**
+(`Get_virtual_card` hallucinated for `Get_disposable_virtual_card` = 3.3%
+label-invention rate — recorded as a limitation for constrained-choice use).
+Confusion clusters (all 3/3 stable): Transfer_timing→Pending_transfer,
+Report_fraud→Compromised_card, Card_payment_fee_charged→Fiat_currency_support,
+Order_physical_card→Get_physical_card, Verify_my_identity↔why_verify_identity
+(semantically adjacent). Scoring case-insensitive (lowercase fix documented).
+Files: `outputs/mini-jev-b0-banking77-raw-2026-09-25.json` + runner.
+
+W2 reading: no catastrophic failure — the "known death" did not happen. Boundary
+is characterized (adjacent-intent confusion + rare label invention), not a cliff.
+Yes/no on replacement stays with the merge (agreement rate) per plan queue.
+W3 notification recommended now (batch #2 running; merge inputs ready).
+
+---
+
 ## 2026-09-24 — P1 gate correction (W4 → Leonardo)
 
 P1 (Article 29 cross-post) is gated on **Leonardo's half**, not W4. W4 writes only
