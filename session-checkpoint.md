@@ -578,6 +578,14 @@ W4 on request. Report → W4 confirmed.
 
 ---
 
+## 2026-09-24 — P1 gate correction (W4 → Leonardo)
+
+P1 (Article 29 cross-post) is gated on **Leonardo's half**, not W4. W4 writes only
+when his text arrives — and requests the verdict-pack text from W2 at that time.
+W2 stands by: no action until the request comes.
+
+---
+
 ## 2026-09-24 — Split executed: run_rmt → rmt.py (9e3dc27, precondition discharged)
 
 Standing approval covered B5/stamp/CLI-leftovers without per-step sign-off.
