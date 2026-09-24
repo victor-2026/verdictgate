@@ -578,6 +578,21 @@ W4 on request. Report → W4 confirmed.
 
 ---
 
+## 2026-09-24 — Local-judge plan accepted (arbiter role taken)
+
+W5 filed `company/pilots/Jev/plan-local-judge-2026-09-25.md` (their tree, spot-checked
+read-only — matches agreements). Accepted: thresholds 10pp/15% + **P0-miss = 0**
+(crisp-zero consistent; FN-on-critical = leak class), assessors W3 + Victor blind,
+freeze digest `357c53fb659c5076de1d65cc`, phases A–E + B0, queue B0 → merge → n=30.
+Phase D credited done (21/21 LAN vs ZeroTier).
+
+W2 takes arbiter role under pre-registered procedure: tie-breaks by documented
+code-inspection evidence only, all disagreements + resolutions logged in the open,
+no unilateral gold relabeling. Arbiter judges others' labels, never own (Victor
+labels as assessor — hence cannot arbitrate).
+
+---
+
 ## 2026-09-24 — P1 gate correction (W4 → Leonardo)
 
 P1 (Article 29 cross-post) is gated on **Leonardo's half**, not W4. W4 writes only
