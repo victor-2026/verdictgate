@@ -21,16 +21,6 @@ The Evidence Contract defines the standardized format for mutation testing resul
 
 ---
 
-## Contract Principles
-
-1. **Source-agnostic** -- Works with RMT-lite, traditional MT, vendor tools, manual entry
-2. **Immutable** -- Once written, rows are append-only; corrections via new rows
-3. **Self-describing** -- Each row contains all context needed for verdict
-3. **Deterministic** -- Same input -> same verdict, byte-identical output
-4. **Extensible** -- New columns via versioned schema evolution
-
----
-
 ## Schema
 
 ### Required Columns
@@ -42,7 +32,7 @@ The Evidence Contract defines the standardized format for mutation testing resul
 | `operator` | string | YES | Mutation operator ID (EQ_NEGATION, BOOL_NEGATION, etc.) |
 | `risk_tier` | enum | YES | Risk tier: B0, B1, B2, B3 |
 | `expected` | enum | YES | Y (should catch) / N (out of scope) / E (equivalent) |
-| `suite_result` | enum | YES | pass / fail / error |
+| `suite_result` | enum | YES | pass / fail (anything else is an input error) |
 | `observed` | string | Optional | Free-text observation notes |
 | `decision` | enum | Conditional* | open / dismissed / fixed (required for B2 survivors) |
 | `e_reason` | string | Conditional** | Required if expected=E (<=280 chars) |
@@ -78,9 +68,9 @@ The Evidence Contract defines the standardized format for mutation testing resul
 
 ```csv
 mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision,e_reason,e_assessor,e_basis,observed_by,observed_run_ref,observed_element
-M1,Payment submits,element_remove,B0,Y,pass,,,
-M2,Login rejects wrong pwd,validation_removed,B0,Y,fail,,,
-M3,Username placeholder,duplicate_field,B1,Y,pass,two identical username inputs,,,,,
+M1,Payment submits,EQ_NEGATION,B0,Y,pass,,open,,,,,,
+M2,Login rejects wrong pwd,EQ_NEGATION,B0,Y,fail,,,,,,,
+M3,Username placeholder,COLLECTION_EMPTY,B1,Y,pass,two identical username inputs,,,,,reviewer,run-042,username input #2
 ```
 
 ### Column Definitions
@@ -100,7 +90,7 @@ M3,Username placeholder,duplicate_field,B1,Y,pass,two identical username inputs,
 
 No-op rule: a NOOP / NO-OP row means the seeder ADMITS nothing was changed. That is a process violation: refuse pre-seed (it stays out of N), never accept it post-hoc. Contrast with E (above): assessed, recorded, excluded.
 
-Run: `python3 verdictgate.py results.csv`
+Run: `python3 -m verdictgate verdict results.csv`
 Outputs: `<stem>.verdict.md` + `<stem>.verdict.json` (scorer version stamped).
 
 ---
@@ -167,5 +157,3 @@ Outputs: `<stem>.verdict.md` + `<stem>.verdict.json` (scorer version stamped).
 ---
 
 *End of Evidence Contract Specification v0.1*
-EOF
-echo "Created rmt-evidence-contract.md"

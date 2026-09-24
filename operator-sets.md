@@ -80,6 +80,8 @@ Defines which mutation operators are applied at each risk tier. The operator set
 - N < 20: Small-N floor max 1 survivor
 - Every B2 survivor requires explicit `decision` (open/dismissed/fixed)
 
+**Pilot actual:** EQ_NEGATION + COLLECTION_EMPTY, unsampled (vision table above is the target, not the engine).
+
 ---
 
 ### B3 Low — Trend Only
@@ -95,6 +97,8 @@ Defines which mutation operators are applied at each risk tier. The operator set
 
 **Gate:** Never blocks (Trend-only).  
 **Signal:** Survival rate tracked vs rolling 3-run baseline.
+
+**Pilot actual:** nothing seeded (`OPERATOR_SETS["B3"] = []` by design; `--tier B3` always yields 0 mutants).
 
 ---
 
@@ -126,19 +130,27 @@ Defines which mutation operators are applied at each risk tier. The operator set
 
 ## Configuration (CLI Flags)
 
+B2 gate flags (on `verdictgate verdict`):
+
 ```bash
 # B2 band percentage (default 5)
 --b2-band-pct 5
 
 # B2 small-N max survivors (default 1)
 --b2-small-n-max 1
-
-# Override operator sets (advanced)
---operators-b0 "EQ_NEGATION,BOOL_NEGATION,NULL_INJECTION,BOUNDARY_FLIP"
---operators-b1 "EQ_NEGATION,BOOL_NEGATION,NULL_INJECTION,BOUNDARY_FLIP,TYPE_COERCION"
---operators-b2 "BOUNDARY_FLIP,TYPE_COERCION,COLLECTION_EMPTY"
---operators-b3 "COLLECTION_EMPTY"
 ```
+
+RMT seeder tier selection (on `verdictgate rmt`):
+
+```bash
+# Pilot operator sets per tier (hardcoded in rmt.py OPERATOR_SETS, no CLI override):
+# B0/B1 = EQ_NEGATION only; B2 = EQ_NEGATION + COLLECTION_EMPTY; B3 = nothing seeded
+--tier B2
+```
+
+> Per-tier `--operators-b0/b1/b2/b3` overrides are **planned, not implemented**.
+> Sampling (§ Sampling Strategy) is **specified, not built** — the pilot fires every
+> applicable operator on every assertion (see LIMITATIONS L1/L4 in rmt-methodology.md).
 
 ---
 
@@ -198,5 +210,3 @@ def should_run_operator(mutation_id: str, operator: str, tier: str) -> bool:
 ---
 
 *End of Operator Sets Specification v0.1*
-EOF
-echo "Created operator-sets.md"

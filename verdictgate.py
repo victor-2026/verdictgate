@@ -569,9 +569,8 @@ def main():
     # RMT subcommand
     rmt_parser = subparsers.add_parser("rmt", help="RMT-lite mutation generation")
     rmt_parser.add_argument("input", help="input test file or directory")
-    rmt_parser.add_argument("--tier", default="B2", choices=["B0", "B1", "B2", "B3"], help="risk tier for mutation depth")
-    rmt_parser.add_argument("--out-dir", default="./rmt_output/", help="output directory (default: ./rmt_output/)")
-    rmt_parser.add_argument("--format", choices=["json", "summary", "csv"], default="summary", help="output format")
+    rmt_parser.add_argument("--tier", default="B2", choices=["B0", "B1", "B2", "B3"], help="risk tier for mutation depth (B3 yields no mutants by design: trend-only tier, nothing seeded)")
+    rmt_parser.add_argument("--format", choices=["json", "summary", "csv"], default="summary", help="output format (stdout)")
     rmt_parser.add_argument("--exclude", default="node_modules", help="comma-separated directories to exclude from recursive scan")
 
     args = ap.parse_args()
@@ -639,8 +638,6 @@ def run_rmt(args):
         return 2
 
     tier = args.tier
-    out_dir = Path(args.out_dir) if args.out_dir else Path.cwd() / "rmt_output"
-    out_dir.mkdir(parents=True, exist_ok=True)
 
     # Determine files to process
     if input_path.is_file():

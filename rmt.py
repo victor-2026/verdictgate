@@ -1,10 +1,14 @@
 """RMT-lite mutation engine for VerdictGate (W4 implementation, 2026-09-24).
 
 Mutates Playwright assertions (not app code). Balanced-paren scanner —
-no regex nesting traps. Pilot scope: toBeVisible / toHaveText / toHaveLength.
+no regex nesting traps. Runner-agnostic by construction: matches the text
+form `expect(...).matcher(...)` (Playwright, Vitest + jest-dom, compat shims).
+Handles `expect.soft(...)` prefix. Never emits no-op mutants (mutated ==
+original rows are refused pre-seed, mirroring the verdictgate NOOP rule).
+Pilot scope: toBeVisible / toHaveText / toHaveLength / toBeHidden.
 Standalone: `python3 rmt.py FILE --tier B2 --format summary|json`.
 Importable: `from rmt import generate_mutants_for_file`.
-CLI integration into verdictgate.py left to W2 (no existing files touched).
+CLI: integrated as `verdictgate rmt` (W2).
 """
 from __future__ import annotations
 
@@ -21,7 +25,7 @@ OPERATOR_SETS = {
     "B0": ["EQ_NEGATION"],
     "B1": ["EQ_NEGATION"],
     "B2": ["EQ_NEGATION", "COLLECTION_EMPTY"],  # Pilot scope
-    "B3": [],
+    "B3": [],  # by design: trend-only tier, nothing seeded
 }
 
 # matcher -> operator (only what the pilot implements)
@@ -63,9 +67,14 @@ def balanced_span(text: str, open_idx: int) -> int | None:
 
 
 def find_assertions(content: str) -> list:
-    """Yield (expect_start, call_end, matcher) for each expect(...).matcher(...) call."""
+    """Yield (expect_start, call_end, matcher) for each expect(...).matcher(...) call.
+
+    Accepts the `expect.soft(...)` prefix (Vitest + Playwright soft assertions).
+    `expect.element(...)` chains are out of scope (matcher resolves to the
+    chain hop, not the terminal assertion) — see LIMITATIONS in rmt-methodology.md.
+    """
     out = []
-    for m in re.finditer(r"expect\(", content):
+    for m in re.finditer(r"expect(?:\.soft)?\(", content):
         close = balanced_span(content, m.end() - 1)
         if close is None:
             continue
@@ -111,18 +120,26 @@ def get_applicable_operators(assertion_text: str, tier: str) -> list:
 
 
 def generate_mutants_for_file(file_path: str, tier: str = "B2") -> list:
-    """Generate mutants for all assertions in a test file."""
+    """Generate mutants for all assertions in a test file.
+
+    NO-OP guard: a mutant identical to the original (e.g. COLLECTION_EMPTY on
+    an already-empty `toHaveLength(0)`) is a seeder defect — refused pre-seed,
+    never emitted. Mirrors the verdictgate NOOP input rule (exit 2 downstream).
+    """
     content = Path(file_path).read_text(encoding="utf-8")
     mutants = []
     for start, end, matcher in find_assertions(content):
         original = content[start:end]
         for op in get_applicable_operators(original, tier):
+            mutated = apply_mutation(original, op)
+            if mutated == original:
+                continue  # no-op mutant — seeder defect, refuse pre-seed
             line = content.count("\n", 0, start) + 1
             mutants.append(
                 {
                     "operator": op,
                     "original": original,
-                    "mutated": apply_mutation(original, op),
+                    "mutated": mutated,
                     "file": file_path,
                     "line": line,
                     "tier": tier,

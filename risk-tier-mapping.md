@@ -93,8 +93,7 @@ behavior_name,risk_tier,acceptance_criteria,description
 Valid login shows welcome,B0,"Given valid username and password when clicking Sign in then the welcome message is visible",User can sign in
 Payment submits successfully,B0,"Given valid payment details when submitting then charge succeeds",Payment processes
 Login rejects wrong password,B0,"Given invalid password when signing in then error shown",Auth rejects invalid
-Login button visible,element_remove,B1,Y,fail,,,,,,,,
-Username placeholder,duplicate_field,B1,Y,pass,two identical username inputs,,,,,reviewer,run-042,username input #2
+Username placeholder,B1,"Given a prefilled username when rendering then the placeholder names the field",Field labelling
 ```
 
 **Rule:** `requirements.csv` `risk_tier` **always wins** over inference. The `--requirements` flag enforces this at parse time (tier-laundering guard).
@@ -180,5 +179,3 @@ Before finalizing tier assignments:
 ---
 
 *End of Risk Tier Mapping Rules v0.1*
-EOF
-echo "Created risk-tier-mapping.md"

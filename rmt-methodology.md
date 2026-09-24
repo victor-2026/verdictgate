@@ -24,6 +24,25 @@ RMT-lite is a lightweight mutation testing methodology adapted from Leonardo Lan
 
 ---
 
+## Limitations (Pilot Scope — What RMT-lite Is NOT)
+
+> The tables below describe the **full 6-operator vision**. The pilot implementation
+> (`rmt.py`) covers a **2-operator subset**. Read this section first so the vision
+> is never mistaken for the engine.
+
+| # | Limitation | Pilot status |
+|---|-----------|--------------|
+| L1 | Only **2 of 6** operators implemented: `EQ_NEGATION` (toBeVisible/toHaveText/toBeHidden), `COLLECTION_EMPTY` (toHaveLength). `BOOL_NEGATION`, `BOUNDARY_FLIP`, `TYPE_COERCION`, `NULL_INJECTION` are **specified, not built**. | B2 = EQ_NEGATION + COLLECTION_EMPTY; B0/B1 = EQ_NEGATION only; B3 = nothing seeded (trend-only tier) |
+| L2 | **Assertion-mutation only, not app-code.** RMT-lite mutates the verification (`expect`), never the system under test. It measures assertion strength, not code coverage. | By design |
+| L3 | **Seeder only, no execution.** `rmt.py` emits mutant texts; it does not run suites, record `suite_result`, or write `results.csv`. Execution + recording is the pilot operator's job (W3). | By design |
+| L4 | **No sampling yet.** Every applicable operator fires on every assertion (no B2 66% / B3 33% hash sampling). | Planned, gated on W3 pilot volume signal |
+| L5 | **No pre-seed relevance filter.** No change-boundary filtering; every file in scope is mutated. | Planned, see Pre-seed Relevance Filter |
+| L6 | **Text scanner, not AST.** Balanced-paren matching handles nesting and quoted parens, plus the `expect.soft(...)` prefix. `expect.element(...)` chains and custom matcher wrappers are **missed** (matcher resolves to the chain hop). Multiline assertions are matched only if `expect(` and the terminal matcher paren balance within the scan. | Known gap, measured on OpenClaw target (29 `expect.element().toBeVisible()` chains out of scope) |
+| L7 | **No-op mutants refused pre-seed.** A mutant identical to the original (e.g. `COLLECTION_EMPTY` on an already-empty `toHaveLength(0)`) is skipped at generation — mirroring the VerdictGate NOOP input rule. | Implemented in `generate_mutants_for_file` |
+| L8 | **Runner-agnostic text form only.** Matches `expect(...).matcher(...)` text in Playwright, Vitest + jest-dom, and compat shims. Framework-specific runners (`.browser.test.ts` harnesses, conditional `it.skipIf`) are not interpreted. | By design |
+
+---
+
 ## RMT-lite Mutation Operators
 
 | Operator ID | Name | Description | Applies To | Risk Tier Default |
@@ -135,13 +154,15 @@ Before mutation, filter out verification points outside the change boundary:
 - Only mutate assertions in changed code paths
 - Reduces noise, focuses on relevant mutations
 
-### Risk-Steering Depth
+### Risk-Steering Depth (vision; pilot subset in § Limitations L1/L4)
 | Tier | Operator Count | Coverage |
 |------|----------------|----------|
 | B0 | Full set (6 operators) | 100% |
 | B1 | Full set (6 operators) | 100% |
 | B2 | Sampled (2 of 3 applicable) | ~66% |
 | B3 | Sampled (1 of 1) | 100% |
+
+Pilot actual: B0/B1 = EQ_NEGATION only; B2 = EQ_NEGATION + COLLECTION_EMPTY, unsampled; B3 = nothing seeded.
 
 ---
 
@@ -208,5 +229,3 @@ Only mutate assertions within changed files/modules.
 ---
 
 *End of RMT-lite Methodology v0.1*
-EOF
-echo "Created rmt-methodology.md"
