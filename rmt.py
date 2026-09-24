@@ -3,8 +3,9 @@
 Mutates Playwright assertions (not app code). Balanced-paren scanner —
 no regex nesting traps. Runner-agnostic by construction: matches the text
 form `expect(...).matcher(...)` (Playwright, Vitest + jest-dom, compat shims).
-Handles `expect.soft(...)` prefix. Never emits no-op mutants (mutated ==
+Unwraps `.soft` / `.element` chain hops. Never emits no-op mutants (mutated ==
 original rows are refused pre-seed, mirroring the verdictgate NOOP rule).
+Version-stamped: every mutant carries `rmt_version` (see RMT_VERSION).
 Pilot scope: toBeVisible / toHaveText / toHaveLength / toBeHidden.
 Standalone: `python3 rmt.py FILE --tier B2 --format summary|json`.
 Importable: `from rmt import generate_mutants_for_file`.
@@ -18,8 +19,16 @@ import re
 import sys
 from pathlib import Path
 
+RMT_VERSION = "0.1.0"
+# First version-stamped engine. Batches seeded before this stamp are pre-0.1.0
+# (no NO-OP guard, no expect.soft, no chain-unwrap). One verdict batch = one
+# engine version — never mix stamps inside a batch.
+
 # Matcher -> (operator, mutator of the full call text)
 MATCHERS = ("toBeVisible", "toHaveText", "toHaveLength", "toBeHidden")
+
+# Chain hops unwrapped before the terminal matcher (compat shims).
+CHAIN_HOPS = ("soft", "element")
 
 OPERATOR_SETS = {
     "B0": ["EQ_NEGATION"],
@@ -67,28 +76,43 @@ def balanced_span(text: str, open_idx: int) -> int | None:
 
 
 def find_assertions(content: str) -> list:
-    """Yield (expect_start, call_end, matcher) for each expect(...).matcher(...) call.
+    """Yield (expect_start, call_end, matcher) for each expect-chain ending in a known matcher.
 
-    Accepts the `expect.soft(...)` prefix (Vitest + Playwright soft assertions).
-    `expect.element(...)` chains are out of scope (matcher resolves to the
-    chain hop, not the terminal assertion) — see LIMITATIONS in rmt-methodology.md.
+    Parses segment by segment: `expect(...)` args, then `.name(args)` hops.
+    Known chain hops (`.soft`, `.element` — Vitest / compat shims) are unwrapped;
+    the terminal matcher must be in MATCHER_OPERATOR. Unknown hops and `.not`
+    chains (no paren after `not`) end the chain with no mutant — already-negated
+    assertions are never double-mutated.
+
+    NOTE: a single balanced_span from expect's `(` cannot be used here — it would
+    swallow `.element(option)` as nested parens. Hence the segment walk.
     """
     out = []
-    for m in re.finditer(r"expect(?:\.soft)?\(", content):
-        close = balanced_span(content, m.end() - 1)
-        if close is None:
-            continue
-        rest = content[close:]
-        mm = re.match(r"\.(\w+)\(", rest)
-        if not mm:
-            continue
-        matcher = mm.group(1)
-        if matcher not in MATCHER_OPERATOR:
-            continue
-        arg_close = balanced_span(content, close + len(mm.group(0)) - 1)
-        if arg_close is None:
-            continue
-        out.append((m.start(), arg_close, matcher))
+    for m in re.finditer(r"expect(?=\.|\()", content):
+        start = m.start()
+        pos = m.end()
+        # Optional expect() args.
+        if content[pos : pos + 1] == "(":
+            close = balanced_span(content, pos)
+            if close is None:
+                continue
+            pos = close
+        # Chain segments.
+        while True:
+            mm = re.match(r"\.(\w+)\(", content[pos:])
+            if not mm:
+                break
+            name = mm.group(1)
+            seg_close = balanced_span(content, pos + len(mm.group(0)) - 1)
+            if seg_close is None:
+                break
+            if name in MATCHER_OPERATOR:
+                out.append((start, seg_close, name))
+                break
+            if name in CHAIN_HOPS:
+                pos = seg_close
+                continue
+            break
     return out
 
 
@@ -143,6 +167,7 @@ def generate_mutants_for_file(file_path: str, tier: str = "B2") -> list:
                     "file": file_path,
                     "line": line,
                     "tier": tier,
+                    "rmt_version": RMT_VERSION,
                 }
             )
     return mutants
