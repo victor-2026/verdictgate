@@ -487,3 +487,31 @@ Conventions PRECONDITION: next touch moves `run_rmt()` + `get_line_number()` int
 `verdictgate.py` until the split lands — pilot pressure is explicitly not an excuse.
 (B5 chain-unwrap touches `rmt.py` only, so it is NOT blocked by this precondition.)
 
+---
+
+## 2026-09-24 — B5 + version stamp shipped (1935668, rmt 0.1.0)
+
+Approved: B5 now (batch #1 verified clean, additive), version stamp before batch #2.
+Condition honored: batch #1 untouched (no writes to pilots tree), `verdictgate.py`
+untouched (split precondition holds — all changes in `rmt.py` + methodology doc).
+
+### B5 implementation
+`find_assertions` walks the expect-chain segment by segment instead of one
+balanced_span (which would swallow `.element(option)` as nested parens).
+`.soft` / `.element` hops unwrapped to the terminal matcher; unknown hops and
+`.not` chains end with no mutant. Verified: element chains (incl. nested
+`page.elementLocator(diagram).getByRole("img")`) mutate at the terminal matcher;
+already-negated and unknown-hop chains skipped; sample regression 5/5/6/0 unchanged.
+
+### Version stamp
+`RMT_VERSION = "0.1.0"` in `rmt.py`; every mutant dict carries `rmt_version`.
+Pre-0.1.0 = all unstamped batches (no NO-OP guard, no soft, no chains).
+Rule: one verdict batch = one engine version. W3 campaign script picks the stamp
+up automatically (it records mutant dicts into jsonl).
+
+### Handover to W3 (batch #2 suggestion)
+Top-up batch #2 with engine 0.1.0: 29 `expect.element().toBeVisible()` chains from
+unit specs + `expect.soft().toHaveLength` rows from `session-management.trailing-state`
+and `chat-session-companion-manual-open-focus` e2e files. Batch #1 (55 rows, 5 e2e
+files, pre-0.1.0 engine) completes as-is — verified 0 no-op / 0 element / 0 soft rows.
+
