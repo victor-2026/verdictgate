@@ -416,3 +416,24 @@ python3 -m rmt /tmp/test_rmt/test_sample.test.ts --tier B2 --format summary
 verdictgate rmt <openclaw-tests> --tier B2 --format summary
 ```
 
+---
+
+## 2026-09-24 — Follow-up: three critical regressions fixed (3cbd281)
+
+Diff review verdict: all three were real bugs, not cosmetics. Commit 08b158b already
+merged, so these are follow-up fixes.
+
+1. `build_verdict` gate/any_fail indent (critical): `d["gate"]` + `if not ok` were at
+   16 spaces (inside `elif tier == "B2"`), B0/B1 never got `d["gate"]` → KeyError in
+   summary/render + `any_fail` never raised → zero-tolerance tiers silently pass.
+   Fixed: dedent to 12 spaces (if/elif/else level).
+2. `render_md` config line stray `)`: removed two chars, back to `...unverified'` + `)`.
+3. `render_md` fix-first else: `else:` was at 8 spaces (bound to `for`, for-else),
+   "None - no survivors recorded." printed even with survivors. Fixed: dedent to 4
+   spaces (bound to `if verdict["fix_first"]:`).
+
+Why smoke missed it: only `rmt --tier B2` exercised; verdict path with B0/B1 untouched.
+Verification: `payment-critical-fail` → B0 FAIL exit 1 (no KeyError) · `web-login` →
+B0/B1/B2 PASS exit 0 · `noop-row` → exit 2 · `mass-e-signal`, `demo-math` → PASS ·
+`rmt` summary/json/csv + exit 0/2 + recursive scan + `--exclude` all green.
+
