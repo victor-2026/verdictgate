@@ -14,6 +14,7 @@ CLI: integrated as `verdictgate rmt` (W2).
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import sys
@@ -173,22 +174,71 @@ def generate_mutants_for_file(file_path: str, tier: str = "B2") -> list:
     return mutants
 
 
-def main(argv: list | None = None) -> int:
-    ap = argparse.ArgumentParser(prog="rmt")
-    ap.add_argument("input", help="test file to mutate")
-    ap.add_argument("--tier", default="B2", choices=["B0", "B1", "B2", "B3"])
-    ap.add_argument("--format", default="summary", choices=["summary", "json"])
-    args = ap.parse_args(argv)
-    mutants = generate_mutants_for_file(args.input, args.tier)
-    if args.format == "json":
-        print(json.dumps(mutants, indent=2, ensure_ascii=False))
+def get_line_number(content: str, substring: str) -> int:
+    """Get line number of substring in content (utility for external callers)."""
+    return content.count("\n", 0, content.find(substring)) + 1
+
+
+def run_rmt(args) -> int:
+    """Run RMT-lite mutation generation over a test file or directory.
+
+    Takes an argparse namespace with `input`, `tier`, `format`, and optional
+    `exclude`. Shared by standalone `rmt.py` and `verdictgate rmt` (single
+    implementation — the verdictgate.py copy was removed in the split).
+    Uses `line`/`tier` as returned by `generate_mutants_for_file` (no recompute).
+    """
+    input_path = Path(args.input)
+    if not input_path.exists():
+        print(f"Error: input path does not exist: {args.input}", file=sys.stderr)
+        return 2
+    tier = args.tier
+    if input_path.is_file():
+        files = [input_path]
+    elif input_path.is_dir():
+        exclude = getattr(args, "exclude", "node_modules")
+        exclude_dirs = set(exclude.split(",")) if exclude else {"node_modules"}
+        files = []
+        for ext in ("*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"):
+            for f in input_path.rglob(ext):
+                if not any(excl in f.parts for excl in exclude_dirs):
+                    files.append(f)
+        if not files:
+            print("No test files found", file=sys.stderr)
+            return 1
     else:
-        print(f"{len(mutants)} mutants @ {args.tier} from {args.input}")
-        for mu in mutants:
+        print(f"Error: input path is not a file or directory: {args.input}", file=sys.stderr)
+        return 1
+    all_mutants = []
+    for file_path in files:
+        try:
+            all_mutants.extend(generate_mutants_for_file(str(file_path), tier))
+        except Exception as e:
+            print(f"Error processing {file_path}: {e}", file=sys.stderr)
+    if args.format == "json":
+        print(json.dumps(all_mutants, indent=2, ensure_ascii=False))
+    elif args.format == "csv":
+        writer = csv.writer(sys.stdout)
+        writer.writerow(["file", "operator", "original", "mutated"])
+        for mu in all_mutants:
+            writer.writerow([mu["file"], mu["operator"], mu["original"], mu["mutated"]])
+    else:
+        print(f"{len(all_mutants)} mutants @ {tier} from {len(files)} file(s)")
+        for mu in all_mutants:
             print(f"- L{mu['line']} [{mu['operator']}]")
             print(f"    - {mu['original']}")
             print(f"    + {mu['mutated']}")
+    print(f"\nTotal: {len(all_mutants)} mutants @ {tier} from {len(files)} file(s)", file=sys.stderr)
     return 0
+
+
+def main(argv: list | None = None) -> int:
+    ap = argparse.ArgumentParser(prog="rmt")
+    ap.add_argument("input", help="test file to mutate")
+    ap.add_argument("--tier", default="B2", choices=["B0", "B1", "B2", "B3"],
+                    help="risk tier for mutation depth (B3 yields no mutants by design: trend-only tier)")
+    ap.add_argument("--format", default="summary", choices=["summary", "json", "csv"])
+    args = ap.parse_args(argv)
+    return run_rmt(args)
 
 
 if __name__ == "__main__":

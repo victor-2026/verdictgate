@@ -19,9 +19,6 @@ import json
 import sys
 from pathlib import Path
 
-# ─── RMT Integration ─────────────────────────────────────────────────
-from rmt import generate_mutants_for_file
-
 SCORER_VERSION = "0.2.2"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
@@ -618,83 +615,12 @@ def main():
         print(f"evidence pack: {out_dir / (stem + '.verdict.md')}", file=sys.stderr)
         return verdict["exit_code"]
 
-    # RMT subcommand
+    # RMT subcommand (single implementation lives in rmt.py — see PRECONDITION in AGENTS.md)
     elif args.command == "rmt":
+        from rmt import run_rmt
         return run_rmt(args)
     else:
         ap.error(f"Unknown command: {args.command}")
-
-
-def run_rmt(args):
-    """Run RMT-lite mutation generation."""
-    from rmt import generate_mutants_for_file
-    from pathlib import Path
-    import json
-    import sys
-
-    input_path = Path(args.input)
-    if not input_path.exists():
-        print(f"Error: input path does not exist: {args.input}", file=sys.stderr)
-        return 2
-
-    tier = args.tier
-
-    # Determine files to process
-    if input_path.is_file():
-        files = [input_path]
-    elif input_path.is_dir():
-        # Recursive scan with exclusions
-        exclude_dirs = set(args.exclude.split(",")) if args.exclude else {"node_modules"}
-        files = []
-        for ext in ("*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"):
-            for f in input_path.rglob(ext):
-                if not any(excl in f.parts for excl in exclude_dirs):
-                    files.append(f)
-        if not files:
-            print("No test files found", file=sys.stderr)
-            return 1
-    else:
-        print(f"Error: input path is not a file or directory: {args.input}", file=sys.stderr)
-        return 1
-
-    all_mutants = []
-    for file_path in files:
-        try:
-            file_content = Path(file_path).read_text(encoding="utf-8")
-            mutants = generate_mutants_for_file(str(file_path), tier)
-            for m in mutants:
-                m["file"] = str(file_path)
-                m["line"] = get_line_number(file_content, m["original"])
-                m["tier"] = tier
-                all_mutants.append(m)
-        except Exception as e:
-            print(f"Error processing {file_path}: {e}", file=sys.stderr)
-
-    # Output based on format
-    if args.format == "json":
-        print(json.dumps(all_mutants, indent=2, ensure_ascii=False))
-    elif args.format == "csv":
-        if all_mutants:
-            import csv
-            fieldnames = ["file", "operator", "original", "mutated"]
-            writer = csv.DictWriter(sys.stdout, fieldnames=fieldnames)
-            writer.writeheader()
-            for m in all_mutants:
-                writer.writerow({"file": m["file"], "operator": m["operator"], "original": m["original"], "mutated": m["mutated"]})
-    else:
-        # Summary format
-        print(f"{len(all_mutants)} mutants @ {tier} from {len(files)} file(s)")
-        for m in all_mutants:
-            print(f"  L{m['line']} [{m['operator']}] {m['original'][:80]}")
-            print(f"    -> {m['mutated'][:80]}")
-
-    print(f"\nTotal: {len(all_mutants)} mutants @ {tier} from {len(files)} file(s)", file=sys.stderr)
-    return 0
-
-
-def get_line_number(content: str, substring: str) -> int:
-    """Get line number of substring in content."""
-    return content.count("\n", 0, content.find(substring)) + 1
 
 
 if __name__ == "__main__":
