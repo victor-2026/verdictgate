@@ -477,3 +477,13 @@ W3 pilot target (OpenClaw checkout in company/pilots — no writes across bounda
 - Decision on **B5 `expect.element` chain-unwrap** (recommend: do it, ~10 lines, pilot target).
 - Then: W3 pilot on OpenClaw (`verdictgate rmt <specs> --tier B2`).
 
+---
+
+## 2026-09-24 — Precondition locked: verdictgate.py split before next touch
+
+`verdictgate.py` = 32750 B, 18 B under the AGENTS.md 32 KiB cap. Locked as AGENTS.md
+Conventions PRECONDITION: next touch moves `run_rmt()` + `get_line_number()` into
+`rmt.py` (single import, kills the double `from rmt import`). No feature edits to
+`verdictgate.py` until the split lands — pilot pressure is explicitly not an excuse.
+(B5 chain-unwrap touches `rmt.py` only, so it is NOT blocked by this precondition.)
+
