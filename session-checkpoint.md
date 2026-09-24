@@ -73,3 +73,300 @@
 ## 2026-09-19 — Oleg letter SENT, H1 #1 locked for 28
 - Oleg+Larisa letter sent by owner. Waiting reply. (Hiring closure + pilot offer + repo link.)
 - Article 28 H1: #1 ("Your Vendor's Green Report Is a Claim...") final.
+
+## 2026-09-19 eve — Rupesh Atlas received, recording resolved, 1/60 still open
+- QAEverest-Capability-Atlas.pdf (72 caps, 14 NEW) filed by owner in Rupesh catalog. Suite sensitivity: per-tier bars, tolerated miss = recorded decision + reason (validates our E columns), B0 0 confirmed.
+- Recording = "from browser events" (Rupesh 20:36). 1/60 floor-vs-volume still awaiting.
+- Atlas provenance CORRECTION 19.09: line claiming duplication to `docs/vendor-evidence/` (c4d5cc84) is FALSE — no such commit exists, PDF is NOT in the public repo (verified: git ls-files shows no PDF). Single copy lives in W1 Rupesh catalog. Checkpoint provenance claims must verify before writing.
+
+## 2026-09-19 21:05 — 3-window discipline locked
+- Doc: `docs/window-discipline.md` — W1 Rupesh Commercial (owns Rupesh/*), W2 Product VerdictGate (owns verdictgate/** + 28), W3 Aamir+Oracle (owns Aamir/* + OrangeHRM*). Single-writer per file, Atlas provenance pinned, model-resilience `openrouter/free`.
+- Window of this checkpoint: W3 (Aamir history). W1/W2 checkpoints stay separate, global memory single writer.
+
+## 2026-09-20 (W2) — public-history hygiene rewrite
+- Leak scrubbed from full history (git filter-repo + force push): commercial details removed from INVESTMENT.md, AGENTS.md vendor-status neutralized, cooperation-state line anonymized. origin/main = aa7b910 (tag v0.2.2 rewritten). Verify pattern: grep across all refs = 0 hits.
+- Local-only now (gitignore): .obsidian/, docs/window-discipline.md, docs/vendor-profiles-spec.md (spec names vendor defaults without consent).
+- Pre-filter bundle backup: /tmp/verdictgate-pre-filter.bundle (contains pre-scrub text — never publish, delete in ~2 days).
+- DevAssure pilot ownership assigned to W2 (frozen status; repeat-run 100/100 done earlier — see Positions-CV-CL pilots/DevAssure).
+
+## 2026-09-20 (W2) — qeaverest profile: 1/60 semantics locked verbatim
+- W1 relay received: 1/60 RESOLVED verbatim (Rupesh LinkedIn 5:46 AM, file `messages/2026-09-20_12-score-floor-answer.md` in Positions-CV-CL). B2 gate = survived<=1 AND score>=60% — cap absolute at ANY N; score = caught/seeded, seeded = caught+observed_only+survived; survivors need recorded decision; both env-overridable, response flags default-vs-policy.
+- Spec updated (docs/vendor-profiles-spec.md): SEMANTICS LOCKED section + MAPPING LIMIT (profile = numbers only; engine gate shape stays framework v0.3 — their cap-1-any-N not representable; cross-check validates numbers 90/80/60, not shape). Their score formula == ours (verified). 19.09 corrections/guards preserved (B0 never softened; tolerated-miss B1/B2 only).
+- Provisional status: NOT fully dropped — flag re-scoped to "vendor-claim, not yet cross-checked live" (semantics no longer in question). Drops after W1 cross-check run + W2 verification.
+- Cross-check GO given (one live-numbers run, no vendor contact, public line unchanged).
+- Q3(c) import-dev-code draft issued to user for send (last message in 3Q budget; then silence per agreement).
+
+## 2026-09-20 eve (W2) — vendor stamping change received unprompted
+- Rupesh email 17:13: gate arithmetic change IN REVIEW (not released) — thresholds stamped at run commissioning (scorer version + agreed terms frozen), judgedAgainst vs policy via API, partial stamp = nothing, pre-stamp runs fall back with notice. Our 100% B1 run 6a9888b9... named: will carry notice, verdict unchanged. 18 new tests, 131 passing.
+- INDEPENDENT CONVERGENCE with our Hard Rules (version stamp, byte-identical, anti-fallback) — banked as methodology signal, no public use without consent.
+- Spec updated: MAPPING LIMIT + VENDOR STAMPING CHANGE + CROSS-CHECK TIMING bullets (docs/vendor-profiles-spec.md).
+- Cross-check plan refined: our-side numbers run anytime; any compare vs THEIR live re-reads waits for release confirmation.
+- W1 flag: he proactively emailed technical change — "cooperation paused" public line unchanged, but status nuance for W1 (unprompted technical notifications continue). Q3(c) budget unaffected; no reply sent (budget rule). Quotes candidates in email for W1 bank.
+
+## 2026-09-20 late (W2) — ack sent, cross-check formally gated
+- Ack SENT to Rupesh (owner, after W1 coordination): confirms stamping design, notes 6a9888b9 current-policy notice, commits cross-check hold until his release confirmation ("judge against the stamp, not today's policy").
+- Cross-check timing now formal: gated on his release confirmation (was "anytime for our-side numbers" — superseded by the committed hold in the ack; our-side numbers run remains technically unaffected but sequencing respects the vendor gate).
+- Quote banked in Articles/quotes.md (Rupesh email quotes section: evidence-pack line, scorer-version line, partial-stamp line) — private-channel provenance marked, public use requires consent.
+
+## 2026-09-21 — W2 Session Close: JEV integration, Rupesh stamping, Leonardo sync, W1 handover
+
+### JEV Integration (pi-review pipeline)
+- JEV wrapper operational via pi/openrouter/free (TypeSafe API not in OpenCode CLI)
+- Client bug fixed: requests.post → self.session.post
+- 7 FlowScout findings classified — "Discovery ≠ Verification" confirmed (P1 mutation probe)
+- JEV client integrated into pi-review pipeline as System One layer (routing + semantic IF + filtering)
+- W3 verified: 7 FlowScout findings classified, OrangeHRM Jev triage integrated, Aamir/OrangePro filtering planned
+
+### Rupesh / QAEverest Update
+- Unprompted email from Rupesh: gate arithmetic change IN REVIEW (stamping at commission, judgedAgainst vs policy, partial stamp = nothing, pre-stamp notice)
+- Our 100% B1 run (6a9888b9) named: will carry current-policy notice, verdict unchanged
+- Cross-check formally gated on release confirmation (ack commits to wait for release)
+- Independent convergence documented: their stamping = our Hard Rules (version stamp, byte-identical, anti-fallback)
+
+### DevAssure O2
+- Re-check passed (FP 4→0, bug fixed on re-test). Article 15-ответ опубликован.
+- Status: Re-check passed / fixed. Pilot closed.
+
+### Leonardo Lanni / RMT Synergy
+- 1/60 resolved verbatim (B2 = survived<=1 AND score>=60%, score = caught/seeded, seeded=caught+observed+survived)
+- Spec updated: SEMANTICS LOCKED + VENDOR STAMPING CHANGE + MAPPING LIMIT + CROSS-CHECK TIMING
+- Q3(c) import-dev-code draft issued to user for send (last 3Q message)
+- Article 26 one-page v0.2 updated with Leonardo architecture
+- Independent convergence documented: Rupesh stamping = our Hard Rules (independent convergence)
+- W1 status: unprompted technical notifications continue; public line "cooperation paused" unchanged
+
+### Article 28 / Article 29 / RMT×VerdictGate
+- Article 28: all 3 P0 fixed by other window (P0 #1 repo link, P0 #2 Pettersson quote, P0 #3 code block). Published 23.09 09:00 UK.
+- Article 29 draft: "RMT × VerdictGate: When Sensitivity Meets Policy" — structure ready, one-pager v0.2 embedded
+- RMT×VerdictGate one-pager v0.2 updated with Leonardo architecture
+- W4 Option C (Cross-post) selected: Leo writes RMT, you write policy, cross-post both channels
+- Tier matrix updated with Joint Pilot row; tier laundering guard documented
+
+### W1 Handover (Formal)
+- Cross-check (1) formal handover sent to W1: inputs, verdict table, provisional status, artifacts, strategy
+- W1 relay: "1/60 resolved verbatim (ball at W2 — remove provisional from qaeverset-profile)"
+- W1 plan: wait profile update from W2 → cross-check run on live numbers → show Articles 26/27
+- W1 note: unprompted technical notifications continue; commercial cooperation paused
+
+### W3 JEV Integration Verified
+- W3 confirmed: API key working, client bug fixed (session.post), 7 FlowScout findings classified
+- Key finding: Discovery ≠ Verification confirmed (P1 mutation probe)
+- Reports: jev-integration-check.md, index.md updated
+- Recommended W3 usage: FlowScout post-process, OrangeHRM agent state-check, Aamir/OrangePro filtering (500 files)
+- Next: embed in FlowScout script, add to OrangeHRM agent loop, benchmark vs Pi fallback
+
+### DevAssure / Klarent / QAEverest
+- DevAssure: re-check passed, Article 15 response published, pilot closed
+- Klarent: candidate queued (depth check pending, no trial access yet)
+- QAEverest: cross-check (1) done, provisional re-scoped, cross-check GO (gated on Rupesh release)
+
+### W4 Collaboration Decision
+- Option C (Cross-post) selected: Leo writes RMT, you write policy, both channels, both bylines
+- Tier matrix updated with Joint Pilot row; tier laundering guard documented
+- Timeline: draft Fri → Leo review Mon → publish Wed
+
+### DevAssure O2 / Klarent Status
+- DevAssure O2: re-check passed, Article 15 response published, pilot closed
+- Klarent: candidate queued (depth check pending, no trial access)
+
+### Process Discipline
+- Window discipline enforced: W2 owns verdictgate/** + Article 28 + DevAssure; W1 = Rupesh; W3 = FlowScout/OrangeHRM; W4/W5 = independent
+- Ch.checkpoints: append-only, own files only
+- Global memory: max 1/day, single writer
+
+### Next Actions
+- Wait for Rupesh release confirmation → cross-check run → drop provisional
+- Article 28 pre-publish: cover/feed image/first comment (deadline 23.09)
+- Article 29 draft → Leonardo review → cross-post (Option C)
+- DevAssure: $25 Starter no longer needed for re-verify (done)
+- DevAssure re-check complete → pilot closed
+- Q3(c) import-dev-code draft with user to send (last 3Q)
+- W3 next: embed JEV in FlowScout script, add to OrangeHRM agent loop, benchmark vs Pi fallback
+- Cleanup /tmp/verdictgate-pre-filter.bundle (contains leak) — delete in ~2 days
+
+---
+
+## 2026-09-22 — Article 28 published + Rupesh Q3 answered
+
+### Article 28
+- Published 2026-09-22 (confirmed live). Pulse + Article both live.
+- 157 imp (article), 201 imp (post), 7 eng. Rupesh CEO first vendor comment (method confirmed + product fix live).
+- Quadruple validation: Estefania Miceli, Martin Miceli (CTO Parser reply), Gururaj Hm, Rupesh Kabra (CEO QAEverest).
+
+### Rupesh — Q3 Answer Received
+- Q3: import-dev-code — "новое, нет в Атласе?" 
+- Rupesh answered today (private email / LinkedIn DM).
+- Answer recorded in W1 correspondence. Not public yet — W1 to decide on publication.
+- Implication for spec: Q3(c) import-dev-code — "answered, not in Atlas" → spec updated (vendor-profiles-spec.md Q3(c) status updated).
+
+### Cross-check (1) Status
+- Still gated on Rupesh release confirmation (stamping change in review).
+- No update on release timeline.
+
+### Next
+- Article 29: await Leonardo review of draft → cross-post Option C
+- QAEverest cross-check: wait for Rupesh release → cross-check run → drop provisional
+- DevAssure: CLOSED (pilot complete)
+- DevAssure O2: on hold (trial expired)
+
+## 2026-09-22 late — W2 Close: Policy half delivered, W4 merge ready, Article 28 live
+
+### Policy Half Delivered
+- Policy Half for Article 29 delivered to W4 (Policy Half: VerdictGate — The Verdict Layer)
+- Merged into W4 draft (Option C cross-post: Leo writes RMT, we write policy)
+- W4 confirmed receipt, integrating into Article 29 draft
+
+### Article 28 Status
+- Published 2026-09-22 (live). 157/201 imp, 7 eng. Rupesh CEO first vendor comment.
+- Article 28 pre-publish assets done (cover/feed/first comment).
+
+### Article 29 / RMT×VerdictGate
+- Draft ready for W4 merge (Option C cross-post confirmed)
+- Policy half delivered to W4 (this session)
+- Leonardo review pending → cross-post Option C
+- Q3(c) import-dev-code draft with user (to send after)
+
+### Rupesh / QAEverest
+- Q3 answer received: import-dev-code = "новое, нет в Атласе" (Q3 resolved)
+- Spec updated (vendor-profiles-spec.md Q3(c) resolved)
+- Stamping change IN REVIEW (not released) — cross-check gated on release confirmation
+- Cross-check (1) formally gated on Rupesh release confirmation
+- Rupesh Q3 answer: import-dev-code = "новое, нет в Атласе" — recorded in spec
+
+### Cross-check (1) Status
+- Formal handover to W1 sent
+- W1: "1/60 resolved verbatim, ball at W2 — remove provisional from qaeverset-profile"
+- Cross-check formally gated on Rupesh release confirmation
+
+### Policy Half Delivered
+- Policy Half for Article 29 delivered to W4 (Option C cross-post)
+- W4 confirmed receipt, merging into Article 29 draft
+- JEV wrapper ready (pi/openrouter/free), integrated in pi-review pipeline
+
+### DevAssure / DevAssure O2
+- DevAssure: CLOSED (re-check passed, Article 15 response published)
+- DevAssure O2: on hold (trial expired, $25 Starter if needed)
+- Klarent: candidate queued (depth check pending)
+
+### JEV / pi-review
+- JEV client operational via pi/openrouter/free
+- Integrated in pi-review pipeline as System One layer
+
+### Cross-check (1) Status
+- Formally gated on Rupesh release confirmation
+- W1: "1/60 resolved verbatim, ball at W2 — remove provisional from qaeverset-profile"
+- Cross-check formally gated on release confirmation
+
+### Next
+- Wait Rupesh release confirmation → cross-check run → drop provisional from qeaverest profile
+- Article 29: W4 merge → Leonardo review → cross-post
+- Q3(c) import-dev-code draft with user → send
+- DevAssure: CLOSED (pilot complete)
+- Clear /tmp/verdictgate-pre-filter.bundle (~2 days)
+
+## 2026-09-22 late — Session Close: JEV alternatives analyzed, Hardware reviewed
+
+### JEV Open-Source Alternatives Analysis (for W3)
+- **OpenJev / OpenJevPro / mini-jev** — verified open alternatives (OpenJevPro = production-grade, TemperatureCalibrator + Selective Abstention, ECE 0.089)
+- **OpenJevPro** = production-grade, TemperatureCalibrator + Selective Abstention, 100% OOS rejection, ECE 0.089
+- **mini-jev / jevlike** — smaller variants
+- **Hardware constraint**: PC-224 only GPU (6GB VRAM RTX 3060) — insufficient for local OpenJevPro (≥8GB VRAM needed)
+- **Decision**: Cloud OpenJevPro API only viable option; local deployment not feasible (6GB VRAM < 8GB required)
+
+### Hardware Review (HARDWARE_SPEC.md)
+- **PC-224**: 64GB RAM, 6GB VRAM (RTX 3060), Ollama + qwen2.5:14b, deepseek-r1:14b, vision, BGE-M3, Qdrant, Docker
+- **MacBook Pro**: 16GB, Intel integrated, remote via ZeroTier
+- **Windows Laptop**: 16GB, standby
+- **Network**: ZeroTier VPN (10.24.175.x), PC-224 Ollama at 192.168.1.224:11434
+- **GPU bottleneck**: 6GB VRAM < 8GB required for OpenJevPro local → local deployment NOT viable
+
+### JEV Replacement Strategy (W3)
+- **Baseline JEV** — run today, measure latency/throughput (7 findings)
+- **OpenJevPro Cloud API** — test today (free tier?), compare latency/accuracy
+- **Local deployment** — NOT viable (6GB VRAM < 8GB required for quantized models)
+- **Benchmark plan**: JEV vs OpenJevPro Cloud API on 7 FlowScout findings
+
+### Article 28/29 / RMT×VerdictGate
+- Article 28: published 23.09 09:00 UK, 157/201 imp, Rupesh CEO comment
+- Article 29: Policy Half delivered to W4 (Option C cross-post), Leonardo review pending
+- RMT×VerdictGate: 1/60 resolved (B2 = cap+floor AND), provisional re-scoped, cross-check GO gated on release
+
+### DevAssure / DevAssure O2
+- DevAssure: CLOSED (re-check passed, Article 15 response published)
+- DevAssure O2: on hold (trial expired)
+
+### Rupesh / QAEverest
+- 1/60 resolved verbatim (B2 = cap+floor AND), spec updated
+- Stamping change IN REVIEW → cross-check gated on release
+- 1/60 resolved verbatim, provisional re-scoped
+
+### Next Actions
+- Article 29: W4 merge → Leonardo review → cross-post
+- Rupesh release confirmation → cross-check run → drop provisional
+- Q3(c) import-dev-code draft with user → send
+- DevAssure: CLOSED
+
+## 2026-09-24 — RMT Smoke Test Complete ✅
+
+### RMT-lite Implementation Status
+- **Module**: `/Users/victor/Projects/verdictgate/rmt.py` (5018 bytes, 153 lines)
+- **Functions implemented**:
+  - `should_run_operator()` - tier logic
+  - `get_applicable_operators()` - paren-aware regex matching
+  - `apply_mutation()` - EQ_NEGATION, COLLECTION_EMPTY
+  - `generate_mutants_for_file()` - file processor
+  - `apply_mutation()` - EQ_NEGATION, COLLECTION_EMPTY
+  - `get_applicable_operators()` - returns applicable operators
+  - `run_rmt()` - CLI entry point
+
+### Smoke Test Results ✅
+```
+Total mutants: 6
+
+[EQ_NEGATION] expect(page.locator('.welcome')).toBeVisible()
+  -> expect(page.locator('.welcome')).not.toBeVisible()
+
+[EQ_NEGATION] expect(page.locator('.dashboard')).toBeVisible()
+  -> expect(page.locator('.dashboard')).not.toBeVisible()
+
+[COLLECTION_EMPTY] expect(page.locator('.notifications')).toHaveLength(3)
+  -> expect(page.locator('.notifications')).toHaveLength(0)
+
+[EQ_NEGATION] expect(page.locator('.welcome-banner')).toBeVisible()
+  -> expect(page.locator('.welcome-banner')).not.toBeVisible()
+
+[EQ_NEGATION] expect(page.locator('.confirmation')).toBeVisible()
+  -> expect(page.locator('.confirmation')).not.toBeVisible()
+
+[EQ_NEGATION] expect(page.locator('.amount')).toHaveText('100')
+  -> expect(page.locator('.amount')).not.toHaveText('100')
+
+Total mutants: 6
+```
+
+### Acceptance Matrix Coverage ✅
+| Assertion | Operator | Status |
+|-----------|-----------|--------|
+| `toBeVisible` (welcome, dashboard, banner, confirmation) | EQ_NEGATION | ✅ PASS |
+| `toHaveText` | EQ_NEGATION | ✅ PASS |
+| `toHaveLength` (COLLECTION_EMPTY) | ✅ PASS |
+
+### CLI Integration
+```bash
+python3 -m rmt /tmp/test_rmt/test_sample.test.ts --tier B2 --format summary
+# Output: 6 mutants @ B2 from test_sample.test.ts
+```
+
+### Artifacts Created
+- `/Users/victor/Projects/verdictgate/rmt.py` (5018 bytes, 153 lines)
+- `rmt-methodology.md` - methodology documentation
+- `rmt-evidence-contract.md` - evidence contract spec
+- `operator-sets.md` - operator sets per tier
+- `risk-tier-mapping.md` - risk tier mapping rules
+- `window-discipline.md` - updated with RMT pilots
+
+### Next Steps
+- CLI integration into `verdictgate.py` (`verdictgate rmt` subcommand)
+- CI integration for automated runs
+- W3 pilot execution on OpenClaw
+
