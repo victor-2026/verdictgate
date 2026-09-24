@@ -437,3 +437,43 @@ Verification: `payment-critical-fail` → B0 FAIL exit 1 (no KeyError) · `web-l
 B0/B1/B2 PASS exit 0 · `noop-row` → exit 2 · `mass-e-signal`, `demo-math` → PASS ·
 `rmt` summary/json/csv + exit 0/2 + recursive scan + `--exclude` all green.
 
+---
+
+## 2026-09-24 — RMT review + approved fixes (0132533)
+
+Review scope: smokes, statuses, docs, pilot-vs-full limitations. Read-only probe of
+W3 pilot target (OpenClaw checkout in company/pilots — no writes across boundary).
+
+### OpenClaw target reconnaissance (read-only)
+- UI specs are **Vitest + jsdom**, not Playwright runner — but RMT is text-based
+  (`expect(...).matcher(...)`), so runner-agnostic by construction.
+- `expect.soft`: **320 occurrences, 20+ files — B2 confirmed critical**, not hypothetical.
+  `expect.soft(x).toHaveLength(` present (multiline form) → soft support required.
+- Playwright-family matchers present: 128 `toBeVisible(`, 38 `toHaveText(`, 3 `toBeHidden(`,
+  ~2500 `toHaveLength(non-zero)` mutatable.
+- **1101× `toHaveLength(0)`** → without B1 guard, ~1100 no-op mutants. B1 confirmed essential.
+- **NEW B5 (not approved, needs decision): 29 `expect.element().toBeVisible()` chains
+  in 11 files MISSED** — scanner resolves matcher to the `element` hop, skips the row.
+  ~28% of the toBeVisible surface. Fix = generic chain-unwrap (~10 lines). Awaiting approval.
+
+### Shipped (0132533, pushed)
+- **B1** NO-OP guard: skip `mutated == original` in `generate_mutants_for_file`.
+- **B2** `expect.soft(...)` prefix: `expect(?:\.soft)?\(`.
+- **B3** documented: `--tier B3` = no-seed by design (help text + OPERATOR_SETS note).
+- **B4** dropped: no-op `--out-dir` removed from `verdictgate rmt` (stdout only).
+- **Docs:** LIMITATIONS L1–L8 in rmt-methodology.md (pilot scope upfront); phantom
+  `--operators-*` flags removed, sampling marked planned (operator-sets.md);
+  Principles dedup + suite_result pass/fail + real operators in CSV example
+  (self-validated: parses, B0 FAIL as designed) + current CLI (evidence-contract);
+  malformed requirements example fixed (risk-tier-mapping.md); heredoc tails stripped (all 4).
+- rmt.py docstring updated (soft + NO-OP guard + integrated CLI status).
+
+### Verification (all green)
+- RMT tiers B0/B1/B2/B3: 5/5/6/0 · edge file 3 (no-op gone, soft caught) ·
+  json/csv/summary + exit 0/2 · all 5 verdict examples unchanged behavior.
+- Sizes: all files ≤ 32 KiB (verdictgate.py 32750 B — 18 B under the cap, watch on next edit).
+
+### Next
+- Decision on **B5 `expect.element` chain-unwrap** (recommend: do it, ~10 lines, pilot target).
+- Then: W3 pilot on OpenClaw (`verdictgate rmt <specs> --tier B2`).
+
