@@ -633,6 +633,18 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — W3 Slot-2 RECEIVED and SEALED (values unread)
+
+Relayed via owner, integrity-checked blind (25/25 ids exact, all rows labeled,
+schema OK — no per-item values read). Sealed at `reviews/slot2-w3-sealed.json`
+(gitignored, never committed). W3 attached a cover note with a class-imbalance
+flag for the comparison stage — acknowledged, sealed with the file, NOT recorded
+here (public repo; embargo). Ball now with Victor: his 25 pending
+(`reviews/slot2-victor-working.json`). On his submission → kappa → comparison
+publication → W3 merges all 30.
+
+---
+
 ## 2026-09-25 — Merge verdict: PAIR APPROVED (W3, 207b8a8)
 
 W3 merge: qwen2.5:3b 69/90 (76.7%, 7 misses) vs qwen3:4b 81/90 (90.0%, 3 misses).
