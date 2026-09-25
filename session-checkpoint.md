@@ -633,6 +633,35 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Aamir 0.2.44 rerun: W2 methodology sign-off (execution: W3)
+
+W1 intel: current 0.2.44 vs pinned 0.2.40 (4 releases since 07.09), launcher stub
+identical (engine from GitHub), 17.09 ORS-ranking fix hits our open questions
+(2×2 ranking, renormalization), new credibility/proof measurements, 09.09 key
+hygiene. Rerun allowed by protocol; order rerun → delta → nudge (pull > push).
+
+W2 protocol (binding on the rerun):
+1. Pin SHA, not tag — record engine commit hash (tags move, SHAs don't) + date.
+2. Same-tree or documented delta — spec-tree hash must match 09-09, else the
+   delta confounds engine change with spec change.
+3. Baseline frozen — 0.2.40 results untouched; 0.2.44 = separate version-stamped
+   batch (one batch = one version, same rule as RMT).
+4. Pre-register closure mapping — which open questions this rerun CAN close
+   (ranking cases: previously-failing now pass?) vs CANNOT (new credibility/
+   proof surface: characterize only, no verdict without baseline).
+5. Regression direction — previously-passing probes must still pass
+   (renormalization must not break what worked).
+6. Determinism — run twice; delta attribution requires flake exclusion
+   (ranking changes can be order-sensitive).
+7. Scope guard — same package, no new probes. New probes = new batch.
+8. Security note verify-only (key removal), not scored.
+
+Hands: W3/main executes (their clone, their zone). W2 verifies the delta pack
+on arrival. Nudge send + wording: W1 (draft endorsed; micro-suggestion: put the
+engine SHA next to the version in [дельта] for precision).
+
+---
+
 ## 2026-09-25 — Vendor #5 for W5: DECLINED for now (parked with trigger)
 
 Question: task W5 to hunt more vendors' local models? Answer: no.
