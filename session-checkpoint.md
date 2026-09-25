@@ -633,6 +633,35 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — UrsaMinor pilot methodology issued (W2, for W3 filing)
+
+Tool: Ursa-Minor-Beta (Jira bug → fixed-check → post back), author Ekaterina
+warm, Monday call = go/no-go gate. Same M0 family as QAEverest/testRigor/
+FlowScout/qa-cube (mutate → run → killed/survived), decider node llm-2
+(pass/fail/broken) as SUT. Verdict mapping: fail/broken → suite fail (Caught);
+pass on seeded break → Survived (false-PASS). `broken` carries observed note
+with the agent's error quote (error-attribution is W3's call). Scope: llm-2
+decider ONLY — ticket fetch, post-back, studio UI explicitly out (Jira path
+untestable without local Jira; login-hardcode auth meaningless until confirmed).
+
+Load-bearing rules: (1) baseline distribution not point — llm-2 is
+non-deterministic, ≥3 smoke repeats before mutation, else flake reads as signal;
+(2) each mutant ≥2 runs, inconsistency → re-run/observed-only, never silent
+majority-hide; (3) SHA-pin the beta (tags move; beta drifts mid-pilot otherwise);
+(4) cost cap pre-registered (paid OpenAI × mutants × repeats; hit → stop +
+partial report); (5) Monday gate pre-registered: key decided + Jira workaround
+viable + setup done + baseline recorded, else no-go (no sunk-cost drift);
+(6) relationship guard: joint-experiment framing, no public numbers without
+Ekaterina's consent (verdictgate repo is public; pilot data stays private).
+
+Risks R1 cost overrun · R2 LLM flake-as-signal · R3 beta drift · R4 Jira block ·
+R5 relationship (warm, no pitch) · R6 hardcode-auth scope · R7 call drift.
+Limits L1 decider-only · L2 small-N (provisional bands) · L3 budget-capped N ·
+L4 version-bound results · L5 verdicts are per-run records (scoring is
+deterministic, the SUT is not — state both in the report).
+
+---
+
 ## 2026-09-25 — Hygiene freeze + void classes adopted (W5 protocol input)
 
 W2 confirms entry into protocol (W3/W5 append the lines to the plan-doc freeze
