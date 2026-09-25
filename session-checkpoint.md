@@ -643,6 +643,26 @@ Actual bottleneck now: Phase A labeling slots (Slot 1 unconfirmed).
 
 ---
 
+## 2026-09-25 — Q2 RATIFIED with two annotations (W3 proposal a9870b0)
+
+Proposal verified line by line: all triggers pre-gold observable (T4 flagged
+to-implement, honest); T3 math checks (0.3 × 240 ≈ 72×, ~3× cheaper than
+escalate-all); overfit warning + append-only + T4 mitigation present; three
+Phase B gates numeric and falsifiable (40% rate / escaped-miss / 100× cost).
+
+Annotation 1 (attribution correction): "T3 catches 7/7" reads as union.
+Per-trigger: T1→B0-12 (invented), T3→other six (04/08/16/23/29/30, with 04+29
+both →Pending_transfer). Recorded as T1:1/7, T3:6/7, union 7/7 — matters for
+the catch-gate (an escape past T3 but inside T1 still counts union-caught).
+
+Annotation 2 (validity mapping, closes Q2 fully): approved bars (10pp / FP ≤15% /
+P0-miss=0) apply to the ROUTED PAIR output vs gold in Phase B, not to workhorse
+alone. Trigger gates are early aborts inside that measurement, not substitutes.
+
+Q2 CLOSED. Critical path unchanged: Phase A Slot 1.
+
+---
+
 ## 2026-09-25 04:41 — Session checkpoint (routine)
 
 Covers f1f34e1 → now. No code changes since the freeze acceptance.
