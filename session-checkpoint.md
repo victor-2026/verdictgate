@@ -611,6 +611,25 @@ relabel per guideline. Awaiting slot confirmation.
 
 ---
 
+## 2026-09-25 04:41 — Session checkpoint (routine)
+
+Covers f1f34e1 → now. No code changes since the freeze acceptance.
+
+- **CI green proven end-to-end:** `gh run list` shows 2× success (10–11s) on the
+  shim + CI-fix pushes vs failure on the prior commit. CLI-contract diagnosis
+  confirmed by inversion. (Reported in chat; recording here for the log.)
+- **Gold-labeling Q&A answered:** who (W3 + Victor blind, W2 arbiter), where
+  (pilots/Jev, nothing existed yet at question time), blocker (W3 freezes the
+  30-finding set first) — superseded by the freeze package + START above.
+- **Pre-filter bundle deleted** (`/tmp/verdictgate-pre-filter.bundle`, 241K
+  pre-scrub leak text — overdue since 09-20, removed 09-24).
+- **Standing by:** Slot 1 confirmation (Victor + W3) · verdict-pack text on W4
+  request (gated on Leonardo) · batch #2 execution (W3, engine 0.1.0) ·
+  effectiveness recheck DUE 2026-10-17.
+- Tree clean, all pushed. Head: f1f34e1.
+
+---
+
 ## 2026-09-24 — CI red: broken CLI contract fixed (5e584ee)
 
 08b158b moved CLI to subcommands while CI (15 calls) and users still invoked
