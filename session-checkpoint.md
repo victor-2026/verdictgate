@@ -814,3 +814,25 @@ task (Banking77 near-neighbor + label-set gap), not the models. Q3 CLOSED, no
 follow-ups. (Note: this file is append-only; section order is write order, not
 chronological — see git log for sequence.)
 
+---
+
+## 2026-09-25 — CORRECTION to Q3 record + Gemma diversification (W5 Gemma run)
+
+Gemma3:4b: 75/90 = 83.3%, med 0.28s (no thinking tax). B0-23 CAUGHT 3/3
+(Order_physical_card) — sole vendor of four → spots NOT monolithic, B0-23 is
+vendor-specific: diversification PARTIALLY reopened (B0-23 class).
+
+CORRECTION (W2 self-correction, evidence-backed): verified against the frozen
+77-label list — `getting_virtual_card` IS a real label (case-insensitive scoring
+applies). So B0-12 across qwen3/llama/Gemma is NEAR-NEIGHBOR confusion
+(getting_virtual_card vs gold get_disposable_virtual_card), NOT invention.
+True invention (`Get_virtual_card`, no casefold match) is qwen2.5-only; the 3.3%
+rate stands but is vendor-specific. My d91791b claim "identical invented label
+x3 vendors" is WITHDRAWN — the addendum's phrasing conflated the two. The
+task-intrinsic conclusion STANDS (4 vendors converge on the same wrong neighbor),
+now on cleaner grounds: systematic confusion, not shared hallucination.
+
+Implication for pair-mapping (W3's merge call, flagged not directed): Gemma at
+0.28s catches a T3-class confusion → candidate CHEAP escalation path for known
+classes (vs qwen3 24s med). B0-12 remains the standing boundary for all four.
+
