@@ -1162,3 +1162,19 @@ parallel (per W1 decision). Clock starts for the #3-fallback timebox (W1 sets N
 on silence). Next W2 touchpoint: demo probe list on request (if demo scheduled)
 or silence-timeout review.
 
+---
+
+## 2026-09-26 02:57 — Session checkpoint (routine)
+
+No code changes this session; methodology + coordination only. Tree clean, all
+pushed. Head: 63b78b7.
+
+Standing by (no W2 action until triggered):
+- Slot 2: Victor's 25 pending (W3 sealed); then kappa → comparison → merge.
+- Verdict-pack text on W4 request (gated on Leonardo).
+- Batch #2 execution (W3, engine 0.1.0, stamped).
+- Monday gates: UrsaMinor call (go/no-go) · Phase A Slot 1 (unconfirmed).
+- Klarent: demo-request sent, #3-fallback clock ticking (W1 sets N).
+- Aamir: nudge after W2 verification (BLOCKED — package pointer needed from W3).
+- Effectiveness recheck DUE 2026-10-17.
+
