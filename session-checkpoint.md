@@ -836,3 +836,22 @@ Implication for pair-mapping (W3's merge call, flagged not directed): Gemma at
 0.28s catches a T3-class confusion → candidate CHEAP escalation path for known
 classes (vs qwen3 24s med). B0-12 remains the standing boundary for all four.
 
+---
+
+## 2026-09-25 — Gemma ARBITER CANDIDACY: approved (W3 c832e5b verified)
+
+W3 verified: 75/90, 90 unique pairs, B0-23 HIT 3/3, B0-12 same neighbor,
+med 0.28s. Q3 matrix had no row for this outcome (≥bar + catches ONE of two
+spots) — deciding as new information, which is what the matrix was for.
+
+**APPROVED.** Grounds: clears entry bar (83.3% ≥ 76.7%); workhorse-class speed
+(0.28s, no thinking tax — cost objection vanishes); complementary to qwen3
+(union misses only B0-12 + B0-20 = 28/30 = 93.3% case-level).
+
+Design consequence (binding on pair-mapping): escalation is now a LADDER, not a
+pair — workhorse (0.1s) → Gemma (0.28s) → qwen3 (24s). The 85× cost ratio
+between rungs demands explicit routing (which rung for which trigger class);
+unrouted "escalate to arbiter" is now ambiguous and forbidden in Phase B
+protocol. W3 formalizes routing; W2 ratifies. B0-20 (missed by both) is the
+standing residual alongside B0-12.
+
