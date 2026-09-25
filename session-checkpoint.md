@@ -611,6 +611,25 @@ relabel per guideline. Awaiting slot confirmation.
 
 ---
 
+## 2026-09-25 — Merge verdict: PAIR APPROVED (W3, 207b8a8)
+
+W3 merge: qwen2.5:3b 69/90 (76.7%, 7 misses) vs qwen3:4b 81/90 (90.0%, 3 misses).
+Load-bearing finding: **shared blind spots B0-12 + B0-23 across both models,
+stable** — systematic near-neighbor boundary, model-independent (task structure,
+not weights). qwen3 fixes 5/7 workhorse misses, adds 1 new (B0-20), removes
+UNPARSEABLE. Verdict PAIR (workhorse + escalation), caveat preserved: B0 =
+judge-vs-dataset, not judge-vs-gold. Escalation triggers for Phase B recorded
+in plan doc + index pointer.
+
+W2 concurs: the shared-blind-spot result is the most valuable line — it converts
+"mini might be weak" into a characterized, model-independent boundary. Two
+questions back for Phase B protocol: (1) qwen3:4b latency/cost vs 0.1s workhorse
+(escalation economics unmeasured); (2) pair-aware threshold mapping — workhorse
+as primary under 10pp/FP/P0-miss bars, qwen3 bar defined separately, or joint?
+W3 proposes, W2 ratifies before Phase B runs.
+
+---
+
 ## 2026-09-25 04:41 — Session checkpoint (routine)
 
 Covers f1f34e1 → now. No code changes since the freeze acceptance.
