@@ -611,6 +611,28 @@ relabel per guideline. Awaiting slot confirmation.
 
 ---
 
+## 2026-09-25 — Slot 1 DONE: 5 worked examples locked (Victor session)
+
+Joint calibration with Victor (arbiter-facilitated, scaffolding faded 5/5 —
+last two items labeled independently before confirmation):
+
+- **H3** (external-link): NOISE + fp=true (rules 4+5). Worked jointly.
+- **H7** (external-link, vendor): NOISE + fp=true. Victor independent. Mechanics repeat confirmed.
+- **E2** (dismissed-transient, S2): NOISE + fp=true (rule 2, both conditions verified by live inspection of adjacent clipboard assertion :58 covering :59).
+- **U10** (validation-quirk): NOISE + fp=true (rule 3). Rejected alternative recorded: P2-reading loses (rests on speculative fragility "if required removed", not observed; cf. rule-7 spirit).
+- **E5** (survived-negation, S5): **P2 + fp=false** (rule 5, file-it). Victor's reasoning accepted over arbiter's NOISE lean: asserted visibility = specified requirement; negation passing = requirement unenforced = cosmetic-functional defect. Function works → not P1.
+
+Precedent rules established (guide the remaining E-items):
+- **R1:** survived negation + NO adjacent enforcement → P2 (file-it).
+- **R2:** survived negation + adjacent stable coverage → NOISE (rule 2).
+- E2 vs E5 is the clean R1/R2 split: clipboard assertion covers :59; nothing covers avatar content at :255.
+
+Recording rule: worked-5 resolutions live HERE (not in gold fields — excluded from kappa by design). W3 merges all 30 into gold-n30.json once (worked 5 converged + 25 post-kappa/arbitration); W2 verifies before Phase B.
+
+Slot 2 OPEN: remaining 25 items, independent, private copies, separate submission to W2 (format per item: severity + fp + one-line note + pointer), embargo until W2 publishes comparison. W3 takes the same order via relay.
+
+---
+
 ## 2026-09-25 — Merge verdict: PAIR APPROVED (W3, 207b8a8)
 
 W3 merge: qwen2.5:3b 69/90 (76.7%, 7 misses) vs qwen3:4b 81/90 (90.0%, 3 misses).
