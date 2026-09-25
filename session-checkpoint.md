@@ -796,3 +796,21 @@ Standalone output unified to N-file(s) form; W3 campaign contract verified safe
 Sizes: verdictgate.py 32750 → 29930 B; rmt.py 9218 B. Full smoke green
 (standalone + verdictgate rmt + all 4 verdict examples, exit codes intact).
 
+---
+
+## 2026-09-25 — Q3 CLOSED row-4: spots task-intrinsic (W3 addendum df9e447)
+
+Addendum verified line by line: 63/90 = 70.0% < 76.7% bar → rejected; 90/90
+unique pairs; B0-12 NOT caught (THIRD vendor invents the identical
+`Get_virtual_card` — same hallucinated label across weights); B0-23 NOT caught
+(same `Get_physical_card`). Outcome-matrix cell 4 applied correctly. New Llama
+miss families recorded, NOT merged into T3 (workhorse-calibrated; arbiter path
+untouched) — annotations honored. Latency 0.09/0.17/20.09 (no thinking tax).
+
+Strongest line: identical invented label from three vendors' weights turns the
+contamination annotation into the decisive argument — memorization predicted
+catching, yet all three invent the same non-existent label. Boundary is in the
+task (Banking77 near-neighbor + label-set gap), not the models. Q3 CLOSED, no
+follow-ups. (Note: this file is append-only; section order is write order, not
+chronological — see git log for sequence.)
+
