@@ -1153,3 +1153,12 @@ next touchpoint is Monday call outcome (go/no-go).
 3. **Cost-per-run — linkage:** ответ питает мой R1 cost cap напрямую; попросить цифру в $/прогон, не "дешево/дорого".
 4. **Граница:** license/GTM/design-partners/pricing — территория W1 (поправка дисциплины). W4-список хорош как черновик; финальную редакцию call-вопросов смотрит W1 до понедельника (commercial final word).
 
+---
+
+## 2026-09-26 — Klarent demo-request SENT (owner, 02:56)
+
+Evaluator framing + findings/notice offer via their demo channel; waitlist in
+parallel (per W1 decision). Clock starts for the #3-fallback timebox (W1 sets N
+on silence). Next W2 touchpoint: demo probe list on request (if demo scheduled)
+or silence-timeout review.
+
