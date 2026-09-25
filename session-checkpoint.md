@@ -630,6 +630,19 @@ W3 proposes, W2 ratifies before Phase B runs.
 
 ---
 
+## 2026-09-25 — qwen3 branch closed: 81/90, thinking tax ×240 (W5 + W3 agree)
+
+W5 stitched the full set from incremental saves (no new calls): 90/90 unique
+pairs, final 81/90 = 90.0%, misses B0-12/B0-20/B0-23 all 3/3 stable. Latency:
+min 7.5s / med ~24s / max 461s. W3 independently confirmed (dedup + count +
+misses match). Q1 answered by data: escalation economics = ×240 median
+(~36 min per 90-batch vs 13.2s workhorse) with a 461s tail — escalation triggers
+are load-bearing, not decorative; qwen3-over-everything is ~170× batch cost.
+Q2 (pair-aware threshold mapping) still open — W3 proposes before Phase B.
+Actual bottleneck now: Phase A labeling slots (Slot 1 unconfirmed).
+
+---
+
 ## 2026-09-25 04:41 — Session checkpoint (routine)
 
 Covers f1f34e1 → now. No code changes since the freeze acceptance.
