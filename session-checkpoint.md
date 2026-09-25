@@ -1123,6 +1123,18 @@ list on request.
 
 ---
 
+## 2026-09-25 — Klarent decision: #2 + waitlist parallel (W1)
+
+W1: demo-request via official funnel (not cold) + silent waitlist in parallel.
+Guard recorded verbatim: vendor-managed demo = recon ONLY, never counts toward
+the pilot; scoring runs ONLY on evaluator/sandbox access. Matches W2's mode
+caveat exactly — no divergence to reconcile. Draft (their demo channel,
+evaluator framing + findings/notice offer) is W1's wording call — endorsed as
+consistent, no edits from W2. Send: owner/W3 (not W2 — no outreach sends from
+this window). Timebox for #3 fallback still open (W1 sets N on silence).
+
+---
+
 ## 2026-09-25 — UrsaMinor methodology filed VERIFIED (W3 1f5565f)
 
 Spot-checked read-only: three load-bearing points verbatim (distribution +
