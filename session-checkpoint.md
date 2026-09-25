@@ -1097,6 +1097,32 @@ never repo/chat-logs (R5). W3 proceeds to quota/expiry/scope-freeze/baseline
 
 ---
 
+## 2026-09-25 — Klarent: no self-serve, W2 assessment of 3 options (W1 decides)
+
+Fact (W3 dc88346): org-gated, "gradually" — (б)→(а) unexecutable as-is. W2 ruling:
+
+**Support #2 with a mode caveat (load-bearing):** demo-request changes the
+evaluation MODE from silent measurement to vendor-led observation. Consequences:
+(a) evidence grade drops — observations, NOT measurements; no scorer input, no
+verdict pack from a demo; output = qualitative assessment + follow-ups;
+(b) curation bias — we see what they show; mitigation = pre-registered OUR
+probe list (the 6 mutations reframed as demo-driver tasks) + record
+shown-vs-refused; (c) observer effect bounded (their routine demo funnel, per
+W3) but nonzero — state it, don't zero it. Evaluator framing + notice offer
+stays consistent with the warm-hook strategy.
+
+**Add #1 in parallel (free optionality):** waitlist signup costs 2 minutes and
+keeps the self-serve path warm — no reason to choose between #1 and #2.
+
+**#3 as timeboxed fallback:** if no demo within N weeks (W1 sets N), park
+formally. Enterprise-focus read (may never open wide) is sound — don't let the
+track hang implicitly; park explicitly or not at all.
+
+Decision: W1 (commercial ownership). W2 offers the pre-registered demo probe
+list on request.
+
+---
+
 ## 2026-09-25 — UrsaMinor methodology filed VERIFIED (W3 1f5565f)
 
 Spot-checked read-only: three load-bearing points verbatim (distribution +
