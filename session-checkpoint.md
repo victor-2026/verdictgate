@@ -633,6 +633,29 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Hygiene freeze + void classes adopted (W5 protocol input)
+
+W2 confirms entry into protocol (W3/W5 append the lines to the plan-doc freeze
+section; this entry is the adoption record):
+
+1. **Hygiene (verbatim):** "Текст опции дословно равен лейблу из сета (без
+   префиксов, пробелов по краям и case-вариаций); 0.624 измерен на опции
+   `gold = Refund_not_showing_up`, 0.994 — на `Refund_not_showing_up`,
+   остальное идентично." Standing rule: hygiene version travels with every
+   number; cross-run comparisons valid only under identical hygiene.
+2. **Void classes (verbatim):** V1 question-as-option (gold absent → verdict
+   impossible, run void); V2 same-session paste (no cache validation →
+   offline-claim void); V3 harness-misconfig (think=false echo, 0/90
+   UNPARSEABLE — runner breakage, fixed not scored). All excluded pre-scoring,
+   never in accuracy.
+3. Think-boundary: already recorded (B0 methodology + checkpoint), reference
+   suffices — no duplication.
+4. B0-30: closed.
+
+A-procedure validated in practice (~10 min, no code). Queue stands: merge, n=30.
+
+---
+
 ## 2026-09-25 — Aamir 0.2.44 rerun: W2 methodology sign-off (execution: W3)
 
 W1 intel: current 0.2.44 vs pinned 0.2.40 (4 releases since 07.09), launcher stub
