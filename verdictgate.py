@@ -570,10 +570,21 @@ def main():
     rmt_parser.add_argument("--format", choices=["json", "summary", "csv"], default="summary", help="output format (stdout)")
     rmt_parser.add_argument("--exclude", default="node_modules", help="comma-separated directories to exclude from recursive scan")
 
+    # Backward-compat shim (pre-subcommand CLI, broke in 08b158b): a bare
+    # `verdictgate.py results.csv ...` must still route to `verdict`.
+    # argparse rejects an unknown subcommand at parse time, so the old
+    # post-parse default never fires — insert before parsing instead.
+    if (
+        len(sys.argv) > 1
+        and sys.argv[1] not in ("verdict", "rmt", "-h", "--help")
+        and not sys.argv[1].startswith("-")
+    ):
+        sys.argv.insert(1, "verdict")
+
     args = ap.parse_args()
 
     if not hasattr(args, 'command') or args.command is None:
-        # Default to verdict command for backward compatibility
+        # No-arg invocation: default to verdict (then fails on missing results).
         args.command = "verdict"
 
     if args.command == "verdict":

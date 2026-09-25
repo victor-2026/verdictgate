@@ -14,25 +14,25 @@ jobs:
           python-version: "3.12"
 
       - name: Clean pass (demo-math) - expect exit 0
-        run: python3 verdictgate.py examples/demo-math/results.csv --out-dir /tmp/vg
+        run: python3 verdictgate.py verdict examples/demo-math/results.csv --out-dir /tmp/vg
 
       - name: Pass with signals (web-login) - expect exit 0
-        run: python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg
+        run: python3 verdictgate.py verdict examples/web-login/results.csv --out-dir /tmp/vg
 
       - name: Golden verdict - web-login
         run: |
-          python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/gold-web
+          python3 verdictgate.py verdict examples/web-login/results.csv --out-dir /tmp/vg/gold-web
           diff /tmp/vg/gold-web/results.verdict.json examples/web-login/expected.verdict.json
 
       - name: Golden verdict - demo-math
         run: |
-          python3 verdictgate.py examples/demo-math/results.csv --out-dir /tmp/vg/gold-math
+          python3 verdictgate.py verdict examples/demo-math/results.csv --out-dir /tmp/vg/gold-math
           diff /tmp/vg/gold-math/results.verdict.json examples/demo-math/expected.verdict.json
 
       - name: Hard gate fail (payment-critical) - expect exit 1
         run: |
           set +e
-          python3 verdictgate.py examples/payment-critical-fail/results.csv --out-dir /tmp/vg/fail
+          python3 verdictgate.py verdict examples/payment-critical-fail/results.csv --out-dir /tmp/vg/fail
           code=$?
           set -e
           [ "$code" -eq 1 ]
@@ -40,7 +40,7 @@ jobs:
       - name: No-op rejected pre-seed - expect exit 2
         run: |
           set +e
-          python3 verdictgate.py examples/noop-row/results.csv --out-dir /tmp/vg/noop
+          python3 verdictgate.py verdict examples/noop-row/results.csv --out-dir /tmp/vg/noop
           code=$?
           set -e
           [ "$code" -eq 2 ]
@@ -58,7 +58,7 @@ jobs:
             done
           }
           expect() { # $1=file $2=expected-exit
-            set +e; python3 verdictgate.py "$1" --out-dir /tmp/vg/b >/dev/null 2>&1; code=$?; set -e
+            set +e; python3 verdictgate.py verdict "$1" --out-dir /tmp/vg/b >/dev/null 2>&1; code=$?; set -e
             [ "$code" -eq "$2" ] || { echo "FAIL: $1 expected exit $2 got $code"; exit 1; }
           }
           mkb2 /tmp/b2a.csv 3 0 "";       expect /tmp/b2a.csv 0
@@ -71,31 +71,36 @@ jobs:
 
       - name: Mass-E signal example (B2, exit 0 with signal)
         run: |
-          python3 verdictgate.py examples/mass-e-signal/results.csv --out-dir /tmp/vg/me
-          python3 verdictgate.py examples/mass-e-signal/results.csv --out-dir /tmp/vg/me --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert any('mass-equivalent' in s for s in v['tiers']['B2']['signals']), 'mass-E signal missing'"
+          python3 verdictgate.py verdict examples/mass-e-signal/results.csv --out-dir /tmp/vg/me
+          python3 verdictgate.py verdict examples/mass-e-signal/results.csv --out-dir /tmp/vg/me --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert any('mass-equivalent' in s for s in v['tiers']['B2']['signals']), 'mass-E signal missing'"
 
       - name: Fail on unexercised (B0/B1 empty tiers)
         run: |
           set +e
-          python3 verdictgate.py examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu >/dev/null 2>&1
+          python3 verdictgate.py verdict examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu >/dev/null 2>&1
           code=$?
           set -e
           [ "$code" -eq 1 ]
-          python3 verdictgate.py examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert v['unexercised_policy_applied'] is True"
+          python3 verdictgate.py verdict examples/demo-math/results.csv --fail-on-unexercised --out-dir /tmp/vg/fu --json | python3 -c "import json,sys; v=json.load(sys.stdin); assert v['unexercised_policy_applied'] is True"
 
       - name: Requirements cross-check (pass + laundering refused)
         run: |
           printf 'behavior_name,risk_tier,acceptance_criteria,description\nValid login shows welcome,B0,crit,desc\n' > /tmp/req-ok.csv
           printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,Valid login shows welcome,id_change,B0,Y,fail,,\n' > /tmp/req-t.csv
-          python3 verdictgate.py /tmp/req-t.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rk
-          python3 verdictgate.py /tmp/req-t.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rk --json | python3 -c "import json,sys; assert json.load(sys.stdin)['requirements_checked'] is True"
+          python3 verdictgate.py verdict /tmp/req-t.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rk
+          python3 verdictgate.py verdict /tmp/req-t.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rk --json | python3 -c "import json,sys; assert json.load(sys.stdin)['requirements_checked'] is True"
           printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,Valid login shows welcome,id_change,B2,Y,fail,,\n' > /tmp/req-bad.csv
-          set +e; python3 verdictgate.py /tmp/req-bad.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rb >/dev/null 2>&1; code=$?; set -e
+          set +e; python3 verdictgate.py verdict /tmp/req-bad.csv --requirements /tmp/req-ok.csv --out-dir /tmp/vg/rb >/dev/null 2>&1; code=$?; set -e
           [ "$code" -eq 2 ]
 
       - name: Determinism - same input, byte-identical output
         run: |
-          python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d1
-          python3 verdictgate.py examples/web-login/results.csv --out-dir /tmp/vg/d2
+          python3 verdictgate.py verdict examples/web-login/results.csv --out-dir /tmp/vg/d1
+          python3 verdictgate.py verdict examples/web-login/results.csv --out-dir /tmp/vg/d2
           diff /tmp/vg/d1/results.verdict.json /tmp/vg/d2/results.verdict.json
           diff /tmp/vg/d1/results.verdict.md /tmp/vg/d2/results.verdict.md
+
+      - name: Backward-compat shim - old-style CLI without subcommand
+        run: |
+          python3 verdictgate.py examples/demo-math/results.csv --out-dir /tmp/vg/shim
+          diff /tmp/vg/shim/results.verdict.json /tmp/vg/gold-math/results.verdict.json
