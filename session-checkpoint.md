@@ -680,6 +680,38 @@ quote_hash provenance, c60613a attribution) and the open Aamir question
 
 ---
 
+## 2026-09-25 — Rerun VERIFIED: PASS, nudge green-lit (W2, 8/8 points)
+
+Package located (positions-cv-cl-private, unpushed e538e31 — W3's pointer).
+Independent verification, all points:
+
+1. SHA pin ✓ (e4c4b38 pre-registered; manifested consequences match claimed
+   engine diff — stronger than re-diffing tarballs).
+2. Same-tree ✓ (documented isolated worktree; cross-file consistency supports;
+   worktree removed so direct re-check impossible — recorded).
+3. Baseline separation ✓ (3 frozen dirs, graph+rtm+coverage each).
+4. Closure mapping honored ✓ (C1/C2/C3 closed as claimed; H1/H2/H3 kept to
+   characterize-only — Python 16=16 identical sets, no verdict creep).
+5. Reverse direction ✓ (487=487 nodes; 113=113 behaviors BOTH reports; Proven 0
+   both; top-10 order+scores identical incl. #3 61.2 > #4 61.1).
+6. Determinism ✓ (A vs B: exactly 17 diffs, ALL wall-clock — created_at,
+   updated_at, 15× last_verified. Structural walk, definitive).
+7. Scope guard ✓ (110=110 RTM rows, no new probes).
+8. Security ✓ (verify-only accepted; nothing in data contradicts).
+
+THE delta verified row-level: ClaimPage quartet Candidate→Associated in rtm.md;
+exactly +16 edges (8 TESTED_BY + 8 COVERS, all hard, all quote_hash, all Claim);
+c60613a attribution coherent. Nit (non-blocking): mapping C2 says "122
+behaviors" vs measured 113 — pre-run estimate typo, harmless (identical across
+runs); suggest one-line correction.
+
+**Verdict: PASS. Nudge green-lit** with the open question as drafted (static-edge
+promotion intended semantics? + 17.09 ORS-framing question). Push: YES — local
+e538e31 must land in positions-cv-cl-private; lineage demands durability beyond
+the worktree (nudge itself needs no repo access).
+
+---
+
 ## 2026-09-25 — Vendor #5 for W5: DECLINED for now (parked with trigger)
 
 Question: task W5 to hunt more vendors' local models? Answer: no.
