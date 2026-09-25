@@ -1050,6 +1050,17 @@ depend on it.
 
 ---
 
+## 2026-09-25 — UrsaMinor methodology filed VERIFIED (W3 1f5565f)
+
+Spot-checked read-only: three load-bearing points verbatim (distribution +
+majority-hide ban; llm-2-only mapping with broken-observed rule; Monday gate +
+SHA/cost/relationship); R1–R7/L1–L5 by canon-pointer (no duplication drift);
+oracle/decoy-consent/cost frames + W1/W4 boundary recorded as-is; index open
+item references the gate. Commit confirmed in log. W2 filing review CLOSED —
+next touchpoint is Monday call outcome (go/no-go).
+
+---
+
 ## 2026-09-25 — UrsaMinor Monday call: W2 additions to W4 questions
 
 1. **Oracle — главный вопрос, усилить:** не просто "где oracle", а рамка "мы приносим oracle" (mutation matrix как внешняя верификация их агента) — это и есть joint-experiment lane W1. Их ответ классифицирует зрелость: eval harness с gold → говорим на одном языке; только ручная сверка → наш seeded break и есть их первый настоящий eval (позиционировать как ценность, не аудит).
