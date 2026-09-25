@@ -1078,6 +1078,25 @@ out of scope; compliance ≠ test quality).
 
 ---
 
+## 2026-09-25 — Klarent M1: public demo endorsed, signup email is owner's call
+
+M1 recon (W3): app.klarent.ai → sign-up, build v1.1.0 stamped. Quotas/expiry
+inside-only (matrix sized then, per R1). Localhost unreachable from SaaS.
+
+W2 ruling — public demo OVER tunnel: reproducible for the vendor (they can
+replay findings on the same demo), no coupling to owner's machine being up,
+Igor's precedent. Tunnel adds flake + security surface + time coupling for
+zero methodology gain. Caveats recorded: demo may reset state mid-matrix
+→ re-baseline if it does; demo build may differ from localhost → findings
+scoped to demo build explicitly, version delta recorded.
+
+Signup email: NOT W2 (agents can't receive verify mail) — owner's inbox,
+owner's call. Hygiene binding on receipt: password manager, env-only creds,
+never repo/chat-logs (R5). W3 proceeds to quota/expiry/scope-freeze/baseline
+3× on account creation.
+
+---
+
 ## 2026-09-25 — UrsaMinor methodology filed VERIFIED (W3 1f5565f)
 
 Spot-checked read-only: three load-bearing points verbatim (distribution +
