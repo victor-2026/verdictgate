@@ -1050,6 +1050,34 @@ depend on it.
 
 ---
 
+## 2026-09-25 — Klarent trial-start methodology (W2; order W1 (б)→(а) endorsed)
+
+Depth check (W3 2488a37): fore ai AG, free self-serve (entry cost zero), annual
+usage license (no public figures), contact info@foreai.co. W1 orders trial
+before outreach (findings = warm hook; cold burns first contact). Endorsed —
+matches Radik/Adam pattern (vendors answer results, not cold asks).
+
+Start methods (W3 executes, files in pilot catalog):
+- M1 trial recon: plan limits/quota/expiry recorded, build version stamped,
+  OrangeHRM reachability from Klarent verified. Size matrix to fit quota.
+- M2 scope freeze (proposed): Login (B0 auth) + Admin user-create (B1 core) +
+  6 pre-registered mutations (testRigor-analogous: label rename, remove button,
+  duplicate label, reorder, CSS class, flow reorder). No scope growth mid-matrix.
+- M3 baseline green 3× recorded before any mutation.
+- M4 matrix 6 × 2 runs (AI-codeless flake rule; split → re-run/observed-only).
+- M5 results.csv live → scorer verdict → findings pack → W1 (fact-check notice
+  + deadline) → outreach. No public numbers pre-notice, ever.
+- Silent phase: zero vendor contact until findings + notice (W1 wording).
+
+Risks R1 quota cutoff mid-matrix · R2 SaaS drift (stamp every run) · R3 flake-
+as-signal (repeats rule) · R4 scope creep (named flows only) · R5 secrets in
+repo (trial creds via env, NEVER committed — repo is public) · R6 first-contact
+burn (W1: no cold) · R7 marketing numbers ($0.30/94%/4.1x excluded — vendor
+claims never enter verdict inputs) · R8 compliance claims unverified (SOC2/ISO
+out of scope; compliance ≠ test quality).
+
+---
+
 ## 2026-09-25 — UrsaMinor methodology filed VERIFIED (W3 1f5565f)
 
 Spot-checked read-only: three load-bearing points verbatim (distribution +
