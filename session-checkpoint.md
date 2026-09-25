@@ -633,6 +633,22 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Vendor #5 for W5: DECLINED for now (parked with trigger)
+
+Question: task W5 to hunt more vendors' local models? Answer: no.
+Grounds: 4 vendors already span Qwen/Meta/Google + Qwen-strong; Q3 closed
+row-4 and Gemma approved — no open hypothesis a fifth vendor would test.
+Marginal value is confirmatory only, while cost (W5 cycles, merge surface,
+decision overhead) taxes the critical path (Slot 1 → Phase B). Shiny-object
+work while the bottleneck waits is how plans slip.
+
+Parked with pre-registered trigger (not dismissed): vendor #5 IFF Phase B
+reveals a gap diversification could fill (e.g., a systematic miss class where
+a new lineage is the remedy), or post-n=30 if the replacement verdict needs a
+broader base. W5 stays on Phase B execution + batch #2 support.
+
+---
+
 ## 2026-09-25 — W3 Slot-2 RECEIVED and SEALED (values unread)
 
 Relayed via owner, integrity-checked blind (25/25 ids exact, all rows labeled,
