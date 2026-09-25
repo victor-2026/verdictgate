@@ -1048,3 +1048,12 @@ the binding table (§Routing) — suggest a one-line supersede note or arrow
 update so a future reader never quotes the stale form. Ratification does not
 depend on it.
 
+---
+
+## 2026-09-25 — UrsaMinor Monday call: W2 additions to W4 questions
+
+1. **Oracle — главный вопрос, усилить:** не просто "где oracle", а рамка "мы приносим oracle" (mutation matrix как внешняя верификация их агента) — это и есть joint-experiment lane W1. Их ответ классифицирует зрелость: eval harness с gold → говорим на одном языке; только ручная сверка → наш seeded break и есть их первый настоящий eval (позиционировать как ценность, не аудит).
+2. **Decoy-ticket — только с явного согласия:** seeding в ИХ Jira/agent без consent = нарушение доверия с warm-автором. Decoy-тикет предрегистрировать (какой тикет, какой break, ожидаемый флип) И получить согласие до, не после. Trust > data.
+3. **Cost-per-run — linkage:** ответ питает мой R1 cost cap напрямую; попросить цифру в $/прогон, не "дешево/дорого".
+4. **Граница:** license/GTM/design-partners/pricing — территория W1 (поправка дисциплины). W4-список хорош как черновик; финальную редакцию call-вопросов смотрит W1 до понедельника (commercial final word).
+
