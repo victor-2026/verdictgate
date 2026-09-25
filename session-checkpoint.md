@@ -663,6 +663,30 @@ Q2 CLOSED. Critical path unchanged: Phase A Slot 1.
 
 ---
 
+## 2026-09-25 — Q3 challenger RATIFIED with three annotations (W3 proposal)
+
+Design: different-vendor challenger (llama3.2:3b first, gemma3:4b backup),
+frozen B0 rerun (90 calls), one question — catches B0-12/B0-23? Entry bar
+≥76.7%. Yes → diversification works; No → task-intrinsic boundary recorded.
+W3 files Q3 addendum, W5 executes. Cost trivial.
+
+Annotation 1 (prompt-fit): frozen prompt was built around Qwen behavior.
+Cross-vendor rerun with the same prompt confounds prompt-fit with capability.
+Resolution: frame the claim operationally — "off-the-shelf different-vendor
+model in our pipeline as-is" (which is what we'd actually deploy), not
+"model capability in the abstract". Record as limitation, not blocker.
+
+Annotation 2 (record regardless): even a sub-bar challenger that catches both
+spots is informative (task-vs-vendor attribution sharpens). Log the 2-spot
+outcome unconditionally; apply the ≥76.7% bar only to arbiter candidacy.
+
+Annotation 3 (contamination): Banking77 (2020) is plausibly memorized by all
+vendors. Harmless here — the design is differential (Qwen-missed spots as
+probe), and memorization would predict catching, making a repeated miss
+STRONGER evidence for task-intrinsic boundary, not weaker.
+
+---
+
 ## 2026-09-25 04:41 — Session checkpoint (routine)
 
 Covers f1f34e1 → now. No code changes since the freeze acceptance.
