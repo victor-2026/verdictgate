@@ -593,6 +593,23 @@ labels as assessor — hence cannot arbitrate).
 
 ---
 
+## 2026-09-24 — CI red: broken CLI contract fixed (5e584ee)
+
+08b158b moved CLI to subcommands while CI (15 calls) and users still invoked
+`verdictgate.py results.csv`. argparse rejects the CSV as `invalid choice`
+(exit 2) at parse time — the post-parse `command=None` default never fires.
+Every push red in ~7–10s regardless of content.
+
+Fix (proper variant): pre-parse shim inserts `verdict` when argv[1] is not a
+subcommand/help/flag; CI moved to new-style calls; one old-style shim-probe
+step kept as compat regression coverage (old≡new verified byte-identical,
+gold files hold). W3 note: their tree is unaffected (other repo), but any W3
+script calling CLI old-style would hit exit 2 — dry-run `verdict` prefix if so.
+No-arg bare call still exits 1 via AttributeError (pre-existing since 08b158b,
+out of scope). CI green expected on this push as end-to-end proof.
+
+---
+
 ## 2026-09-24 — B0 closed: mini survives 77 options (76.7%, systematic errors)
 
 W5 ran the Banking77 handover case (30 queries × 3 runs = 90 measurements):
