@@ -630,6 +630,18 @@ W3 notification recommended now (batch #2 running; merge inputs ready).
 
 ---
 
+## 2026-09-24 — B0 merged by W3 (cbb2be8): cross-window agreement
+
+W3 independently verified: 90 rows, 69/90 = 76.7% **vs gold** (explicitly not vs
+Jev — Jev has no reference on this measurement). Matches W5's number exactly.
+Clusters 3/3 stable + `Pending_transfer` attracts 2 golds (systematic).
+Invented labels 3.3% recorded as constrained-choice limitation. Latency
+consistent with P0 (~0.1s steady). Verdict: good $0 triage layer, not drop-in
+replacement — yes/no open until n=30 + calibration. Merge bottleneck cleared
+(P0 + B0 + cloud all in). Report → W4. W2 concurs on all points; no action.
+
+---
+
 ## 2026-09-24 — P1 gate correction (W4 → Leonardo)
 
 P1 (Article 29 cross-post) is gated on **Leonardo's half**, not W4. W4 writes only
