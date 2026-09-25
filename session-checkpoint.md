@@ -593,6 +593,24 @@ labels as assessor — hence cannot arbitrate).
 
 ---
 
+## 2026-09-24 — Freeze package accepted, labeling START ordered (Phase A)
+
+W3 freeze (commit 5657af2): `gold-n30.json` (30 items, all null, skeleton
+assessor_w3/assessor_victor/agreement + gold_severity/gold_fp + evidence fields),
+`labeling-guideline-v1.md` (48 lines — taxonomy, ordered boundary rules with H9
+test, calibration H3/H7/E2/U10/E5 + kappa ≥ 0.6 gate, blindness with enumerated
+forbidden Jev sources, disclosure on S2/S3 authorship, P0-honesty no-manufacture
+note). W2 spot-check: no objections; joint-session-before-independent is correct
+calibration practice (kappa runs over the 25 independent only).
+
+START command issued: Slot 1 = joint calibration session (5 worked examples,
+~30–45 min, Victor + W3 together) → Slot 2 = independent labeling of remaining
+25 (~1–1.5h each, private copies, separate submission to W2, embargo) → W2
+computes kappa: ≥0.6 locks gold (Phase B), below → reconcile + arbitration +
+relabel per guideline. Awaiting slot confirmation.
+
+---
+
 ## 2026-09-24 — CI red: broken CLI contract fixed (5e584ee)
 
 08b158b moved CLI to subcommands while CI (15 calls) and users still invoked
