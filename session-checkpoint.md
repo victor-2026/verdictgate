@@ -629,7 +629,7 @@ Precedent rules established (guide the remaining E-items):
 
 Recording rule: worked-5 resolutions live HERE (not in gold fields — excluded from kappa by design). W3 merges all 30 into gold-n30.json once (worked 5 converged + 25 post-kappa/arbitration); W2 verifies before Phase B.
 
-Slot 2 OPEN: remaining 25 items, independent, private copies, separate submission to W2 (format per item: severity + fp + one-line note + pointer), embargo until W2 publishes comparison. W3 takes the same order via relay.
+Slot 2 OPEN: remaining 25 items, independent, private copies, separate submission to W2 (format per item: severity + fp + one-line note + pointer), embargo until W2 publishes comparison. W3 takes the same order via relay. Deadline: none — "по готовности" (owner decision 2026-09-25); quality over speed, embargo holds regardless.
 
 ---
 
