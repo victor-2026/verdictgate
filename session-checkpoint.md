@@ -855,3 +855,22 @@ unrouted "escalate to arbiter" is now ambiguous and forbidden in Phase B
 protocol. W3 formalizes routing; W2 ratifies. B0-20 (missed by both) is the
 standing residual alongside B0-12.
 
+---
+
+## 2026-09-25 — Routing RATIFIED with one annotation (W3 3ac6aa9)
+
+Binding table verified: every escalation names its tier (L0→L1→L2, no bare
+"escalate" remains operative); CONF extensionally defined (CAL6 ∪ observed
+neighbors ∪ UNPARSEABLE — "confused" is now membership, not feeling); cost
+83.52 ≈ 84s recomputed OK (6.4× base, far under the 100× gate); termination
+holds (L2 ∈ CONF → record, stop; residuals B0-12/B0-20 capped, ladder does not
+chase); T2-majority weakness already disclosed in-trigger (stability ≠
+correctness); gemma-only-ladder residual risk (B0-20/30) honestly stated with
+Phase B as judge.
+
+Annotation (docs hygiene, non-blocking): lines 8–11 still carry the old bare
+"→ escalate" arrows from the pre-ladder proposal text. They are SUPERSEDED by
+the binding table (§Routing) — suggest a one-line supersede note or arrow
+update so a future reader never quotes the stale form. Ratification does not
+depend on it.
+
