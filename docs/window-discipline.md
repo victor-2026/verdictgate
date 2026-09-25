@@ -6,7 +6,7 @@ Mutation work is cross-cutting; recording is split. One file = one owner.
 
 | Window | Owns (writes) | Must NOT write |
 |---|---|---|
-| W1 Rupesh Commercial | Rupesh/* (Positions-CV-CL outreach tree) | verdictgate/**, 28 draft, Aamir/*, OrangeHRM* |
+| W1 Rupesh Commercial | Rupesh/* (Positions-CV-CL outreach tree) + client×product registry + monetization proposals + per-vendor strategy (stage, next step, owner) + joint promos. Commercial wording/pricing final word stays W1. Other windows feed facts, never negotiate. | verdictgate/**, 28 draft, Aamir/*, OrangeHRM* |
 | W2 Product | verdictgate/** + Article 28 draft + DevAssure pilot (frozen, unassigned elsewhere) | Rupesh/*, Aamir/*, OrangeHRM* |
 | W3 Pilots | company/pilots/** (all pilots) | Rupesh/*, verdictgate/**, 28 draft bodies |
 | W4 Articles | Articles/linkedin-posts/** + Articles/wiki/** + quotes.md (shared bank) | verdictgate/**, pilots/**, outreach/** |
