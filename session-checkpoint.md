@@ -662,6 +662,24 @@ engine SHA next to the version in [дельта] for precision).
 
 ---
 
+## 2026-09-25 — Rerun verification BLOCKED: package not locatable (e538e31)
+
+W3 handover cites commit e538e31 + `evidence/rerun-0.2.44-{baseline-0240,A,B}/` +
+closure-mapping + delta-note. W2 searched (read-only): not in
+OrangeHRM-orangepro-compare (HEAD 49c4358), not in qaeverset-pilot-mini-compare,
+not in OrangeHRM, no `*rerun-0.2.44*` dir on disk, no `closure-mapping` hits in
+pilots/Private trees. Per M1: NO verification fabricated — status BLOCKED.
+
+Needed from W3 (one line): repo + path + pushed? (if unpushed local clone, point
+at the worktree). On receipt, W2 runs the 8-point protocol check (SHA pin,
+same-tree 0ba1749, baseline separation, closure C1/C2/C3 vs H1/H2/H3,
+reverse direction, A==B determinism, scope guard, security note) with special
+attention to the ONE delta (4 RTM rows Candidate→Associated, +16 static edges,
+quote_hash provenance, c60613a attribution) and the open Aamir question
+(static-edge promotion intended semantics?). Nudge waits on verification.
+
+---
+
 ## 2026-09-25 — Vendor #5 for W5: DECLINED for now (parked with trigger)
 
 Question: task W5 to hunt more vendors' local models? Answer: no.
