@@ -656,6 +656,21 @@ A-procedure validated in practice (~10 min, no code). Queue stands: merge, n=30.
 
 ---
 
+## 2026-09-25 — A-test merged PASS (W3 65d1add, W2 concurs)
+
+Line-by-line: Run 1 polluted 0.624 (matches declared hygiene) · Run 2 VOID V1
+correctly excluded · Run 3 clean reload 0.994 replicated · Run 4 offline 0.994
+identical → PASS (offline == online) · generation 0.6/0.4 stable.
+
+W2 notes: (1) The VOID exclusion firing correctly on first contact is the most
+valuable line — the machinery works, not just the verdict. (2) Merge-grade vs
+statistics-grade distinction is exactly right: transcribed chain
+user→chat→W5→file cannot bear statistical weight; recorded as such, usable for
+pass/fail + verbatim only. (3) A-track closed; B-track (binary update + spare
+model pre-departure) still open on W5's side.
+
+---
+
 ## 2026-09-25 — Aamir 0.2.44 rerun: W2 methodology sign-off (execution: W3)
 
 W1 intel: current 0.2.44 vs pinned 0.2.40 (4 releases since 07.09), launcher stub
