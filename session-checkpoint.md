@@ -1504,6 +1504,17 @@ depend on it.
 
 ---
 
+## 2026-09-26 — GLiNER probe VERIFIED (7/7 scored, mapping exact)
+
+Recomputed from the whole file: 7 scored, 0 abstain/UNPARSEABLE; native→mapped
+per protocol exactly (low→NOISE ×5, info→NOISE ×1, critical→P1 ×1 on H3 — the
+pre-registered F3 inversion, sole FP); 6/7 match gold (all-NOISE set). Viability
+pipeline+mapping confirmed, zero measurement claims — RECON discipline held.
+Step 3 awaits separate freeze (P0-reachability re-derivation + medium/high
+review under evidence, both annotations recorded as work items).
+
+---
+
 ## 2026-09-25 — Klarent trial-start methodology (W2; order W1 (б)→(а) endorsed)
 
 Depth check (W3 2488a37): fore ai AG, free self-serve (entry cost zero), annual
