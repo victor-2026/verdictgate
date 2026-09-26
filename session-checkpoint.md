@@ -649,6 +649,22 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — PC as compute home: path 1 vs 2 assessment (W5 proposal)
+
+W5: PC right place (Linux torch 2.8, 12 cores); blocked on access (password
+prompt, no key). Two paths: (1) owner installs by one-liners, W5 directs via
+paste-output loop; (2) owner's one-time SSH key → W5 fully remote.
+
+W2 assessment: path 2 unlocks campaign-grade work; path 1 suffices for
+one-time smoke ONLY under a file-transfer rule (outputs move as WHOLE FILES
+via scp/shared folder, never pasted text — the merge-vs-statistics lesson:
+transcribed chains bear pass/fail, not numbers). Pasted single numbers
+acceptable solely for the computer-tool benchmark probe. Security scope of any
+key (purpose-bound, revocable) is the owner's call — W2 flags, doesn't decide.
+Local RECON continues in parallel regardless (no blocking). Decision: owner.
+
+---
+
 ## 2026-09-26 — 60-run verdict VERIFIED from raw (W3 bc900e1)
 
 Recomputed independently: 81 rows = 21 baselines (all exit 0) + 60 mutant runs
