@@ -661,6 +661,29 @@ doc-level verification awaits Victor's reading. Quote handling (private source
 
 ---
 
+## 2026-09-26 — Leonardo doc verified INDEPENDENTLY (W1 cb1fad8 concurs)
+
+W2 read the 477-line version + grep-verified: ZERO naming (no OpenClaw/agent/
+pilot/case-study matches), ZERO our numbers (no 91.4/8.6/58) — purely
+doctrinal text. Anonymization therefore a PREVENTIVE insertion condition, not
+a text edit. B2 wording (N≥20, 5% band, small-N max-1-with-decision) matches
+framework v0.3 verbatim; B0/B1 zero-tolerance, B3 trend-only match; division
+halves correct. One illustration-table nit (Order→B0 vs our B1-CRUD mapping)
+is pedagogical license, not gate conflict — gates operate on assigned tiers.
+
+Provisional-5% hole (OURS, W1 caught): number must carry status in joint text.
+W2 recommends option 1 — "a limited band — our current default is 5%, still
+being calibrated (recheck due Oct 2026)" — over dropping the number: concrete
+gate + demonstrated honesty beats vague tier-words, and it models the very
+provisional-marking doctrine the article preaches.
+
+Reply package (send W4 draft + 4 points): (1) anonymization as insertion
+condition; (2) 1+2+2 breakdown mandatory; (3) B2-band mechanism (thresholds 5%
+and 0, never 8.6%/91.4%; decisions didn't flip); (4) provisional status of 5%.
+Aphorism stays out of quotes.md until publication link.
+
+---
+
 ## 2026-09-26 — Correction: Victor's Slot 2 DONE (stale "pending" retracted)
 
 Victor flagged it himself: his 25 were submitted, validated 25/25, kappa 0.242
