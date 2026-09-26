@@ -633,6 +633,28 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — Batch #2 hangs: (б) with pre-registered 3-way mapping (W2 ruling)
+
+W3: 2 inconclusive (tooltip:213, wa-controls:46, exit -9 ×2), env alive.
+Ruling: (б) — 3rd run, extended timeout + process capture (~15 min). Decisive
+argument beyond W3's: two consecutive -9s on the SAME mutants smell
+mutant-correlated (infinite loop from negation?), not random infra — closing
+as infra-excluded now could bury a genuine caught-by-crash. The capture
+distinguishes; (a) cannot.
+
+Binding outcome mapping (pre-registered, no post-hoc reading):
+(i) completes → record actual verdict; (ii) hangs again + capture shows
+mutant-correlated loop → Caught (suite red via crash) + observed note with the
+capture pointer; (iii) hangs again + infra cause → infra-excluded: OUT of the
+denominator (like N-scope, Phase-2 precedent), documented — never counted as
+survived, never inflates N. Either way ambiguity dies with this run.
+
+Scope confirmed: top-up = batch #2 verdict artifact (22 killed as controls +
+2-hang decision), zero new mutants. S4-confirmation and 60 app-runs stay
+separate tracks. Execute same-day on W3's side; verdict pack to results/.
+
+---
+
 ## 2026-09-26 — REPLACEMENT VERDICT: REJECTED, three independent grounds (W3 48a89ba)
 
 W2 independently recomputed from raws (verbatim 90 + cloud 30). Table VERIFIED:
