@@ -1714,6 +1714,22 @@ strengthened (mechanism, not just gate observation).
 
 ---
 
+## 2026-09-26 — Registry cross-check CONFIRMS W4 table + Draft 2 endorsed (W4)
+
+W2 independently verified via public npm API: `e2e` 0.1.0 deps-empty (core
+without engines) ✓ · `@testerarmy/e2e` 0.1.1 carries agent-device 0.21.6 +
+@onkernel/sdk 0.68.0 (hard deps bound to provider package, NOT core) ✓ ·
+`@e2edev/web` 0.11.0-canary deps-empty ✓ · `@e2edev/mobile` 0.8.0-canary has
+utility deps (zod/pngjs/agent-device, no engines — substantive match, engines
+still injected). Precision note only, non-blocking.
+
+Draft 2 update ENDORSED with W4's "bill transparently" phrasing: money wall
+named in vendor's words (Kernel/Limrun), rights wall via scoped key, "free"
+absent everywhere. Final wording = W1 (their tree, their send). Two-walls
+model now triple-confirmed (mechanism + registry + architecture).
+
+---
+
 ## 2026-09-26 — TesterArmy rename VERIFIED, one pointer missing (W1 07fc80f)
 
 Verified: no PrimeQA remnants (both trees clean — codename purged correctly);
