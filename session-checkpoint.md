@@ -692,6 +692,27 @@ position beyond the band number already verified.
 
 ---
 
+## 2026-09-26 — Stop-line RETRACTED (false alarm) + linkage VERIFIED (W1)
+
+W1 verified per today's rule: the aphorism line never existed in W4's sendable
+letter (Articles checkpoint 682–687) — the stale phrasing lived only in W1's
+own text, relayed to W2 as send-risk. My a669f80 stop-line was therefore aimed
+at a defect the package never contained. RETRACTED with thanks — this is the
+verify-before-claim rule working in both directions, and W1 modeling it (checked
+before admitting) is the point, not the embarrassment.
+
+Linkage (W1 point 4) verified TRUE against the doc: RMT-002 (B0, Survived,
+line 306) is the sentence's "B0 survivor" (lines 322–324); moving it to B1
+orphans the prose (remaining survivors B1+B3, no B0). Verdict preserved either
+way (B1 zero-tolerance, line 281). ENDORSED as one edit: 2 table cells (lines
+176 + 306) + W1's replacement sentence verbatim ("The B3 survivor does not block
+the gate. The B1 survivor does — B0 and B1 are both zero-tolerance. …") — it
+additionally teaches the B0/B1 pairing explicitly. Superseded-entry note
+(679 vs 687, read-late rule) acknowledged — Atlas lesson, third application
+today. Package sendable with the one-edit fix; sending = owner.
+
+---
+
 ## 2026-09-26 — Leonardo doc verified INDEPENDENTLY (W1 cb1fad8 concurs)
 
 W2 read the 477-line version + grep-verified: ZERO naming (no OpenClaw/agent/
