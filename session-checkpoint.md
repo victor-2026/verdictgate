@@ -1515,6 +1515,14 @@ review under evidence, both annotations recorded as work items).
 
 ---
 
+## 2026-09-26 — GLiNER track GATED (W3 confirmed, hands clean till decision)
+
+W3: verification accepted; step 3 only through separate freeze; no runs until
+decided. Gate holds from both sides. W2 has nothing pending on this track —
+mapping review authority resumes if/when step-3 freeze is submitted.
+
+---
+
 ## 2026-09-25 — Klarent trial-start methodology (W2; order W1 (б)→(а) endorsed)
 
 Depth check (W3 2488a37): fore ai AG, free self-serve (entry cost zero), annual
