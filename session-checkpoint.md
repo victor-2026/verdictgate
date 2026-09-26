@@ -633,6 +633,18 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — Correction: Victor's Slot 2 DONE (stale "pending" retracted)
+
+Victor flagged it himself: his 25 were submitted, validated 25/25, kappa 0.242
+computed, 8 divergences arbitrated, merged into gold-30 (verified 30/30), Phase
+B executed on that gold. COMPLETE — no re-labeling, nothing pending from him.
+My repeated "Slot 2: Victor's 25 pending" lines in later summaries were stale
+boilerplate carried forward unread — retracted with apology. Standing-by lists
+from 33a7e56 onward should have read "Victor: nothing pending". Lesson: status
+lists re-derive from commits, never copy forward.
+
+---
+
 ## 2026-09-26 — 60 runs STARTED: source local-only, API = bonus (W3)
 
 W3: Jev API alive at 05:20 probe (US-hours grace plausible till evening) —
