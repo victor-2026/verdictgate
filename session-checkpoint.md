@@ -1663,3 +1663,23 @@ Standing by (no W2 action until triggered):
 - Aamir: nudge after W2 verification (BLOCKED — package pointer needed from W3).
 - Effectiveness recheck DUE 2026-10-17.
 
+---
+
+## 2026-09-26 06:58 — Session close (W2)
+
+Session scope (single long session 09-24→26): RMT engine completion (CLI,
+B1/B2/B3/B4/B5, stamp 0.1.0, split, CI-shim green) · OpenClaw evidence closure
+(batch #1 B2 FAIL + survivors, batch #2, 60 app-runs 4/10, S4-confirmation) ·
+gold track (Slot 1, Slot 2, kappa 0.242 arbitration, 30/30, Phase B → replacement
+REJECTED 3 grounds) · vendor tracks (Q2/Q3/Gemma/ladder ratified; B0/B-banking
+characterized) · pilots (UrsaMinor + Klarent methodologies, Aamir protocol) ·
+GLiNER (triage → smoke → mapping ratified → probe verified → gated).
+
+Head: c9f7fff. Tree clean, all pushed. No code debt open (verdictgate.py 29930 B,
+split discharged). Open threads (all owned elsewhere): Monday gates (UrsaMinor
+call, Phase A slots) · batch #2 RMT top-up (W3) · 60 app-runs bit (W4) ·
+Klarent silence clock (W1 N) · Aamir package pointer (W3) · Article 29
+(Leonardo) · recheck 10-17. W2 resumes on request: verdict-pack text (W4),
+arbitration (new sets), verification (new packs). Owner away 30h mobile —
+nothing urgent pending.
+
