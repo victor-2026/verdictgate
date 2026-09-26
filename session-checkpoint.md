@@ -694,6 +694,24 @@ replaced relabel, no second kappa round. Worked-5 converged by construction.
 
 ---
 
+## 2026-09-25 — Gold 30/30 VERIFIED, Phase B UNBLOCKED (W3 56f83d3)
+
+Final verification, all green: 30 items, zero nulls; worked-5 + ruled-8 all
+match records; distribution 24/4/1/1 exact; fp⇔NOISE biconditional holds across
+all 30 (guideline §1 mapping coherent end to end — unplanned but welcome
+consistency proof).
+
+Composition: 24 NOISE (incl. 3 controls U5/U6/U9 firing as designed), P2×4
+(E3/E4/H8/E5), P1×1 (H9 agreed), P0×1 (H10 ruled). Class imbalance noted once
+more for Phase B validity reading: a call-everything-noise judge scores 24/30
+by default — discrimination rests on 6 items + the pair-routing behavior.
+
+Phase B unblocked. Execution per frozen plan (bars 10pp/FP≤15%/P0-miss=0 on
+routed-pair output; ladder routing binding; CONF append-only). W2 stands by
+for results; next scheduled entry: Phase B numbers or Slot-1 follow-ups.
+
+---
+
 ## 2026-09-25 — Arbiter clarification (binding): SYSTEM, not test — with bridge rule
 
 Victor's question exposes a guideline gap; ruling it explicitly (applies
