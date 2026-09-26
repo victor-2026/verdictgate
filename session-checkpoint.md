@@ -1541,6 +1541,18 @@ bandwidth. Pipeline is FULL — no new open-ended track without a closed one.
 
 ---
 
+## 2026-09-26 — PrimeQA OSS-smoke EXECUTING as RECON (W3 accepted bounds)
+
+W3 motivation concurs with triage axes (mobile-first + token-transparency cover
+two blind spots; MIT removes all gates; hour of RECON = cheapest information
+in roster). Full pilot explicitly declined without smoke + room (deferred
+holds). Contract: installs / runs on OrangeHRM / traces-verdicts outputs /
+seedability probe; report = four answers + whole file, zero measurement
+claims. W2 awaits the four answers; no verdict-grade reading of RECON output
+will be accepted from either side.
+
+---
+
 ## 2026-09-26 — Step-3 VERDICT: LOSE (record + park), substance over letter (W3 runs)
 
 Recomputed from whole file (90 rows, FP defined severity-based for cross-arm
