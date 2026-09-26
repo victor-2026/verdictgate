@@ -649,6 +649,19 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — S4-confirmation VERIFIED + batch #1 survivors FULLY CLOSED (W3)
+
+Confirmation runs recomputed (9 rows): S4 3× exit 0, S5 3× exit 0, S1 3× exit 1
+(PROOF=1 branch on) — matches verdict file exactly. Rulings: S4/S5 confirmed
+survived = genuine gaps, consistent with gold P2 (E4 ruled-split, E5 worked);
+S1 killed-when-branch-executes → plant-run survival VACUOUS (env-gated branch
+off), excluded like N-scope; gold E1 = NOISE stands. Final: S1 vacuous ·
+S2/S3 dismissed · S4/S5 confirmed gaps (P2). ZERO open survivors batch #1.
+60-run verdict (4/10) already verified b2d8216. GLiNER probe run (7 findings)
+pending W3 execution under ratified mapping.
+
+---
+
 ## 2026-09-26 — GLiNER mapping mini-protocol RATIFIED +2 annotations (W3 b7d9f91)
 
 Verified: ground truth H1–H7 (all NOISE, FP-rate-only scope stated upfront —
