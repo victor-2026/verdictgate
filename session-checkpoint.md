@@ -656,6 +656,23 @@ behavior → NOISE (R2 pattern, cf. E2).
 
 ---
 
+## 2026-09-25 — Reassurance recorded: RMT mental model + iteration guarantee
+
+Victor (first labeling ever): confused by negative/mutant items — confirmed
+this IS RMT (E-items = deliberately broken assertions the suite didn't catch).
+Mental model issued: mutant = intentional breakage; survived = suite stayed
+green; assessor's job = would a REAL product bug of that shape matter
+(P1/P2 → rate it) or is it test theater (NOISE)? R1/R2 precedents ARE this
+distinction, already in his hands from Slot 1.
+
+Iteration guarantee: non-convergence is a designed-for outcome, not failure —
+kappa < 0.6 → reconcile + arbitration + relabel per guideline; worked examples
+excluded from kappa precisely so learning happens off-score. No penalty for
+first-pass divergence, ever. (His questions so far — pointers, test-vs-system —
+keep hitting load-bearing points; the confusion is well-calibrated.)
+
+---
+
 ## 2026-09-25 — Slot-2 protocol amendment: pointers deferred to divergences
 
 Victor asked whether submission accepts `my_pointer: null`. Ruling: YES.
