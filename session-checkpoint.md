@@ -633,6 +633,20 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Slot-2 protocol amendment: pointers deferred to divergences
+
+Victor asked whether submission accepts `my_pointer: null`. Ruling: YES.
+Rationale (overrides my earlier "no pointer = not ready"): kappa needs severity
+only; pointers function as arbitration support, and arbitration happens solely
+on diverged items. Two-phase protocol: (1) labels + fp + rule-citing note now
+→ kappa + comparison publication; (2) pointers mandatory ONLY for diverged
+items at arbitration (agreed items need no re-inspection — agreement itself +
+item evidence in the gold file suffice). Note stays mandatory in phase 1
+(rule citation distinguishes substantive agreement from coincidence at
+arbitration prep). Less friction, same rigor where it matters.
+
+---
+
 ## 2026-09-25 — UrsaMinor pilot methodology issued (W2, for W3 filing)
 
 Tool: Ursa-Minor-Beta (Jira bug → fixed-check → post back), author Ekaterina
