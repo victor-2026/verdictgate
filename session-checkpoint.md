@@ -633,6 +633,34 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — Article 29 data ruling (W4 draft + W1 critique adjudicated)
+
+Numbers verified from the pack: 53/58 = 91.4% ✓ · 5/58 = 8.6% ✓ · B2 gate
+"band violated: 5 survived = 8.6% > 5% of 58" (JSON re-read). W4 reply draft
+APPROVED to send (bylines Q fine, no structural changes).
+
+W1 fix endorsed with one mechanism correction: breakdown 1+2+2 (S1 vacuous /
+S2+S3 dismissed / S4+S5 confirmed P2) is MANDATORY in text — "5 survivors"
+bare reads as decision-theater we criticize; decisions ARE the payload.
+BUT the mechanism point needs precision: batch #1 was ALL B2, which fails on
+the 5%-BAND (a percentage rule!) — not presence. Zero-tolerance governs B0/B1
+(unexercised here). Article must teach: the gate that fired (B2 band) +
+B0/B1 zero-tolerance + decisions as payload; 91.4/8.6 are descriptive batch
+history, NEVER thresholds (thresholds are 5% and 0). Further: decisions did
+NOT flip the verdict (final pack still FAIL on band) — must not imply it.
+
+Naming: concur anonymize-in-joint ("an open-source agent runtime"; notice-first
+practice, no vendor track, irreversibility with external co-author); named
+version reserved for own channels. Victor to check Leonardo's Google Doc for
+existing naming + numbers (unreadable from here) and propose anonymization.
+
+Division match (Leonardo: RMT/sensitivity/risk-behavior his, gates/thresholds
+ours, contract as bridge): confirmed at doctrine level (framework v0.3);
+doc-level verification awaits Victor's reading. Quote handling (private source
+→ quotes.md only at publication with article link): confirmed.
+
+---
+
 ## 2026-09-26 — Correction: Victor's Slot 2 DONE (stale "pending" retracted)
 
 Victor flagged it himself: his 25 were submitted, validated 25/25, kappa 0.242
