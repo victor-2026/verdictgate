@@ -1572,6 +1572,29 @@ contact decision, unbox-ai awaits measurement. Nothing pending W2.
 
 ---
 
+## 2026-09-26 — W1 self-correction VERIFIED + e2e micro-step assessed (2f02c53)
+
+Correction log verified read-only: exemplary (what was wrong + why = method
+artifact of guessed names + how reproduced via npm view + registry org
+endpoint). Same standard applied to self that we apply to vendors — recorded
+as doctrine-in-practice, not just doctrine. Back-pointer present with
+no-duplication ban — pointer gap closed.
+
+New facts: @testerarmy/scout 0.3.0 (API exploration harness) + @testerarmy/e2e
+0.1.1 (e2e runner infra, Kernel browsers/Limrun devices as drop-in engines);
+both MIT, both UNRUN; "which is OpenAPI-driven" marked inference-not-fact
+(correct restraint).
+
+e2e assessment: IF @testerarmy/e2e runs keyless locally, the "seedable NO /
+contact-only" finding needs revision (scoped to e2e package). Micro-step
+design (bounded RECON, falsifies exactly one finding): install (entry: Node
+>=22.12 — check first) → attempt keyless local run → record installs/runs-
+keyless/engines-local. Same RECON discipline (no measurement claims). If
+key-gated → finding stands strengthened. Owner/W3 decide execution; W2 needs
+no input unless the finding flips (then seedability re-probe design).
+
+---
+
 ## 2026-09-26 — TesterArmy rename VERIFIED, one pointer missing (W1 07fc80f)
 
 Verified: no PrimeQA remnants (both trees clean — codename purged correctly);
