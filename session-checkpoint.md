@@ -649,6 +649,40 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — GLiNER pilot-plan scaffold REVIEWED, relayed to W3 (W1 scaffold)
+
+Spot-check (read-only): arms L0/L1/baseline-with-frozen-numbers ✓ · SHA pins ✓ ·
+fixed probe set ✓ · metrics incl. abstention ✓ · determinism ✓ · scope guard ✓ ·
+pre-registered adopt/tie/lose with W2-verifies role (accepted) · commercial-none
+consistent with silent phase. Sound scaffold.
+
+One sequencing annotation (binding): probe set's ground truth + the step-2
+schema mapping are the SAME dependency — mapping mini-protocol must land BEFORE
+probe runs, else unmapped outputs (cf. F3-critical inversion already observed).
+Abstention needs an operational def (abstain vs UNPARSEABLE) in the mapping doc.
+Setup (weights pull, API access) may proceed in parallel — no blocking. W2
+sign-off role confirmed for the verdict table.
+
+---
+
+## 2026-09-26 — GLiNER smoke VERIFIED as RECON (W3, file-whole via scp)
+
+Artifact read whole (1086 B): load 9.7s + F1–F7 (~0.4s each), native severity
+vocabulary (critical/low/info), partial:false. No measurement claims made —
+RECON discipline holds. Env-lineage (PC-224, torch 2.14.0+cpu, transformers
+5.17.0, gliner2 2.0.0, weights 7ee5da4c, 2026-09-26, +3 fixed deps) meets the
+lineage requirement.
+
+Load-bearing observation for step-2 mapping design: native head says `critical`
+on F3 (gold NOISE per calibration H3) and `info` on F7 (gold NOISE per H7) —
+direct inversion vs gold on the external-link class. Raw native outputs are
+unusable without the mapping layer; thresholds/question-decomposition MUST flip
+this class explicitly. This confirms (not surprises) the design-cost warning —
+recorded here so the mapping mini-protocol starts from evidence, not hunch.
+Mapping review on W3's submission, BEFORE any runs (binding sequence holds).
+
+---
+
 ## 2026-09-26 — PC as compute home: path 1 vs 2 assessment (W5 proposal)
 
 W5: PC right place (Linux torch 2.8, 12 cores); blocked on access (password
