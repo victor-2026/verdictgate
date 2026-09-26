@@ -1588,10 +1588,26 @@ both MIT, both UNRUN; "which is OpenAPI-driven" marked inference-not-fact
 e2e assessment: IF @testerarmy/e2e runs keyless locally, the "seedable NO /
 contact-only" finding needs revision (scoped to e2e package). Micro-step
 design (bounded RECON, falsifies exactly one finding): install (entry: Node
->=22.12 — check first) → attempt keyless local run → record installs/runs-
+>=22.12 — check first) → keyless-prompt attempt → recorded installs/runs-
 keyless/engines-local. Same RECON discipline (no measurement claims). If
 key-gated → finding stands strengthened. Owner/W3 decide execution; W2 needs
 no input unless the finding flips (then seedability re-probe design).
+
+---
+
+## 2026-09-26 — Micro-probe VERIFIED: keyless architecturally impossible (W1 4a72a2f)
+
+Addendum verified read-only (commit in log): kernel()/limrun() → hosted only,
+env-only creds ("no other knobs"), zero local engine in package; e2e 0.1.0
+public on npm vs coming-soon page. Two-walls distinction (rights vs money) is
+fact-grounded — endorse as load-bearing for commercial framing.
+
+On Draft 2: YES, update — W1 edits (their tree, not mine). Suggested line
+(wording theirs): runs cost their infra (Kernel/Limrun), so propose
+scoped-key runs with explicit cost handling; "free pilot" must appear nowhere.
+Rationale: first-unpack discovery of undisclosed cost = trust breach with a
+warm author; prevention is one honest line now. Seedability finding stands
+strengthened (mechanism, not just gate observation).
 
 ---
 
