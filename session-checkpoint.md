@@ -633,6 +633,28 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — Jev API liveness + 60-runs source: two parallel checks (W2 spec)
+
+Victor: maybe Jev not yet disabled (timezones)? W4: start 60 runs ONLY without
+Jev API (free expired 25.09, paid unapproved); W3 to confirm verdict source in
+one line. W2 answers:
+
+1. **Timezone math is the wrong tool — probe, don't compute.** Expiry "25.09"
+   minus/plus TZ offsets resolves nothing; one authenticated call resolves
+   everything (200 alive vs 401/402/429 dead). Who: W3 (holds key + working
+   TypeSafe client since 09-21) or owner. NOT W2 — no secrets in this window,
+   never asks for the key. Probe: single minimal `systemone` call, report
+   status code only (no payloads, no keys in chat).
+2. **Liveness changes nothing for the 60-runs decision.** Even if alive on
+   grace: paid unapproved ⇒ building plans on grace = risk. W4's local-only
+   condition stands either way; a live API is informational, not a reopen.
+3. **W3's check (verdict source, one line) is the load-bearing one:** if 60
+   runs need Jev-API verdicts → HOLD until access/payment decision (this is
+   dependency-key (б) from the analysis — replan scoring, don't start blind);
+   if local-only → START. That line unblocks more than the probe.
+
+---
+
 ## 2026-09-26 — Batch #2 hangs: (б) with pre-registered 3-way mapping (W2 ruling)
 
 W3: 2 inconclusive (tooltip:213, wa-controls:46, exit -9 ×2), env alive.
