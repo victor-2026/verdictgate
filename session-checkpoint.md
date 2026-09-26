@@ -633,6 +633,33 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Phase B L0 raw independently recomputed: 0/30, verdict STANDS
+
+W3 raw (90 rows, L0×3/item, digest confirmed, path accepted). W2 recomputation:
+stability 30/30 · L0 majority P1×25+P2×5 · **exact vs gold 0/30, severity-only
+0/30** (L0 P2s: H2/H3/H4/H9/U6 — zero overlap with gold E3/E4/H8/E5; H10 gold-P0
+→ L0 P1; H9 gold-P1 → L0 P2) · fp is STRING "no" everywhere (runner type bug,
+see below) · latency consistent · file flags partial=True (L0-arm only).
+
+Rulings:
+1. **0/30 does NOT trigger P0-miss stop.** Stop rule (ratified) applies to
+   ROUTED-PAIR output; L0 was never the replacement candidate. Worse-than-
+   constant (0 < 24) CONFIRMS the ladder's raison d'être instead — overcalling
+   is systematic (P0-trial already showed fp-always-no), discrimination must
+   come from routing, exactly as designed. Next measured entity: routed pair
+   (T1–T4 → Gemma → qwen3), never L0-alone — state this wherever numbers travel.
+2. **fp string-vs-bool: BLOCKING data bug.** `got_fp` is "no" (str), gold is
+   False (bool) — any `== False` comparison silently mismatches everything.
+   Runner must emit booleans before the canonical batch.
+3. **Verbatim: REQUIRED (upgraded from optional).** With 0/30 on parsed outputs
+   + established parse-sensitivity (hygiene 0.624→0.994), audit needs verbatim
+   responses. Cheap re-run, same frozen digest; current file → superseded pilot,
+   canonical = verbatim batch. W3 already offered; W2 accepts the offer.
+4. H10 P0-miss recorded against L0-alone (no stop); if the ROUTED pair misses
+   H10, stop fires for real.
+
+---
+
 ## 2026-09-25 — Kappa 0.242: arbitration path, 8 rulings published
 
 Both submissions in (W3 sealed, Victor filed; Victor's trailing-comma JSON
