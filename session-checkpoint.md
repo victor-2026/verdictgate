@@ -661,6 +661,20 @@ doc-level verification awaits Victor's reading. Quote handling (private source
 
 ---
 
+## 2026-09-26 — Aphorism authorship CORRECTED: ours, not private (owner catch)
+
+Owner: "это мы придумали — читай первую отправку". Verified: the full quatrain
+("The mutation is not the test. The mutant is the question. The survivor is
+the answer. The gate is the judgment.") stands at line 11 of OUR policy half
+(29-policy-half-to-leonardo.md) — Leonardo's version kept our section verbatim.
+Reclassification: OWN material, no consent needed, no privacy constraint. The
+"private source → quotes.md only at publication" designation is WITHDRAWN;
+quotable as ours immediately (W4 may cite freely). Lesson logged: provenance
+claims verify against sending artifacts before entering the record — W1/W4/W2
+all repeated the misattribution unchecked.
+
+---
+
 ## 2026-09-26 — Leonardo doc verified INDEPENDENTLY (W1 cb1fad8 concurs)
 
 W2 read the 477-line version + grep-verified: ZERO naming (no OpenClaw/agent/
