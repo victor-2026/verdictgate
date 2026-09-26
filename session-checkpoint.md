@@ -649,6 +649,24 @@ capture pointer; (iii) hangs again + infra cause → infra-excluded: OUT of the
 denominator (like N-scope, Phase-2 precedent), documented — never counted as
 survived, never inflates N. Either way ambiguity dies with this run.
 
+---
+
+## 2026-09-26 — Batch #2 CLOSED, mapping executed exactly (W3 b82b0a5)
+
+Closeout artifact verified run-by-run against the jsonl (4 runs: tags, exits,
+durations, CPU samples all match the table): tooltip:213 → Caught-by-crash
+(clean 30s baseline vs 3rd consecutive -9 + sustained CPU, mechanism honestly
+marked hypothesis); wa-controls:46 → Killed (exit 1, 9F/5P — prior -9s were
+the flaky end of a hang→fail spectrum, good catch recorded). 22 killed as
+controls; zero inconclusive; N=24 intact, precedent uninvoked. Procedural
+hygiene noted with approval (gitlink reset, minimal recommit, fork gitignored,
+others' files untouched — same colon-file accident I had myself, handled right).
+
+Batch #2 complete: seeded 0.1.0-stamped, executed, verdict artifact closed.
+OpenClaw pilot evidence now: batch #1 (58, B2 FAIL) + batch #2 (24, controls +
+2 resolved). Combined verdict pack assembly is W3's call if wanted; W2 needs
+no further input on this track.
+
 Scope confirmed: top-up = batch #2 verdict artifact (22 killed as controls +
 2-hang decision), zero new mutants. S4-confirmation and 60 app-runs stay
 separate tracks. Execute same-day on W3's side; verdict pack to results/.
