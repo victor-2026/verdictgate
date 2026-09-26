@@ -1545,6 +1545,17 @@ path). Nothing further on this track without a new decision.
 
 ---
 
+## 2026-09-26 — GLiNER track CLOSED by mutual agreement (W3 full-cycle summary)
+
+W3's 8-step close-out (triage → smoke → mapping → probe → freeze → measure →
+LOSE → park) matches W2 records at every step — no divergences to reconcile.
+Unfreeze conditions identical on both sides (fine-tune + new protocol + new
+freeze). Track silent until then. Full local-judge-adjacent program now reads:
+replacement NO (3 grounds) · GLiNER LOSE (FN+P0) · ladder unvalidated-but-
+parked · gold-30 stands as the reusable instrument for any future judge.
+
+---
+
 ## 2026-09-26 — Step-3 freeze RATIFIED clean + Phase C ruled CONDITIONAL (W3 ae62cd7)
 
 Freeze draft verified: scope gold-30 × 3 + env/weights SHA ✓ · P0 re-derived
