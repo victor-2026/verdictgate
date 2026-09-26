@@ -1742,6 +1742,19 @@ Ball moves to Leonardo on send; W2 needs nothing further on this track
 
 ---
 
+## 2026-09-26 — Outgoing queue: 3 sends await OWNER (W1 5d70f0f, queue empty)
+
+W1 verified-before-accepting throughout (per today's rule): Leonardo one-edit
+package (176+306+prose as single edit, reformulation matches recommendation) ·
+Draft 2 duplicate caught (infra-cost line + two-walls block already in 63f2a93,
+no double-edit) · Rupesh three-frames held for ping reply. W2 records, no
+re-verification (W1's verification chain complete and cited). OWNER SENDS:
+(1) Leonardo letter → ball with Leonardo; (2) Rupesh frames → after his ping;
+(3) TesterArmy Szymon connect (Draft 1, no ask) → Draft 2 after accept. All
+three tracks incoming-wait after send. Nothing pending W2 anywhere in this.
+
+---
+
 ## 2026-09-26 — TesterArmy rename VERIFIED, one pointer missing (W1 07fc80f)
 
 Verified: no PrimeQA remnants (both trees clean — codename purged correctly);
