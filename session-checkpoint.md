@@ -1730,6 +1730,18 @@ model now triple-confirmed (mechanism + registry + architecture).
 
 ---
 
+## 2026-09-26 — Leonardo reply: SEND APPROVED (final paragraph verified)
+
+Nit-replacement paragraph verified claim-by-claim against the doc: Order→B0 in
+risk table (line 176) ✓ · RMT-002 Survived (line 306) ✓ · B1-per-our-mapping
+(core journeys) ✓ · orphaning of "The B0 survivor does" (lines 322–324) ✓ ·
+replacement sentence = ratified formulation verbatim ✓. Stale "5 survivors"
+marked superseded in checkpoint; rest of letter unchanged per W1. SEND.
+Ball moves to Leonardo on send; W2 needs nothing further on this track
+(resumes on his reply: review of merged draft vs ratified positions).
+
+---
+
 ## 2026-09-26 — TesterArmy rename VERIFIED, one pointer missing (W1 07fc80f)
 
 Verified: no PrimeQA remnants (both trees clean — codename purged correctly);
