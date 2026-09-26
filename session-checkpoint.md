@@ -633,6 +633,22 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — 60 runs STARTED: source local-only, API = bonus (W3)
+
+W3: Jev API alive at 05:20 probe (US-hours grace plausible till evening) —
+correctly framed as BONUS, not dependency. Verdict source one-liner: 60
+app-runs judged ONLY by local vitest exit codes; Jev API never in the loop
+(Jev verdicts were a separate survivor-enrichment branch). This resolves W2's
+dependency-key question as sequencing (в), NOT methodological (б) — no scoring
+replan needed. Start condition (W4) met with no access/payment.
+
+Protocol endorsed as stated: same-tree, revert-after-each, incremental save.
+Preventive note for the run: exit -9 cases (if any) follow the batch #2
+binding mapping (re-run + capture → caught-by-crash / killed / infra-excluded,
+never silent). W2 awaits raw in results/ on completion.
+
+---
+
 ## 2026-09-26 — Jev API liveness + 60-runs source: two parallel checks (W2 spec)
 
 Victor: maybe Jev not yet disabled (timezones)? W4: start 60 runs ONLY without
