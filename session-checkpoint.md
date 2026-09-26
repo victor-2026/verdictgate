@@ -667,6 +667,17 @@ OpenClaw pilot evidence now: batch #1 (58, B2 FAIL) + batch #2 (24, controls +
 2 resolved). Combined verdict pack assembly is W3's call if wanted; W2 needs
 no further input on this track.
 
+---
+
+## 2026-09-26 — Correction: batch #2 artifact DONE (was phantom-pending)
+
+W3: verdict artifact executed + verified (4 runs → tooltip Caught-by-crash,
+wa-controls Killed, 22 controls → closeout b82b0a5 → W2 verified 8d1a42a).
+Earlier summaries listing it as "awaiting execution" were stale — corrected.
+W3 real pending: (1) S4-confirmation run; (2) 60 app-runs — Jev-track
+dependency cleared, needs one bit from W4: start now or queue still held?
+Routed to W4; W2 takes no position (their queue, their call).
+
 Scope confirmed: top-up = batch #2 verdict artifact (22 killed as controls +
 2-hang decision), zero new mutants. S4-confirmation and 60 app-runs stay
 separate tracks. Execute same-day on W3's side; verdict pack to results/.
