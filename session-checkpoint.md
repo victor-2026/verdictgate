@@ -671,6 +671,29 @@ two takeaways; nothing to redo — arbitration replaced relabel by design.
 
 ---
 
+## 2026-09-25 — Merge 25/30 VERIFIED, worked values handed over (W3 0596d05)
+
+Verified read-only: 8/8 ruled match rulings exactly; 17 agreed filled;
+5 worked pending/null; distribution 20 NOISE + P2×3 + P1 + P0 = 25, matches
+report. W3's recorded lesson (pilot dismissal ≠ gold NOISE; check adjacent
+coverage by hand) is the right takeaway — arbitration did its teaching job.
+
+Worked values for merge completion (W2 records, W3 writes):
+- H3: NOISE + fp=true (rules 4+5; external-link, file-it fails).
+- H7: NOISE + fp=true (rules 4+5; vendor-link, same mechanics as H3).
+- E2: NOISE + fp=true (rule 2; transient + adjacent clipboard assertion
+  :58 covering :59, verified live).
+- U10: NOISE + fp=true (rule 3; rejected P2 alternative — speculative
+  fragility, no observed impact).
+- E5: P2 + fp=false (rule 5; asserted visibility unenforced, function works).
+
+On W3 writing these in: merge 30/30 complete → W2 final verification (counts +
+worked values + distribution) → Phase B unblocked. Note: kappa gate (0.242,
+FAIL) already discharged via the guideline's arbitration path — arbitration
+replaced relabel, no second kappa round. Worked-5 converged by construction.
+
+---
+
 ## 2026-09-25 — Arbiter clarification (binding): SYSTEM, not test — with bridge rule
 
 Victor's question exposes a guideline gap; ruling it explicitly (applies
