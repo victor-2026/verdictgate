@@ -1516,6 +1516,31 @@ depend on it.
 
 ---
 
+## 2026-09-26 — PrimeQA (TesterArmy) triage: CONTENT now + bounded OSS smoke (W1 decides)
+
+Facts (wiki/testerarmy-qa-agent-yc-p26-2026.md, source-verified): YC P26 fresh,
+2–10 staff, $1.2M pre-seed (~1wk old news), agentic E2E web+mobile CI-native,
+MIT OSS tooling (npx terminal client, OpenAPI-spec tester, trace viewer),
+named founders (Szymon Rybczak, Oskar Kwaśniewski, LinkedIn-active), Juno quantified
+claims (10x/58%/2d→0), 135:1 token-economics post.
+
+W2 assessment — the binary is false; recommend HYBRID:
+(a) CONTENT now, zero cost: Juno fact-check lens + 135:1 token post + YC-fresh
+narrative are article-ready without going anywhere (TestMu/Sophia pattern).
+(b) OSS-tools smoke, bounded (one evening, GLiNER-smoke discipline: RECON
+only): npx tools against OrangeHRM — runnable with NO contact, NO key, NO
+Monday gate. Feasibility probe (runs? outputs traces/verdicts? seedable?),
+not a matrix. Full vendor pilot (contact + service eval) ONLY if smoke shows
+signal AND pipeline has room.
+Axes it adds: sole YC-fresh in roster · MIT OSS evaluable-without-permission ·
+mobile-first E2E (vs our web-heavy matrix) · token-economics transparency.
+
+Decision rule for W1: content = yes unconditionally; W3-hour = yes IFF bounded
+as smoke (not open-ended pilot); full pilot = deferred to smoke signal +
+bandwidth. Pipeline is FULL — no new open-ended track without a closed one.
+
+---
+
 ## 2026-09-26 — Step-3 VERDICT: LOSE (record + park), substance over letter (W3 runs)
 
 Recomputed from whole file (90 rows, FP defined severity-based for cross-arm
