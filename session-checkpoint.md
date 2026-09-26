@@ -1563,6 +1563,15 @@ no crowning without numbers). Roster status sync: W3/main's zone, not W2's.
 
 ---
 
+## 2026-09-26 — TesterArmy roster sync VERIFIED (W3 e3abfc6)
+
+Row + catalog index.md exist; smoke outcome recorded unembellished (YES/NO/YES/
+NO, contact-gate, unbox-ai candidate with no-crowning rule). Both W2 outcomes
+reflected as filed. TesterArmy track: content stands, full pilot awaits W1
+contact decision, unbox-ai awaits measurement. Nothing pending W2.
+
+---
+
 ## 2026-09-26 — PrimeQA OSS-smoke EXECUTING as RECON (W3 accepted bounds)
 
 W3 motivation concurs with triage axes (mobile-first + token-transparency cover
