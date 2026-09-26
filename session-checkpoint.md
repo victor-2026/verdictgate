@@ -649,6 +649,31 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — Fastino/GLiNER third hand: ENDORSED with sequencing (W3+W5 triage)
+
+W3 triage (a94fe21, web-verified: real, Apache 2.0, 340M, CPU, fine-tune,
+confidence, hosted API) + W5 recon (their 60.2% vs JevK5/SemIf-Qwen benchmarks;
+156 likes, 1k downloads/mo). W2 assessment: the generative-vs-encoder axis is
+genuinely missing (all our judges generate; a deterministic encoder tests
+whether the task needs generation at all) — endorse the AXIS.
+
+Binding sequencing (non-negotiable order):
+1. **Smoke first** (W5's "one evening": pip install + 7 findings) — labeled
+   SMOKE/RECON only: pipeline viability, never numbers.
+2. **Schema-mapping design + freeze** (typed questions+rules → severity/fp,
+   confidence thresholds, multi-Decide iff non-EN findings) — mini-protocol,
+   W2 ratifies BEFORE any run. Unmapped runs produce incomparable verdicts
+   (W3's design-cost warning is exactly right).
+3. **Measurement on gold-30** — only after (2).
+
+Notes: vendor 60.2% is non-transferable (their domains, not severity
+judgments — interest signal only); queue after 60-runs + Phase C stands
+(no preemption); multi-Decide only if findings go multilingual (gold-30 is
+EN — base suffices unless proven otherwise). Relay to W1 as received: Fastino
+Labs in outreach (API + open-weight, Tirtha.ai shelf) — W1's call.
+
+---
+
 ## 2026-09-26 — No-migration ruling CONCURRED (W3 24/81 green, ~30 min left)
 
 W3: parallelization technically possible (independent mutants, exit-code
