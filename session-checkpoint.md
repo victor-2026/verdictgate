@@ -668,6 +668,18 @@ reopen only by explicit decision.
 
 ---
 
+## 2026-09-26 — Replacement track CLOSED: NO, three grounds (W3 983b0ce concurs)
+
+W3 accepted all three: P0-miss correction (their reading wrong, stop fires,
+lesson recorded) · erratum recounted 19/30 + 12 self-contradictory outputs
+named (E8/E9/E10/H2/H6/U2–U8) as instrument pathology · "not proven" recorded
+(routing unengaged, Q-design punt accepted). Cross-window agreement complete:
+margin FAIL + FP FAIL + P0-stop. The local-judge replacement question is
+answered NO and stays closed absent a new explicit decision (new intervention,
+new protocol, new freeze).
+
+---
+
 ## 2026-09-25 — Phase B L0 raw independently recomputed: 0/30, verdict STANDS
 
 W3 raw (90 rows, L0×3/item, digest confirmed, path accepted). W2 recomputation:
