@@ -649,6 +649,20 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — 60-run campaign design ACCEPTED as-is (W3 launched)
+
+Three points worth stating aloud: (1) Toggle-harness footgun (git checkout →
+mutant ON) caught AND guarded (all-false assert at end) AND documented
+in-script — textbook hazard handling. (2) M6/M10 proximity mapping with
+pre-registered Survived-by-design as legitimate outcome (documented coverage
+hole ≠ suite failure) — honest scoping, same family as N-scope. (3) 21
+baselines (7×3) match the baseline-green rule; 60 = 10×6 exceeds the 2× minimum
+— stronger, no objection. Exit -9 → binding mapping adopted. Raw streaming to
+appmut-60 jsonl; full run ~40–60 min. W2 awaits verdict on completion — no
+interim action.
+
+---
+
 ## 2026-09-26 — Jev API liveness + 60-runs source: two parallel checks (W2 spec)
 
 Victor: maybe Jev not yet disabled (timezones)? W4: start 60 runs ONLY without
