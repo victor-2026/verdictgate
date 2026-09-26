@@ -649,6 +649,26 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — GLiNER mapping mini-protocol RATIFIED +2 annotations (W3 b7d9f91)
+
+Verified: ground truth H1–H7 (all NOISE, FP-rate-only scope stated upfront —
+honest scoping, not discovered later) · mapping exhaustive over the 5-head
+vocabulary with F3-evidenced critical→P1 cap · fp derived with explicit
+limitation + independent-head deferred · abstain/UNPARSEABLE separate buckets,
+nothing silently dropped · no tuned cutoffs (tuning = new protocol) · zero runs
+pre-ratification respected.
+
+Annotation 1 (binding on step 3): P0-cap EXPIRES with this probe. Gold-30
+contains H10 (P0) — step-3 mapping must re-derive P0 reachability explicitly;
+carrying the cap forward silently would bake in a systematic P0-miss.
+Annotation 2 (record): medium→P2 / high→P1 assignments are STIPULATIVE
+(no observation behind them, unlike the evidenced critical cap) — revisable
+under step-3 evidence without protocol breach. Probe expectation (high FP by
+construction) correctly set: this run tests pipeline+mapping viability, not
+judge quality.
+
+---
+
 ## 2026-09-26 — GLiNER pilot-plan scaffold REVIEWED, relayed to W3 (W1 scaffold)
 
 Spot-check (read-only): arms L0/L1/baseline-with-frozen-numbers ✓ · SHA pins ✓ ·
