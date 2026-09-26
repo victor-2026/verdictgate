@@ -1516,6 +1516,30 @@ depend on it.
 
 ---
 
+## 2026-09-26 — Step-3 freeze RATIFIED clean + Phase C ruled CONDITIONAL (W3 ae62cd7)
+
+Freeze draft verified: scope gold-30 × 3 + env/weights SHA ✓ · P0 re-derived
+per annotation (probe cap burns in-text, pattern gate frozen + lexical
+limitation recorded, silent carry-over forbidden) ✓ · medium/high kept
+stipulative with revision-by-new-freeze-only ✓ · independent fp-head
+(question-over-passage) with derived-fallback strictly on head error ✓ ·
+buckets as ratified ✓ · verdict exact-vs-gold + within-run stability
+descriptive ✓ · zero runs pre-ratification ✓. No annotations — first clean
+ratification of the track. Runs authorized.
+
+Watch-item (non-blocking, for analysis phase): pattern-gate precision against
+gold-30 non-P0 items (e.g., does any NOISE text trip "blocks all"?) — the
+exact-vs-gold verdict surfaces it automatically; no extra protocol needed.
+
+Phase C ruling (W3's question): CONDITIONAL, not standalone-now. The closed
+replacement track needs no stability work (instability could only strengthen
+NO; stability cannot overturn margin+FP+P0). Phase C activates IFF step-3
+lands in a tie/ambiguity band where cross-session stability decides adopt vs
+tie — and then ONLY on the tied arms. Neither L0/routed (verdict stands
+regardless) nor GLiNER-unless-tied. No make-work stability runs.
+
+---
+
 ## 2026-09-26 — GLiNER probe VERIFIED (7/7 scored, mapping exact)
 
 Recomputed from the whole file: 7 scored, 0 abstain/UNPARSEABLE; native→mapped
