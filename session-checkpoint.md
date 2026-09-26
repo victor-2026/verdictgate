@@ -675,6 +675,23 @@ all repeated the misattribution unchecked.
 
 ---
 
+## 2026-09-26 — W1 package (8e2bc0f): accepted EXCEPT one stale line (must fix pre-send)
+
+Accepted: provisional phrasing ("5%, still being calibrated, recheck Oct 2026"
+— closes band + score-90 alike) · Order→B1 nit in same letter (table then
+B0/B1/B1/B3 under one EQ_NEGATION — thesis reads across four tiers; cheap,
+concur) · naming clean → anonymization as insertion condition · B2 cross-check
+PASS · provisional hole addressed upstream (our numbers, our status debt).
+
+STALE (blocks send as-is): package still carries "aphorism from private doc
+awaits public link" — SUPERSEDED by the authorship correction (5c48db4: ours,
+quotable now). Sending that line misstates our own provenance to a co-author.
+Fix: delete the line (nothing to wait for) — do NOT send the stale version.
+Score-90 provisional status noted as W1's claim (their track); W2 takes no
+position beyond the band number already verified.
+
+---
+
 ## 2026-09-26 — Leonardo doc verified INDEPENDENTLY (W1 cb1fad8 concurs)
 
 W2 read the 477-line version + grep-verified: ZERO naming (no OpenClaw/agent/
