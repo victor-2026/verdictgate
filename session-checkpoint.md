@@ -1516,6 +1516,35 @@ depend on it.
 
 ---
 
+## 2026-09-26 — Step-3 VERDICT: LOSE (record + park), substance over letter (W3 runs)
+
+Recomputed from whole file (90 rows, FP defined severity-based for cross-arm
+comparability, matching cloud's 4/24): GLiNER exact 12/30 · sev-only 12/30 ·
+FP 12/24 (50%) · FN 4/6 = E3/E4/E5/H10 · H10 mapped NOISE (native low, gate
+never engaged) · H9→P0 (watch-item precision-misfire confirmed) · stability
+30/30 · latency ~0.9s (2 calls).
+
+Scoreboard gold-30: GLiNER 12 exact (best) / cloud 9 exact + 21 sev / L0 0.
+Verdict LOSE, grounds: (1) FN 4/6 incl. the only P0 — a triage layer dropping
+2/3 of real defects fails its purpose regardless of exact-lead; (2) FP 50%;
+(3) P0-miss (H10 NOISE) — stop-class per doctrine, consistent with routed-pair
+ruling. Criterion letter vs substance recorded: letter fails on latency
+technicality (0.9 vs 0.1) and lacks FN/P0 dimensions entirely — recommend
+adding both explicitly if the criterion is reused.
+
+New instrument findings (beyond the report): (a) inter-head inconsistency on 6
+items (severity says defect, fp-head says not — E2/E6/E7/H3/U3/U4): the two
+heads disagree with EACH OTHER, distinct from gold disagreement; (b) E3/E4/E5
+missed by cloud AND GLiNER alike — hardest items in the set, visible only to
+gold+arbitration; (c) flag-FP (25%) vs severity-FP (50%) gap quantifies head
+divergence — future mapping work starts here, not from scratch.
+
+Phase C: NOT triggered (clear verdict, no tie-band). Stability 30/30 already
+measured descriptively. Parked pending fine-tune story (tie clause's revisit
+path). Nothing further on this track without a new decision.
+
+---
+
 ## 2026-09-26 — Step-3 freeze RATIFIED clean + Phase C ruled CONDITIONAL (W3 ae62cd7)
 
 Freeze draft verified: scope gold-30 × 3 + env/weights SHA ✓ · P0 re-derived
