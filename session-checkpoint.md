@@ -633,6 +633,44 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Kappa 0.242: arbitration path, 8 rulings published
+
+Both submissions in (W3 sealed, Victor filed; Victor's trailing-comma JSON
+fixed by arbiter, values untouched). Agreement 17/25 (68%), pe=0.578
+(both NOISE-heavy) → **kappa 0.242, gate FAIL** → guideline path: reconcile +
+arbitration (this entry), no relabel round needed — rulings below ARE gold.
+
+Directional finding: Victor +1 level on 6/8 divergences (E3,E4,E8,U5,U6,U9);
+H8 Victor-higher, H10 Victor-LOWER (attention, not blanket inflation).
+Concentration: control-item over-calling (U5/U6/U9 = the set's traps firing as
+designed) + file-it liberality on E-items.
+
+Rulings (arbiter inspection-backed):
+- E3 P2 (Victor): live inspection :265–300 — transient message, NO adjacent
+  enforcement (unlike E2's clipboard). R1 applies. W3's "same class as S2/S3"
+  rejected as principle: pilot dismissal ≠ gold NOISE (different instruments).
+- E4 P2 (SPLIT): Victor right on defect (R1, counts/URL neighbors don't enforce
+  handle text), level per Victor's OWN E5 logic ("not P1 since function works").
+- E8 NOISE (W3): killed mutant = control, Boundary 3. Victor misread (killed =
+  works); noted kindly as the key lesson.
+- H8 P2 (W3): FlowScout index confirms real bug, reproduced by hand — but
+  fade-in transient ⇒ Rule-1 P0 cap (waiting is a workaround). Defect instinct right.
+- H10 P0 (W3): core workflow (tool use) + no working workaround + silent
+  self-misrepresentation = P0 per taxonomy letter. "Closed"/non-repro notes
+  don't erase verified facts (healthy provider + zero invocations).
+- U5/U6 NOISE (W3): textbook controls (terminal-preserved, transient-retried);
+  Boundary 3. Victor P1s had no inspection basis (pointers "unsure") — the set
+  caught over-calling exactly as designed.
+- U9 NOISE (W3): describes the FIX (retry path instead of silent fail) — correct
+  improved behavior, no deviation.
+
+Embargo lifted with this publication. Next: W3 merges all 30 (17 agreed + 8
+ruled + 5 worked-converged) into gold-n30.json; W2 verifies the merge before
+Phase B. Victor: E8-lesson (killed = works) + E4 self-consistency check are the
+two takeaways; nothing to redo — arbitration replaced relabel by design.
+
+---
+
 ## 2026-09-25 — Arbiter clarification (binding): SYSTEM, not test — with bridge rule
 
 Victor's question exposes a guideline gap; ruling it explicitly (applies
