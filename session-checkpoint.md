@@ -1541,6 +1541,28 @@ bandwidth. Pipeline is FULL — no new open-ended track without a closed one.
 
 ---
 
+## 2026-09-26 — PrimeQA smoke: MIT axis FAILED for product, unbox-ai FOUND (W1 dc39ffc)
+
+Four answers: installs YES (both MIT, npm-confirmed; OpenAPI tester missing,
+e2e = coming-soon + email gate) · runs on OrangeHRM NO (`ta` = cloud control
+plane, AUTH_REQUIRED without key) · traces YES but agent-traces not verdicts
+(54 gens, 1017k/6.5k, 91% cached, 506s; compare --trajectory works) ·
+seedable NO (runner behind key).
+
+W2 records own miss first: the "MIT evaluable-without-permission" premise did
+NOT survive contact with reality for the PRODUCT (only trace tooling is open;
+test loop cloud-gated). Smoke hit exactly the wall it was meant to bypass —
+which is the smoke doing its job. Consequence: full pilot = contact, W1's call
+with evidence in hand; content track stands as-is.
+
+Independent find (for our side): unbox-ai runs local read-only keyless on our
+traces (opencode + AI SDK adapters), compare --trajectory with divergence
+markers — instrument CANDIDATE for the AI-flake rule + "transcript ≠ receipt"
+thesis. Candidate only: adoption needs its own measurement (same discipline —
+no crowning without numbers). Roster status sync: W3/main's zone, not W2's.
+
+---
+
 ## 2026-09-26 — PrimeQA OSS-smoke EXECUTING as RECON (W3 accepted bounds)
 
 W3 motivation concurs with triage axes (mobile-first + token-transparency cover
