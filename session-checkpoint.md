@@ -1572,6 +1572,22 @@ contact decision, unbox-ai awaits measurement. Nothing pending W2.
 
 ---
 
+## 2026-09-26 — TesterArmy rename VERIFIED, one pointer missing (W1 07fc80f)
+
+Verified: no PrimeQA remnants (both trees clean — codename purged correctly);
+pilots/TesterArmy/ (index + smoke) and outreach/silent/TesterArmy/ exist.
+W1 decisions recorded: contact opening (connect Szymon, no ask → scoped access
+post-accept; sending = owner), terms pre-run (Stage 0 named-not-invoiced →
+Stage 1 paid, notice discipline, sandbox-only), unbox-ai gate = measurement vs
+pass-rate+spread.
+
+Gap (Atlas lesson, one line): outreach→pilots pointer EXISTS, pilots→outreach
+pointer MISSING (pilots index names people but points nowhere for contact/
+commercial). Suggest W1/W3 add one line in pilots/TesterArmy/index.md. Not
+W2's tree — flagged, not fixed.
+
+---
+
 ## 2026-09-26 — PrimeQA OSS-smoke EXECUTING as RECON (W3 accepted bounds)
 
 W3 motivation concurs with triage axes (mobile-first + token-transparency cover
