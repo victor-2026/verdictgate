@@ -649,6 +649,24 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — No-migration ruling CONCURRED (W3 24/81 green, ~30 min left)
+
+W3: parallelization technically possible (independent mutants, exit-code
+verdicts, trivial JSONL merge) but declined mid-run. W2 concurs on all three
+grounds, with the mapping to standing rules: (1) mid-migration = contamination
++ one-batch-one-machine violation; toggle-state fragility (HEAD=true/
+worktree=false) newly named as explicit hazard — gain 15–20 min vs batch
+invalidation is the right asymmetry call; (2) PC speed unknown — benchmark
+first (computer-tool baseline ~25s here), decide next campaigns on facts;
+(3) no multiplied entities. PC benchmark runs PARALLEL (separate machine,
+no interference with the running batch).
+
+Interim (not a verdict): M1 silent-drop exit 0 ×3 — survived candidate,
+3/3 stable green on seeded break is already a strong signal; formalized at
+completion. W2 takes no position until the verdict pack.
+
+---
+
 ## 2026-09-26 — 60-run campaign design ACCEPTED as-is (W3 launched)
 
 Three points worth stating aloud: (1) Toggle-harness footgun (git checkout →
