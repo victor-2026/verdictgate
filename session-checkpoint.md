@@ -633,6 +633,41 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — REPLACEMENT VERDICT: REJECTED, three independent grounds (W3 48a89ba)
+
+W2 independently recomputed from raws (verbatim 90 + cloud 30). Table VERIFIED:
+L0/routed 0/0/24/0/H10-P1; cloud 9/21/4/3/H10-P1 (case-normalized; my first
+pass missed the lowercase — caught and corrected, matching W3 exactly).
+Verbatim batch + bool fp confirmed (90/90 raws present); W3's self-reported
+case-bug recount closes clean — no residual.
+
+1. **Margin FAIL:** routed 0% vs cloud 70% sev-only (exact 0 vs 30%) — gap 70pp
+   (30pp on exact) vs 10pp bar. Decisive alone.
+2. **FP FAIL:** 100% of negatives (24/24) vs 15% cap. (Context only: cloud
+   itself 16.7% — the bar bites the reference too; moves nothing.)
+3. **P0-miss STOP FIRES — override of W3's reading, stated openly:** report
+   frames H10 as "recorded vs L0-alone, no independent routed miss". W2
+   disagrees on the rule mechanics: the 4f3fd45 exemption attached to L0's
+   NON-CANDIDATE status, not to the numbers. The candidate (routed pair) has
+   now produced its output and it misses P0 (P1 ≠ P0) → stop fires. Outcome
+   unchanged (already rejected twice over), but the third ground stands
+   independently — if gates 1–2 are ever re-litigated (e.g., bar recalibration),
+   P0-miss holds the rejection alone.
+
+Erratum for W3 (notes, not verdict): "fp_bool False on 27/30 (incl. 21)" →
+actual 19/30 (incl. 16). Plus new finding from recompute: 12 cloud outputs are
+SELF-CONTRADICTORY (severity NOISE + fp False = "is a defect") — instrument
+pathology distinct from gold disagreement; worth one line in the report.
+
+Routing: never engaged (T1 0 UNPARSEABLE, T2 0 splits, T3 vacuous in severity
+space — documented pre-run) → pair hypothesis UNTESTED here, not disproven.
+L0 failure = deterministic overcall; prompt carries no taxonomy. On W3's
+Q-design punt (prompt paraphrase): NEW intervention = NEW frozen protocol +
+new decision required; not a continuation. Current question answered NO;
+reopen only by explicit decision.
+
+---
+
 ## 2026-09-25 — Phase B L0 raw independently recomputed: 0/30, verdict STANDS
 
 W3 raw (90 rows, L0×3/item, digest confirmed, path accepted). W2 recomputation:
