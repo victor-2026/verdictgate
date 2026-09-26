@@ -633,6 +633,29 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-25 — Arbiter clarification (binding): SYSTEM, not test — with bridge rule
+
+Victor's question exposes a guideline gap; ruling it explicitly (applies
+prospectively; Slot-1 worked examples already conform):
+
+**Default: assess the SYSTEM (product behavior).** Taxonomy + fp-definition
+leave no room: fp=true ⇔ NOT a real product defect. Test code quality is not
+in the schema at all — never rate it.
+
+**Bridge rule (test observation → product evidence):** a test-side observation
+counts iff it reveals an UNENFORCED SPECIFIED behavior (E5 precedent: asserted
+visibility unenforced → P2). Test-imprecision with correct/covered product
+behavior → NOISE (R2 pattern, cf. E2).
+
+**Decision procedure for ambiguous items:**
+1. "Does this describe product behavior deviating from spec/expectation?"
+   Yes → rate the deviation (P0/P1/P2). No → NOISE.
+2. Genuinely unresolvable from the packet → best call + note
+   "ambiguous: test-vs-system" + flag for arbitration (that is what W2 is for).
+3. Never label test code quality — out of schema.
+
+---
+
 ## 2026-09-25 — Slot-2 protocol amendment: pointers deferred to divergences
 
 Victor asked whether submission accepts `my_pointer: null`. Ruling: YES.
