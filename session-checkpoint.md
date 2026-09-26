@@ -649,6 +649,24 @@ never silent). W2 awaits raw in results/ on completion.
 
 ---
 
+## 2026-09-26 — 60-run verdict VERIFIED from raw (W3 bc900e1)
+
+Recomputed independently: 81 rows = 21 baselines (all exit 0) + 60 mutant runs
+(10 × 6). Killed exactly {M2,M4,M5,M9}, each 6/6 red; survived
+{M1,M3,M6,M7,M8,M10}, each 6/6 green. Unanimous everywhere — zero flakes, zero
+-9 (binding mapping unneeded). M1 interim confirmed; M6/M10 by-design stands
+(pre-registered). Kill rate 4/10 = 40% on app-mutants; survivor analysis
+(M1 blind, M3 confirmed, M6/M10 coverage hole, M7 fallback unasserted, M8
+cascade unasserted) is W3's verdict text — endorsed as filed.
+
+Smoke-track note: torch wall on W5's box (CPU-index ≤2.2.2 < gliner2 ≥2.5),
+background upgrade running. No methodology objection; one lineage requirement:
+log the torch upgrade (old→new version + date) wherever the smoke runs land —
+env changes travel with measurements, same doctrine as model digests. Binding
+sequence (RECON only, no measurement claims) stands.
+
+---
+
 ## 2026-09-26 — Fastino/GLiNER third hand: ENDORSED with sequencing (W3+W5 triage)
 
 W3 triage (a94fe21, web-verified: real, Apache 2.0, 340M, CPU, fine-tune,
