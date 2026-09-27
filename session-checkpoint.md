@@ -1775,6 +1775,27 @@ claims, batch anonymized).
 
 ---
 
+## 2026-09-26 — Stop-ship CLEARED for send (W1 2d768ed, flags closed)
+
+Flag (a): night docx unpacked (13,281 chars) — zero "0.1.0"/"stamp"; sole
+"engine" is Leonardo's own phrase. Stamp lives ONLY in letter text → fix the
+letter, doc untouched. Our insert already in doc WITH 1+2+2 breakdown.
+Flag (b): CJK garbage chat-draft-only, absent from files — keep out of send.
+
+W1 adopted W2's batch #2 line verbatim (wa-controls = Killed correction
+accepted with fault admitted — verified-against-artifacts discipline held).
+Reverse direction: directional-only phrasing locked. Bonus recorded: 58×
+UNSTAMPED makes "run on a pre-stamp engine" a TEACHING example for stamp
+discipline (the gap that proves the bar), not a quiet hole.
+
+SEND CONDITIONS (all must hold): honest pre-stamp line IN (replacing 0.1.0) ·
+optional batch #2 in W2 phrasing · directional-only engine-change phrasing ·
+CJK cleaned · 1+2+2 + B1 one-edit + provisional-5% from prior package. Roles:
+W1 correspondence, W2 merged-draft check incl. our insert on reply, W3 out.
+Letter still unsent — send = owner.
+
+---
+
 ## 2026-09-26 — Outgoing queue: 3 sends await OWNER (W1 5d70f0f, queue empty)
 
 W1 verified-before-accepting throughout (per today's rule): Leonardo one-edit
