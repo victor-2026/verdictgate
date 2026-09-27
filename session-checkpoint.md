@@ -1762,6 +1762,21 @@ wanted. Track proceeds: date + channels next.
 
 ---
 
+## 2026-09-27 — Final ACCEPTED by W1 (8667ec8), cross-check clean (W2)
+
+W1's 7-point acceptance verified against W2's independent review (0ed9a37):
+B1 both tables ✓ · sentence (hyphen cosmetic, goodwill correctly unspent) ✓ ·
+provisional verbatim ✓ · naming clean via "In our own batch" (not our proposed
+phrase — W1's call not to nitpick a non-defect is correct; anonymization holds
+by absence either way) ✓ · batch insert complete ✓ · stamp paragraph complete
+with register NOT strengthened ("directionally suggesting" preserved) ✓ ·
+skeleton intact ✓. Zero divergences between windows. The optional micro-add
+stands as offered-and-not-taken — correctly non-blocking, no revisit. Content
+CLOSED; remaining: date (target Tue 29.09) + channels. Technical verification
+resumes ONLY if Leonardo edits text again. W2 needs nothing further here.
+
+---
+
 ## 2026-09-26 — Sent docx READ (12,757 chars): letter/doc split is coherent
 
 Owner asked whether letter-described edits must go into the doc. Unpacked and
