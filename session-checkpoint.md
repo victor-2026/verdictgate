@@ -1742,6 +1742,25 @@ Ball moves to Leonardo on send; W2 needs nothing further on this track
 
 ---
 
+## 2026-09-26 — Sent docx READ (12,757 chars): letter/doc split is coherent
+
+Owner asked whether letter-described edits must go into the doc. Unpacked and
+checked: the docx ALREADY carries provisional-5% ("still being calibrated,
+recheck Oct 2026") + batch 91.4% + prose 1+2+2 + band mechanism + decisions-
+didn't-flip. Zero stamp language (no falsification in doc), zero naming
+(anonymization holds by absence). MISSING from docx (postdate it): B1
+double-flip + sentence (already AGREED by Leonardo in reply) and the stamp
+fix (pending send) — both travel as verbatim-copyable texts in the letter.
+
+Ruling: NO doc edits needed from us — "prepare final yourself" stands WITHOUT
+contradiction, precisely BECAUSE every pending change exists as literal quoted
+text (B1 sentence verbatim, stamp/batch-#2 phrasing verbatim). Copy-paste
+surface, minimal paraphrase risk. The load-bearing guard remains the W2
+merged-draft check (already planned): verbatim-quoted does not mean
+verbatim-applied — Leonardo rephrased once before.
+
+---
+
 ## 2026-09-26 — STOP-SHIP CONFIRMED + batch #2 numbers CORRECTED (W1 9f67340/5631349)
 
 Re-verified from artifacts (not memory): batch #1 jsonl = 58 rows, ALL
