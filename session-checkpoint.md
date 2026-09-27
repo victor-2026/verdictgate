@@ -1742,6 +1742,39 @@ Ball moves to Leonardo on send; W2 needs nothing further on this track
 
 ---
 
+## 2026-09-26 — STOP-SHIP CONFIRMED + batch #2 numbers CORRECTED (W1 9f67340/5631349)
+
+Re-verified from artifacts (not memory): batch #1 jsonl = 58 rows, ALL
+UNSTAMPED → pre-0.1.0 engine, definitively. Attaching "rmt 0.1.0" to batch #1
+evidence = stamp falsification in a joint article whose thesis is stamp
+integrity — adversarial-reviewer bait. STOP-SHIP stands; letter as drafted
+must NOT go.
+
+Correction to W1's proposed batch #2 line ("22 killed, 0 survived, 2
+inconclusive"): the verified closeout resolves BOTH hangs — wa-controls
+COMPLETED exit 1 (9F/5P) = Killed, NOT inconclusive; only tooltip is
+interpretive (Caught-by-crash per pre-registered mapping, hypothesis stated).
+Publishing "2 inconclusive" would itself misstate the record (in the kind
+direction, but still false). Recommended article line: "24 mutants, 22 killed
+outright, 0 survived; 2 terminated in error — one fail-run Killed, one
+crash-hang Caught under a pre-registered timeout mapping (mechanism
+hypothesized, stated as such). Shown, not hidden." Standard MT semantics
+(crash/timeout = killed) back the mapping; closeout and article then agree.
+
+Reverse direction CONFIRMED with caveat: unmutated baselines green in both
+batches (batch #1 normals + batch #2 30s exits) → engine upgrade didn't break
+the working surface. Caveat: different assertion sets seeded, so directional
+evidence, not controlled A/B — phrase accordingly.
+
+Two pre-send flags for Victor: (1) the overnight-sent docx ("our 2 edits") —
+verify it carries no stamp language (the stamp line lives in the chat letter;
+check the docx independently); (2) stray CJK chars ("琪") in the draft reply —
+proofread out. W4 coordination concurred (W1 owns reply+go-ahead; W2 checks
+merged draft incl. OUR insert on Leonardo's reply; W3 uninvolved — no pilot
+claims, batch anonymized).
+
+---
+
 ## 2026-09-26 — Outgoing queue: 3 sends await OWNER (W1 5d70f0f, queue empty)
 
 W1 verified-before-accepting throughout (per today's rule): Leonardo one-edit
