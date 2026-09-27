@@ -1796,6 +1796,17 @@ Letter still unsent — send = owner.
 
 ---
 
+## 2026-09-26 — SEND APPROVED: final letter meets all conditions (W4)
+
+Verified line by line: 1+2+2 ✓ · band + provisional ✓ · anonymized runtime ✓ ·
+B1 double-flip + new sentence ✓ · bylines per Leonardo's proposal ✓ · pre-stamp
+honesty fix with teaching-point framing ✓ · batch #2 verbatim W2 (24/22/0 +
+2-error shown, mapping + hypothesis caveat intact) ✓ · directional-only engine
+phrasing ✓ · zero "0.1.0" ✓ · zero CJK ✓. ALL SEND CONDITIONS MET. Send = owner;
+ball with Leonardo after. W2 resumes on merged draft (incl. our insert).
+
+---
+
 ## 2026-09-26 — Outgoing queue: 3 sends await OWNER (W1 5d70f0f, queue empty)
 
 W1 verified-before-accepting throughout (per today's rule): Leonardo one-edit
