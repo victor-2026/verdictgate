@@ -1761,6 +1761,20 @@ verbatim-applied — Leonardo rephrased once before.
 
 ---
 
+## 2026-09-27 — v2 assembly built + insertion map handed to owner (his build)
+
+Owner reversed ("tell me where, I'll assemble and send myself"): W2 built
+`29-policy-half-SEND-v2-our-inserts.docx` in Leonardo's catalog (python-docx;
+sent v1 untouched) with 4 edits verified by re-read — risk-table B0→B1,
+evidence RMT-002 B0→B1, prose B1-sentence, stamp paragraph (article-voiced,
+YELLOW-highlighted, marked pending-W1-signoff). Insertion map + exact stamp
+text handed over; owner assembles/sends himself. Clarified on ask: stamp
+paragraph is OUR insert for OUR section (not a fix to his), quoted verbatim
+for placement. Stamp text unratified as article prose — W1 sign-off still
+required before send (flagged, not bypassed).
+
+---
+
 ## 2026-09-26 — STOP-SHIP CONFIRMED + batch #2 numbers CORRECTED (W1 9f67340/5631349)
 
 Re-verified from artifacts (not memory): batch #1 jsonl = 58 rows, ALL
