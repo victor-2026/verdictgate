@@ -1742,6 +1742,26 @@ Ball moves to Leonardo on send; W2 needs nothing further on this track
 
 ---
 
+## 2026-09-27 — Merged draft REVIEWED: APPROVED with 1 optional micro-add (W2)
+
+Leonardo's returned (2).docx (1.2MB: styles + header/footer + 3 images + tables)
+verified against ALL ratified positions: B1 double-flip in BOTH tables ✓ ·
+B1 sentence with B0/B1 pairing, B3-flow intact ✓ · provisional-5% with Oct 2026
+recheck ✓ · batch 91.4% + prose 1+2+2 + band mechanism + decisions-didn't-flip ✓ ·
+pre-stamp honesty + batch #2 (24/22/0/0.1.0, 2-error shown, mapping cited,
+directional caveat with non-A/B disclaimer) ✓ · zero OpenClaw naming ✓ ·
+zero stale B0-survivor prose ✓ · bylines Leonardo-first table ✓ ·
+em-dash→hyphen normalizations immaterial. Paraphrase risk did NOT materialize —
+inserts applied essentially verbatim.
+
+Optional micro-add (non-blocking, Victor decides): the crash-hang line cites
+the pre-registered mapping but drops the "(mechanism hypothesized)" qualifier
+(zero hits for hypoth*). Two words restore full precision; absence does not
+falsify (mapping basis stated). Images (3 png) unchecked — Victor's eyes if
+wanted. Track proceeds: date + channels next.
+
+---
+
 ## 2026-09-26 — Sent docx READ (12,757 chars): letter/doc split is coherent
 
 Owner asked whether letter-described edits must go into the doc. Unpacked and
