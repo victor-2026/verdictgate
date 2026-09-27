@@ -2033,3 +2033,15 @@ methodology + Monday-call additions filed · W1 discipline amendment applied
 Head: 22ac244. Tree clean, all pushed. Zero code debt (only docs since split).
 Owner away 30h mobile — nothing needs him. Standing by on all fronts.
 
+---
+
+## 2026-09-27 — Labeling memo for W4 filed + zone restated (no code)
+
+Owner requested facts memo on his labeling work (for his article on first-time
+experience): written to reviews/slot-labeling-experience-memo-2026-09-26.md
+(gitignored, local-only) — timeline markers, 6 questions + answers, D1–D5
+difficulties, quotable moments, verified numbers; solo wall-clock honestly
+marked unmeasured. W4 pulls by path. Zone + open threads restated on request:
+W2 owns verdictgate/** (+28 draft, DevAssure frozen); zero pending W2 actions
+anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
+
