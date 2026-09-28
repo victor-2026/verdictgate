@@ -633,6 +633,27 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — Qodo mapping RATIFIED +2 pre-run conditions (W3, no runs made)
+
+Verified: dataset pin by SHA-at-fetch (HF MIT, 100 PRs/580, bench-file-only
+with broken-viewer note) ✓ · detection-primary with gold-fp=false-for-all
+(double-validated construction) ✓ · severity DESCRIPTIVE ONLY with explicit
+no-fabrication rationale (labeling 580 = separate campaign, out of scope) —
+the key honest decision, endorsed as the standard pattern for unlabeled
+injected sets ✓ · same arms full ×3 ✓ · vendor-F1 reported-context with
+unpinned/self-serving caveat ✓ · frozen prompts (temp 0, exact one-line,
+strict-match else UNPARSEABLE; GLiNER per step-3) ✓ · verdict report-only
+(detection + functional/best-practice slices, no comparable baseline — stated,
+no thresholds) ✓ · Qodo-bench ≠ Qodo-vendor boundary held, numbers private ✓ ·
+slot after s1web/UrsaMinor (no preemption) ✓.
+
+Conditions (binding pre-run, not post-hoc): (1) SHA actually recorded at fetch
+— ratification assumes it, runs require it; (2) rule_name→family slice mapping
+(functional vs best-practice) frozen pre-run — post-hoc slicing flatters;
+list the families in the run log. Runs authorized once both hold.
+
+---
+
 ## 2026-09-28 — Practice page: W2+W3 reviews converged (owner edits)
 
 Two independent reviews agree. Consolidated punchlist for owner (Portfolio =
