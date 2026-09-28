@@ -2657,3 +2657,14 @@ Phase-2, article verbatim, observations banked). Gate = ONE domino: build
 trigger (owner's word) → W3 builds → Secrets + smoke → Katya's signature
 opens runs. Nothing pending W2.
 
+---
+
+## 2026-09-29 01:31 — Session checkpoint (routine, no new substance)
+
+Tree clean, all pushed (head ba86da7). No code changes anywhere in window;
+only docs since the split. Open threads unchanged: UrsaMinor build trigger
+(owner's word) · Klarent silence clock (W1 N) · Aamir pointer (W3) · Article 29
+publish tomorrow + repost (version confirmed same file) · fine-tune spec
+(W3, post-29th slot) · s1web GLiNER branch (running) · recheck 10-17.
+W2 stands by on all fronts.
+
