@@ -633,6 +633,18 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-27 — Standing practices ENDORSED as-is + Aleksandr triage concurred (W3)
+
+(1) Pilot-fitness verdicts in roster (FIT / FIT-with-costs / Section 3 /
+rejected + reason; launchability + oracle + matrix-fit filter; article quotes
+excluded) — sound, no changes. (2) Methods-not-opinions rule (artifact-bearing
+method → work; opinion → noise) with 5 already-taken items noted — sound.
+Aleksandr Valuev: concur no-pilot/no-card; two signals as pointers only (local
+Qwen 3.8 + OpenCode validates B0 shape independently; /ponytail for token
+economy) — both covered by existing tracks, nothing new opened.
+
+---
+
 ## 2026-09-27 — (c1) PASSES: (c) authorized with (c1) instruction, (c2) declined (W2)
 
 W3 (c1) probe: 17/20 HOLD on strengthened instruction (3 BREAK = 15% — above
