@@ -678,6 +678,26 @@ action until it arrives.
 
 ---
 
+## 2026-09-28 — Fine-tune spec SIGNED (W3 8469bb1, all gates hold)
+
+Verified line by line against c9aa514: task-first stability (severity-
+impossible recorded with reason; same-schema head keeps before/after
+comparable with s1web arms) ✓ · source-split (commoncrawl-train 2138 els vs
+locked mind2web+app ~495 = 2633 total, arithmetic holds; whole-source holdout
+stronger than site-split) ✓ · test-lock once with SHA-at-split + dirty-hands ✓ ·
+before/after on locked only (base 7ee5da4c) ✓ · weights private + disclaimer
+mandatory ✓ · Kaggle GPU + post-29th slot ✓ · LoRA r16/a32/ep≤3 + env logging ✓ ·
+zero training pre-signature ✓.
+
+Observation (non-blocking, for the run log): early-stop "on train-loss
+plateau" without a val split is approximate — the real overfit guard here is
+epochs≤3 + LoRA rank cap, not the plateau rule. Accept as-is; record which
+trigger actually stopped training (epochs-exhausted vs plateau) in the run log.
+Runs authorized post-29th window. W2's next touchpoint: before/after numbers
+verification when they land.
+
+---
+
 ## 2026-09-28 — UrsaMinor charter APPROVED for signature (W2, zero blockers)
 
 Read whole (46 lines, RU): goal false-PASS ✓ · scope llm-2-only + OUR sandbox
