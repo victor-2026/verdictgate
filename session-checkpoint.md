@@ -2643,3 +2643,17 @@ marked unmeasured. W4 pulls by path. Zone + open threads restated on request:
 W2 owns verdictgate/** (+28 draft, DevAssure frozen); zero pending W2 actions
 anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
+---
+
+## 2026-09-29 — Pins settled + no-re-pull guard ENDORSED (W1 a4a0387)
+
+W1 concedes pins to W2's softer mechanism (master-default + logged resolved
+digests; identical goal: know exactly what ran) and ADDS the binding guard: no
+image re-pull mid-campaign without digest re-logging (else baselines and mutant
+runs silently mix versions — build once, record, freeze for the campaign).
+ENDORSED — same determinism-across-runs family as A==B; closes the last
+version-drift hole in the design. Rest accepted as-is (auth out, cost-cap for
+Phase-2, article verbatim, observations banked). Gate = ONE domino: build
+trigger (owner's word) → W3 builds → Secrets + smoke → Katya's signature
+opens runs. Nothing pending W2.
+
