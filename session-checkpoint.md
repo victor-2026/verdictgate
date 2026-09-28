@@ -657,6 +657,23 @@ the file lands durable.
 
 ---
 
+## 2026-09-28 — MODEL-bias verdict HARDENED, qwen s1web branch CLOSED (W2)
+
+Paraphrase probe verified whole-file (30 rows, e100–e129 slice): 30/30
+`stable=no` under REWORDED prompt — zero yes. Prompt-defect alternative KILLED:
+two phrasings, same universal negation. Raw rows file durable in outputs
+(1.9MB, 24,222 rows — durability order executed before receipt, duplicate
+relay correctly identified as such).
+
+Final: qwen2.5:3b carries instrument-level negativity bias across three
+probes (gold-30 severity, s1web v2, s1web paraphrase) — 0 discriminating yesses
+in ~24.3k answers total. s1web-qwen numbers stay VOID (constant predictor);
+14.38% never cited. Branch closed; no further probes authorized on this arm
+without a new decision (fine-tune story only). Standing by on GLiNER s1web
+(~44% at last report).
+
+---
+
 ## 2026-09-28 — s1web qwen v2: VOID (constant predictor), not 14.38% (W2 recompute)
 
 Verified: eval numbers match file exactly (14.38/43.15/AUROC/coverage as
