@@ -693,6 +693,15 @@ publish version == reviewed (2).docx, or is there a newer assembly to check?
 
 ---
 
+## 2026-09-28 — Publish version CONFIRMED same (2).docx: cleared, no action
+
+Owner: идет та же. Verification chain complete with zero delta: reviewed file
+= publish file. No further W2 action on Article 29 pre-publish. Post-publish:
+repost mechanics (W4 lane) + quotes.md aphorism linkage (own material, link at
+publication per corrected designation).
+
+---
+
 ## 2026-09-28 — Fine-tune spec SIGNED (W3 8469bb1, all gates hold)
 
 Verified line by line against c9aa514: task-first stability (severity-
