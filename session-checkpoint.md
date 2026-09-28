@@ -633,6 +633,30 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-26 — s1web-mirror mini-protocol SIGNED (4× agree + 1 binding precondition)
+
+Read the full Atmaram index (172 lines) before signing. W3's four: (1) report
+rates + compare vs in-dataset baselines and reported Jev, no binary pass/fail
+— AGREE (foreign suite, not our gold); comparators ranked: in-dataset
+baselines (random/id-first) PRIMARY, Jev 11.1%/29.4% reported-context ONLY
+(Jev-variant-unpinned caveat from the index travels with the number).
+(2) Pin snapshot SHA pre-run (v3: 2,633/8,074/70/20 recorded) — AGREE; plus
+v4-drift rule: iterate fast (v1→v3 in a day), so re-verify version at run
+start — finish on pinned v3, note v4 if appeared. (3) No thresholds,
+first-run-calibration — AGREE. (4) Private-first + mutual-publication
+sufficient, no NDA text — AGREE (nothing proprietary crosses: public set,
+local judges, outputs private till mutual; revisit if that changes).
+
+BINDING PRECONDITION (without it this signature is void): s1web's scorer
+consumes {candidate_id: P(stable)} — our judges emit severity/fp, GLiNER emits
+typed decisions. An output→P(stable) MAPPING mini-protocol must be frozen +
+ratified BEFORE runs (same binding sequence as GLiNER step-2/step-3). Unmapped
+mid-run invention poisons comparability exactly as unmapped severity would.
+Terms compliance rides along: cite "s1web-bench v1" + sources in every output
+(Mind2Web CC-BY-4.0, Common Crawl ToU). Our set stays home (reply-5 stands).
+
+---
+
 ## 2026-09-26 — Article 29 data ruling (W4 draft + W1 critique adjudicated)
 
 Numbers verified from the pack: 53/58 = 91.4% ✓ · 5/58 = 8.6% ✓ · B2 gate
