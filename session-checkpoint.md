@@ -633,6 +633,29 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — Qodo: complexity LOW, effect UNASSIGNED → pause supported (W2)
+
+Cost arithmetic (owner asked): 580 issues × 3 runs × 2 arms ≈ 3,480 calls —
+machine-cheap (qwen ~0.1s + GLiNER ~0.4s → under an hour compute + analysis).
+Cheaper than OpenClaw batches (hours of suites), gold labeling (human hours),
+Phase B full arc. Complexity is NOT the problem.
+
+Effect analysis: unique value exists (ONLY benchmark with 580 guaranteed-real
+defects → miss-rate on certain positives; functional/best-practice slices) —
+but NO open decision consumes it. Replacement closed NO, GLiNER LOSE closed,
+ladder parked, fine-tune gated on its own spec. A measurement without a pending
+decision violates our own decision-driven doctrine (same rule that killed
+make-work stability runs). Severity undescriptive by design further thins the
+yield (detection-only, no severity verdict possible).
+
+Recommendation: PAUSE with trigger (not park-and-forget): resume IFF (a) a new
+judge needs detection-rate validation, (b) fine-tune spec names Qodo-slices as
+bench, or (c) article needs a third data point. Frozen mapping + pinned dataset
+persist — unpausing costs one run + analysis. Owner decides; W2 needs nothing
+either way.
+
+---
+
 ## 2026-09-28 — Qodo mapping RATIFIED +2 pre-run conditions (W3, no runs made)
 
 Verified: dataset pin by SHA-at-fetch (HF MIT, 100 PRs/580, bench-file-only
