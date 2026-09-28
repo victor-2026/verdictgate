@@ -633,6 +633,19 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-29 — Integrity batch VERIFIED all three (W3 a371e86 + W1 53510bf)
+
+W2 independent verification (read-only): (1) tag opclaw-baseline-2026-09-29
+exists, message "toggles all OFF (clean baseline)" ✓; (2) both reconstructed
+runners present + py_compile clean ✓ (proof+tool co-located per W1 refinement);
+(3) ollama-memo thorough (one-serve, sticky-start, store-awareness with digest,
+no-pull-without-record, pre-departure) ✓. The /tmp-purge-mid-task incident
+stands as the canonical "lineage before loss" exhibit — priority systemically
+validated, not just completed. Integrity queue EMPTY (W1 confirms nothing
+pending). No W2 action.
+
+---
+
 ## 2026-09-29 — UrsaMinor article FETCHED, W3 reading confirmed verbatim (W2)
 
 Fetched dev.to/quality_minder/3pc7 (Sep 25) whole. All methodology-load-bearing
