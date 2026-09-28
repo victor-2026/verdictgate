@@ -633,6 +633,24 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-27 — s1web mapping RATIFIED +1 annotation (W3, no runs pre-ratification)
+
+Verified: SHA pin (2633/8074 locally) + v4-drift STOP-repin-restart (stricter
+than minimum) ✓ · item format observed ✓ · scope qwen2.5 + GLiNER, qwen3
+excluded with arithmetic (24k×24s ≈ 6.7d — recomputed, holds) + report-only
+needs-no-arbiter reasoning ✓ · QUESTION SHIFT explicit (stability, not
+severity; no claim transfers from gold-30 — the category error preempted in
+text) ✓ · frozen prompts (temp 0, exact one-line; GLiNER native P + determinism
+check with split-as-finding) ✓ · verdict rule honors all four signed points ✓.
+
+Annotation (analysis-phase, non-blocking): P granularity differs by arm —
+generative {0,1/3,2/3,1} coarse vs GLiNER continuous. Read broken-locator rate
++ AUROC (rank-based, granularity-robust) as PRIMARY; Brier/log-loss/ECE as
+SECONDARY for the coarse arm (proper scores punish coarseness independent of
+judgment quality). Runs authorized.
+
+---
+
 ## 2026-09-26 — s1web-mirror mini-protocol SIGNED (4× agree + 1 binding precondition)
 
 Read the full Atmaram index (172 lines) before signing. W3's four: (1) report
