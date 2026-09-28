@@ -657,6 +657,19 @@ Terms compliance rides along: cite "s1web-bench v1" + sources in every output
 
 ---
 
+## 2026-09-26 — W1 accepts signature + IP-asset point recorded (0ac24cb)
+
+W1 accepts the full package (report-only, baselines-primary, pin+v4-drift,
+no thresholds, private-first) and confirms the precondition as key (protects
+both sides: frozen mapping preempts tuning-for-our-judges accusations).
+W1's added value endorsed: the frozen severity/fp → P(stable) mapping is a
+REUSABLE methodology asset, not one-shot run config. Placement: pattern
+generalizes into ai-qa-wiki AFTER first frozen use (s1web) — not prematurely;
+the instance mapping itself lives with the run protocol (W3) under W2
+ratification. Order stands: mapping → runs; set home; Reply-5 in force.
+
+---
+
 ## 2026-09-26 — Article 29 data ruling (W4 draft + W1 critique adjudicated)
 
 Numbers verified from the pack: 53/58 = 91.4% ✓ · 5/58 = 8.6% ✓ · B2 gate
