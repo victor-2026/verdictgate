@@ -633,6 +633,27 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-29 — UrsaMinor article FETCHED, W3 reading confirmed verbatim (W2)
+
+Fetched dev.to/quality_minder/3pc7 (Sep 25) whole. All methodology-load-bearing
+claims verified verbatim: BaaS env (API_KEY + macOS Chrome path + HEADFUL +
+LLM_CLIENT=openai + OPENAI_TOKEN/ORG) ✓ · smoke = Browser Screenshot with
+session ID ✓ · login hardcode RECOMMENDED by author in http-1 ("Login flows
+rarely change, so scripting them once saves tokens") ✓ · llm-2 = pass/fail/
+broken decider ✓ · Secrets (BAAS_API_KEY, Provider key, Jira_auth base64,
+jiraSubdomain + input-1 URL) ✓ · /etc/hosts entry ✓ · studio :8080 (port
+finding independently grounded) ✓.
+
+New observations (mine, non-blocking): author account joined Sep 25, 2026
+(same-day identity — provenance note, not accusation, side-project consistent) ·
+OpenAI key REQUIRED, Anthropic alternative exists (no free path in article —
+supports cost-cap rule) · Victor's Sep-25 comment already plants the
+seeded-break + ambiguity-flag question publicly (consistent with Monday
+framing, no conflict) · closing "keep humans on the loop" + star/DM ask
+(traction-seeking beta, as filed). W3's reading stands unamended.
+
+---
+
 ## 2026-09-29 — Ursa-Minor PREPPED, build trigger pending (W3 status, W2 notes)
 
 Status recorded: infra present (Docker/Go/Chrome), repos cloned (BaaS HEAD
