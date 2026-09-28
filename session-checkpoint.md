@@ -633,6 +633,24 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-27 — (c1) PASSES: (c) authorized with (c1) instruction, (c2) declined (W2)
+
+W3 (c1) probe: 17/20 HOLD on strengthened instruction (3 BREAK = 15% — above
+the 10% spec bar, far from the 93.6% systematic refusal). Digest re-verified
+identical pre-run (freeze intact through the re-pull). All HOLDs = stable=no
+(recorded as observation).
+
+Decision: (c) FULL RERUN authorized under NEW freeze (v2: strengthened prompt
+text frozen verbatim + digest confirmed + UNPARSEABLE handling unchanged),
+breaks recorded as UNPARSEABLE data — never disqualification, never silent.
+(c2) tolerant schema DECLINED for now: weakening the schema to absorb 15%
+changes what's measured (schema drift for convenience); (c1) recovers 85%
+inside a frozen schema, and the 15%-vs-10% exceedance is itself a measurement
+to re-take on the full set, not to define away. (c2) returns only if the
+exceedance proves irreducible AND the arm still justifies it. W3 executes.
+
+---
+
 ## 2026-09-27 — s1web qwen-format stopper: ruling (b)+(c), digest re-check MANDATORY
 
 W3 stopped the runner (correct — silent parse-expansion would violate freeze):
