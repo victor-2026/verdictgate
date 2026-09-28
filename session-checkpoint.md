@@ -633,6 +633,35 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — Fine-tune track: COMPUTE approved, CONTAMINATION is the gate (W2)
+
+W3 arithmetic concurs (LoRA-340M fits 6GB; ~one evening; Kaggle primary with
+private dataset + env token is sound; Colab fallback; Fastino Agent door
+separate, non-blocking). Compute is NOT the bottleneck — agreed.
+
+Binding requirements for the frozen spec (W2 signs only with all present):
+1. **Site-split, not random:** train/val/TEST split BY SITE (same principle as
+   s1web's own site-split calibration) — random split leaks same-site patterns.
+2. **Test-lock:** held-out TEST set locked BEFORE training starts; touched
+   exactly once (final bench). Training on the eval set then reporting on it
+   = train-test contamination, the cardinal sin this program exists to catch.
+   (This applies retroactively as a lens: any prior fine-tune claims without
+   locked test are void by the same rule.)
+3. **Task definition first:** WHAT is predicted (severity classes? P(stable)?) —
+   determines head/labels/loss; severity vs stability decided in spec, not mid-run.
+4. **Before/after benches** on the LOCKED test only (plus gold-30 as external
+   probe if task-compatible — severity task only).
+5. **Terms:** weights stay PRIVATE (no derivative publishing under
+   eval/research terms); numbers publishable with cite; contamination
+   disclosure travels with every number.
+6. Owner actions (not W2): Kaggle account + token via env; W1 go-decision.
+
+Data verdict stands: gold-30 (30) insufficient alone — correct call; s1web as
+corpus OK only under 1–2 above. Dirty-Hands doctrine applies: whoever trains
+touches nothing evaluative without the split locked first.
+
+---
+
 ## 2026-09-28 — UrsaMinor charter APPROVED for signature (W2, zero blockers)
 
 Read whole (46 lines, RU): goal false-PASS ✓ · scope llm-2-only + OUR sandbox
