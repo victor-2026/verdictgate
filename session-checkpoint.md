@@ -633,6 +633,24 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — UrsaMinor charter APPROVED for signature (W2, zero blockers)
+
+Read whole (46 lines, RU): goal false-PASS ✓ · scope llm-2-only + OUR sandbox
+(stronger than spec: her systems untouched by construction) + OUT list ✓ ·
+method (baseline ≥3 distribution-stated, N×≥2, Caught/Survived, divergences =
+re-run, majority-hide ban present) ✓ · limitations (capped key w/ her OK, SHA
+pin, decoy consent+pre-register, privacy w/ public-repo reason stated,
+publication explicit-consent, findings-first) ✓ · gate 4/4 ✓ · done-definition
+with HER decision on continue/publish/close ✓ · signatures both sides with
+specific commitments ✓. All R1–R7/L1–L5 covered with nothing dropped.
+
+Non-blocking note (execution protocol, not charter): broken→Caught here lacks
+the observed-error-quote requirement from my mapping — correctly left out
+(charter stays readable; the quote discipline lives in W3's run protocol).
+W3 executes after her signature. No W2 action until results or gate failure.
+
+---
+
 ## 2026-09-28 — GLiNER s1web: VOID by symmetry (mirror constant), suite exonerated (W2)
 
 Recomputed whole-file: 8074 P=1.0 all · 24,222 rows present · broken
