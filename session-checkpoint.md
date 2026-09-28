@@ -633,6 +633,34 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-27 — s1web qwen-format stopper: ruling (b)+(c), digest re-check MANDATORY
+
+W3 stopped the runner (correct — silent parse-expansion would violate freeze):
+qwen2.5:3b answers bare yes/no vs frozen `stable=<yes|no>` on 1084/1159 (93.6%,
+systematic). GLiNER branch clean, continues. Ollama stabilized via
+persistent-SSH after W3's duplicate-serve fight (admitted, fixed).
+
+Ruling: (a) REJECTED — counting bare answers as observations rewrites the
+schema post-hoc (frozen prompt says EXACTLY; letter governs, not intent).
+(b) RECORDED — 1084 rows are UNPARSEABLE per schema; the run stands as
+measured (arm yields ~75 usable). (c) AUTHORIZED as new decision — prompt/schema
+fix under a NEW freeze version, then re-run; suggest (c1) strengthen instruction
+first (cheap probe: CAN the model follow exact format?), (c2) tolerant schema
+only if (c1) fails systematically (consistent with think=false evidence —
+instruction-following is this model's known weak side, not a surprise).
+
+MANDATORY before any (c) run (unnamed by anyone): model was RE-PULLED fresh —
+digest MUST re-verify 357c53fb…; a changed digest breaks the freeze silently
+(new weights = new instrument). No runs until digest confirmed.
+
+Infra (for owner pre-departure list): Ollama lives on W3's persistent-SSH
+(PID 63917, dies with the session) — Victor sets Ollama autostart on PC
+before leaving, else next measurement hits the same wall. W3's stoppage under
+pressure commended explicitly — stopping a hot runner on principle is the
+discipline working.
+
+---
+
 ## 2026-09-27 — Rinat Abdullin noted, no action (W5 wiki lane)
 
 W5: already covered (digest 0.9, wiki profile + BitGN pages); no card (Following,
