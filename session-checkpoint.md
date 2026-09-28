@@ -674,6 +674,15 @@ without a new decision (fine-tune story only). Standing by on GLiNER s1web
 
 ---
 
+## 2026-09-28 — qwen closure accepted both sides; GLiNER at ~75% (W3)
+
+W3 recorded the MODEL-bias verdict as accepted (0/24.3k position, 14.38%
+banned from citation). GLiNER s1web at 18279/24222 (~75%) — on finish: scores
++ evaluate + numbers to W2 under same discipline (whole-file recompute before
+any verdict, per standing practice). Nothing pending W2 until then.
+
+---
+
 ## 2026-09-28 — s1web qwen v2: VOID (constant predictor), not 14.38% (W2 recompute)
 
 Verified: eval numbers match file exactly (14.38/43.15/AUROC/coverage as
