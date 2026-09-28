@@ -633,6 +633,25 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — Practice page: W2+W3 reviews converged (owner edits)
+
+Two independent reviews agree. Consolidated punchlist for owner (Portfolio =
+his zone, his edits):
+- MUST-FIX (both windows): OpenClaw "2 inconclusive" → "24/24 (22 killed +
+  2 resolved: caught-by-crash, killed)". Page currently contradicts verified
+  closeout on two cases.
+- W1-GATED (W3 drafted, W1 decides): header "no sales" vs "no retainers up
+  front" + Stage 0/1 frame → proposed "paid only by results, never up front".
+  Commercial wording final word stays W1.
+- VERIFY (neither window ran it): Agentiqa 0/6 + cold-start effect — owner
+  checks against pilot artifacts; broken case worse than no case.
+- OPTIONAL (owner taste): seeded-break sets as-artifact line (promised to
+  Jyothi/Urchade tracks already — magnet for builders) · QAEverest "(ongoing)"
+  tag (track alive, not ruptured) · cold-start one-word gloss · scope-guard
+  line ("I don't fix, I verify") · external-link resolution check (gotcha #8).
+
+---
+
 ## 2026-09-28 — Fine-tune track: COMPUTE approved, CONTAMINATION is the gate (W2)
 
 W3 arithmetic concurs (LoRA-340M fits 6GB; ~one evening; Kaggle primary with
