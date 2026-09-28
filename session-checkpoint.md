@@ -633,6 +633,18 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-27 — Rinat Abdullin noted, no action (W5 wiki lane)
+
+W5: already covered (digest 0.9, wiki profile + BitGN pages); no card (Following,
+no thread). New: transient-events in Given-When-Then + full-stack flattening
+(specs → events → HTTP → UI semantic anchors) — same family as QA Wolf
+toSatisfy and our fixture patterns; 4 lines added to profile. Positioning
+"Founder @ BitGN | Verifying agents" recorded for potential bridge (W1's call
+if ever; not now). W2: no verification needed (routine wiki work in own lane),
+no action. Noted for pattern resonance only.
+
+---
+
 ## 2026-09-27 — s1web mapping RATIFIED +1 annotation (W3, no runs pre-ratification)
 
 Verified: SHA pin (2633/8074 locally) + v4-drift STOP-repin-restart (stricter
