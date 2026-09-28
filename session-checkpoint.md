@@ -661,6 +661,14 @@ discipline working.
 
 ---
 
+## 2026-09-27 — Ollama autostart DONE (owner, pre-departure item closed)
+
+Persistent-SSH fragility resolved at the root: PC now self-serves Ollama
+across reboots/sessions. Remaining infra items: digest re-check post-re-pull
+(W3, before any (c) runs). Owner free to depart on this front.
+
+---
+
 ## 2026-09-27 — Rinat Abdullin noted, no action (W5 wiki lane)
 
 W5: already covered (digest 0.9, wiki profile + BitGN pages); no card (Following,
