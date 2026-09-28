@@ -633,6 +633,33 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — s1web qwen v2: VOID (constant predictor), not 14.38% (W2 recompute)
+
+Verified: eval numbers match file exactly (14.38/43.15/AUROC/coverage as
+computed — arithmetic not disputed). BUT all 8074 P = 0.0 exactly → CONSTANT
+predictor: AUROC 0.5 is degeneracy (not "binary doesn't rank" — binary would
+still rank), broken-rate = arbitrary-tiebreak artifact ≈ id-first level,
+coverage 1.0 vacuous (all scored-with-zeros). This measures NOTHING about
+judgment. Verdict: VOID, do not cite 14.38% as qwen's score anywhere.
+
+Three hypotheses, ranked, each with discriminating evidence (all require
+per-run verbatim raws — absent; same verbatim doctrine as Phase B, now biting
+exactly as predicted):
+(H1 parser-drops, PRIME SUSPECT): bare yes/no answers parsed as 0 — the
+original 93.6% stopper persisting at scale; (c1) 17/20 probe unrepresentative.
+Discriminator: verbatim answers per run.
+(H2 model-says-no): strengthened prompt biases to negation; (c1) probe's
+all-HOLDs=stable=no already hinted this direction.
+(H3 join-mismatch): my_scores qids (e0q0-style) vs eval_set candidate_ids —
+systematic miss defaults everything to 0. Discriminator: key-overlap audit
++ eval_set SHA check.
+Also open: eval covers 1662/2633 elements — why the subset (W3 to state).
+
+GLiNER branch untouched per W3 (still running). No conclusion about qwen on
+s1web stands until per-run verbatim raw exists.
+
+---
+
 ## 2026-09-27 — Standing practices ENDORSED as-is + Aleksandr triage concurred (W3)
 
 (1) Pilot-fitness verdicts in roster (FIT / FIT-with-costs / Section 3 /
