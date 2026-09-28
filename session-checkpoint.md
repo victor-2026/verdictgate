@@ -633,6 +633,27 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-29 — Ursa-Minor PREPPED, build trigger pending (W3 status, W2 notes)
+
+Status recorded: infra present (Docker/Go/Chrome), repos cloned (BaaS HEAD
+ec48697 ✓ SHA-pin satisfied for SUT), port conflict found → remap 8081
+(record URLs as-remapped in run log), article fully read, Jira gate relaxed by
+author + own trial live (victor-qa/KAN/SAM1-6, token in owner's shell),
+login-hardcode author-recommended (http-1) → auth-scope exclusion CONFIRMED
+(open item closed), llm-2 pass/fail/broken confirmed, Ollama $0 path (vision
+pulled, autostart confirmed, cloud models deliberately off), FREE-ONLY guard
+track-wide, mismatch ticket/env correctly scoped as pipeline-check.
+
+W2 notes: (1) auth exclusion now verified, not assumed — close the open item
+as such; (2) "pins default master" for BUILD — acceptable only with resolved
+image digests recorded at build time (master moves; record what actually ran);
+(3) $0 Ollama path eases but does not remove the cost-cap rule (cap stays,
+binds nothing while free). Monday gate: key→resolved $0-pending-her-OK,
+workaround viable, setup pending build, baseline pending smoke — build trigger
+is the remaining domino.
+
+---
+
 ## 2026-09-28 — Qodo: complexity LOW, effect UNASSIGNED → pause supported (W2)
 
 Cost arithmetic (owner asked): 580 issues × 3 runs × 2 arms ≈ 3,480 calls —
