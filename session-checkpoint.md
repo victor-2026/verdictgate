@@ -662,6 +662,22 @@ touches nothing evaluative without the split locked first.
 
 ---
 
+## 2026-09-28 — Fine-tune GO (W1 f81e6bf): contamination gate + disclaimer rule
+
+W1 approves with the contamination gate as the single binding condition
+(site-split + test-lock + task-first + locked-test benches + private weights —
+no signature without all). Two additions recorded:
+1. **Reply-5 extends to fine-tuned judges** (run ours + report privately) WITH
+   mandatory disclaimer "trained on your distribution" at report — without it,
+   tuned numbers presented as independent measurement = misleading. NDA
+   unneeded (public set, our models, private report).
+2. **Slot:** evening GPU windows AFTER Tue 29th publish (that window belongs
+   to the article + repost mechanics — no preemption).
+Chain locked: W3 spec-for-task → W2 signature → run. W2 awaits the spec; no
+action until it arrives.
+
+---
+
 ## 2026-09-28 — UrsaMinor charter APPROVED for signature (W2, zero blockers)
 
 Read whole (46 lines, RU): goal false-PASS ✓ · scope llm-2-only + OUR sandbox
