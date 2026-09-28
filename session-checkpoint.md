@@ -633,6 +633,30 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — H2 CONFIRMED + cross-task bias: MODEL-verdict, not prompt-defect (W2)
+
+W3 verbatim facts (24220/24222 rows existed — doctrine paid off): H1 partial
+(bare-no 4322, all "no" — no outcome effect) · H2 CONFIRMED (zero `yes` in
+24,220: 19,898 exact + 4,322 bare + 2 empty) · H3 REFUTED (overlap 8074/8074) ·
+1662/2633 = ≥2-candidate rule from docstring (closed).
+
+Analyst verdict (the question left to W2): MODEL, not prompt. Grounds: same
+negativity direction on TWO tasks with different prompts — gold-30 severity
+(all-defect P1×25/P2×5) + s1web stability (all-unstable). A prompt defect
+would be task-specific; cross-task systematicity is instrument-level bias.
+Corollary with teeth: (c1) fixed compliance (6.4% → 82%) WITHOUT fixing
+judgment (0 discriminating yesses) — instruction-following and judgment
+quality are independent axes here; paraphrase optimism should be priced
+accordingly. Still: ONE paraphrase probe before bigger Q-design (cheap kill
+either way — if paraphrase flips it, this verdict falls; if not, it hardens).
+
+Durability order: move /tmp/s1web-qwen25-v2-rows.jsonl to outputs/ next to
+scores NOW (/tmp dies on reboot; 24k rows of primary evidence must not live
+volatile). W3 moves (their file); W2 will not cite s1web-qwen numbers until
+the file lands durable.
+
+---
+
 ## 2026-09-28 — s1web qwen v2: VOID (constant predictor), not 14.38% (W2 recompute)
 
 Verified: eval numbers match file exactly (14.38/43.15/AUROC/coverage as
