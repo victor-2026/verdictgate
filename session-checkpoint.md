@@ -633,6 +633,26 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-28 — GLiNER s1web: VOID by symmetry (mirror constant), suite exonerated (W2)
+
+Recomputed whole-file: 8074 P=1.0 all · 24,222 rows present · broken
+14.38026474/43.14720812 + AUROC 0.5 + coverage 1.0 — digit-identical to qwen.
+Same doctrine applied evenly, no favoritism: CONSTANT predictor ⇒ no judgment
+measured ⇒ numbers describe the tie-break, not the model. VOID, never cited.
+
+W3's question answered ("what does broken-rate measure under constants?"): it
+measures FIRST-CANDIDATE quality — a property of the SUITE's ordering
+(~14.38% ≈ id-first level). Opposite constants collapse onto it regardless of
+sign; that is why diametrically opposed judges score identically. Corollary
+exonerating the suite: s1web DOES discriminate real (non-constant) predictors
+(v3 7.9%, Jev 11.1%) — the metric is sound, our two instruments both returned
+constants (qwen all-no, GLiNER all-yes: opposite degenerate directions —
+negativity bias vs native-head positivity; different mechanisms, same
+degeneracy class). GLiNER standing results unchanged (step-3 LOSE on gold-30,
+separate task); s1web arm joins qwen arm as VOID. Parked status holds.
+
+---
+
 ## 2026-09-28 — H2 CONFIRMED + cross-task bias: MODEL-verdict, not prompt-defect (W2)
 
 W3 verbatim facts (24220/24222 rows existed — doctrine paid off): H1 partial
