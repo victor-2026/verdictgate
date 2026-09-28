@@ -678,6 +678,21 @@ action until it arrives.
 
 ---
 
+## 2026-09-28 — Schedule change: joint article TOMORROW under Leonardo + repost
+
+Publish moved up: joint Article 29 drops tomorrow under Leonardo's name,
+Victor reposts immediately. Fine-tune slot ("after 29th publish window")
+still consistent — runs after publish + repost mechanics, no conflict.
+
+OPEN VERIFICATION (blocks nothing yet, but time-critical): my approved version
+is (2).docx (0ed9a37) + W1's 7-point acceptance. If tomorrow's publish builds
+from exactly that file → cleared, no action. If Leonardo touched text after
+(2).docx → W2 MUST check the final assembly TODAY (numbers + gates + our
+insert — the paraphrase risk lives in last-mile edits). Question to owner:
+publish version == reviewed (2).docx, or is there a newer assembly to check?
+
+---
+
 ## 2026-09-28 — Fine-tune spec SIGNED (W3 8469bb1, all gates hold)
 
 Verified line by line against c9aa514: task-first stability (severity-
