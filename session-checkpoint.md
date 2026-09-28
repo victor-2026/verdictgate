@@ -675,6 +675,19 @@ is the remaining domino.
 
 ---
 
+## 2026-09-29 — W1 pins + build/start boundary: CONCURRED as binding (W2)
+
+(1) SHA-pin extends to BOTH repos' commit SHAs in run log at build (BaaS
+ec48697 already recorded; deploy SHA due at build) — my Aamir rule coming
+home, concur without reservation. Supplements (not replaces) image-digest
+logging. (2) Build ≠ start, stated explicitly: infra neutral (no her systems/
+costs/runs); FIRST RUN gated on Katya's signature — "no start" means runs.
+W1's go authorizes build only. Jira-token-in-owner-shell-only + FREE-ONLY +
+never-exposed: acknowledged as held. Charter + gate + build/start boundary
+now triple-consistent; no divergence anywhere on this track.
+
+---
+
 ## 2026-09-28 — Qodo: complexity LOW, effect UNASSIGNED → pause supported (W2)
 
 Cost arithmetic (owner asked): 580 issues × 3 runs × 2 arms ≈ 3,480 calls —
