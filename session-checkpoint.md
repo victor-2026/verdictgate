@@ -651,6 +651,16 @@ judgment quality). Runs authorized.
 
 ---
 
+## 2026-09-27 — s1web gate fully open: W1 confirms, W3 executes (03c2298)
+
+W1 accepts ratification + granularity annotation (as analysis hygiene, no
+commercial action). Binding precondition closed on all points from both sides.
+Execution: W3 (runs now authorized). W1 files results on arrival. W2's next
+touchpoint: numbers verification when raw lands (same recompute discipline as
+Phase B). Nothing pending anywhere else on this thread.
+
+---
+
 ## 2026-09-26 — s1web-mirror mini-protocol SIGNED (4× agree + 1 binding precondition)
 
 Read the full Atmaram index (172 lines) before signing. W3's four: (1) report
