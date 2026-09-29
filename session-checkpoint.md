@@ -2696,6 +2696,26 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-29 — Reg accept CONDITIONAL + rename applied + gotcha fixed (W1 ad9f475)
+
+Denominator check (assigned to W2) against H4 data (120 rows: success 120/120,
+validation_detected yes/120, is_regression True 67/120): Reg as WRITTEN
+("seeded-break runs") vs as PUBLISHED (/120 all-runs incl. controls) DIVERGE —
+identity with mutation_score (seeded-only denominator) holds ONLY under the
+seeded subset. Numbers unaffected either way (0/120 = 0/60 = 0 — degenerate).
+Ruling: rename ACCEPTED with denominator condition attached (operationalize
+which conditions = seeded-break; recommended break+drift = 60; W1 confirms);
+numerator equivalence (absent ⟺ caught) UNTESTED — first nonzero case reopens
+the identity, recorded explicitly. Reg → mutation_score, Reg* → native_rate
+applied in retro-pipeline-spec (UNDEFINED lifted); article legend already
+renamed by W4 (line 57, verified). native_rate = 67/120 = 55.8% raw-field rate
+here — descriptive only, gates nothing (is_regression unreliable per H4).
+
+Gotcha collision fixed: mine renumbered to ## Gotcha #12 (was ### 10;
+## 10/11 pre-existed — owner-flagged, my grep missed ##-level headings).
+
+---
+
 ## 2026-09-29 — Reg/Reg*: provenance unknown, rename required (owner catch)
 
 Owner: industry norm or our invention? plus markdown-asterisk confusion risk.
