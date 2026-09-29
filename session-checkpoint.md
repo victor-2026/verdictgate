@@ -2733,6 +2733,25 @@ his timing).
 
 ---
 
+## 2026-09-29 — Night build: stand up, CDP blocked, fallback ordered (W3)
+
+Stand built (repos re-pulled + SHAs, UI:8081 post-CORS, studio login, secret
+in, 6 agents). Blocker triaged textbook: full chain eliminated, remainder
+precisely localized — vendor session path broken in this env, NOT the browser
+(dump-dom works). Endorsed: the localization proof (working dump-dom) is what
+makes it a finding instead of a shrug.
+
+Fallback order correct (Docker BaaS first = article-blessed path, no
+methodology deviation; then owner-session Chrome; then vendor bug report with
+ready logs). Two appends: (1) Docker base image = new artifact — record its
+digest in run log (env delta travels with measurements); (2) log RESOLVED env
+(redacted secrets) at every startup — the unquoted-spaces gotcha proves .env
+parsing varies by consumer (shell vs docker vs Go dotenv); effective values,
+not file text, are the lineage. Owner-session Chrome noted as
+session-dependent constraint if reached (screen-lock flake class).
+
+---
+
 ## 2026-09-29 — Node content verified (W3 micro-point, temp finding strengthens repeats)
 
 W3 retrieved + READ her JSON (not just SHA): llm-2 = openai/gpt-4.1, temp 0.7,
