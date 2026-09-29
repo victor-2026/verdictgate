@@ -2716,6 +2716,23 @@ Gotcha collision fixed: mine renumbered to ## Gotcha #12 (was ### 10;
 
 ---
 
+## 2026-09-29 — Denominator CONFIRMED by W1 independently, UNDEFINED lifted (e97d54c)
+
+W1 rechecked from data (not on trust): 120 rows, 4×30 conditions, success 120,
+validation yes/120, is_regression 12+25+12+18 = 67 (55.8% — converged with W2
+to the tenth). Break+drift = 60 confirmed as seeded-subset with triple basis
+(W2 data check + design coherence + degenerate numerators). Numerator accepted
+as untested (first nonzero case reopens). UNDEFINED lifted by W2's rename
+(already applied b296ab9: mutation_score + native_rate with denominator
+condition) — no further action, both sides agree the line is now defined.
+
+Seeded-flag rule ADOPTED (W1 recommendation, W2 enforces at review): every
+future campaign carries an explicit per-row seeded boolean at seed time — next
+identity check must need no archaeology. Absence of the flag in a future pack
+= review finding, not nitpick.
+
+---
+
 ## 2026-09-29 — Reg/Reg*: provenance unknown, rename required (owner catch)
 
 Owner: industry norm or our invention? plus markdown-asterisk confusion risk.
