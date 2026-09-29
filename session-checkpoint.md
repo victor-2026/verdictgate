@@ -633,6 +633,24 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-29 — Wave-ID wall VERIFIED file-by-file (W3 dig, qa-cube H4)
+
+Recomputed: 010919→013947 = 12 files at 10,20,…,120 (running totals, subset
+relation verified: 20-row ⊆ 120-row). Report header converges (campaign
+01:04–01:39 ~35 min, 120 = 4×5×6, 100% success; first snapshot 01:09).
+Fencing matches the file record: setup era (004143–005658, irregular counts)
++ evening rerun (120 wall 20:33–21:06) + aborted 60-series (21:12–21:27)
+correctly excluded. Headline 120 insured to exactly this wall — W1 may close
+tail #2.
+
+One line beyond W3's report: TWO more complete 120-walls exist on disk
+(025753–042036, 203310–210620). Headline stays fenced by header-convergence
+(not uniqueness); the extra walls are replication material, never to be mixed
+into this 120. If anyone cites them, each wall carries its own header or it
+doesn't count.
+
+---
+
 ## 2026-09-29 — RMT follow-up inventory for W4 (article published, 3–5 day note)
 
 Recomputed from artifacts (not memory): 82 seeded mutants (batch #1: 58 rows;
