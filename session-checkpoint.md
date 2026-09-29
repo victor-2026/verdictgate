@@ -633,6 +633,26 @@ Slot 2 OPEN: remaining 25 items, independent, private copies, separate submissio
 
 ---
 
+## 2026-09-29 — RMT follow-up inventory for W4 (article published, 3–5 day note)
+
+Recomputed from artifacts (not memory): 82 seeded mutants (batch #1: 58 rows;
+batch #2: 27 run-records over 24 mutants) + 4 closeout + 9 confirmation runs =
+~98 RMT run-records + smokes. Downstream beyond OpenClaw: NONE (all RMT runs
+target OpenClaw specs). Second live case: NONE — stated plainly, no substitute
+offered.
+
+Viable angle WITHOUT new case or runs (W4's fear of retelling is solvable):
+"post-freeze diary" — everything the article does NOT contain: batch #2
+(24 mutants incl. B5 chains the v1 engine missed entirely; 22 killed + hang
+resolutions via pre-registered crash mapping) + engine evolution post-freeze
+(NO-OP guard, expect.soft, chain-unwrap, RMT_VERSION stamp — the seeder got
+stronger AFTER the published numbers) + S4-confirmation (vacuous vs genuine
+gaps) + stamp saga (58 UNSTAMPED as teaching example). All recorded, all
+citable, zero new runs required. Recommended framing over "how we used RMT"
+(retrospective) — "what changed since the freeze" (news).
+
+---
+
 ## 2026-09-29 — Integrity batch VERIFIED all three (W3 a371e86 + W1 53510bf)
 
 W2 independent verification (read-only): (1) tag opclaw-baseline-2026-09-29
