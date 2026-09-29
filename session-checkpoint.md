@@ -2696,6 +2696,20 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-29 — Retro-pipeline spec REVIEWED, hardened ×2, FILED (W1 draft)
+
+Review: boundary clean — nothing judging-class in machine scope (Reg/Reg* are
+fixed-formula computation; drift-diff is presence-boolean; assembly is
+field-copy). Filed as docs/retro-pipeline-spec.md with two tagged W2 additions:
+(1) Reg/Reg* formulas must cite exact frozen source (SCORER_VERSION + section),
+else the column doesn't build; (2) normalization byte-preserving by default
+(no folding unless explicitly listed — none listed). Both close silently-
+loose phrasing ("fixed formulas", "without interpretation") that implementation
+could have driven judgment through. Acceptance (byte-identical on batch #1)
+stands; implementation not started (separate decision).
+
+---
+
 ## 2026-09-29 — Retro-pipeline spec: skeleton APPROVED, path (b) (W1)
 
 Skeleton sound end to end (goal / machine-scope / human-scope / interfaces /
