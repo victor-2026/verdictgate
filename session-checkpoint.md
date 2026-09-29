@@ -2696,6 +2696,36 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-29 — UrsaMinor mapping RATIFIED: binary + 3 buckets + inversion (W2)
+
+Brief read whole (31 lines). Charter effectively signed (👍 + five yeses +
+P1 qualification) — accept W1's reading; signature gate closed, build trigger
+(Victor's "go") the only open item.
+
+Ratification (binding, pre-runs): BINARY rule confirmed with her-known-issue
+adjustment — non-success on seeded break = Caught, where Caught means
+"refused to pass", NOT "correctly diagnosed" (diagnostic precision deferred
+till she fixes failed/broken distinction; revisit then). Baseline polarity
+INVERTED as specified: baseline success = correct; baseline non-success =
+FALSE ALARM on a separate track (specificity measurement, never mixed with
+survivors). P1-context inside verdict as (llm-2 + context); node portability
+explicitly unmeasured.
+
+Three bucket rulings (all required pre-runs, all Caught + differentiated
+observations, none flip verdict; wrong-reason catches observed, e.g.
+test_broken on app-break):
+- test_broken → Caught + observation (wrong-reason class recorded).
+- prompt-tuning artifacts → Caught + observation (gpt-4.1-tuned prompt on
+  qwen pre-accepted as-is; artifacts expected, not fixed, not penalized).
+- tool-error (any tool except removed memory_store) → Caught + observation;
+  memory_store error if ever seen = config breach (tool was to be removed) →
+  infra-excluded, not scored.
+Her $5-fallback branch (bounded, her money, local-only, delete after) and
+merge boundary (pre/post unmixed, pin vector + dates separately) accepted as
+pre-registered conditionals. Star/DM post-green-smoke noted for W3 execution.
+
+---
+
 ## 2026-09-29 — Pins settled + no-re-pull guard ENDORSED (W1 a4a0387)
 
 W1 concedes pins to W2's softer mechanism (master-default + logged resolved
