@@ -2733,6 +2733,34 @@ his timing).
 
 ---
 
+## 2026-09-29 — Night forks recorded, one framing rule endorsed (W1 11f0c48)
+
+W1: no night actions (Docker builds itself); morning forks with non-W1
+decisions: Docker-up → smoke per brief, nothing needed; Docker-down → (a)
+owner-session Chrome (OWNER decides, only with W3's SPOKEN "interactive
+untouched" guarantee post-pkill-incident + session-lock flake caveat stands)
+or (b) Katya bug report (framing strictly friendly setup-feedback per Igor
+pattern, never verdict, only via owner channel). Gotcha kept as read-env-
+before-launch reminder.
+
+W2 endorses the (b)-framing as load-bearing, not cosmetic: a warm author
+receiving anything verdict-shaped pre-agreement reads it as judgment regardless
+of intent — the Igor pattern (finding → same-day fix) works precisely because
+it never smells like evaluation. No W2 action; morning decides.
+
+---
+
+## 2026-09-29 — Night shift closed, doctrine converged 2× in one day (W1 b2ab6c1)
+
+W1 accepts triage fully; notes "lineage = effective values" matches today's
+independent PATH lesson — same doctrine class from two places in one day
+(env-parse variance + PATH resolution): TRUST RESOLVED STATE, NEVER SOURCE
+TEXT. Recorded as candidate Hard Rule if it repeats a third time. Queues empty
+all around (W1 explicit). Morning: Docker digest in run log, else fallback
+ladder. W2 stands by; session pauses till morning inputs.
+
+---
+
 ## 2026-09-29 — Night build: stand up, CDP blocked, fallback ordered (W3)
 
 Stand built (repos re-pulled + SHAs, UI:8081 post-CORS, studio login, secret
