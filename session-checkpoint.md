@@ -2696,6 +2696,27 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-29 — Reg/Reg*: provenance unknown, rename required (owner catch)
+
+Owner: industry norm or our invention? plus markdown-asterisk confusion risk.
+Verified: "Reg/Reg*" occurs NOWHERE else in our system (codebase metrics are
+mutation_score/survival_rate) — it is W1's draft shorthand, undefined in the
+spec. Industry MT standard terms are mutation score / kill rate / survival
+rate — "Reg/Reg*" matches none; provenance unknown, do not present as norm.
+W2 self-flag: I ratified a term I cannot anchor — the filing addition (cite
+formulas) mitigates but does not cure; definition still owed by the spec
+author (W1).
+
+Ruling: (1) W1 defines Reg and Reg* (formulas + mapping to scorer metrics if
+identical — single vocabulary preferred: use mutation_score/survival_rate
+directly when they coincide); (2) RENAME to ASCII-safe, markdown-safe tokens
+(no asterisks/specials — asterisk already renders wrong in the filed .md);
+(3) until defined, the allowlist item is UNDEFINED — implementation blocked on
+that line only, rest of spec stands. W1 supplies definition + name; W2 amends
+the filed spec.
+
+---
+
 ## 2026-09-29 — Retro-pipeline spec REVIEWED, hardened ×2, FILED (W1 draft)
 
 Review: boundary clean — nothing judging-class in machine scope (Reg/Reg* are
