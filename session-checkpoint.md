@@ -2701,3 +2701,13 @@ publish tomorrow + repost (version confirmed same file) · fine-tune spec
 (W3, post-29th slot) · s1web GLiNER branch (running) · recheck 10-17.
 W2 stands by on all fronts.
 
+---
+
+## 2026-09-29 13:46 — Session checkpoint (routine)
+
+Since f945e1f: W4 follow-up Q&A answered (82-mutant inventory, no second live
+case stated plainly, post-freeze-diary angle recommended over retrospective).
+Tree clean, all pushed (head f945e1f). No code changes anywhere in window.
+Open threads unchanged (Monday gates, Klarent clock, Aamir pointer, fine-tune
+spec, s1web GLiNER, recheck 10-17, Article 29 post-publish). W2 stands by.
+
