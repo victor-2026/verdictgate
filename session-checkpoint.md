@@ -2713,7 +2713,23 @@ explicitly unmeasured.
 
 Three bucket rulings (all required pre-runs, all Caught + differentiated
 observations, none flip verdict; wrong-reason catches observed, e.g.
-test_broken on app-break):
+test_broken on app-break).
+
+---
+
+## 2026-09-29 — UrsaMinor: both windows prepped, ONE word pending (owner's "go")
+
+W3 deltas vs prep recorded without dispute: success-only verdict reading ·
+memory OFF out of run config (state hygiene kept) · merge boundary honored
+(re-pull + re-pin on test day, pre/post separately; today's SHAs = draft) ·
+her JSON SHA as fourth pin line · silence-timer starts on version handoff.
+Owner confirms bucket rulings + methodology shifts as binding.
+
+State: brief read both sides · mapping ratified (binding) · charter signed ·
+gate = Victor's single "гони" → W3 builds (pins+digests) → Secrets + smoke →
+Katya's signature opens runs. W2 has zero open items; next touchpoint is
+results verification or gate failure. Awaiting owner's word (his decision,
+his timing).
 - test_broken → Caught + observation (wrong-reason class recorded).
 - prompt-tuning artifacts → Caught + observation (gpt-4.1-tuned prompt on
   qwen pre-accepted as-is; artifacts expected, not fixed, not penalized).
