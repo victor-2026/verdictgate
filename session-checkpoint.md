@@ -2696,6 +2696,23 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-29 — Retro-pipeline spec: skeleton APPROVED, path (b) (W1)
+
+Skeleton sound end to end (goal / machine-scope / human-scope / interfaces /
+acceptance-as-golden / non-goals) — matches my boundary exactly. Location
+ruling: NO direct drafts into verdictgate/docs/ (single-writer rule holds even
+for invited guests — provenance stays clean). Path (b): W1 drafts at home →
+W2 reviews → W2 files into docs/ himself. One extra hop, zero ownership blur.
+
+One binding addition for the draft (else the boundary blurs in implementation):
+an explicit ALLOWLIST of mechanical derivations (exit_code→suite_result,
+timestamp→run_ref format, etc.) vs judgment (behavior/tier assignment,
+replacements, narrative). Anything unlisted = human by default. Acceptance
+criterion (byte-identical on batch #1) endorsed as the right bar — same as
+scorer goldens. Awaiting W1's draft text.
+
+---
+
 ## 2026-09-29 — UrsaMinor mapping RATIFIED: binary + 3 buckets + inversion (W2)
 
 Brief read whole (31 lines). Charter effectively signed (👍 + five yeses +
