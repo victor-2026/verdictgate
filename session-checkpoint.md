@@ -2733,6 +2733,18 @@ identity check must need no archaeology. Absence of the flag in a future pack
 
 ---
 
+## 2026-09-29 — AIID incident corpus: flagged, deferred with trigger (W5→W3→W2)
+
+W5 flagged DB snapshots + GitHub repo as queryable real-incident corpus for
+seeded scenarios (wiki noted, hands off). W3 assessed: real value (synthetic
+seeds today → field-provenance breaks strengthen any future matrix) BUT
+deferred — pulling without a consumer violates make-work ban. Trigger:
+matrix design requiring real-incident grounding → pull + incident→seed mapping.
+W2 concurs: correct triage (value acknowledged, timing gated on consumer);
+no action, no review needed (no artifact produced).
+
+---
+
 ## 2026-09-29 — Reg/Reg*: provenance unknown, rename required (owner catch)
 
 Owner: industry norm or our invention? plus markdown-asterisk confusion risk.
