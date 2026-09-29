@@ -2730,6 +2730,19 @@ gate = Victor's single "гони" → W3 builds (pins+digests) → Secrets + smo
 Katya's signature opens runs. W2 has zero open items; next touchpoint is
 results verification or gate failure. Awaiting owner's word (his decision,
 his timing).
+
+---
+
+## 2026-09-29 — Node content verified (W3 micro-point, temp finding strengthens repeats)
+
+W3 retrieved + READ her JSON (not just SHA): llm-2 = openai/gpt-4.1, temp 0.7,
+EOS/L10 systemPrompt; memory_store listed (removed locally per brief — no
+contradiction); tail garbage 4109B (valid to 4107) with file-untouched +
+tolerant-parser guidance. W2 notes: (1) temp 0.7 CONFIRMED non-deterministic —
+baseline-distribution + repeats rule now evidence-backed, not precautionary;
+(2) parser rule must be IDENTICAL across all runs (tolerant is fine, variance
+is not — freeze it like everything else); (3) prompt-tuning remarks stay
+pre-accepted. Nothing changes in mapping or gate; "go" still the only open item.
 - test_broken → Caught + observation (wrong-reason class recorded).
 - prompt-tuning artifacts → Caught + observation (gpt-4.1-tuned prompt on
   qwen pre-accepted as-is; artifacts expected, not fixed, not penalized).
