@@ -2696,6 +2696,26 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Reframe: not death but slowness; 5 runs INVALID, not survived (W3)
+
+W3 breakthrough: BaaS completes trivial navigate in ~2–4 min (`async execution
+finished` AFTER client timeouts: curl 120s, studio 30s). All "HTTP timeout 30s"
+= impatient clients, not dead runs. W2's timeout locus confirmed, nature
+corrected (latency tax, not ceiling bug).
+
+Binding consequences: (1) the 5 dead runs are UNOBSERVED — excluded from every
+verdict set, never counted as survived (absence of observation ≠ observation
+of absence; same class as N-scope discipline); (2) cold-Chrome tax (~2–4 min)
+recomputes campaign economics (N × repeats × minutes + OpenAI $ while waiting
+— R1 cost cap needs re-estimation on real $/run incl. wait); (3) knob search
+(studio/backend) + warm-sessions question to Katya are the two correct next
+moves, in that order (self-serve first, ask second); (4) Katya message stays
+facts + two questions (cold 2–4 min measured, studio 30s → DOA; warm sessions?
+timeout knob?) — friendly setup-feedback, owner channel. Earlier smoke
+screenshot noted as accidental window-fit (variance honesty).
+
+---
+
 ## 2026-09-30 — SAM1-6 comments: 0 (owner-ran; token absent from agent env)
 
 Owner executed the Jira comments probe himself ($JIRA_API_TOKEN not present in
