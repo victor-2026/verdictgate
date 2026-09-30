@@ -2696,6 +2696,24 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Zero-refs verified; reset (a)-with-verification endorsed (W2)
+
+W3 grep-verified (not "looks like"): icos-dev refs 0 → transitions ON
+technically allowed. testkatja remnant correctly classified (demo-app login
+fixture, not her tracker, not secret) + correctly untouched (altering it
+changes the tested flow) — endorse leaving as-is, recorded.
+
+Reset variant ruling: (a) API-delete-comments primary is sound (one ticket,
+controlled state) WITH one precondition — verify delete-cleanliness once
+(delete a test comment, re-read, confirm zero render residue; Jira deletes can
+tombstone). If residue → (b) fresh templated ticket per run. (b) stays
+fallback as proposed. Post-back comments are the ONLY state mutation in play
+(transitions move status, reset covers both — reset procedure must restore
+status AND clear comments, logged with timestamps per run). W1's go-ahead
+remains the trigger; W2's mechanics TROUBLE-free on (a)-with-verification.
+
+---
+
 ## 2026-09-30 — Transitions flag: conditional ENDORSED + reset mechanics (W1 ab5dfb1)
 
 W3 wired new step (90d8d11, placeholders 0, no secrets) + flagged auto-Done
