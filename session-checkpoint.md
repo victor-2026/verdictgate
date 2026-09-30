@@ -2869,6 +2869,19 @@ it never smells like evaluation. No W2 action; morning decides.
 
 ---
 
+## 2026-09-29 — Attribution note: "Igor pattern" is W1's term, not W2's (owner asked)
+
+Owner: where did Igor come from, nothing above mentioned him. Answer: the
+phrase entered via W1's night-forks message ("паттерн Игоря: находка → фикс в
+тот же день"); W2 echoed it in 3 entries (tunnel assessment, (b)-framing
+endorsement, night-forks record) without first attribution — corrected here.
+Igor = Igor Akymenko, FlowScout founder (Alternate QA), warm outreach contact
+held via W1; the pattern names that working relationship (friendly finding →
+same-day vendor fix). Correspondence stays via W1; W2 has no contact and no
+action. No content changes — attribution only.
+
+---
+
 ## 2026-09-29 — Night shift closed, doctrine converged 2× in one day (W1 b2ab6c1)
 
 W1 accepts triage fully; notes "lineage = effective values" matches today's
