@@ -2696,6 +2696,23 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — OpenAI key needed NOW (W3 root-cause; owner action, 2 min)
+
+W3: llm-generate-steps hardwired provider=openai/gpt-4o; missing key = silent
+hang (the 30s timeouts' source, not BaaS/Jira). BaaS/Ollama covers browser
+part only. Ollama-trick correctly rejected (author's tested path first;
+compat deviations only on proven need — otherwise confounded attribution).
+Tier-1 key, $5 cap held, first smokes measure real $/run (R1 gets data).
+
+W2 notes: (1) root cause = hypothesis pending confirmation — SAM1-6 restart
+after key entry confirms (hangs gone) or refutes (triage resumes); record
+either way; (2) silent-hang-on-missing-key is itself a report-worthy product
+finding (misconfig surfaces as hang, not error) — log it, don't score it;
+(3) key entry is owner's hands (his key, studio UI) — no W2/W3 action exists
+here. Awaiting owner's 2 minutes, then SAM1-6 restart.
+
+---
+
 ## 2026-09-30 — W3 one-liners: jurisdiction rulings (whose sign-off what)
 
 (1) qa-cube version string: NOT W2's call (their tree, cosmetic, no verdict
