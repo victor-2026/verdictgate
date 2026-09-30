@@ -2696,6 +2696,24 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Finishable-now sweep (owner asked what's closable)
+
+Attempted s1web 2993/16-vs-8074/70 resolve via RESULTS.md: dataset NOT on this
+machine (no local copy; lives where W3 runs it). Blocked — back to W3 (has the
+file): confirm v1→v3 growth reading from RESULTS.md methodology section before
+any citation of either number. One-line job at source, impossible from here
+(Kaggle API needs creds; will not touch).
+
+Closeable by W2 now: NOTHING further — tree clean, all verifications done,
+every open thread gated on others (sends, slots, gates, people, triggers).
+Closeable by others: deviations list assembly (W3, before next Katya message);
+TesterArmy Draft 2 accept (owner); Tier-1 spend watch (owner sees billing);
+W4 article tails (W4). Trigger-gated: s1web discrepancy, /tmp clones, PC
+benchmark, Qodo SHA, finetune slot. Honest total: my queue is EMPTY — saying
+otherwise would invent work.
+
+---
+
 ## 2026-09-30 — Gold v1.1 VERIFIED + qa-cube wontfix concurred (W3 85644e4)
 
 v1.1 string honest (freeze-25th + worked-26th + verify-30/30 with checkpoint
