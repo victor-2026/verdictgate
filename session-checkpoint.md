@@ -2696,6 +2696,26 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — W3 one-liners: jurisdiction rulings (whose sign-off what)
+
+(1) qa-cube version string: NOT W2's call (their tree, cosmetic, no verdict
+impact) — W3 decides alone under audit rule (touch only if factually wrong,
+one line + justifying commit message; else leave). No sign-off needed from
+W2 or W1.
+(2) gold version string: W2 DECIDES — DO NOT TOUCH. "FROZEN 2026-09-25" dates
+the freeze protocol, content merged 26th under it; editing a frozen artifact
+breaks byte-identity every hash depends on. Ambiguity (if any) gets recorded
+in the pilot log/index, never in the file. Frozen means frozen — including
+metadata.
+(3) PC-benchmark: HOLD. No consumer (sharding deferred) → measuring now is
+desk-drawer numbers, banned by decision-driven doctrine. Revisit on sharding
+decision or a decision that needs it. W3's own instinct correct.
+Non-theirs list acknowledged, no action (Qodo SHA on resume; TesterArmy/
+ContextQA/Slot moves are owner's; finetune post-29th+Kaggle; /tmp clones live
+till campaign end).
+
+---
+
 ## 2026-09-30 — Bug report pre-send check PASSED, send it (W2, 30-second read)
 
 Read whole (24 lines): timeline with requestUID + timestamps (silence window
