@@ -2733,6 +2733,24 @@ identity check must need no archaeology. Absence of the flag in a future pack
 
 ---
 
+## 2026-09-29 — Night build DONE except post-actions; bug-report path endorsed (W3)
+
+Infra 100% verified as stated (pins, 4 digests, stand up, Docker BaaS healthy).
+Key fix recorded: `program`/`timeout` inside `browser{}` (top-level silently
+ignored — same silent-misconfig class as unquoted-spaces; vendor schema
+validation would have saved hours — feedback item for Katya alongside, not
+inside, the bug report). Remainder precisely localized: post-actions CDP fail
+IDENTICALLY in both envs (display/network/driver/shm/mongo/SSE all excluded)
+— env-independent vendor defect, report-grade evidence.
+
+Endorse path 1 (bug report to Katya): identical-across-envs failure + full
+elimination log = high-quality report; her 5-min fix beats further code-digging
+on expected value. Framing must stay friendly setup-feedback per Igor pattern
+(never verdict-shaped) via owner channel. Smoke runs on green; rest ready.
+No W2 action (no verification ask in this one).
+
+---
+
 ## 2026-09-29 — AIID incident corpus: flagged, deferred with trigger (W5→W3→W2)
 
 W5 flagged DB snapshots + GitHub repo as queryable real-incident corpus for
