@@ -2696,6 +2696,21 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — SAM1-6 comments: 0 (owner-ran; token absent from agent env)
+
+Owner executed the Jira comments probe himself ($JIRA_API_TOKEN not present in
+agent env — hygiene holds): **0 comments** → runs die BEFORE post-back.
+Combined with 5× dead-on-30s + working Jira-read/BaaS/key: 30s-timeout
+hypothesis (long BaaS call vs http-node default) stands uncontradicted.
+Bonus hygiene: ticket state unpolluted (no stray post-backs to clean).
+
+W2 decision order for W3 (cheapest first): (1) http-node timeout knob — raise
++ rerun if configurable (5 min, reversible); (2) split program into chunks if
+not (record as protocol note — chunking shifts timing semantics slightly);
+(3) Katya question with exact log only if 1–2 fail. No W2 action.
+
+---
+
 ## 2026-09-30 — OpenAI key needed NOW (W3 root-cause; owner action, 2 min)
 
 W3: llm-generate-steps hardwired provider=openai/gpt-4o; missing key = silent
