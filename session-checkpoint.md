@@ -2696,6 +2696,38 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Paul Kanaris sketch: ethics review PASS with 4 text inserts (W2)
+
+Context: QACE founder, warm thread (Article-27 pushback → DM → concrete org
+behavior on table: Mandatory Risk-Mitigation Sign-off without PMO). W5 draft
+approved by W1 + Belgrade line; W1 ordered bounded ethics review (DM copy, not
+protocol — Paul publishes playbooks, quoted leaky sketch costs more than a
+delay). Ruling: NO redesign needed; 4 text inserts, all short:
+
+1. **Deception guardrail (load-bearing):** our mutants lie to nobody; seeded
+   org requests DO. Sketch must carry: executive sponsorship authorizes the
+   exercise (population need not know timing; the EXERCISE must be authorized —
+   sanctioned red-team, not rogue testing) + debrief commitment + insider
+   protection under executive cover, documented + no-harm bound (even the
+   "critical" seed reversible/harmless — staged or abort authority). Without
+   this, the sketch quoted = "lie to employees to test them" (career-limiting
+   under our name at a standards author).
+2. **N=1 anti-overclaim (one line):** one seed per tier demonstrates the
+   MECHANISM, never a measurement (same small-N discipline as B2). Scan draft
+   for "prove/measure" verbs on n=1 → replace with probe/illustrate.
+3. **Substance rubric (named gap, not built):** "rubber-stamp vs substance
+   grading needs a rubric + dual rating — undefined here; first implementation
+   defines it before scoring, not after." Hole converted to documented open
+   item (honest + shows rigor).
+4. **Tier authority (mirrors tier-laundering guard):** difficulty tiers
+   pre-registered jointly (domain owner + seeder), disputes logged, never
+   re-tiered post-hoc — same rule one altitude up, cite it as such.
+
+ sketch may go after inserts 1–4 land (W1/Victor assemble + send; peer lane,
+ no pitch — W1's positioning stands). No W2 action beyond this ruling.
+
+---
+
 ## 2026-09-30 — Zero-refs verified; reset (a)-with-verification endorsed (W2)
 
 W3 grep-verified (not "looks like"): icos-dev refs 0 → transitions ON
