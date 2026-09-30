@@ -2696,6 +2696,19 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Gold v1.1 VERIFIED + qa-cube wontfix concurred (W3 85644e4)
+
+v1.1 string honest (freeze-25th + worked-26th + verify-30/30 with checkpoint
+refs); labels intact (24/4/1/1, zero nulls); JSON valid. Ruling: version BUMP
+(not in-place meaning change) is the CORRECT resolution of my do-not-touch —
+v1.0 bytes live in git history, v1.1 carries explicit provenance trail. Better
+than my suggested alternative (log-side note); adopted as the pattern for
+frozen-artifact corrections going forward: never edit, always bump with trail.
+qa-cube 0.16.28 observed/wontfix concurred (vendor numbering in his file;
+checkpoint already accurate; restraint correct).
+
+---
+
 ## 2026-09-30 — Dispatch isolation: forward as-is, self-serve exhausted (W3)
 
 Final isolation message verified for forwarding (no numbers I can check
