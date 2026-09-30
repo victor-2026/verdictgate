@@ -2696,6 +2696,22 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-10-01 — Deviations verified + s1web non-resolution endorsed (W3 5ff9a4f)
+
+Deviations file read whole: 4 points, all config-level (http-1 300s, Bearer→
+secret ×3, node 300000ms, X-Gate note), revert = restore 4 values, test logic
+untouched. As claimed, no more. For Katya disclosure complete and honest.
+
+s1web 2993/16: NON-RESOLUTION accepted as a result (not a failure to resolve).
+Dataset re-pulled, SHA identical (no v4 drift); stats.json == our set verbatim;
+post numbers map to nothing in files. W2 ruling: citing only file-verified
+(2633/8074/70/20) + returning the question to Atmaram is exactly right —
+invented resolution would be fabrication, and this program has a published rule
+against it (gotcha-grade if violated). The open question now belongs to the
+source, not to us. No W2 action.
+
+---
+
 ## 2026-09-30 — Fine-tune slot OPEN post-29th (W1 286f445, plain-words explainer)
 
 W1's explainer concurs with the program (LoRA-evening on our data → own $0
