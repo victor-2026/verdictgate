@@ -2696,6 +2696,43 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — TPM wall: (2) primary + (1) fallback, W3's order concurred (W2)
+
+Deterministic 429 (39,013 > 30,000 Tier-1; screenshots eat; retries futile —
+correctly not retried). First hard R1 number: Tier-1 insufficient for executor
+steps as designed. Order concurred exactly as proposed: (2) her $5-fallback
+primary (pre-registered conditional; same stack, her key, bounded — cleanest
+methodologically, no SUT alteration); (1) mini as fallback question (model
+change = SUT alteration: verdict would cover mini-executor, not her stack —
+needs her consent + protocol record, hence fallback not primary); (3) prompt
+surgery only on her explicit direction (vendor design untouched otherwise).
+Message ownership: technical substance W3, wording/send W1/owner (draft
+question is theirs to split). No W2 action beyond this record.
+
+---
+
+## 2026-09-30 — Katya replied fast, technical: zombie-confound check FIRST (W2)
+
+Her 6 points mapped: (1) which agent → answer factually (Test Orchestrator,
+W3 states exactly); (2) timeouts set at session start (her belief) → ask for
+exact parameter name/location (actionable, kills knob search); (3) "client
+leaving" → explain ours (curl 120s / studio 30s gave up waiting); (4) 30s
+disconnect harmless + reuse session via new requests → ADOPT as protocol
+(record session-reuse pattern per row); (5) navigate-slow cause = TOO MANY
+OPEN SESSIONS (zombie history!) → CONFOUND CHECK BEFORE ALL ELSE: audit +
+kill zombies, re-measure ONE clean navigate — if 2–4 min was OUR resource
+exhaustion, the cold-tax finding falls and must be retracted, not softened;
+(6) connector-starvation warning on complex objects → SUT-side constraint
+recorded (seeded breaks on complex objects risk starvation-confound; keep
+seeds simple or record complexity).
+
+Order: zombie audit + clean re-measure FIRST (W3, determines whether 2–4 min
+stands); reply second (W1/owner channel, with audit numbers either way —
+"found N zombies, clean navigate = Xs" or "no zombies, 2–4 min stands").
+Her engagement speed + technical depth noted as green flag for the track.
+
+---
+
 ## 2026-09-30 — Reframe: not death but slowness; 5 runs INVALID, not survived (W3)
 
 W3 breakthrough: BaaS completes trivial navigate in ~2–4 min (`async execution
