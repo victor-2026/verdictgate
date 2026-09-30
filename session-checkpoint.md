@@ -2696,6 +2696,31 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Ursa comms closed ×3, typo-protocol applied (W1 5bc256d + W3)
+
+Recorded: (1) placement after http-jira-comment on engineering grounds
+(post-back needs live browser; early free gains nothing; stop-node cleans) —
+endorse reasoning, execution W3's; (2) "brunch-success" held as chat-typo
+until file-verified (exact id from files only) — endorse as transcript≠receipt
+discipline in practice, same class as reporter-words rule; (3) new-build fetch
+location open (question to Katya via owner); setup frozen till files land.
+W3 synced on all three. No W2 action; next touchpoint is build files arrival
+or Katya's reply.
+
+---
+
+## 2026-09-30 — W3 position synced, one owner question pending (no W2 action)
+
+W3: http-last already after http-jira-comment (matches recommendation, nothing
+to move) · "brunch-success" baked nowhere pending exact id from files ·
+new-build files awaited (fetch source = question to Katya through owner) ·
+setup frozen till files arrive. W2: nothing to rule here — node ordering and
+id-gating are execution detail inside the ratified mapping (binary + buckets
+unchanged). Single open item belongs to owner: ask Katya where new build
+files come from.
+
+---
+
 ## 2026-09-30 — Katya: swagger + cleanup endpoint (W2 routes to W3)
 
 Katya: BaaS swagger at /API/swagger; /API/async/sessions/cleanup exists. Two
