@@ -2696,6 +2696,19 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Bug report pre-send check PASSED, send it (W2, 30-second read)
+
+Read whole (24 lines): timeline with requestUID + timestamps (silence window
+BEFORE cancel — causal order correct, post-mortem framing holds) · elimination
+list comprehensive incl. the program-shape find · one-line question names
+suspects without asserting (bus/config + cooperation offer) · attachments
+on-request not dumped · zero secrets in file · tone technical-friendly, no
+blame, no verdict smell. Stale-letter suppression (48f4b3b) concurred — sending
+yesterday's text would ship refuted localization. Cover note + Telegram-file
+format + gist-secrets proposal: all W1's lane, no objections. SEND (owner).
+
+---
+
 ## 2026-09-29 — Reg accept CONDITIONAL + rename applied + gotcha fixed (W1 ad9f475)
 
 Denominator check (assigned to W2) against H4 data (120 rows: success 120/120,
