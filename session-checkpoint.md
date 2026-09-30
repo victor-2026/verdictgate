@@ -2696,6 +2696,19 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Katya: swagger + cleanup endpoint (W2 routes to W3)
+
+Katya: BaaS swagger at /API/swagger; /API/async/sessions/cleanup exists. Two
+uses, both W3's hands: (1) cleanup endpoint = the OFFICIAL zombie-killer for
+the pending confound audit (audit + kill zombies + clean re-measure — no more
+pkill-style ops); (2) swagger = self-serve discovery surface (timeout params?
+session knobs? warm-session flags?) — read before asking Katya anything
+further, every answered-by-docs question spared is relationship capital.
+Record cleanup usage per run (which endpoint, when) in run log hygiene. No W2
+action.
+
+---
+
 ## 2026-09-30 — TPM wall: (2) primary + (1) fallback, W3's order concurred (W2)
 
 Deterministic 429 (39,013 > 30,000 Tier-1; screenshots eat; retries futile —
