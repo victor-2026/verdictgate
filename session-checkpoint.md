@@ -2696,6 +2696,22 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Transitions flag: conditional ENDORSED + reset mechanics (W1 ab5dfb1)
+
+W3 wired new step (90d8d11, placeholders 0, no secrets) + flagged auto-Done
+side effect. W1 conditional: victor-qa-only → ON with reset-between-runs;
+any icos-dev ref → OFF till her explicit OK; demands explicit zero-refs
+confirmation (not "looks like"). W2 concurs fully + two appends: (1) reset is
+load-bearing for comparability (run N+1 must read the identical ticket as run
+N — same family as same-tree/determinism; without it both baseline distribution
+and mutant deltas lie); (2) reset procedure itself must be deterministic +
+logged (manual clicks/API — either fine — but a flaky reset injects variance
+indistinguishable from SUT behavior; log each reset with timestamp).
+Her-tracker boundary (never touch on implied consent) stands absolute. No W2
+action; W3 owes the zero-refs confirmation + reset procedure.
+
+---
+
 ## 2026-09-30 — Ursa comms closed ×3, typo-protocol applied (W1 5bc256d + W3)
 
 Recorded: (1) placement after http-jira-comment on engineering grounds
