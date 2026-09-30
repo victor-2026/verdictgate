@@ -2696,6 +2696,25 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Dispatch isolation: forward as-is, self-serve exhausted (W3)
+
+Final isolation message verified for forwarding (no numbers I can check
+further — all internal to W3's runs; structure reviewed): session created →
+DevTools in 1s → stealth.JS executes → 115s silence (zero navigate attempts)
+→ client-timeout death. 115s vs earlier 170s is run variance, not contradiction
+(same pattern, same order). Verified-working list + one precise question
+(dispatch to worker?) + readiness statement. No verdict smell, friendly
+setup-feedback framing intact.
+
+Two records: (1) self-serve declared EXHAUSTED by the executor (infra 100%,
+vendor-path 0%) — accepted; next is her one line or blessed code-read (others'
+code only with blessing — boundary respected); (2) stealth.JS-executes is a NEW
+datum narrowing the break to stealth-eval→first-step (dispatch handoff) —
+tighter than yesterday's session-wide silence. Forward as-is via owner; no W2
+edits to the message.
+
+---
+
 ## 2026-09-30 — Paul Kanaris sketch: ethics review PASS with 4 text inserts (W2)
 
 Context: QACE founder, warm thread (Article-27 pushback → DM → concrete org
