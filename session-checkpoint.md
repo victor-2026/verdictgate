@@ -2696,6 +2696,19 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-09-30 — Fine-tune slot OPEN post-29th (W1 286f445, plain-words explainer)
+
+W1's explainer concurs with the program (LoRA-evening on our data → own $0
+offline judge; single danger = contamination, cured by site-split + test-lock
+— matches the signed spec exactly). Slot opens tomorrow evening background run
+(article published = trigger fired; mapping ratified, dataset pinned, spec
+signed 94adc55, approval given — all preconditions met earlier). No Ursa
+conflict (background vs foreground). Chain: W3 final run-config → W2 signature
+(if anything changed vs signed spec; unchanged = standing signature holds, no
+re-sign needed) → run. W2 awaits; no action now.
+
+---
+
 ## 2026-09-30 — Finishable-now sweep (owner asked what's closable)
 
 Attempted s1web 2993/16-vs-8074/70 resolve via RESULTS.md: dataset NOT on this
