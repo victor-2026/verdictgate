@@ -2869,6 +2869,26 @@ it never smells like evaluation. No W2 action; morning decides.
 
 ---
 
+## 2026-09-30 — Night build session CLOSED (W3, 13h wall / 5–6h active)
+
+Recorded: full stand (deploy+BaaS+mongo×2, pins/SHAs, 4 digests, CORS fix,
+studio+secrets, 6 agents) · fixes en route (env-spaces, CORS recreate,
+headful→headless, zombie-Chrome + interactive rule embodied, browser{}
+nesting as master key) · proven green (Chrome, DevTools, net/driver/mongo/X)
+· death localized to ONE place (otto program not dispatched into live session,
+170s silence) · artifacts (run log, committed Katya bug report, VNC, shm-
+override, resolved-env practice) · open: Katya's dispatch-path reply (or next
+code dive with her hint).
+
+W2: localization quality accepted without re-verification (elimination chain
+already reviewed point by point last night; 170s-silence datum is new and
+consistent). No action — ball with Katya via owner channel. Timing of any next
+code dive is W3's tactical call (hint maximizes dive efficiency); license-wise
+the OSS BaaS is diggable anytime, and the systems/data gate is already
+respected — no conflict between the two, just sequencing.
+
+---
+
 ## 2026-09-29 — Attribution note: "Igor pattern" is W1's term, not W2's (owner asked)
 
 Owner: where did Igor come from, nothing above mentioned him. Answer: the
