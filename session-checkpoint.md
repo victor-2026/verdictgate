@@ -573,6 +573,22 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Katya's semantic criterion: rename≠fail, meaning-change=fail (BINDING)
+
+Katya (verbatim): D2 irrelevant as designed; button NAME changed + business
+meaning preserved → SUCCESS not fail; FAIL only on business-MEANING change
+(e.g. Delete → Keep for now); OK-on-Submit = success-case.
+
+Binding consequences: (1) VENDOR defines correctness here, not us — her
+semantics rule the verdicts (our structure measures against it). (2) Decoy set
+must be RECLASSIFIED before seeding: pure renames → expect SUCCESS; meaning
+changes → expect FAIL. Any D-item currently expecting fail on pure rename is
+WRONG and flips. (3) Confirms testRigor pattern independently (M1 label-rename
+failed there too — same class Katya declares must-succeed). (4) W3 reclassifies
+D1–D6 against this criterion before any seed; no seeding under old expectations.
+
+---
+
 ## 2026-10-01 — Decoy-set send BLOCKED on target ambiguity (W1 05ea02a, concurred)
 
 W1: decoy-set file complete (D1–D6 + rules) but "Target: public demo env (URL
