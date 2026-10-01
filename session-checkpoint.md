@@ -535,6 +535,18 @@ to reset until visibility restored); ticket-state question moot meanwhile.
 
 ---
 
+## 2026-10-01 — Root cause: TOKEN DEATH (401), substrate alive (W2 close-out)
+
+myself → 401: the between-measurements state change was token expiry/revoke,
+nothing else. Trial alive (browser-visible), ticket exists, scopes question
+moot (dead token has no scopes). Standing rule from this incident: new tokens
+get RECORDED expiry (id.atlassian.com shows it at creation) — next lapse must
+be predictable, never mystique. Recovery sequence (owner, token in his shell):
+new token → export → GET comments (is 10012 there?) → DELETE if present →
+verify gone → reset discipline resumes. No W2 action beyond this record.
+
+---
+
 ## 2026-10-01 — First E2E verdict: llm-2 FAILED correctly (W3, track → measuring)
 
 Full loop closed: Jira read → steps generated → browser ran → llm-2 FAILED
