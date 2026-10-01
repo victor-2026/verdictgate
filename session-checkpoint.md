@@ -573,6 +573,37 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Baseline: 1 PASS / 2 non-success on identical inputs (W3)
+
+Distribution vindicated live: temp-0.7 variance shows 1×PASS + 2×non-success
+(broken/failed) on SAME inputs — exactly why ≥3 not one. Per ratified mapping
+these two go to the FALSE-ALARM track (specificity), never into survivors.
+Tokens 3 runs: in 13,889 / out 814 ≈ $0.01–0.05 total — R1 calm with real data
+(caps untouched). Caution for mutant phase: baseline itself 1/3 green means
+verdicts must read against the distribution (a mutant "failing" where baseline
+also fails is weak evidence) — W3's verdict pack must carry this context, else
+mutant verdicts overclaim.
+
+SAM1-6 status check relayed to owner (token his): pass-branch auto-transition
+may have moved it to Done — check + revert if so (or W3 records as site-effect
+in reset protocol). Awaiting owner's one-liner.
+
+---
+
+## 2026-10-01 — Ticket To Do VERIFIED (W3 checked post-revert); approval routing
+
+W3 verified SAM1-6 back at To Do via API after revert — status item CLOSED
+(verification predates this entry). Baseline entry (distribution vindicated,
+false-alarm track, R1 calm, mutant-phase caution) stands as written, commit
+pending owner "давай" (commit-guard: no self-approval).
+
+Approval routing (load-bearing): commit approvals are PER-AGENT-SESSION by
+design — W2 cannot proxy-approve W3's commit nor vice versa, else the guard is
+theater. W3's pending commit needs Victor's explicit words in W3's own channel;
+mine needs them here. Two separate "давай", no shortcuts.
+
+---
+
 ## 2026-10-01 — Reset-(a) VALIDATED end to end, token saga closed (W3)
 
 W3: total 0, all 13 history comments deleted, NO tombstone (delete-cleanliness
