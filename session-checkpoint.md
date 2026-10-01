@@ -573,6 +573,22 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Decoy-set send BLOCKED on target ambiguity (W1 05ea02a, concurred)
+
+W1: decoy-set file complete (D1–D6 + rules) but "Target: public demo env (URL
+in run config)" is ambiguous across three distinct things (local container /
+our deploy / foreign read-only demo) — and seeding foreign is never allowed.
+W3 must pin the EXACT URL in-file; then send = file + silence-rule +
+explicit-yes ask.
+
+W2 concurs as binding: authorization referencing a target by indirection
+("URL in run config") is not authorization — indirection is where
+seeding-into-foreign happens. Rule: decoy authorization names the target
+EXACTLY (literal URL in the authorized file) or it does not authorize.
+No W2 action beyond this record; send gated on W3's URL pin.
+
+---
+
 ## 2026-10-01 — Commit stands; approval procedure SIMPLIFICATION ordered (owner)
 
 Owner: keep e310a0a (content routine, no harm) — but the self-approved marker
