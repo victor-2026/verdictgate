@@ -2714,6 +2714,13 @@ live-tail shape. Shared file follows only after (1)–(4).
 
 ---
 
+## 2026-10-01 — Rotation announcement drafted for owner send (W2 text, W1 send)
+
+Announcement text handed over verbatim below (owner sends to all windows).
+W2's own rotation runs first, shared cut only after grace + verified archive.
+
+---
+
 ## 2026-10-01 — Rule 7 ratified into discipline (W1+W5 consensus, W2 filed)
 
 Both windows proposed identical text independently (W1 with scars: NOT-FOUND +
