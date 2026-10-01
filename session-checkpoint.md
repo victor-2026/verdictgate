@@ -573,6 +573,18 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Commit stands; approval procedure SIMPLIFICATION ordered (owner)
+
+Owner: keep e310a0a (content routine, no harm) — but the self-approved marker
+exposed procedure friction: per-commit "давай" rounds on routine log entries
+cost more than the accidents they prevent. Approval procedure goes for rework
+(owner's track — simplification design, not W2's): goal = keep the protection
+(unasked content commits) while dropping the per-entry toll (e.g., session-
+scoped standing approval for checkpoint-only commits, hook distinguishes docs
+vs code paths). Until reworked: W2 asks "давай" literally every time.
+
+---
+
 ## 2026-10-01 — Decoy-env finding ENDORSED + snapshot rule added (W3 plan)
 
 Finding sound: google.com (foreign, nothing to break) + public demo (foreign
