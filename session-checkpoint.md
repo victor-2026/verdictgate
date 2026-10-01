@@ -518,6 +518,19 @@ Victor's). No review ask inside — logged for awareness only.
 
 ---
 
+## 2026-10-01 — First E2E verdict: llm-2 FAILED correctly (W3, track → measuring)
+
+Full loop closed: Jira read → steps generated → browser ran → llm-2 FAILED
+with SOUND reasoning (screenshots show Google search, not the app — decider
+caught the mismatch, exactly its job) → post-back comment 10012 → session
+stopped via http-last. Fixes en route recorded (Bearer→secret, Provider
+default, timeout patches, memory collection+page, warm sessions). Methodology
+note: first verdict is a CORRECT REJECTION on wrong-app screenshots — baseline
+green means the loop works, not the app. Reset pending: delete comment 10012
+(owner hands, token) → ticket clean. Track Ursa: assembly → works/measuring.
+
+---
+
 ## 2026-10-01 — Hooks proposal APPROVED with guarantee-grading (W5/W1 relay)
 
 Order 1+2-then-4 approved. Guarantee grading (honest, expectation-setting):
