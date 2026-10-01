@@ -491,3 +491,16 @@ Tree clean, all pushed (head f945e1f). No code changes anywhere in window.
 Open threads unchanged (Monday gates, Klarent clock, Aamir pointer, fine-tune
 spec, s1web GLiNER, recheck 10-17, Article 29 post-publish). W2 stands by.
 
+---
+
+## 2026-10-01 — W5 triage batch: Cat-GPT ref + Paul peer + Alden comment (no W2 action)
+
+Recorded, all W5-assessed: Cat-GPT filed as eval-harness pattern reference
+(DeepEval + guardrails + tracing + ablation — honest educational stand, not a
+breakthrough; for product side awareness). Paul Maxwell-Walters: valid evals
+peer, low contact priority (geo), meetup/speaking door noted — contact call is
+W1/outreach territory, not W2's. Alden comment draft endorsed as-is (seeded
+regression check for prompts + "can't show reds hasn't earned green" = our
+mutation doctrine applied to prompts, on-brand for Victor's thread; send is
+Victor's). No review ask inside — logged for awareness only.
+
