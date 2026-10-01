@@ -573,6 +573,24 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Follow-up meat ruling: A primary, B supporting (W4 skeleton)
+
+W4 skeleton reviewed by structure (9 sections, 3 ready, TBD addressed, fact
+ledger with statuses). Ruling on A/B: PRIMARY = Caught-by-crash (narrative
+tension + novel machinery: 3× hangs, CPU capture, differential vs clean
+baseline, pre-registered mapping — the strongest post-freeze story we own).
+SUPPORTING = S1-vacuous in one paragraph (honesty discipline: we excluded our
+own survivor; N-scope applied to self). Not either/or in text — weighted
+A-primary. Format: Pulse Article fits the 9-section evidence-heavy shape
+better than note (W4/owner decide finally).
+
+W2 TBD readiness: batch #2 numbers (verified) + engine evolution (guards,
+chains, stamp — all recorded) + stamp saga (58 UNSTAMPED teaching example)
+all exist in checkpoints — package on W4's request, no new measurement needed.
+Lifecycle thesis stays W1+W4. Earliest Mon 05.10 stands.
+
+---
+
 ## 2026-10-01 — D-set reclassification VERIFIED, no changes (W2 order, W1 43c9e12)
 
 Checked D1–D6 against "rename ≠ fail, only meaning-change": D1 broken-submit
