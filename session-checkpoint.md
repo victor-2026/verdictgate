@@ -571,3 +571,15 @@ wiki-lint = hygiene automation; compacting-inject = highest P1 leverage
 own commit/push routine now gates on explicit user words per session (stop-rule
 #6 as code) — accepted deliberately.
 
+---
+
+## 2026-10-01 — Reset-(a) VALIDATED end to end, token saga closed (W3)
+
+W3: total 0, all 13 history comments deleted, NO tombstone (delete-cleanliness
+precondition verified in practice, not just once) → ticket pristine. Reset-(a)
+(API-delete) works like clockwork including the tombstone question. Token saga
+closed: death diagnosed → renewed → verified working (comments listed AND
+deleted through the new token). Standing rules confirmed by use: recorded
+expiry pending (still owed — next lapse must be predictable), reset logged per
+run from here on. No W2 action; track back to measuring.
+
