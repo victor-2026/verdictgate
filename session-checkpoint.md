@@ -2712,6 +2712,16 @@ source, not to us. No W2 action.
 
 ---
 
+## 2026-10-01 03:05 — Routine: commit/push/checkpoint on request (nothing pending)
+
+Working tree was already clean, HEAD bdda423 already pushed — commit/push are
+no-ops confirmed, not assumed. This entry is the checkpoint. State unchanged:
+zero W2 actions open anywhere; all threads gated on others (Ursa build/Katya
+reply, Klarent silence, Aamir pointer, fine-tune run post-29th, s1web GLiNER
+done/VOID, recheck 10-17, Article 29 post-publish). Tree clean, all pushed.
+
+---
+
 ## 2026-09-30 — Fine-tune slot OPEN post-29th (W1 286f445, plain-words explainer)
 
 W1's explainer concurs with the program (LoRA-evening on our data → own $0
