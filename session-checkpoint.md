@@ -516,3 +516,16 @@ regression check for prompts + "can't show reds hasn't earned green" = our
 mutation doctrine applied to prompts, on-brand for Victor's thread; send is
 Victor's). No review ask inside — logged for awareness only.
 
+---
+
+## 2026-10-01 — Hooks proposal APPROVED with guarantee-grading (W5/W1 relay)
+
+Order 1+2-then-4 approved. Guarantee grading (honest, expectation-setting):
+secrets-deny = REAL enforcement (auto-deny pre-prompt, strongest item, zero
+friction); raw-guard + commit-guard = FRICTION + audit, not hard security
+(protects against accident — the actual failure mode — not adversary);
+wiki-lint = hygiene automation; compacting-inject = highest P1 leverage
+(context killer); session routines last. W5 writes plugin 1. Noted cost: my
+own commit/push routine now gates on explicit user words per session (stop-rule
+#6 as code) — accepted deliberately.
+
