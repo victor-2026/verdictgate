@@ -573,6 +573,23 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Plugin v2: variant #1 CONFIRMED by W2 usage pattern (W5)
+
+W5 asked three lines; answers: (1) ran only routine `git add && git commit -m
+… && git push` (blocked with marker-demand — v1 behavior, correctly); never
+ran heredoc-prose-with-triggers (the v2 change zone) — so "no changes seen" is
+EXPECTED, not a bug report; (2) where: W2 window, Desktop, verdictgate; session
+start/restart timing unknown from inside (cannot introspect loaded plugin
+version); (3) on-disk code IS v2 (positional matching, 22:55, md5 f3abf6b…) —
+code new, loaded-version undetermined.
+
+Two proposals back: (a) version-on-load logging (plugin prints version at
+startup — kills this ambiguity class permanently, cheap); (b) keep residual
+v2 gap (column-zero heredoc `git commit`) as documented, no action. No retest
+needed from W2 (nothing was broken on my side).
+
+---
+
 ## 2026-10-01 — Follow-up meat ruling: A primary, B supporting (W4 skeleton)
 
 W4 skeleton reviewed by structure (9 sections, 3 ready, TBD addressed, fact
