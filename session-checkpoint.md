@@ -573,6 +573,24 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Decoy-env finding ENDORSED + snapshot rule added (W3 plan)
+
+Finding sound: google.com (foreign, nothing to break) + public demo (foreign
+read-only) correctly excluded; local OrangeHRM (own container) the ONLY
+seedable env — triage by elimination, no objection. Plan endorsed as structured
+(owner sends decoy set + silence rule from file; W3 preps matrix-env + KAN
+tickets per decoy; seed→runs→verdicts on her yes).
+
+Two appends: (1) snapshot/restore PROTOCOL required on matrix-env (state
+snapshot before seeding + restore between mutants — else seeded breaks pollute
+each other across runs; same input-identity family as SAM1-6 reset rule);
+(2) "silence rule" must be explicit in the sent text (what exactly stays
+silent: her team not watching/adapting mid-pilot + findings private till
+report — ambiguity here breeds the exact trust breach decoy-consent guards
+against). Send = owner; prep = W3. No W2 action beyond this record.
+
+---
+
 ## 2026-10-01 — Baseline: 1 PASS / 2 non-success on identical inputs (W3)
 
 Distribution vindicated live: temp-0.7 variance shows 1×PASS + 2×non-success
