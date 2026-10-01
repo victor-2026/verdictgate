@@ -573,6 +573,49 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Mihai session-death finding ENDORSED + gate specified (W2)
+
+Comment is real (not noise): hardcoded login hides session death — stuck-login
+screenshot vs genuinely-broken feature read identically downstream ("failed"),
+so dead sessions file false bug reports. This is the EXACT mirror of our
+false-PASS design concern (false FAIL poisons verdicts equally) — important
+precisely because our whole machinery hunts false-PASS; symmetric blindness
+to false-FAIL would be embarrassing.
+
+W1's session-health gate endorsed with one binding precision: the marker must
+be PRE-REGISTERED per target (which selector/URL = "on login page"), else
+"check for marker" is vague. Deterministic check, no LLM, before llm-2;
+stuck = SETUP-FAILURE excluded as INVALID (N-scope family — never Caught,
+never survived). Especially binding under session reuse (stale sessions
+compound exactly this risk). Tutorial link: neutral etiquette + potentially
+useful pointer for W3's session handling (persistent-profile technique), not
+an endorsement. No-card concurred.
+
+---
+
+## 2026-10-01 — TZ small-opencode-orchestrator REVIEWED (W2: approve + 3 additions)
+
+Read whole (94 lines, ai-qa-wiki/outputs). Sound: scoped 4-pattern adoption
+(not wholesale) · explicit non-goals incl. clone-prohibition with mechanism ·
+binary acceptance incl. demo cases · W1 §10 decision (take without
+orchestration, critic first, subagent bounds) · free-first preserved ·
+bot.py complexity-gated split. Approved as designed.
+
+Three additions for the draft (non-blocking, W1/owner decide):
+(1) Model-slug staleness rule — slugs rot fast (deepseek-v4-pro/glm-5.3/flash/
+mimo WILL 404 eventually): stamp "verified on <date>", re-verify on 404, plus
+fallback rule (unknown slug → free-first default, never hard-fail).
+(2) Secrets-in-delegation rule — orchestrated subagents multiply leak surface
+(given our secrets gotchas): secrets never enter delegated context, or explicit
+redaction rule; state which.
+(3) Open question: do hooks fire on SUBAGENT tool calls (commit-guard for
+delegated commits)? Unknown — implementer verifies before relying; if not,
+delegated writes bypass guards silently (hole).
+Minor: §10-before-§9 numbering glitch; demo cases for acceptance #2/#3 need
+owners (currently ownerless). No W2 action beyond this review.
+
+---
+
 ## 2026-10-01 — Standing approval RECORDED, code pending (W1 91a90e3)
 
 Rule: append-only checkpoint/run-log writes + their commit/push — no per-item
