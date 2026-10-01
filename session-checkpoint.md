@@ -589,6 +589,17 @@ D1–D6 against this criterion before any seed; no seeding under old expectation
 
 ---
 
+## 2026-10-01 — D5 approved with 7s render tolerance (Katya)
+
+D5 OK with stated expectation: ~7s render delay is NORMAL in her tested app.
+Longer delays on our side acceptable per Katya (lenient threshold, not a trip
+wire). Ruling for verdicts: render timing within/near this band is expected
+behavior, never a failure signal; flag timing ONLY on extreme deviation with
+explicit note. Goes to W3's reclassification pack alongside the semantic
+criterion (rename vs meaning).
+
+---
+
 ## 2026-10-01 — Decoy-set send BLOCKED on target ambiguity (W1 05ea02a, concurred)
 
 W1: decoy-set file complete (D1–D6 + rules) but "Target: public demo env (URL
