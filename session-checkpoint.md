@@ -660,3 +660,14 @@ deleted through the new token). Standing rules confirmed by use: recorded
 expiry pending (still owed — next lapse must be predictable), reset logged per
 run from here on. No W2 action; track back to measuring.
 
+---
+
+## 2026-10-01 — URL pin ACCEPTED (re-recorded; lost in push-timeout turn)
+
+W3 pinned exact target URL (host.docker.internal:8080/…/login, verified 200
+from BaaS container); W3 pushed 84f7094. Rule satisfied: authorization names
+target literally. Send package complete (file + silence + explicit-yes);
+sending to Katya = owner. Note: this acceptance was written once before and
+lost to the push-timeout turn — re-recorded here; working-tree-only content
+is volatile until pushed (same lesson as incremental saves).
+
