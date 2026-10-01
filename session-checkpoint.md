@@ -493,6 +493,18 @@ spec, s1web GLiNER, recheck 10-17, Article 29 post-publish). W2 stands by.
 
 ---
 
+## 2026-10-01 — Cat-GPT handover FILED as product reference (W5 text verbatim)
+
+Product reference: PaulWaltersDev/Cat-GPT (Apache-2.0,
+https://github.com/PaulWaltersDev/Cat-GPT) — eval-harness pattern: DeepEval
+(GEval + toxicity, with/without guardrails ablation) + input/output guardrails
++ Arize AX tracing around a single-file agent loop. Relevant as a minimal
+reference for evaluator + guardrail wiring. No contact with author; observation
+only. Filed here (not a new file — pointer-grade, one paragraph suffices;
+graduates to docs/ only if actually wired into product).
+
+---
+
 ## 2026-10-01 — W5 triage batch: Cat-GPT ref + Paul peer + Alden comment (no W2 action)
 
 Recorded, all W5-assessed: Cat-GPT filed as eval-harness pattern reference
