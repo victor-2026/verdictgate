@@ -573,6 +573,21 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — D-set reclassification VERIFIED, no changes (W2 order, W1 43c9e12)
+
+Checked D1–D6 against "rename ≠ fail, only meaning-change": D1 broken-submit
+(functional, not rename) ✓ · D2a OK→Submit rename → SUCCESS (verbatim her
+example) ✓ · D2b Delete→Keep (verbatim her example) → FAIL ✓ · D3 removed
+validation (logic gone, not renamed) ✓ · D4 decoy inversion (flow broken,
+ticket valid) ✓ · D5 timing tolerance ~7s (flag-only-if-longer) ✓ · D6
+cosmetic negative control → PASS (guards against fail-everything loop) ✓.
+W1's split assessment confirmed: only D2 needed the rename/meaning split;
+rest were functional all along. No reclassification required — set is correct
+as filed. Open item is owner's send (D2a/D2b+D5 message + silence clock),
+not W2's.
+
+---
+
 ## 2026-10-01 — Katya's semantic criterion: rename≠fail, meaning-change=fail (BINDING)
 
 Katya (verbatim): D2 irrelevant as designed; button NAME changed + business
