@@ -20,6 +20,7 @@ Mutation work is cross-cutting; recording is split. One file = one owner.
 4. Handovers between windows are plain text (this chat), not file edits.
 5. Atlas provenance: QAEverest-Capability-Atlas.pdf lives in Rupesh catalog (W1); a provenance pointer (not a second copy of the PDF) may be referenced from the qaeverset profile spec in W2. Vendor numbers cross the boundary only as verbatim quotes with source.
 6. Compound loop (adopted 2026-09-21 from EveryInc): `brainstorm → plan → work → simplify → review → compound`. Simplify is mandatory before review (dedup, refactor). Review is `review-against-plan` (report-only, Pi reviewer vs `window-discipline` + `per-risk-tier` plan) before merge. Compound via `wiki/` + `session-checkpoints` + `docs/solutions/` per feature.
+7. Acceptance (adopted 2026-10-01, W1+W5, scars included): batch acceptance = full read of files under 500 lines + lint; grep is for navigation only. A claim without path-and-line counts as draft, not result. "Done" claims carry lint output + file list, else not done. Provenance: TesterArmy NOT-FOUND (guessed names vs scope read) + aphorism misattribution (privacy from location, not authorship) — grep/inference fails that full read prevents at source.
 
 ## Pilot Handover: W5 → W3 (Explicit)
 

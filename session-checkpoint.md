@@ -2696,6 +2696,19 @@ anywhere — all threads gated on others (sends, slots, gates, 10-17 recheck).
 
 ---
 
+## 2026-10-01 — Rule 7 ratified into discipline (W1+W5 consensus, W2 filed)
+
+Both windows proposed identical text independently (W1 with scars: NOT-FOUND +
+aphorism; W5 with mechanics: claim-evidence rule, done-rule, read-don't-
+believe): batch acceptance = full read (<500 lines) + lint; grep navigates
+only; claim-without-path-and-line = draft; "done" carries lint + file list.
+Filed as window-discipline.md Rule 7 with provenance cases named (so the rule
+carries its scars, not just its text). Sting 77%-vs-surviving discrepancy
+routed to W4 (articles zone — verify against raw before citing; not W2's to
+rule). W5's header fixes (source: ×10, mutgen footnote) acknowledged, own lane.
+
+---
+
 ## 2026-10-01 — s1web delivery package APPROVED for send (W3, owner channel)
 
 Verified whole: 4 files present (qwen/GLiNER scores+evals) + README headers
