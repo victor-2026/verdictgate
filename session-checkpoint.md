@@ -518,6 +518,23 @@ Victor's). No review ask inside — logged for awareness only.
 
 ---
 
+## 2026-10-01 — SAM1-6 API-invisible: state change mid-session, diagnose don't delete (W2)
+
+Sequence: GET returned total:0 → later same GET returns "Issue does not exist
+or permission" · DELETE same error. Something changed BETWEEN measurements
+(not the comment — the issue/site/token visibility itself). DELETE reruns are
+STOOD DOWN until diagnosed (deleting blind risks masking the real change).
+
+Owner decision tree (2 min, cheapest first): (1) browser-open SAM1-6 logged in
+as Victor — visible? YES → API/token-side (step 2), NO → site/issue-side
+(step 3); (2) `GET /rest/api/3/myself` — 401 = token dead (reissue/rescope),
+200 = project-permission scope (fix scopes); (3) site admin/billing check —
+trial lapse would ALSO threaten pilot substrate (own trial = infrastructure),
+escalate priority if so. Reset discipline suspended pending diagnosis (nothing
+to reset until visibility restored); ticket-state question moot meanwhile.
+
+---
+
 ## 2026-10-01 — First E2E verdict: llm-2 FAILED correctly (W3, track → measuring)
 
 Full loop closed: Jira read → steps generated → browser ran → llm-2 FAILED
