@@ -573,6 +573,19 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — Standing approval RECORDED, code pending (W1 91a90e3)
+
+Rule: append-only checkpoint/run-log writes + their commit/push — no per-item
+markers; everything else with blast radius stays per-instance explicit. W2
+position: accepted with both caveats noted — (1) guard code still old, so
+markers continue until holder's commit lands (this entry included); (2) rollback
+on first incident traced to standing cover, no bargaining. Net effect when code
+lands: routine nights stop being turnstiles. Handover-header convention (W{окно}
+→ W{адресат}:) adopted for W2's forwardable blocks from this point; discipline
+formalization awaits W1's package text (W2 edits window-discipline.md on receipt).
+
+---
+
 ## 2026-10-01 — Plugin v2: variant #1 CONFIRMED by W2 usage pattern (W5)
 
 W5 asked three lines; answers: (1) ran only routine `git add && git commit -m
