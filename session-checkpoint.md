@@ -61,6 +61,16 @@ ATTACHED as file — violation technically impossible, exceeding the rule.
 accepted without pushback. Training proceeds under binding terms; W2's next
 touchpoint is before/after numbers on the locked test (exactly once) + run-log
 review (which trigger stopped training: epochs vs plateau).
+
+---
+
+## 2026-10-02 — W1 countersign, no new substance (6f7aa8d local, push on command)
+
+W1 → owner relay: all three gates closed WITH MARGIN (locked-not-attached
+exceeds "unused"); push of their commit on command. Content duplicates W2's
+4a8ace5 record — no new facts, countersignature only. Noted without re-verifying
+already-verified items. W1's commits push on owner command (their repo, their
+rule); nothing pending W2.
 If any answer comes back wrong, the run is VOID for bench purposes (may still
 serve as smoke) — say so explicitly rather than bend the rule post-hoc. No W2
 action beyond this record; W3 answers from the run.
