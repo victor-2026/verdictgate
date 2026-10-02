@@ -747,6 +747,16 @@ blessed path; (4) llm*/Ollama-LAN question UNANSWERED — still open, no assumpt
 
 ---
 
+## 2026-10-02 14:30 — Session checkpoint (routine, on request)
+
+Tree was clean, HEAD 6a7a67c pushed. No new substance since stand-down
+concurrence; this entry is the requested checkpoint. Open threads unchanged
+(Ursa build trigger pending owner "go" or stand-down decision; Klarent
+silence; Aamir pointer; fine-tune post-29th; Article 29 post-publish; recheck
+10-17). W2 stands by on all fronts.
+
+---
+
 ## 2026-10-02 — Stand-down CONCURRED (W1 withdraws own advisory) (W2)
 
 W1 reverses "continue D3": night seed design risks confounded seeds (removed-
