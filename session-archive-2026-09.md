@@ -3168,3 +3168,254 @@ loose phrasing ("fixed formulas", "without interpretation") that implementation
 could have driven judgment through. Acceptance (byte-identical on batch #1)
 stands; implementation not started (separate decision).
 
+# VerdictGate — session checkpoint (append-only)
+
+> **Rotated 2026-10-02 (2nd rotation):** history before this point lives in
+> `session-archive-2026-09.md` (appended, same repo). Nothing deleted, order
+> preserved. Rotation rule: monthly archive + live tail ≤ 32 KiB.
+
+---
+
+## 2026-09-29 — Retro-pipeline spec: skeleton APPROVED, path (b) (W1)
+
+Skeleton sound end to end (goal / machine-scope / human-scope / interfaces /
+acceptance-as-golden / non-goals) — matches my boundary exactly. Location
+ruling: NO direct drafts into verdictgate/docs/ (single-writer rule holds even
+for invited guests — provenance stays clean). Path (b): W1 drafts at home →
+W2 reviews → W2 files into docs/ himself. One extra hop, zero ownership blur.
+
+One binding addition for the draft (else the boundary blurs in implementation):
+an explicit ALLOWLIST of mechanical derivations (exit_code→suite_result,
+timestamp→run_ref format, etc.) vs judgment (behavior/tier assignment,
+replacements, narrative). Anything unlisted = human by default. Acceptance
+criterion (byte-identical on batch #1) endorsed as the right bar — same as
+scorer goldens. Awaiting W1's draft text.
+
+---
+
+## 2026-09-29 — UrsaMinor mapping RATIFIED: binary + 3 buckets + inversion (W2)
+
+Brief read whole (31 lines). Charter effectively signed (👍 + five yeses +
+P1 qualification) — accept W1's reading; signature gate closed, build trigger
+(Victor's "go") the only open item.
+
+Ratification (binding, pre-runs): BINARY rule confirmed with her-known-issue
+adjustment — non-success on seeded break = Caught, where Caught means
+"refused to pass", NOT "correctly diagnosed" (diagnostic precision deferred
+till she fixes failed/broken distinction; revisit then). Baseline polarity
+INVERTED as specified: baseline success = correct; baseline non-success =
+FALSE ALARM on a separate track (specificity measurement, never mixed with
+survivors). P1-context inside verdict as (llm-2 + context); node portability
+explicitly unmeasured.
+
+Three bucket rulings (all required pre-runs, all Caught + differentiated
+observations, none flip verdict; wrong-reason catches observed, e.g.
+test_broken on app-break).
+
+---
+
+## 2026-09-29 — UrsaMinor: both windows prepped, ONE word pending (owner's "go")
+
+W3 deltas vs prep recorded without dispute: success-only verdict reading ·
+memory OFF out of run config (state hygiene kept) · merge boundary honored
+(re-pull + re-pin on test day, pre/post separately; today's SHAs = draft) ·
+her JSON SHA as fourth pin line · silence-timer starts on version handoff.
+Owner confirms bucket rulings + methodology shifts as binding.
+
+State: brief read both sides · mapping ratified (binding) · charter signed ·
+gate = Victor's single "гони" → W3 builds (pins+digests) → Secrets + smoke →
+Katya's signature opens runs. W2 has zero open items; next touchpoint is
+results verification or gate failure. Awaiting owner's word (his decision,
+his timing).
+
+---
+
+## 2026-09-29 — Night forks recorded, one framing rule endorsed (W1 11f0c48)
+
+W1: no night actions (Docker builds itself); morning forks with non-W1
+decisions: Docker-up → smoke per brief, nothing needed; Docker-down → (a)
+owner-session Chrome (OWNER decides, only with W3's SPOKEN "interactive
+untouched" guarantee post-pkill-incident + session-lock flake caveat stands)
+or (b) Katya bug report (framing strictly friendly setup-feedback per Igor
+pattern, never verdict, only via owner channel). Gotcha kept as read-env-
+before-launch reminder.
+
+W2 endorses the (b)-framing as load-bearing, not cosmetic: a warm author
+receiving anything verdict-shaped pre-agreement reads it as judgment regardless
+of intent — the Igor pattern (finding → same-day fix) works precisely because
+it never smells like evaluation. No W2 action; morning decides.
+
+---
+
+## 2026-09-30 — Night build session CLOSED (W3, 13h wall / 5–6h active)
+
+Recorded: full stand (deploy+BaaS+mongo×2, pins/SHAs, 4 digests, CORS fix,
+studio+secrets, 6 agents) · fixes en route (env-spaces, CORS recreate,
+headful→headless, zombie-Chrome + interactive rule embodied, browser{}
+nesting as master key) · proven green (Chrome, DevTools, net/driver/mongo/X)
+· death localized to ONE place (otto program not dispatched into live session,
+170s silence) · artifacts (run log, committed Katya bug report, VNC, shm-
+override, resolved-env practice) · open: Katya's dispatch-path reply (or next
+code dive with her hint).
+
+W2: localization quality accepted without re-verification (elimination chain
+already reviewed point by point last night; 170s-silence datum is new and
+consistent). No action — ball with Katya via owner channel. Timing of any next
+code dive is W3's tactical call (hint maximizes dive efficiency); license-wise
+the OSS BaaS is diggable anytime, and the systems/data gate is already
+respected — no conflict between the two, just sequencing.
+
+---
+
+## 2026-09-29 — Attribution note: "Igor pattern" is W1's term, not W2's (owner asked)
+
+Owner: where did Igor come from, nothing above mentioned him. Answer: the
+phrase entered via W1's night-forks message ("паттерн Игоря: находка → фикс в
+тот же день"); W2 echoed it in 3 entries (tunnel assessment, (b)-framing
+endorsement, night-forks record) without first attribution — corrected here.
+Igor = Igor Akymenko, FlowScout founder (Alternate QA), warm outreach contact
+held via W1; the pattern names that working relationship (friendly finding →
+same-day vendor fix). Correspondence stays via W1; W2 has no contact and no
+action. No content changes — attribution only.
+
+---
+
+## 2026-09-29 — Night shift closed, doctrine converged 2× in one day (W1 b2ab6c1)
+
+W1 accepts triage fully; notes "lineage = effective values" matches today's
+independent PATH lesson — same doctrine class from two places in one day
+(env-parse variance + PATH resolution): TRUST RESOLVED STATE, NEVER SOURCE
+TEXT. Recorded as candidate Hard Rule if it repeats a third time. Queues empty
+all around (W1 explicit). Morning: Docker digest in run log, else fallback
+ladder. W2 stands by; session pauses till morning inputs.
+
+---
+
+## 2026-09-29 — Night build: stand up, CDP blocked, fallback ordered (W3)
+
+Stand built (repos re-pulled + SHAs, UI:8081 post-CORS, studio login, secret
+in, 6 agents). Blocker triaged textbook: full chain eliminated, remainder
+precisely localized — vendor session path broken in this env, NOT the browser
+(dump-dom works). Endorsed: the localization proof (working dump-dom) is what
+makes it a finding instead of a shrug.
+
+Fallback order correct (Docker BaaS first = article-blessed path, no
+methodology deviation; then owner-session Chrome; then vendor bug report with
+ready logs). Two appends: (1) Docker base image = new artifact — record its
+digest in run log (env delta travels with measurements); (2) log RESOLVED env
+(redacted secrets) at every startup — the unquoted-spaces gotcha proves .env
+parsing varies by consumer (shell vs docker vs Go dotenv); effective values,
+not file text, are the lineage. Owner-session Chrome noted as
+session-dependent constraint if reached (screen-lock flake class).
+
+---
+
+## 2026-09-29 — Node content verified (W3 micro-point, temp finding strengthens repeats)
+
+W3 retrieved + READ her JSON (not just SHA): llm-2 = openai/gpt-4.1, temp 0.7,
+EOS/L10 systemPrompt; memory_store listed (removed locally per brief — no
+contradiction); tail garbage 4109B (valid to 4107) with file-untouched +
+tolerant-parser guidance. W2 notes: (1) temp 0.7 CONFIRMED non-deterministic —
+baseline-distribution + repeats rule now evidence-backed, not precautionary;
+(2) parser rule must be IDENTICAL across all runs (tolerant is fine, variance
+is not — freeze it like everything else); (3) prompt-tuning remarks stay
+pre-accepted. Nothing changes in mapping or gate; "go" still the only open item.
+- test_broken → Caught + observation (wrong-reason class recorded).
+- prompt-tuning artifacts → Caught + observation (gpt-4.1-tuned prompt on
+  qwen pre-accepted as-is; artifacts expected, not fixed, not penalized).
+- tool-error (any tool except removed memory_store) → Caught + observation;
+  memory_store error if ever seen = config breach (tool was to be removed) →
+  infra-excluded, not scored.
+Her $5-fallback branch (bounded, her money, local-only, delete after) and
+merge boundary (pre/post unmixed, pin vector + dates separately) accepted as
+pre-registered conditionals. Star/DM post-green-smoke noted for W3 execution.
+
+---
+
+## 2026-09-29 — Pins settled + no-re-pull guard ENDORSED (W1 a4a0387)
+
+W1 concedes pins to W2's softer mechanism (master-default + logged resolved
+digests; identical goal: know exactly what ran) and ADDS the binding guard: no
+image re-pull mid-campaign without digest re-logging (else baselines and mutant
+runs silently mix versions — build once, record, freeze for the campaign).
+ENDORSED — same determinism-across-runs family as A==B; closes the last
+version-drift hole in the design. Rest accepted as-is (auth out, cost-cap for
+Phase-2, article verbatim, observations banked). Gate = ONE domino: build
+trigger (owner's word) → W3 builds → Secrets + smoke → Katya's signature
+opens runs. Nothing pending W2.
+
+---
+
+## 2026-09-29 01:31 — Session checkpoint (routine, no new substance)
+
+Tree clean, all pushed (head ba86da7). No code changes anywhere in window;
+only docs since the split. Open threads unchanged: UrsaMinor build trigger
+(owner's word) · Klarent silence clock (W1 N) · Aamir pointer (W3) · Article 29
+publish tomorrow + repost (version confirmed same file) · fine-tune spec
+(W3, post-29th slot) · s1web GLiNER branch (running) · recheck 10-17.
+W2 stands by on all fronts.
+
+---
+
+## 2026-09-29 13:46 — Session checkpoint (routine)
+
+Since f945e1f: W4 follow-up Q&A answered (82-mutant inventory, no second live
+case stated plainly, post-freeze-diary angle recommended over retrospective).
+Tree clean, all pushed (head f945e1f). No code changes anywhere in window.
+Open threads unchanged (Monday gates, Klarent clock, Aamir pointer, fine-tune
+spec, s1web GLiNER, recheck 10-17, Article 29 post-publish). W2 stands by.
+
+---
+
+## 2026-10-01 — Cat-GPT handover FILED as product reference (W5 text verbatim)
+
+Product reference: PaulWaltersDev/Cat-GPT (Apache-2.0,
+https://github.com/PaulWaltersDev/Cat-GPT) — eval-harness pattern: DeepEval
+(GEval + toxicity, with/without guardrails ablation) + input/output guardrails
++ Arize AX tracing around a single-file agent loop. Relevant as a minimal
+reference for evaluator + guardrail wiring. No contact with author; observation
+only. Filed here (not a new file — pointer-grade, one paragraph suffices;
+graduates to docs/ only if actually wired into product).
+
+---
+
+## 2026-10-01 — W5 triage batch: Cat-GPT ref + Paul peer + Alden comment (no W2 action)
+
+Recorded, all W5-assessed: Cat-GPT filed as eval-harness pattern reference
+(DeepEval + guardrails + tracing + ablation — honest educational stand, not a
+breakthrough; for product side awareness). Paul Maxwell-Walters: valid evals
+peer, low contact priority (geo), meetup/speaking door noted — contact call is
+W1/outreach territory, not W2's. Alden comment draft endorsed as-is (seeded
+regression check for prompts + "can't show reds hasn't earned green" = our
+mutation doctrine applied to prompts, on-brand for Victor's thread; send is
+Victor's). No review ask inside — logged for awareness only.
+
+---
+
+## 2026-10-01 — SAM1-6 API-invisible: state change mid-session, diagnose don't delete (W2)
+
+Sequence: GET returned total:0 → later same GET returns "Issue does not exist
+or permission" · DELETE same error. Something changed BETWEEN measurements
+(not the comment — the issue/site/token visibility itself). DELETE reruns are
+STOOD DOWN until diagnosed (deleting blind risks masking the real change).
+
+Owner decision tree (2 min, cheapest first): (1) browser-open SAM1-6 logged in
+as Victor — visible? YES → API/token-side (step 2), NO → site/issue-side
+(step 3); (2) `GET /rest/api/3/myself` — 401 = token dead (reissue/rescope),
+200 = project-permission scope (fix scopes); (3) site admin/billing check —
+trial lapse would ALSO threaten pilot substrate (own trial = infrastructure),
+escalate priority if so. Reset discipline suspended pending diagnosis (nothing
+to reset until visibility restored); ticket-state question moot meanwhile.
+
+---
+
+## 2026-10-01 — Root cause: TOKEN DEATH (401), substrate alive (W2 close-out)
+
+myself → 401: the between-measurements state change was token expiry/revoke,
+nothing else. Trial alive (browser-visible), ticket exists, scopes question
+moot (dead token has no scopes). Standing rule from this incident: new tokens
+get RECORDED expiry (id.atlassian.com shows it at creation) — next lapse must
+be predictable, never mystique. Recovery sequence (owner, token in his shell):
+new token → export → GET comments (is 10012 there?) → DELETE if present →
+verify gone → reset discipline resumes. No W2 action beyond this record.
+
