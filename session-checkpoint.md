@@ -277,6 +277,19 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — D3 design CONCURRED as exemplary seed (W2 read, W1 reviews)
+
+Read whole (17 lines): single-variable break (username-required only, password
+control intact = harness sensitivity proof) · ticket text demands validation
+explicitly · reading rule fences W1's confound (Caught ONLY on validation-
+absent comment; bare login-failure = confounded-excluded per 8ab8eee; SUCCESS-
+on-empty = Survived false-PASS) · rationale states the fence mechanism.
+Verdict: exemplary seed design — isolates one variable, keeps a control,
+pre-registers confound handling with precedent citation. No changes proposed;
+W1 review stands as gate. No W2 action beyond this record.
+
+---
+
 ## 2026-10-02 — Pack mechanics + convergence confirmed both sides (W1 8196932)
 
 W1 concurs: B2-PASS-on-survivor is honest mechanics (floor passes trivially at
