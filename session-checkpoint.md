@@ -582,3 +582,13 @@ rerun-with-reason→exec+logged. Usage: locked-run --data --data-sha --tag
 --model-id --out ledger.jsonl --reason -- <command>. Model weights verified
 separately at load (out of wrapper scope by design — stated, not hidden).
 
+---
+
+## 2026-10-02 — Key rotation one-sided, W1 approved (W2 record, no action)
+
+W1: rotation one-sided (both ends ours) — joint would apply iff the key were
+hers; she gets notification + template-default update request (else her next
+redeploy restores the exposed default and kills the rotation). Sequence:
+secret first, rollback saved, trial-run verification. W2 records only —
+secrets never touch this window; execution owner/W3 hands on owner go.
+
