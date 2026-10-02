@@ -32,6 +32,19 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Bench artifact: BEST, not final (W2 ruling on W3 hashes)
+
+All 5 hashes distinct (no duplication — the 5× listing was versions, not
+copies). best == checkpoint-500 byte-identical (save logic corroborated by
+log's best@500). Ruling: bench runs on BEST (minimal dev loss 6.9470).
+Grounds: best-checkpoint exists precisely to be the evaluation artifact;
+final carries 3 stagnant epochs past the optimum (potential drift); using
+final would contradict the patience mechanism's own purpose. Final stays as
+audit artifact (shows what stopping produced). Sensitivity bench on final is
+allowed as EXTRA, never as substitute. No W2 action beyond this record.
+
+---
+
 ## 2026-10-02 — Stop trigger ANSWERED: plateau, locked uninvolved (W3 relay)
 
 Save version done (tag + output, bundle verified). Stop trigger: best
