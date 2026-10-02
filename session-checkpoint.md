@@ -277,6 +277,20 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — No stand-down: D3 proceeds, Any narrows (W1 advisory concurred)
+
+W1: D3/D5/D6 need nothing from Katya (her answers gate only llm-scope +
+SAM1-6 archaeology) — idling the matrix on vendor latency wastes the night.
+Continue D3, D5/D6 optional. Concur fully (matches W2's D3-direction exactly —
+no new reasoning needed, alignment recorded).
+
+Single owner action: narrow firewall Any back (hygiene — open rule overnight
+with bridge bypassing is unjustified exposure; W3 hands). Night result
+recorded as stated: core4 all verdict classes + vendor-native path + bridge.
+No W2 action.
+
+---
+
 ## 2026-10-02 — D2b verdict pack BUILT (PASS-by-floor + score signal) (W2 task)
 
 Pack at reviews/ursaminor-d2b-pack/ (local-only): single row (meaning_flip,
