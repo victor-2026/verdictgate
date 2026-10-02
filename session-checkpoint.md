@@ -594,6 +594,18 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Day closed: finetune + core5 + stand pristine + key rotated (W3)
+
+W3 day-close (61b6931 pushed): finetune closed (weights + SHA) · bench FAIL
+pre-registered + independently confirmed (W2 recompute) · core5 matrix closed ·
+stand pristine · key rotated. W2 concurs on all closures; every verdict this
+day was either pre-registered-then-measured or independently recomputed —
+zero post-hoc numbers stand anywhere. Standing by; next inputs: Monday gates,
+Klarent silence, Aamir pointer, Article 29 post-publish mechanics, recheck
+10-17, Victor's sends.
+
+---
+
 ## 2026-10-02 — Bench FAIL CONFIRMED independently (W2 recompute, W3 relay)
 
 Recomputed whole (495 els, locked SHA ea675b59 verified, lenient multi-y):
