@@ -594,6 +594,18 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Success bar APPROVED, bench fully pre-registered (W1 9376a35)
+
+Non-regression bar adopted verbatim (tuned ≤ base → PASS; delta = signal;
+severity N/A; report-only waiver REJECTED — numbers-without-verdict is the
+same machine-without-verdicts disease). Bench now complete on paper: script +
+data/SHA (W3 side) + format + bar, all pre-registered, zero post-hoc surface.
+Execution: W3 runs locked before/after (one touch each arm). W2 awaits numbers;
+verdict rule already written (PASS iff bar holds). Nothing pending anywhere
+on this thread.
+
+---
+
 ## 2026-10-02 — Locked-bench handover ASSEMBLED (W2 → W3 via owner) (W2)
 
 Pristine confirmed (Required in place, stand clean) — prior flag closed.
