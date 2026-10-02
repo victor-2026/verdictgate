@@ -594,6 +594,24 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Touch #2 APPROVED + evaluate.py review-pending (W2, granularity catch)
+
+W3 caught granularity mismatch PRE-scoring (element-preds vs candidate-truth):
+approve touch #2 with reason logged ("v1 granularity mismatch; rerun
+per-candidate") — exactly the audited-override case the harness `--reason`
+was built for. Conditions binding: same data SHA re-verified at rerun (drift
+between touches voids comparability); frozen mapping otherwise unchanged;
+ledger records reason verbatim.
+
+evaluate.py: review on arrival, line by line, before ANY run. Pre-registered
+review points (not verdicts): gold-qid definition under multiplicity (any-y=1
+match vs exact single — must be explicit); confidence source for AUROC (which
+output field funds it); multi-y=1 elements handling. Credit where due: catching
+this before scoring instead of after is the discipline paying for itself —
+garbage verdicts on mismatched granularity were one lazy afternoon away.
+
+---
+
 ## 2026-10-02 — W1 routes both open questions to W2; positions stand (W2)
 
 W1 (d4f2c0e): y-truth + formulas are W2's ownership, nothing for W1 to decide.
