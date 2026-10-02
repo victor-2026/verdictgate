@@ -32,6 +32,23 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Mid-training binding clarifications (W2, time-critical)
+
+Training launched (GPU 35%). Three questions that must be answered BEFORE end
+of epoch 1 — afterwards answers are post-hoc:
+(1) eval-at-epoch-1 runs on WHICH set? Allowed: train/val split ONLY. Locked
+test = immediate STOP + restart (touching locked mid-training = contamination
+by definition; test-lock allows exactly one touch = final bench).
+(2) patience-3 metric: train/val loss ONLY. Locked-test metric must not drive
+stopping for the same reason (stopping rule fitted on test = leakage).
+(3) Save-version bundle: weights + run log + config + data SHAs (full lineage),
+PRIVATE. Weights without provenance are unusable numbers later.
+If any answer comes back wrong, the run is VOID for bench purposes (may still
+serve as smoke) — say so explicitly rather than bend the rule post-hoc. No W2
+action beyond this record; W3 answers from the run.
+
+---
+
 ## 2026-10-02 — 7ee5da4c identity RESOLVED: pinned model revision, NOT split (W2)
 
 Verified via HF Hub API (commits list, 21 total): 7ee5da4c2415… IS a commit in
