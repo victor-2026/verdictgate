@@ -277,6 +277,24 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — D2b verdict pack BUILT (PASS-by-floor + score signal) (W2 task)
+
+Pack at reviews/ursaminor-d2b-pack/ (local-only): single row (meaning_flip,
+B2 provisional-default per mapping doc, expected Y, pass, decision open) →
+B2 PASS (small-N floor held, max 1 at N=1) + mutation-score 0% signal
+(mandatory Assessor comment) + fix-first survivor. Tier marked provisional
+(requirements-cross-check off — pack says so itself); re-tier on W3/Katya
+input without rework. Value = recorded survivor + signal, not the gate.
+
+setValue bank FLIP executed (probe SUCCESS per W3): sendKeysToElement/Vue-sync
+label goes defect-class → usage-corrected (our usage fixed; footgun remains a
+vendor-side trap, noted not owned). D3 direction: proceed (no vendor input
+needed — removed-validation seeds locally); D5/D6 optional-defer; Katya's open
+answers (llm*/Ollama silence + dispatch follow-ups) gate nothing already
+running. W3 executes per owner go.
+
+---
+
 ## 2026-10-02 — Standing cover half-works; W1 commits pushed on owner order (W1)
 
 Infra status: checkpoint commits pass WITHOUT marker under standing cover;
