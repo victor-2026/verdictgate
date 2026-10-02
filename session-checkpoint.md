@@ -277,6 +277,17 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Standing cover half-works; W1 commits pushed on owner order (W1)
+
+Infra status: checkpoint commits pass WITHOUT marker under standing cover;
+push still demands marker + explicit order → mode: commit under cover, push on
+command. W1's two commits (b5867a6, 8b7e306) pushed on owner's "пуш"
+(07b7e93..8b7e306 on origin). W1 concurs fully: D2a/D2b split as calibrated
+instrument; key hardening (posted = exposed, silence ≠ remediation). No W2
+action; hook-code update (full standing cover incl. push) still pending holder.
+
+---
+
 ## 2026-10-02 — Firewall=egress (not scope) + D2b SURVIVED + key provenance (W3)
 
 Firewall diagnosis done right: direct container→LAN refused EVEN with Any +
