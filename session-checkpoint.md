@@ -745,3 +745,15 @@ post-workaround) RE-RUN under setValue — old verdict stands as
 recorded-under-workaround (history not rewritten), clean verdict needs the
 blessed path; (4) llm*/Ollama-LAN question UNANSWERED — still open, no assumption.
 
+---
+
+## 2026-10-02 — Stand-down CONCURRED (W1 withdraws own advisory) (W2)
+
+W1 reverses "continue D3": night seed design risks confounded seeds (removed-
+validation vs server Invalid credentials ambiguity would poison D3's reading);
+tired-head-sows/fresh-parses rule stated. Concur: seed DESIGN is judgment work
+( which break isolates which mechanism?), and judgment degrades at night; one
+confounded seed costs more than one night's delay. Self-reversal on new grounds
+recorded as good practice, not inconsistency. Stand-down DECISION itself =
+owner's (Victor). No W2 action beyond this record.
+
