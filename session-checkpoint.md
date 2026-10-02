@@ -592,3 +592,23 @@ redeploy restores the exposed default and kills the rotation). Sequence:
 secret first, rollback saved, trial-run verification. W2 records only —
 secrets never touch this window; execution owner/W3 hands on owner go.
 
+---
+
+## 2026-10-02 — Locked-bench handover ASSEMBLED (W2 → W3 via owner) (W2)
+
+Pristine confirmed (Required in place, stand clean) — prior flag closed.
+(1) SCRIPT: verdictgate/scripts/locked-run.py @ 854cd57 (pushed, public —
+fetch anywhere; usage: --data --data-sha --tag --model-id --out ledger --reason
+-- <command>). (2) DATA + SHA: NOT in W2's reach (bounded search: no
+eval_set.json, no locked files on this machine) — W3 side holds both (ran the
+branches, made the split); W3 supplies path + locked-subset SHA from run env.
+Full-set SHA bfdf20… covers eval_set only, not the subset. No data invented
+here. (3) FORMAT base-vs-best: two locked-run invocations (tag `base`
+model-id fastino/GLiNER2.5-Decide@7ee5da4c; tag `tuned-best` model-id +adapter
+BEST dev-loss 6.9470) → evaluate.py both outputs → report broken-locator +
+AUROC-secondary. SUCCESS BAR STILL OPEN (recommend now, pre-run): tuned ≤ base
+broken-rate = non-regression minimum to claim anything; delta reported either
+way; H10-analog P0 check N/A (s1web labels carry no severity). Without a
+pre-registered bar the bench produces numbers, not a verdict — W1 decides the
+bar or explicitly waives verdict in favor of report-only.
+
