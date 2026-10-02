@@ -32,6 +32,36 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Stop trigger ANSWERED: plateau, locked uninvolved (W3 relay)
+
+Save version done (tag + output, bundle verified). Stop trigger: best
+eval_loss 6.9470@500, then 1000/1500/2000 flat → patience-3 exhausted at step
+2000 — train/val plateau exactly per spec, locked uninvolved at every point.
+All binding items on the training track now closed with evidence (not
+assertions): digest pre-verified · eval/dev-only · patience/dev-only · bundle
+saved+verified · trigger plateau-documented. KAN-9 fourth run awaited
+separately. No W2 action.
+
+---
+
+## 2026-10-02 — Training track CLOSED (numbers check); "harness from W2" declined (W2)
+
+W3 numbers check vs signed spec: 6298/332 split (seed 42) ✓ · LoRA config as
+spec'd ✓ · 2000 steps, early stop ✓ · best eval_loss 6.9470@500 (trigger
+question answered: plateau-driven) · T4x2 · locked untouched (commoncrawl
+inputs only) ✓ · bundle intact (31.8MB adapter + configs + 3 checkpoints) ✓.
+Track closed as executed-compliant.
+
+On "harness от W2" for locked before/after: NO such commitment exists —
+declined as stated, not silently absorbed. What EXISTS and suffices: s1web
+evaluate.py (their scorer, already used) for the bench + verdictgate scorer
+consuming a results.csv for any verdict pack. No new harness needed or
+promised. If W3 meant something beyond these two assembled pieces, restate
+explicitly — silent scope is how phantom obligations are born. KAN-9 verdict
+awaited separately.
+
+---
+
 ## 2026-10-02 — Training stopped early (step 2000) + KAN-9 stale-tab root-caused (W3)
 
 (1) Training: early stopping at step 2000 (best checkpoint written; VPN glitch
