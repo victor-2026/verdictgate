@@ -64,6 +64,18 @@ review (which trigger stopped training: epochs vs plateau).
 
 ---
 
+## 2026-10-02 — Training healthy at step 1480/9447, terms holding (W3 report)
+
+Step 1480/9447, loss 2.80, eval on dev slice every 500 steps (42 batches),
+best-checkpoint written (dev-metric, not last — correct discipline). All three
+binding answers hold in fact, locked untouched. Watch-only posture concurred:
+no touching mid-run (any intervention now = uncontrolled variable). Next W2
+touchpoints unchanged: before/after on locked (once) + stop-trigger review.
+Total steps 9447 noted (longer than early estimates — wall-time expectation
+adjusts, gates don't).
+
+---
+
 ## 2026-10-02 — W1 countersign, no new substance (6f7aa8d local, push on command)
 
 W1 → owner relay: all three gates closed WITH MARGIN (locked-not-attached
