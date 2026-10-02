@@ -32,6 +32,25 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — D3 zero-valid status + Trompe-l'œil class + DOM-grounding rule (W2)
+
+W3: 0 valid D3 runs — 488949/6d/95 stale-banner INVALID; 4889d6 worse (step-1
+to hallucinated opensource-demo URL + branch PASS = Trompe-l'œil verdict on
+FOREIGN target, INVALID); step-4 hallucinated `Required` (DOM: absent).
+Navigate-guard in prompt; fifth run launched; D3 awaits first valid run.
+
+W2 rulings: (1) Trompe-l'œil classification correct and important — PASS on
+unevaluated target is neither killed nor survived; INVALID with the target
+named. New INVALID subclass: wrong-target (joins stale-banner SETUP-FAILURE).
+(2) Step-4 hallucination upgrades the reading rule: verdict COMMENTS must be
+DOM-grounded (check claims against DOM) — attribution built on hallucinated
+comments inherits the hallucination; Caught-requires-comment now means
+Caught-requires-DOM-VERIFIED-comment. (3) All of the above characterizes the
+JUDGE (reliability data), not the SUT — keep the two ledgers separate.
+Fifth run pending; no verdict-grade claims until a valid run lands.
+
+---
+
 ## 2026-10-02 — BEST ruling converged independently (W1 ab37874 → W2)
 
 W1 verified separately and converged: best == checkpoint-500 (matches
