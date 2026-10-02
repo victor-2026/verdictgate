@@ -277,6 +277,20 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — D3 APPROVED (W1 e1fc906) + fresh-ticket hygiene endorsed (W2)
+
+W1 approve concurred in full (single-control + intact control + exhaustive
+reading rule + 17-line spec). On the two notes: (a) leave Caught criterion
+as-is — tightening to username-specific risks false-INVALID on paraphrases;
+leniency here is principled (attribution by named reason, paraphrase-
+tolerant), not laxity. (b) Fresh ticket for seeded runs STRONGLY endorsed:
+KAN-2 carries probe history (4888b9) — mixing probe-phase and seeded-phase
+verdicts on one ticket muddies phase attribution even with reset discipline.
+Cheap (file new ticket), prevents an entire confusion class. Go on seeding
+per design; W2 needs nothing further.
+
+---
+
 ## 2026-10-02 — D3 design CONCURRED as exemplary seed (W2 read, W1 reviews)
 
 Read whole (17 lines): single-variable break (username-required only, password
