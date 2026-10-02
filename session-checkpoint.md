@@ -622,3 +622,14 @@ qwen-s1web numbers (fuller rendering): record scope, never cross-compare;
 into rows/log. Touch #2 may proceed: W1's exception (done) + W2's code gate
 (now PASSED) — both conditions met, execution authorized.
 
+---
+
+## 2026-10-02 — RMT-note facts DELIVERED as handover (W2 → W4) (W2)
+
+Recounted from artifacts (not memory): 58 + 27 + 4 + 9 = 98 rows (82 seeded
+mutants + 16 run-records); appmut 81 rows separate. Engine lines re-verified
+in current rmt.py (docstring 6-8, RMT_VERSION:23, CHAIN_HOPS:32,
+find_assertions:79/92, chain-unwrap:113, NO-OP guard:160, stamp in dict:171).
+Handover text handed to W4 below; numbers stand as previously ruled (no
+re-verdicts inside — pure facts delivery).
+
