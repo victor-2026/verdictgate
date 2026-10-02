@@ -602,6 +602,20 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-02 — Section 2 CONFIRMED (W2 → W4): count + units as ruled (W2)
+
+Skeleton section 2 verified against W2 records: B5 scope/numbers ✓ · engine
+one-liners with EXACT rmt.py lines (:160, :32/92/113, :23/:171 — match my
+re-verification digit for digit) ✓ · chains scope-split honored ✓ ·
+S4/S5/S1 with refs ✓ · stamp saga CORRECTED form present (batch1 UNSTAMPED,
+closeout stamped :5, confirmation unstamped — never "both carry") ✓ · count
+"95 seeded mutants across 98 run-records" with units labeled + arithmetic
+(58+24+4+9 / 58+27+4+9, delta 3) ✓ · ledger CERTIFIED entries consistent.
+Zero deviations from rulings. W2's section-2 part is DONE; remaining skeleton
+needs are W3's (engine §§2,4 confirm + scope), W1's (§§6–7), owner's (format).
+
+---
+
 ## 2026-10-02 — evaluate.py + runner-v2 REVIEWED line by line: APPROVED (W2)
 
 Both files read whole (104 + 99 lines). Pre-registered points all hold:
