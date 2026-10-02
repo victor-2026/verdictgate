@@ -43,6 +43,12 @@ by definition; test-lock allows exactly one touch = final bench).
 stopping for the same reason (stopping rule fitted on test = leakage).
 (3) Save-version bundle: weights + run log + config + data SHAs (full lineage),
 PRIVATE. Weights without provenance are unusable numbers later.
+
+**W2 SIGNATURE (owner-ordered 2026-10-02):** the three above are BINDING on the
+running training, not advisory. Violation of any one voids the run for bench
+purposes (smoke status max). Signed: W2 (methodology authority), ordered by
+owner. No retroactive waivers — a breach discovered later invalidates
+retroactively to the breach point, not prospectively.
 If any answer comes back wrong, the run is VOID for bench purposes (may still
 serve as smoke) — say so explicitly rather than bend the rule post-hoc. No W2
 action beyond this record; W3 answers from the run.
