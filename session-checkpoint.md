@@ -277,6 +277,18 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Pack mechanics + convergence confirmed both sides (W1 8196932)
+
+W1 concurs: B2-PASS-on-survivor is honest mechanics (floor passes trivially at
+N=1 AND the pack displays exactly that — provisional, 0% signal, mandatory
+comment, fix-first). Value = recorded survivor + signal, never "gate worked".
+Trap boundary correct (documented for future runners; fixing API semantics not
+ours). D3 go / D5-D6 defer / Katya-gates-nothing: independent convergence of
+two windows (different paths, same answer) — confidence above sum, recorded as
+such. No W2 action; pack stands as built.
+
+---
+
 ## 2026-10-02 — No stand-down: D3 proceeds, Any narrows (W1 advisory concurred)
 
 W1: D3/D5/D6 need nothing from Katya (her answers gate only llm-scope +
