@@ -277,6 +277,24 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Bridge up, KAN-2 probe running, interpreter rule banked (W3+W5)
+
+Verified chain: Mac :11435 → PC :11434 forwarder works both ends (W3) +
+network/host/Ollama healthy from MacBook direct (W5, independent convergence)
++ BaaS recreated single-variable (OLLAMA_URL only), old container preserved
+(baas-old-20261002) for rollback — change discipline textbook. KAN-2 probe
+(llmText, ONE run) is exactly the right question (does BaaS reach Ollama via
+bridge); awaiting log. .204 declared nonexistent — stale reference killed.
+
+Interpreter rule banked (W3 find, W2 records as env doctrine): framework-Python
+has NO LAN route (No route to host) while system python/curl do — LAN
+diagnostics = system tools only, always. Prior local-only scripts unaffected
+(localhost/docker worked). This would have poisoned any network conclusion
+drawn from framework-Python — one-line rule prevents recurrence. No W2 action;
+awaiting KAN-2 log.
+
+---
+
 ## 2026-10-02 — Katya upgraded to calibrated collaborator + memory probe queued (W1)
 
 W1 accepted (8ad714d): asserted→measured is fair, and it upgrades Katya
