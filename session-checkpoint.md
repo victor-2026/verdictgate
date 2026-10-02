@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-10-03 — D5/D6: no methodological need, appetite only (W1, concurred)
+
+W1: core5 + packs = finished story; D5/D6 optional runs serve appetite, not a
+gate. Concur fully (decision-driven doctrine: measurements without consuming
+decisions are make-work, however cheap). If owner wants them for completeness,
+they run as explicitly appetite-driven extras — verdict weight zero unless a
+question later needs them. No W2 action.
+
+---
+
 ## 2026-10-03 00:46 — Session checkpoint (routine, on request)
 
 Tree was clean, HEAD 6c6c98b pushed. No new substance; standing by on all
