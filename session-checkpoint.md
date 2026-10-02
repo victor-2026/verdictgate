@@ -6,6 +6,14 @@
 
 ---
 
+## 2026-10-03 00:46 — Session checkpoint (routine, on request)
+
+Tree was clean, HEAD 6c6c98b pushed. No new substance; standing by on all
+fronts (Monday gates, Klarent silence, Aamir pointer, Article 29 post-publish
+mechanics, recheck 10-17, Victor's sends). Live file under cap post-rotation.
+
+---
+
 ## 2026-10-01 — JEV-class-as-blood thesis + verdict-economics track (owner/W5)
 
 Owner's metaphor (kept verbatim): JEV-класс нужен как кровь — выносить
