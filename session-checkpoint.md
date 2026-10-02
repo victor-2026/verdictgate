@@ -594,6 +594,17 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Self-violation: unsigned replies (owner caught, corrected) (W2)
+
+Owner: my last replies carried no handover headers, so nothing was
+forwardable (Rule 5 applies to W2's own blocks too — "do as I say" without
+"as I do" is how rules die). Standing fix: every forwardable W2 block ships
+signed from here on; pure Q&A with owner stays headerless (goes nowhere).
+No content lost (substance already in entries above); form repaired going
+forward.
+
+---
+
 ## 2026-10-02 — Touch #2 exception/ gate split recorded (W1 a643df1 ↔ W2)
 
 W1: exception rationale owned (wrong granularity, pre-scoring catch, zero
