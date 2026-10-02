@@ -32,6 +32,21 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Training stopped early (step 2000) + KAN-9 stale-tab root-caused (W3)
+
+(1) Training: early stopping at step 2000 (best checkpoint written; VPN glitch
+irrelevant — cloud independent). SAVE VERSION NOW (tag s1web-stability-lora,
+WITH output — Kaggle session ephemerality is real). Then W3's bundle check
+(weights + config + SHA) + locked before/after. Open: WHICH trigger fired
+(plateau presumed, run log must state) — standing review item, answer with log.
+(2) KAN-9: stale-tab root cause (profile restore, banner really in DOM from
+step one, Required absent = D3 seed in place) → all three INVALID as
+SETUP-FAILURE, excluded (Mihai class, consistent). reload-first in prompt,
+diagnostic crutch removed, next run clean. Procedure change logged, correct.
+No W2 action; awaiting bundle check + before/after numbers.
+
+---
+
 ## 2026-10-02 — Mid-training binding clarifications (W2, time-critical)
 
 Training launched (GPU 35%). Three questions that must be answered BEFORE end
