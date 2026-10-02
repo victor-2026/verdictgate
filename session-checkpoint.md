@@ -724,3 +724,25 @@ way; H10-analog P0 check N/A (s1web labels carry no severity). Without a
 pre-registered bar the bench produces numbers, not a verdict — W1 decides the
 bar or explicitly waives verdict in favor of report-only.
 
+---
+
+## 2026-10-02 — evaluate.py + runner-v2 REVIEWED line by line: APPROVED (W2)
+
+Both files read whole (104 + 99 lines). Pre-registered points all hold:
+gold multi-y lenient rule + multi_y_rate ✓ · confidence source (native p,
+s-transform documented) ✓ · SHA gate hardcoded + refuse ✓ · RENDER_V frozen
+marker ✓ · missing-pred hard exit 2 ✓ · per-candidate granularity (v1 flaw
+fixed) ✓ · smoke-first with touch banner (debug-location rule in code) ✓ ·
+pinned base under adapter (no base drift) ✓ · deterministic argmax tie-break
+(first-max) ✓.
+
+5 annotations (analysis/reporting precision, none blocking execution):
+(a) multi_y counter mixes zero-gold + multi-gold — split it (zero-gold
+always-broken logic itself correct); (b) duplicate qids collapse silently —
+one assert recommended; (c) render scope excludes classes/ancestors/siblings —
+FINE for base-vs-tuned (identical inputs) but breaks comparability with
+qwen-s1web numbers (fuller rendering): record scope, never cross-compare;
+(d) classify fallbacks ("no",1.0) need a shape counter; (e) adapter file SHA
+into rows/log. Touch #2 may proceed: W1's exception (done) + W2's code gate
+(now PASSED) — both conditions met, execution authorized.
+
