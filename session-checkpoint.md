@@ -582,3 +582,75 @@ sending to Katya = owner. Note: this acceptance was written once before and
 lost to the push-timeout turn — re-recorded here; working-tree-only content
 is volatile until pushed (same lesson as incremental saves).
 
+---
+
+## 2026-10-02 — Katya reply: misconfig was OURS, revert + minimal fix (W2 record)
+
+(1) setValue directive stands (unchanged). (2) Ollama dead = OUR misconfig,
+not her bug: 3 lines (LLM_Client + URL + API-key, single client) were never
+properly uncommented/filled on our side — her "should work" + "don't waste
+time" closes it as setup error. Prior "environment coupling" note SUPERSEDED
+by this (coupling claim was built on broken config — retract the defectward
+half, keep the portability note as untested). (3) "Верните как было": W3 must
+diff current BaaS env/config vs pristine, find the divergence, revert, record
+what it was — unknown-divergence-resolved-by-revert, no investigation beyond
+identification. (4) Deprioritized by vendor herself — minimal fix path: uncomment
+3 lines → retest once → move on. Tone (:))) = engaged, not annoyed; reply
+briefly with found-and-fixed, zero defensiveness (owner channel).
+
+---
+
+## 2026-10-02 — Owner decision: probe decides, setValueN next after KAN-5 (Victor)
+
+Owner concurs: no text-arguing; on KAN-5 completion → llm-1 to setValueN →
+login probe. Outcome requalifies BOTH W2's bank (defect-confirmed vs
+usage-corrected) AND the her-SAM1-6 question (ask what her PASSes ran on, with
+probe results in hand — combined ask, single round trip). Sequence locked:
+KAN-5 finishes untouched → swap → probe → requalify → ask. No W2 action;
+standing by for probe numbers.
+
+---
+
+## 2026-10-02 — setValueN identified; KAN-5 untouched mid-run (W3, concurred)
+
+setValueN (deterministic) distinguished from dead llmSetValue — precise catch,
+no confusion between them. KAN-5 finishes as-is under workaround (mid-run
+changes contaminate; recorded-under-workaround stands). Next iteration to
+setValueN per probe order. One binding caveat: setValueN's event-sync is
+ASSUMED ("видимо") — the probe VERIFIES it (login SUCCESS); switched ≠ fixed
+until measured. If SUCCESS → vendor-native path, crutch removed, bank flips to
+usage-corrected. If FAIL → back to analysis (assumption falsified, new cause
+sought). Ollama point correctly sequenced after (one variable at a time). No W2
+action.
+
+---
+
+## 2026-10-02 — setValue probe ordered; bank label CONDITIONAL (W1 b4725a3 + W2)
+
+W1: her move = requalification defect→usage (deflective but concrete →
+verifiable). Decider probe: swap to setValue, run login — SUCCESS = our usage
+error (deviation closed, crutch replaced), FAIL = defect stands. Cheap, final,
+no text-arguing. Concur fully.
+
+W2 records conditionally: "BaaS defect class" label on sendKeysToElement goes
+PROBE-CONDITIONAL effective immediately (holds unless probe says otherwise;
+flips to usage-corrected on SUCCESS). Bank correction pre-authorized on probe
+outcome — no second review needed for the flip itself. Baseline question
+refined in her favor (which function did HER SAM1-6 runs use? if setValue,
+her PASSes may be clean and the question dissolves — ask with the probe
+results, not before). Probe execution = W3 hands; question = owner channel.
+
+---
+
+## 2026-10-02 — Katya: use setValue (directive, not fix) + re-run rule (W2)
+
+Katya's answer confirms the diagnosis implicitly (sendKeysToElement doesn't
+sync Vue; setValue does) while declining to fix the footgun itself — author's
+prerogative, accepted. Consequences: (1) verify setValue EXISTS in pinned BaaS
+before rewriting (if newer than pin → upgrade + re-pin, version discipline
+holds); (2) llm-1 workaround REVERTED in favor of setValue (author-blessed
+path doctrine — same rule that rejected the Ollama trick); (3) D2a (recorded
+post-workaround) RE-RUN under setValue — old verdict stands as
+recorded-under-workaround (history not rewritten), clean verdict needs the
+blessed path; (4) llm*/Ollama-LAN question UNANSWERED — still open, no assumption.
+
