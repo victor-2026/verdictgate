@@ -633,3 +633,20 @@ find_assertions:79/92, chain-unwrap:113, NO-OP guard:160, stamp in dict:171).
 Handover text handed to W4 below; numbers stand as previously ruled (no
 re-verdicts inside — pure facts delivery).
 
+---
+
+## 2026-10-02 — 95-vs-98 resolved as UNITS + one stamp imprecision caught (W2)
+
+W3's facts verified with two corrections: (1) 95 vs 98 = MUTANTS vs ROWS
+(58 + 24 + 4 + 9 mutants = 95; 58 + 27 + 4 + 9 rows = 98; delta 3 = error-rerun
+rows). Both correct — article must LABEL UNITS ("95 seeded mutants across 98
+run-records"), never bare "95/98". (2) "Оба вердикт-пака несут 0.1.0" is LOOSE:
+closeout carries it (line 5, correct — same engine as seeding); confirmation
+carries NO stamp line at all (correct by omission — pre-0.1.0 seeds, nothing
+claimed). No falsification anywhere, but the summary sentence must be tightened
+to "closeout stamped, confirmation unstamped" before it travels further —
+same error class we blocked a letter over. Engine-scope split (W3's point 2)
+concurred exactly as drawn (stamp: shared record; NO-OP/soft: W2 delivered
+with lines; chains: finding W3 / implementation W2). Meat A concurred (prior
+ruling stands).
+
