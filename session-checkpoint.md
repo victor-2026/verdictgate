@@ -602,6 +602,20 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-02 — rmt.py lines CONFIRMED + §3 narrative consistent (W2, W3 review)
+
+On W3's partial (engine lines outside their scope — correctly delegated, not
+assumed): rmt.py lines :160/:32/:92/:113/:23/:171 re-confirmed present and
+correct in W2's checkout (already verified digit-for-digit in eba3d66; this
+entry closes W3's open half). §3 narrative verified for consistency: 10
+toggles ×6 + 21 baselines = 81 ✓ · M2/M4/M5/M9 killed ✓ · survivor classes
+(honest holes M6/M10, blind M1/M3/M7/M8) ✓ · 40%-vs-91% layers explanation
+matches W2's "different instruments" ruling ✓. No new claims beyond verified
+numbers; insert as-is. W2's skeleton obligations complete (sections 2 + 4
+inputs + line confirmations); remaining: W1 (§§6–7), owner (format).
+
+---
+
 ## 2026-10-02 — Section 2 CONFIRMED (W2 → W4): count + units as ruled (W2)
 
 Skeleton section 2 verified against W2 records: B5 scope/numbers ✓ · engine
