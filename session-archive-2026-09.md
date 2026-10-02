@@ -3419,3 +3419,197 @@ be predictable, never mystique. Recovery sequence (owner, token in his shell):
 new token → export → GET comments (is 10012 there?) → DELETE if present →
 verify gone → reset discipline resumes. No W2 action beyond this record.
 
+# VerdictGate — session checkpoint (append-only)
+
+> **Rotated 2026-10-02 (4th rotation):** history before this point lives in
+> `session-archive-2026-09.md` (appended, same repo). Nothing deleted, order
+> preserved. Rotation rule: monthly archive + live tail ≤ 32 KiB.
+
+---
+
+## 2026-10-01 — First E2E verdict: llm-2 FAILED correctly (W3, track → measuring)
+
+Full loop closed: Jira read → steps generated → browser ran → llm-2 FAILED
+with SOUND reasoning (screenshots show Google search, not the app — decider
+caught the mismatch, exactly its job) → post-back comment 10012 → session
+stopped via http-last. Fixes en route recorded (Bearer→secret, Provider
+default, timeout patches, memory collection+page, warm sessions). Methodology
+note: first verdict is a CORRECT REJECTION on wrong-app screenshots — baseline
+green means the loop works, not the app. Reset pending: delete comment 10012
+(owner hands, token) → ticket clean. Track Ursa: assembly → works/measuring.
+
+---
+
+## 2026-10-01 — Hooks proposal APPROVED with guarantee-grading (W5/W1 relay)
+
+Order 1+2-then-4 approved. Guarantee grading (honest, expectation-setting):
+secrets-deny = REAL enforcement (auto-deny pre-prompt, strongest item, zero
+friction); raw-guard + commit-guard = FRICTION + audit, not hard security
+(protects against accident — the actual failure mode — not adversary);
+wiki-lint = hygiene automation; compacting-inject = highest P1 leverage
+(context killer); session routines last. W5 writes plugin 1. Noted cost: my
+own commit/push routine now gates on explicit user words per session (stop-rule
+#6 as code) — accepted deliberately.
+
+---
+
+## 2026-10-02 — D3 SURVIVED (false-PASS) + save-version naming agreed (W2)
+
+D3 verdict verified by structure: seed holds (Required absent in ALL DOMs —
+seed presence proven, not assumed) + 4/4 SUCCESS without noticing + step-4
+second hallucination instance → per reading rule (no DOM-verified comment
+about absence) = not caught = SURVIVED false-PASS class. Correct application;
+no re-reading needed. Matrix core4 (+D3): D1 CAUGHT / D2a SUCCESS-correct /
+D2b SURVIVED / D3 SURVIVED / D4 CAUGHT.
+
+Two new findings banked: (1) stale-banner survives reload-guard via memory
+replay (prompt-vs-memory tension: memory overrides guard — new SUT-behavior
+datum, separate from judge blindness); (2) judge called banner-present page
+clean (third judge-reliability datum: two hallucinations + one blindness —
+pattern now has both directions). Save tag s1web-stability-final (best+final
+only) agreed as named. No W2 action.
+
+---
+
+## 2026-10-02 — D3 zero-valid status + Trompe-l'œil class + DOM-grounding rule (W2)
+
+W3: 0 valid D3 runs — 488949/6d/95 stale-banner INVALID; 4889d6 worse (step-1
+to hallucinated opensource-demo URL + branch PASS = Trompe-l'œil verdict on
+FOREIGN target, INVALID); step-4 hallucinated `Required` (DOM: absent).
+Navigate-guard in prompt; fifth run launched; D3 awaits first valid run.
+
+W2 rulings: (1) Trompe-l'œil classification correct and important — PASS on
+unevaluated target is neither killed nor survived; INVALID with the target
+named. New INVALID subclass: wrong-target (joins stale-banner SETUP-FAILURE).
+(2) Step-4 hallucination upgrades the reading rule: verdict COMMENTS must be
+DOM-grounded (check claims against DOM) — attribution built on hallucinated
+comments inherits the hallucination; Caught-requires-comment now means
+Caught-requires-DOM-VERIFIED-comment. (3) All of the above characterizes the
+JUDGE (reliability data), not the SUT — keep the two ledgers separate.
+Fifth run pending; no verdict-grade claims until a valid run lands.
+
+---
+
+## 2026-10-02 — BEST ruling converged independently (W1 ab37874 → W2)
+
+W1 verified separately and converged: best == checkpoint-500 (matches
+best@500 log), rest all distinct = real training, not duplicates. Candidate
+best = standard; final in place as fallback. Identical conclusion via
+independent path (W1 from artifacts, W2 from doctrine) — convergence recorded,
+not mere agreement. BEST stands for bench; no action from anyone.
+
+---
+
+## 2026-10-02 — Bench artifact: BEST, not final (W2 ruling on W3 hashes)
+
+All 5 hashes distinct (no duplication — the 5× listing was versions, not
+copies). best == checkpoint-500 byte-identical (save logic corroborated by
+log's best@500). Ruling: bench runs on BEST (minimal dev loss 6.9470).
+Grounds: best-checkpoint exists precisely to be the evaluation artifact;
+final carries 3 stagnant epochs past the optimum (potential drift); using
+final would contradict the patience mechanism's own purpose. Final stays as
+audit artifact (shows what stopping produced). Sensitivity bench on final is
+allowed as EXTRA, never as substitute. No W2 action beyond this record.
+
+---
+
+## 2026-10-02 — Stop trigger ANSWERED: plateau, locked uninvolved (W3 relay)
+
+Save version done (tag + output, bundle verified). Stop trigger: best
+eval_loss 6.9470@500, then 1000/1500/2000 flat → patience-3 exhausted at step
+2000 — train/val plateau exactly per spec, locked uninvolved at every point.
+All binding items on the training track now closed with evidence (not
+assertions): digest pre-verified · eval/dev-only · patience/dev-only · bundle
+saved+verified · trigger plateau-documented. KAN-9 fourth run awaited
+separately. No W2 action.
+
+---
+
+## 2026-10-02 — Training track CLOSED (numbers check); "harness from W2" declined (W2)
+
+W3 numbers check vs signed spec: 6298/332 split (seed 42) ✓ · LoRA config as
+spec'd ✓ · 2000 steps, early stop ✓ · best eval_loss 6.9470@500 (trigger
+question answered: plateau-driven) · T4x2 · locked untouched (commoncrawl
+inputs only) ✓ · bundle intact (31.8MB adapter + configs + 3 checkpoints) ✓.
+Track closed as executed-compliant.
+
+On "harness от W2" for locked before/after: NO such commitment exists —
+declined as stated, not silently absorbed. What EXISTS and suffices: s1web
+evaluate.py (their scorer, already used) for the bench + verdictgate scorer
+consuming a results.csv for any verdict pack. No new harness needed or
+promised. If W3 meant something beyond these two assembled pieces, restate
+explicitly — silent scope is how phantom obligations are born. KAN-9 verdict
+awaited separately.
+
+---
+
+## 2026-10-02 — Training stopped early (step 2000) + KAN-9 stale-tab root-caused (W3)
+
+(1) Training: early stopping at step 2000 (best checkpoint written; VPN glitch
+irrelevant — cloud independent). SAVE VERSION NOW (tag s1web-stability-lora,
+WITH output — Kaggle session ephemerality is real). Then W3's bundle check
+(weights + config + SHA) + locked before/after. Open: WHICH trigger fired
+(plateau presumed, run log must state) — standing review item, answer with log.
+(2) KAN-9: stale-tab root cause (profile restore, banner really in DOM from
+step one, Required absent = D3 seed in place) → all three INVALID as
+SETUP-FAILURE, excluded (Mihai class, consistent). reload-first in prompt,
+diagnostic crutch removed, next run clean. Procedure change logged, correct.
+No W2 action; awaiting bundle check + before/after numbers.
+
+---
+
+## 2026-10-02 — Mid-training binding clarifications (W2, time-critical)
+
+Training launched (GPU 35%). Three questions that must be answered BEFORE end
+of epoch 1 — afterwards answers are post-hoc:
+(1) eval-at-epoch-1 runs on WHICH set? Allowed: train/val split ONLY. Locked
+test = immediate STOP + restart (touching locked mid-training = contamination
+by definition; test-lock allows exactly one touch = final bench).
+(2) patience-3 metric: train/val loss ONLY. Locked-test metric must not drive
+stopping for the same reason (stopping rule fitted on test = leakage).
+(3) Save-version bundle: weights + run log + config + data SHAs (full lineage),
+PRIVATE. Weights without provenance are unusable numbers later.
+
+**W2 SIGNATURE (owner-ordered 2026-10-02):** the three above are BINDING on the
+running training, not advisory. Violation of any one voids the run for bench
+purposes (smoke status max). Signed: W2 (methodology authority), ordered by
+owner. No retroactive waivers — a breach discovered later invalidates
+retroactively to the breach point, not prospectively.
+
+---
+
+## 2026-10-02 — Binding confirmations RECEIVED, all stronger than minimum (W3)
+
+(1) Eval train/val-only (95/5 commoncrawl, seed 42) + locked set NOT EVEN
+ATTACHED as file — violation technically impossible, exceeding the rule.
+(2) Patience on dev eval_loss only; locked metrics absent from loop entirely.
+(3) Save bundle (weights + log + config + SHAs) all private. VOID-on-breach
+accepted without pushback. Training proceeds under binding terms; W2's next
+touchpoint is before/after numbers on the locked test (exactly once) + run-log
+review (which trigger stopped training: epochs vs plateau).
+
+---
+
+## 2026-10-02 — Training healthy at step 1480/9447, terms holding (W3 report)
+
+Step 1480/9447, loss 2.80, eval on dev slice every 500 steps (42 batches),
+best-checkpoint written (dev-metric, not last — correct discipline). All three
+binding answers hold in fact, locked untouched. Watch-only posture concurred:
+no touching mid-run (any intervention now = uncontrolled variable). Next W2
+touchpoints unchanged: before/after on locked (once) + stop-trigger review.
+Total steps 9447 noted (longer than early estimates — wall-time expectation
+adjusts, gates don't).
+
+---
+
+## 2026-10-02 — W1 countersign, no new substance (6f7aa8d local, push on command)
+
+W1 → owner relay: all three gates closed WITH MARGIN (locked-not-attached
+exceeds "unused"); push of their commit on command. Content duplicates W2's
+4a8ace5 record — no new facts, countersignature only. Noted without re-verifying
+already-verified items. W1's commits push on owner command (their repo, their
+rule); nothing pending W2.
+If any answer comes back wrong, the run is VOID for bench purposes (may still
+serve as smoke) — say so explicitly rather than bend the rule post-hoc. No W2
+action beyond this record; W3 answers from the run.
+
