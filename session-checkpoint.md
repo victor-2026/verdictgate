@@ -32,6 +32,16 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — BEST ruling converged independently (W1 ab37874 → W2)
+
+W1 verified separately and converged: best == checkpoint-500 (matches
+best@500 log), rest all distinct = real training, not duplicates. Candidate
+best = standard; final in place as fallback. Identical conclusion via
+independent path (W1 from artifacts, W2 from doctrine) — convergence recorded,
+not mere agreement. BEST stands for bench; no action from anyone.
+
+---
+
 ## 2026-10-02 — Bench artifact: BEST, not final (W2 ruling on W3 hashes)
 
 All 5 hashes distinct (no duplication — the 5× listing was versions, not
