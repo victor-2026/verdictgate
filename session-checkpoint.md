@@ -594,6 +594,21 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — y IS truth; formulas need evaluate.py lines, not paraphrase (W2)
+
+(1) y=truth CONFIRMED from dataset design (verified 27.09 via Kaggle API):
+y=1 = survived all later observations (1,129 changed, 14%); labels observed,
+not rule-based; oracle-independence stated in-dataset. y:0.0 = broke. No
+ambiguity — use as truth.
+(2) Formulas: broken-locator = top-pick-y=0 fraction (lower better); "choice
+matters" = y-differing elements; AUROC = P vs y. BUT these are index-level
+paraphrases — W2 signs formulas ONLY against evaluate.py code lines (W3
+pastes the scoring function; no local copy here, searched). Scoring on
+paraphrase risks the same class as transcript-grading. W3: paste function,
+then assemble cell. No W2 action beyond this record.
+
+---
+
 ## 2026-10-02 — GO: Kaggle kernel + W3 writes runner + file out of /tmp (W1 9d2c186)
 
 W1 approved all three W2 rulings and issued GO: Kaggle eval-kernel; W3 writes
