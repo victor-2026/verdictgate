@@ -32,6 +32,25 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — 7ee5da4c identity RESOLVED: pinned model revision, NOT split (W2)
+
+Verified via HF Hub API (commits list, 21 total): 7ee5da4c2415… IS a commit in
+fastino/GLiNER2.5-Decide history; HEAD is 5a7adf72 (repo MOVED since pin —
+drift in the wild validating pinning itself). So: base model =
+fastino/GLiNER2.5-Decide @ revision 7ee5da4c, explicitly. Training MUST pull
+THAT revision (revision= param), never default-latest — else the "before"
+bench (base 7ee5da4c) is invalid and lineage breaks silently. Post-pull digest
+check required before training starts.
+
+Launch-signature requirements (W3 inspects locally; must ALL be visible or no
+launch): model identifier + revision pin params · train dataset path · output
+dir · LoRA args (r16/a32/ep≤3) · eval dataset param SEPARATE from train (locked
+test evaluated post-training only, never during) · seed · NO train-on-eval
+wiring anywhere in the call. Signature inspection is read-only and safe;
+launching is what it gates.
+
+---
+
 ## 2026-10-02 — D3 seeding EXECUTED, KAN-9 fresh, first run INVALID (W3 signed)
 
 W3 → W1/W2: D3-concur accepted; seeding per design done; KAN-9 created fresh
