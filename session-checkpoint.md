@@ -594,6 +594,18 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — GO: Kaggle kernel + W3 writes runner + file out of /tmp (W1 9d2c186)
+
+W1 approved all three W2 rulings and issued GO: Kaggle eval-kernel; W3 writes
+runner (debug non-locked only, first locked contact = bench); locked file out
+of /tmp into durable-versioned NOW; touch #1 pre-registered as the bench
+(upload ≠ touch — audits must not recount). Debug-location criterion called
+out as structural (not personal) dirty-hands solution. SHA chain converges.
+Execution: W3. W2 awaits bench numbers (base vs tuned on locked, one touch
+each); verdict rule already written (non-regression bar).
+
+---
+
 ## 2026-10-02 — Locked-bench readiness rulings: upload≠touch, author-may-write, Kaggle (W2)
 
 Dataset verified as stated (mind2web 245 + app 250 = 495; full pin bfdf20…
