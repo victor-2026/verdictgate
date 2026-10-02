@@ -573,6 +573,36 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-01 — JEV-class-as-blood thesis + verdict-economics track (owner/W5)
+
+Owner's metaphor (kept verbatim): JEV-класс нужен как кровь — выносить
+вердикты и экономить токены. W2 assessment: metaphor is directionally exact —
+our entire local-judge program since September IS this thesis in action
+(workhorse 0.1s/$0, Gemma 0.28s, qwen3 24s thinking-tax, GLiNER 0.4s arms).
+Substance stands on numbers with or without the motto.
+
+Thin-track approval (not a program): verdict-economics ledger (cost/latency/
+quality per judge arm, updated per measurement — the table that would have
+settled every "which judge" debate in one glance) + digest-watch on decision
+models (Jev, GLiDE, analogs — W5 lane). Cheap to maintain, serves replacement/
+pair/fine-tune decisions directly. Stays a ledger, never grows procedures —
+the moment it needs governance heavier than one table, it gets re-scoped, not
+fed. W5 formalizes on owner's word.
+
+---
+
+## 2026-10-01 — Cat-GPT deeper-dive DECLINED, reference stands (W5 question)
+
+W5 asked: deeper (clone/run evals, inspect judge) or thread reminder? Ruling:
+no deeper dive — no pending decision consumes Cat-GPT internals (reference
+filed for evaluator/guardrail wiring work IF it starts; then: read judge code
+first = free, run evals only if a question needs numbers). Tally so far on
+this reference: handover filed, LI-redirect diagnosed (repo live, redirect
+broken — gotcha #8 class), no contact. Thread was not lost — recap confirmed
+accurate, nothing to add. No action.
+
+---
+
 ## 2026-10-01 — Mihai session-death finding ENDORSED + gate specified (W2)
 
 Comment is real (not noise): hardcoded login hides session death — stuck-login
