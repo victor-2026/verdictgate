@@ -32,6 +32,17 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — D3 seeding EXECUTED, KAN-9 fresh, first run INVALID (W3 signed)
+
+W3 → W1/W2: D3-concur accepted; seeding per design done; KAN-9 created fresh
+(fresh-ticket hygiene honored); first seeded run 488949 INVALID by judge —
+rerun will discriminate hallucination vs restore. Rotation decision routed to
+owner (not W2's tree to rotate — no action). W2 notes: INVALID-on-first-seeded
+is exactly what the reading rule + re-run discipline were built for (no alarm
+in a single INVALID; the PATTERN across rerun decides). Awaiting rerun.
+
+---
+
 ## 2026-10-02 — D3 APPROVED (W1 e1fc906) + fresh-ticket hygiene endorsed (W2)
 
 W1 approve concurred in full (single-control + intact control + exhaustive
