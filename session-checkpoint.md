@@ -594,6 +594,17 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — W1 routes both open questions to W2; positions stand (W2)
+
+W1 (d4f2c0e): y-truth + formulas are W2's ownership, nothing for W1 to decide.
+Positions unchanged from 4d874b2 (no new facts since): (1) y IS truth
+(observed survival, oracle-independent) — decided; (2) formulas signed ONLY
+against evaluate.py code lines — awaiting W3's paste. Nothing to add, amend,
+or re-decide; this entry closes the routing loop (question arrived → owned →
+answered → awaiting input).
+
+---
+
 ## 2026-10-02 — y IS truth; formulas need evaluate.py lines, not paraphrase (W2)
 
 (1) y=truth CONFIRMED from dataset design (verified 27.09 via Kaggle API):
