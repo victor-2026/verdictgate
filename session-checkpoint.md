@@ -594,6 +594,17 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Touch #2 exception/ gate split recorded (W1 a643df1 ↔ W2)
+
+W1: exception rationale owned (wrong granularity, pre-scoring catch, zero
+picking advantage) + v1-preds never scored for bench. W2: code gate owned
+(evaluate.py line-by-line before touch; SHA re-verify; mapping frozen).
+Split is clean — rationale exception mine-free, code gate theirs-free. Touch #2
+executes after BOTH: W1's exception (done) AND W2's code review (pending
+evaluate.py delivery). Awaiting the file; no action until it lands.
+
+---
+
 ## 2026-10-02 — Touch #2 APPROVED + evaluate.py review-pending (W2, granularity catch)
 
 W3 caught granularity mismatch PRE-scoring (element-preds vs candidate-truth):
