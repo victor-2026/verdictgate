@@ -553,3 +553,19 @@ confounded seed costs more than one night's delay. Self-reversal on new grounds
 recorded as good practice, not inconsistency. Stand-down DECISION itself =
 owner's (Victor). No W2 action beyond this record.
 
+---
+
+## 2026-10-02 — Weights hash-verified + D3 matrix final + revert flag (W2)
+
+Local weights verified byte-level: adapter_model.safetensors = 1899e036…
+(best) + adapter_model_final.safetensors = d92a3f32… (final) — both match
+recorded hashes exactly; local = Kaggle, lineage closed end to end.
+D3 SURVIVED recorded as matrix-final (D1 CAUGHT / D2a SUCCESS / D2b SURVIVED /
+D4 CAUGHT / D3 SURVIVED) — matches every prior record, no drift.
+
+FLAG (action, not mine): OrangeHRM still carries ACTIVE D3 seed (username
+without required) — MUST revert to pristine before next works on that env,
+else the next campaign measures on seeded ground. Hands: whoever runs next
+there (W3 matrix-env owner); rule: no campaign starts on unverified-pristine
+env (check first, seed after). W2 records, does not execute.
+
