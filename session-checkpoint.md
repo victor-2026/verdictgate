@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-10-03 — D5 running with 7s norm; scope boundary recorded (W1 6c73de0)
+
+D5 in flight with Katya's 7s norm inside; awaiting SUCCESS + seconds in
+verdict. Boundary recorded verbatim because it matters: her scope = core;
+the 4+2 tail is OUR completeness initiative, not owed by her. Never present
+optional extras as her obligations — consent covers agreed scope, nothing
+beyond. No W2 action; verdict on landing.
+
+---
+
 ## 2026-10-03 — D5/D6: no methodological need, appetite only (W1, concurred)
 
 W1: core5 + packs = finished story; D5/D6 optional runs serve appetite, not a
