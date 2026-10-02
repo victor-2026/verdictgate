@@ -277,6 +277,24 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Firewall=egress (not scope) + D2b SURVIVED + key provenance (W3)
+
+Firewall diagnosis done right: direct container→LAN refused EVEN with Any +
+router :80 refused → egress architecture, not rule scope. Bridge stands as the
+answer (verified byte-wise from container). API_KEY provenance: HERS (came with
+image/compose, not generated) → rotation JOINT only (backend expects same);
+no-more-posting rule accepted (was it posted before? treat as exposed until
+proven otherwise — if it appeared in any chat/log, rotate on joint agreement
+after debug, don't assume clean).
+
+D2b SURVIVED (meaning-flip passed through): first flip-class result — validates
+the D2a/D2b split design itself (rename ✓ caught-as-success, flip ✗ missed =
+genuine gap, P2-class candidate pending formal verdict pack). Scoreboard: D1
+CAUGHT / D2a SUCCESS / D2b SURVIVED / D4 CAUGHT. No verdict-grade claims beyond
+W3's pack process; this entry records raw outcomes only.
+
+---
+
 ## 2026-10-02 — Bridge up, KAN-2 probe running, interpreter rule banked (W3+W5)
 
 Verified chain: Mac :11435 → PC :11434 forwarder works both ends (W3) +
