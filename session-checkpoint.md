@@ -569,3 +569,16 @@ else the next campaign measures on seeded ground. Hands: whoever runs next
 there (W3 matrix-env owner); rule: no campaign starts on unverified-pristine
 env (check first, seed after). W2 records, does not execute.
 
+---
+
+## 2026-10-02 — locked-run harness BUILT + smoke-tested (W3 request, W2 scope)
+
+Scope as ruled: command-agnostic wrapper ONLY (SHA gate + one-touch ledger +
+audit rows) — NO inference code duplicated (caller's runner stays theirs;
+GLiNER/s1web runners live on PC, none on this machine to reuse). scripts/
+locked-run.py, stdlib only. Smoke-verified all 4 paths on fixtures: SHA-
+mismatch→refuse(2) · first-run→exec+ledger · rerun-without-reason→refuse(2) ·
+rerun-with-reason→exec+logged. Usage: locked-run --data --data-sha --tag
+--model-id --out ledger.jsonl --reason -- <command>. Model weights verified
+separately at load (out of wrapper scope by design — stated, not hidden).
+
