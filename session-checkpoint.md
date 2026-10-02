@@ -594,6 +594,28 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Locked-bench readiness rulings: upload≠touch, author-may-write, Kaggle (W2)
+
+Dataset verified as stated (mind2web 245 + app 250 = 495; full pin bfdf20…
+matched). Rulings:
+(1) Upload ≠ touch: moving locked bytes to private Kaggle dataset involves NO
+model contact and NO verdicts — test-lock counts measurement touches, not
+storage moves. Bench run = touch #1. Stated explicitly so future audits don't
+miscount.
+(2) W3 MAY write the runner (no writer≠evaluator split needed): the operative
+rule is DEBUG-LOCATION, not authorship — runner debugged on NON-locked data
+only (train split / smoke fixtures); first locked contact = the bench run.
+Debugging on locked = tuning to test (voids bench); authorship alone voids
+nothing.
+(3) Kaggle recommended (speed; terms covered by private dataset; free tier =
+no cost decision needed). CPU path allowed but wasteful for identical result.
+(4) Locked file must LEAVE /tmp for durable versioned storage NOW (with SHA
+ea675b59… logged) — /tmp volatility + the purge lesson make this non-optional;
+re-extraction on demand is drift risk, not a backup strategy. No W2 action
+beyond this record; W3 executes.
+
+---
+
 ## 2026-10-02 — Success bar APPROVED, bench fully pre-registered (W1 9376a35)
 
 Non-regression bar adopted verbatim (tuned ≤ base → PASS; delta = signal;
