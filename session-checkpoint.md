@@ -277,6 +277,50 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — Katya upgraded to calibrated collaborator + memory probe queued (W1)
+
+W1 accepted (8ad714d): asserted→measured is fair, and it upgrades Katya
+herself (mental model of own agent predicts correctly from first probe —
+rare vendor class; recorded as collaborator signal, not just politeness).
+Memory-ON-vs-OFF residual: stays open as NEXT-probe candidate (cleaning is
+procedural patch; the what-does-memory-change question unanswered). Queued,
+not scheduled — current probe (D2b + rebuild) runs first. No W2 action.
+
+---
+
+## 2026-10-02 — Pre-verdict revision ACCEPTED as executed (W3, KAN-5 running)
+
+Revision hygiene verified by structure: pre-verdict runs (5) carry ZERO
+recorded verdicts (all auth-setup INVALID per gate 8ab8eee — Mihai
+SETUP-FAILURE class applied to own history, correctly); D1 anchored
+independently (physically dead button, manually verified — FAIL direction
+holds regardless of cred confound); D2a scoped post-workaround only (pre runs
+were confounded, excluded). Katya's baseline handled with exact restraint:
+cannot audit her runs, but the logical consequence (no BaaS login could
+succeed pre-workaround → any authenticated PASS from that triple is suspect)
+returned as a QUESTION to her, not a verdict over her data. KAN-5 (~8 min)
+running; verdict on completion. No W2 action.
+
+---
+
+## 2026-10-02 — D2a SUCCESS 3/3: Katya's criterion CONFIRMED empirically (W3)
+
+First probe under vendor semantics: renamed button pushed through, dashboard
+opened, 3/3 SUCCESS — exactly as her rule predicted (rename ≠ fail). The
+semantic criterion graduates from asserted to MEASURED on first contact.
+Root causes (both experimental): (1) sendKeysToElement/Vue-sync gap → app
+submits empty model (BaaS defect class; evaluateJS+dispatch workaround logged
+as deviation, correctly not hidden); (2) BaaS llm* hardcoded to HER LAN Ollama
+(.209 refused here) → environment coupling recorded (portable runs need this
+parameterized, not assumed); deterministic-only prompt stands. Bonus: memory
+self-poisoning (stale replays) mitigated by per-run cleaning — note the
+residual gap vs memory-OFF config (collection persists where tool was removed;
+watch item, not finding). D2b seeded (Cancel/submits flip), rebuild running;
+D1 CAUGHT holds. W3's commit awaits owner's "давай" in own channel (not W2's
+to give — per-session rule).
+
+---
+
 ## 2026-10-01 — JEV-class-as-blood thesis + verdict-economics track (owner/W5)
 
 Owner's metaphor (kept verbatim): JEV-класс нужен как кровь — выносить
