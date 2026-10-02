@@ -49,6 +49,18 @@ running training, not advisory. Violation of any one voids the run for bench
 purposes (smoke status max). Signed: W2 (methodology authority), ordered by
 owner. No retroactive waivers — a breach discovered later invalidates
 retroactively to the breach point, not prospectively.
+
+---
+
+## 2026-10-02 — Binding confirmations RECEIVED, all stronger than minimum (W3)
+
+(1) Eval train/val-only (95/5 commoncrawl, seed 42) + locked set NOT EVEN
+ATTACHED as file — violation technically impossible, exceeding the rule.
+(2) Patience on dev eval_loss only; locked metrics absent from loop entirely.
+(3) Save bundle (weights + log + config + SHAs) all private. VOID-on-breach
+accepted without pushback. Training proceeds under binding terms; W2's next
+touchpoint is before/after numbers on the locked test (exactly once) + run-log
+review (which trigger stopped training: epochs vs plateau).
 If any answer comes back wrong, the run is VOID for bench purposes (may still
 serve as smoke) — say so explicitly rather than bend the rule post-hoc. No W2
 action beyond this record; W3 answers from the run.
