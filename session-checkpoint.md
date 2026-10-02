@@ -6,6 +6,17 @@
 
 ---
 
+## 2026-10-03 — D5 running (KAN-7), D6 go/no-go with owner (W5)
+
+D5 launched as render-timing measurement vs Katya's ~7s norm (run ~8 min;
+expect SUCCESS + actual seconds in verdict; longer acceptable per Katya).
+D6 (cosmetic seed + rebuild ~4 + run ~8 ≈ 20–25 min both): go/no-go is
+OWNER's appetite call — no methodological need either way (recorded twice
+already). Completeness value acknowledged (4+2 story) without inflating it
+into necessity. No W2 action; verdicts on landing.
+
+---
+
 ## 2026-10-03 — D5 running with 7s norm; scope boundary recorded (W1 6c73de0)
 
 D5 in flight with Katya's 7s norm inside; awaiting SUCCESS + seconds in
