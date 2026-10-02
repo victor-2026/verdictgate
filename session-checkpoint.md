@@ -32,6 +32,24 @@ own commit/push routine now gates on explicit user words per session (stop-rule
 
 ---
 
+## 2026-10-02 — D3 SURVIVED (false-PASS) + save-version naming agreed (W2)
+
+D3 verdict verified by structure: seed holds (Required absent in ALL DOMs —
+seed presence proven, not assumed) + 4/4 SUCCESS without noticing + step-4
+second hallucination instance → per reading rule (no DOM-verified comment
+about absence) = not caught = SURVIVED false-PASS class. Correct application;
+no re-reading needed. Matrix core4 (+D3): D1 CAUGHT / D2a SUCCESS-correct /
+D2b SURVIVED / D3 SURVIVED / D4 CAUGHT.
+
+Two new findings banked: (1) stale-banner survives reload-guard via memory
+replay (prompt-vs-memory tension: memory overrides guard — new SUT-behavior
+datum, separate from judge blindness); (2) judge called banner-present page
+clean (third judge-reliability datum: two hallucinations + one blindness —
+pattern now has both directions). Save tag s1web-stability-final (best+final
+only) agreed as named. No W2 action.
+
+---
+
 ## 2026-10-02 — D3 zero-valid status + Trompe-l'œil class + DOM-grounding rule (W2)
 
 W3: 0 valid D3 runs — 488949/6d/95 stale-banner INVALID; 4889d6 worse (step-1
