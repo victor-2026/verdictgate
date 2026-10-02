@@ -594,6 +594,23 @@ secrets never touch this window; execution owner/W3 hands on owner go.
 
 ---
 
+## 2026-10-02 — Bench FAIL CONFIRMED independently (W2 recompute, W3 relay)
+
+Recomputed whole (495 els, locked SHA ea675b59 verified, lenient multi-y):
+base 40/495 = 8.08% / AUROC 0.5295 · tuned 43/495 = 8.69% / 0.5302 · multi 355
+— bit-for-bit match with verdict.json on every figure. Non-regression bar
+(tuned ≤ base) FAILS: +3 elements = +0.606pp. Verdict stands as filed.
+
+Two readings recorded (both true, different uses): (1) bar verdict: FAIL, no
+adoption — binary as pre-registered; (2) statistical lens (NOT a verdict):
+±3 els on N=495 is noise-band (McNemar territory); the bar doesn't do p-values
+by design, so FAIL stands regardless — but any future claim "tuning HURTS"
+would need wider N, symmetric to "tuning helps". Fine-tune track outcome:
+no improvement demonstrated; track parked pending new decision (not failed
+forward — parked explicitly).
+
+---
+
 ## 2026-10-02 — Self-violation: unsigned replies (owner caught, corrected) (W2)
 
 Owner: my last replies carried no handover headers, so nothing was
