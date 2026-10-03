@@ -400,6 +400,15 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Disclosure rule: her-removed, ours-counted (owner)
+
+Cost line: removed for Katya's version, counted internally. Recorded as
+standing practice (not one-off): external reports sanitized per consent/
+no-disclosure rules; internal ledger keeps full numbers always. The two
+versions must never be confused — sanitized-for-her ≠ redacted-for-us.
+
+---
+
 ## 2026-10-03 — Matrix report cleaned, ready to send (W3; send = owner)
 
 Cost line removed (was present in W3's working copy — my read of the shared
