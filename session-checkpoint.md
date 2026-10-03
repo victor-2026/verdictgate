@@ -602,6 +602,32 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — RMT-note facts DELIVERED (W2 → W4, Rule-7 paths+lines) (W2)
+
+(1) RMT one paragraph: Reverse Mutation Testing mutates test VERIFICATIONS
+(assertions), not app code — measures whether tests detect deliberately broken
+assertions (rmt.py: find_assertions + apply_mutation; rmt-methodology.md).
+Differs from classic MT in seeding DIRECTION (system vs verification). Cite:
+Leonardo's formulation ("MT challenges the application, RMT challenges the
+test" — his doc) + our operator/tier docs for mechanics.
+(2) Where used: OpenClaw batches #1 (58) + #2 (24 chains) — pilots/OpenClaw/
+results/; E1–E10 gold items ARE RMT outputs (survived negations repurposed as
+judge-bench items — pilots/Jev/gold-n30.json); B2-band/batch numbers as in
+29th. PUBLIC-NAMING FLAG: joint article anonymized SUT ("open-source agent
+runtime") — naming OpenClaw in the new note is a NEW decision (W1/owner), NOT
+covered by prior practice; default closed unless explicitly opened.
+(3) What's good (numbers only, no MT-comparison — we ran NO classic-MT control,
+so "what MT didn't see" is UNLICENSED; state RMT findings absolutely):
+batch #1 53/58 killed, 5 survivors adjudicated 1+2+2 (S4/S5 genuine P2 gaps
+suites didn't catch); batch #2 22 killed + 2 resolved (incl. caught-by-crash
+class); engine guards (NO-OP/soft/chains/stamp) evolved from measured gaps.
+(4) Consent RECOMMENDATION (W1/owner decide): 24.09 consent covered name+numbers
+IN 29th; new note = new publication → new explicit ping (cheap, kills scope-
+creep ambiguity). Draft ping on request. (5) 29th metrics: not W2's (W4/owner
+LinkedIn stats lane).
+
+---
+
 ## 2026-10-03 03:28 — Session checkpoint (routine, on request)
 
 Tree was clean, HEAD 5599720 pushed. No new substance; standing by on all
