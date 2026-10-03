@@ -602,6 +602,15 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 03:28 — Session checkpoint (routine, on request)
+
+Tree was clean, HEAD 5599720 pushed. No new substance; standing by on all
+fronts (Ursa build/Katya reply, Klarent silence, Aamir pointer, fine-tune
+post-29th runs, s1web GLiNER done/VOID, recheck 10-17, Article 29 post-publish,
+Victor's sends). Live file under cap post-rotations.
+
+---
+
 ## 2026-10-02 — Kaggle explained + post-bank piece delivered (W2 → W4) (W2)
 
 Explainer (concurs with W1 7db5616 on all points): WHY = free GPU (T4x2, $0;
