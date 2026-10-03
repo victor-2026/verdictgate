@@ -296,6 +296,18 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Touch #3 fully authorized both sides; lock mechanics stand (W1)
+
+W1: reason approved (ephemeral working = structural cause like granularity;
+frozen pipeline + fixed weights = nothing to tune toward); variant B needs no
+approval (saved preds = zero touches). W2's conditions (recompute-free,
+conditional-regeneration, pre-registered bar) all met or exceeded. Touch #3
+may proceed under locked-run.py mechanics (SHA gate + reasoned ledger) whenever
+W3 executes; variant B (recompute) free at all times. Informational-only stands
+(FAIL unchanged either way). No W2 action; lock mechanics already shipped.
+
+---
+
 ## 2026-10-03 — Touch #3: conditional approve + recompute-is-not-touch (W2)
 
 W3 stopped correctly (touch discipline working — asked instead of running).
