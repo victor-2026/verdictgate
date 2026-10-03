@@ -296,6 +296,22 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — 5→10 gap: Perplexity right, my check missed arithmetic (W2)
+
+W4 relayed Perplexity catch: batch one had 5 survivors, bench items E1–E10
+(ten) — where do the second five come from? Verified composition: E1–E5 =
+batch-#1 survivors; E6–E7 = batch-#2 infra-timeouts (tooltip, wa-controls);
+E8–E10 = batch-#2 killed reps (preview chips, chat-PR, tab-card). My earlier
+"E1–E10 correct" covered DIRECTION (RMT outputs → bench) but never the COUNT
+— conceded openly, arithmetic gap real. Worse: draft line 17 ("Ten of the
+survivors...") misstates it (only five were survivors). Recommended fix for
+W4 (their edit): rephrase to "Five survivors from batch one, plus five hard
+cases from batch two — two timeouts and three representative kills — became
+bench items E1 through E10..." Perplexity credit recorded: external review
+caught what four windows missed.
+
+---
+
 ## 2026-10-03 — Draft clarification applied (owner order, W4 to commit) (W2)
 
 Owner: line 15 must state mutants went into TEST code, else reads as app
