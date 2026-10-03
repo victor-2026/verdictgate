@@ -602,6 +602,29 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-02 — Kaggle explained + post-bank piece delivered (W2 → W4) (W2)
+
+Explainer (concurs with W1 7db5616 on all points): WHY = free GPU (T4x2, $0;
+local CPU = hours) + privacy (private kernel/dataset, locked never exposed) +
+reproducibility (pins + Save-version; session ephemerality solved by
+procedure). DONE = tune complete (2000 steps, early stop, best 6.9470@500) +
+bundle intact + SHAs converged both hands + log pulled + bench FAIL honest
+(±3 noise). PLANS = none open (bench done; sensitivity-on-final allowed as
+extra). PROSPECTS = platform + frozen protocol ready for next training
+(any model, same pins/privacy/saves); free-tier limits known-managed. Story
+for Leo stands: free hardware + honest negative result.
+
+W2's post-bank piece (as tasked): parked-rationale line — "Tuned 340M changed
+nothing measurable on locked test (±3 els noise over N=495 both directions
+possible) — parked explicitly, not failed forward; the question stays open
+for fine-tune stories with locked tests, the answer stays closed for this
+one." Terms framing (privacy on shared infra): "Public dataset under
+eval/research terms → private kernel + private dataset + private weights; only
+aggregate numbers leave the perimeter, with cite; shared infra never sees more
+than it must." W3's run-facts piece is theirs to deliver; W4 assembles.
+
+---
+
 ## 2026-10-02 — rmt.py lines CONFIRMED + §3 narrative consistent (W2, W3 review)
 
 On W3's partial (engine lines outside their scope — correctly delegated, not
