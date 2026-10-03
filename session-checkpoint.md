@@ -296,6 +296,16 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Draft clarification applied (owner order, W4 to commit) (W2)
+
+Owner: line 15 must state mutants went into TEST code, else reads as app
+mutants (against the article's own thesis). Applied one clause in W4's file:
+"fifty-eight seeded breaks in test code (never the app)". NOT committed —
+Articles tree belongs to W4 (commit/push theirs on review). Change is
+additive-clarifying (no numbers/facts altered); revert cost zero.
+
+---
+
 ## 2026-10-03 — Leo-RMT draft fact-check: PASS, no corrections (W2 → W4) (W2)
 
 Draft read whole (51 lines + metadata): paragraph = faithful abridgment of
