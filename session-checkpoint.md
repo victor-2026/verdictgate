@@ -296,6 +296,20 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — D-series pack ASSEMBLED in advance (W1 trigger, W2 built) (W2)
+
+reviews/ursaminor-d-full/ (7 rows, local-only): D1/D2b/D3/D4 seeded (Y),
+D2a/D5/D6 as N-controls (correct-behavior/negative-control must NEVER read as
+gaps — N, not Y; key semantic preserved from design). Result: B2 FAIL
+(small-N floor: 2 survivors > max 1 at N=4) + fix-first D2b/D3 (decisions open)
++ score signal. Build note: unquoted commas in behavior broke parse on first
+attempt (strict CSV rejected extra values — parser doing its job); fixed with
+quoting, pack clean. Tiers B2 provisional-default throughout (marked).
+Held for delivery ON REQUEST (W1 trigger); D2b single-row pack stands as
+history, this supersedes it for series reporting.
+
+---
+
 ## 2026-10-03 — Bench thread FULLY CLOSED all sides (W3 numbers + W1 d00b786)
 
 W3: FAIL numbers submitted (8.08/8.69, AUROC pair), package pushed. W1: relay
