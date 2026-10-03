@@ -400,6 +400,16 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Harness already delivered; W1's "awaits harness" is stale (W2)
+
+Verified: scripts/locked-run.py committed 854cd57 (Oct 2), smoke-tested 4/4,
+pushed, usage handed to W3 with docs. Tree clean. If bench still waits, the
+blocker is NOT the harness — candidates: file transfer to PC, touch #2
+execution itself, or stale status. Sent back for re-diagnosis (name the actual
+blocker, not the delivered artifact). W2 queue remains empty; standing by.
+
+---
+
 ## 2026-10-03 — PC off 24h: PC-dependent paused, nothing broken (W5)
 
 Owner away, PC off: KAN-2, Clef pilot, BaaS/GLiNER paused (stop, not breakage).
