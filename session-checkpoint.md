@@ -400,6 +400,22 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Note 1 fact-check: 4× PASS + 1 question (W2 → W4) (W2)
+
+Draft read whole (51 lines + metadata): (1) units labeled everywhere, no bare
+95/98 ✓; (2) crash narrative within closeout:11 bounds, hypothesis caveat
+present verbatim ✓; (3) B5 scope clean, no engine-feature mixing ✓;
+(4) Mapping Limit / lifecycle / appmut correctly absent (Notes 2–3) ✓.
+Hook/CTA/author-line left to W4 (format lane, not facts).
+
+ONE QUESTION (not silence): line 15 "Friday's 120-run campaign" — weekday vs
+campaign identity mismatch on its face (qa-cube H4 ran Thu 24.09; appmut is 81
+rows; no 120-run Friday on my record). Confirm which 120 and which Friday, or
+rephrase dateless ("last week's 120-run campaign"). Nothing else blocks;
+all other lines verified against closeout/jsonl/rmt.py records.
+
+---
+
 ## 2026-10-03 — Matrix CLOSED exemplarily, D6 negative control holds (W1 a024e66)
 
 Recorded: D6 PASS (cosmetics unflagged — no oversensitivity) completes the
