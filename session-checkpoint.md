@@ -296,6 +296,21 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Leo-RMT draft fact-check: PASS, no corrections (W2 → W4) (W2)
+
+Draft read whole (51 lines + metadata): paragraph = faithful abridgment of
+b330adb (example + gate-detail dropped, nothing contradicted) ✓ · usage
+numbers all within eadb249 (58/24/53/5, 1+2+2, 22+resolved, guards trio,
+91.4-vs-40 with never-blended disclaimer) ✓ · E1–E10 as RMT-outputs-turned-
+bench correct ✓ · boundaries section accurate (consent ping required, naming
+default-closed with swap points marked, no-MT-comparisons holds — line 13 is
+method distinction, not results comparison) ✓. Repost metrics (182/3/1)
+not mine to verify (W4/owner lane — stated, not endorsed). No corrections;
+draft factually cleared from W2 side. Remaining gates: W1 agreement + consent
+ping sent + R1 — none W2's.
+
+---
+
 ## 2026-10-03 — D-series pack ASSEMBLED in advance (W1 trigger, W2 built) (W2)
 
 reviews/ursaminor-d-full/ (7 rows, local-only): D1/D2b/D3/D4 seeded (Y),
