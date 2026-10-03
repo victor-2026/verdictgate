@@ -6,6 +6,28 @@
 
 ---
 
+## 2026-10-03 — RMT paragraph drafted standalone (W1 queue #1, deadline Wed 07.10)
+
+Text for W4's note (self-contained, citable, all numbers previously verified):
+"Reverse Mutation Testing mutates test verifications, not app code: seed a
+broken assertion (e.g. expect(x).not.toBe(y) where y holds) and check the suite
+goes red — surviving mutants expose weak verifications, not app defects. It
+differs from classic mutation testing in seeding direction only (verification
+vs system); the verdict machinery (per-tier gates, evidence packs) is shared.
+Formulation to cite: Leonardo Lanni ('MT challenges the application, RMT
+challenges the test'). Our engine (rmt 0.1.0, deterministic, 2 operators +
+chain-unwrap + NO-OP guard + stamps): 95 seeded mutants across 98 run-records
+(OpenClaw batches #1–2), 91.4% kill on assertions vs 40% on behavioral app
+mutants (different layers, never blended)."
+
+Queue status: #1 delivered now; #2 P2-packs await pause-list trigger (which
+list? — flagging ambiguity, not blocking); #3 sensitivity-extra allowed but
+unscoped (no task defined — awaiting concrete ask); #4 hygiene parked (not
+burning). W2 needs nothing further except answers on #2-trigger and #3-scope
+if they activate.
+
+---
+
 ## 2026-10-02 — setValue probe ordered; bank label CONDITIONAL (W1 b4725a3 + W2)
 
 W1: her move = requalification defect→usage (deflective but concrete →
