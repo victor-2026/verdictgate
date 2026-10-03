@@ -400,6 +400,15 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — PC off 24h: PC-dependent paused, nothing broken (W5)
+
+Owner away, PC off: KAN-2, Clef pilot, BaaS/GLiNER paused (stop, not breakage).
+Queued for return: Clef Flash 10-min pilot (pull + one gate call). Грётц
+(Governance as Code): within pre-agreed rules, no action (like at discretion).
+Nothing pending W2.
+
+---
+
 ## 2026-10-03 — Disclosure rule: her-removed, ours-counted (owner)
 
 Cost line: removed for Katya's version, counted internally. Recorded as
