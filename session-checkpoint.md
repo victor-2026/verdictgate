@@ -400,6 +400,27 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Bench thread FULLY CLOSED all sides (W3 numbers + W1 d00b786)
+
+W3: FAIL numbers submitted (8.08/8.69, AUROC pair), package pushed. W1: relay
+stale, closed by fact — 167eefc predates bench (review-PASSED stands via
+a66cde9); "awaiting numbers" superseded by W2's own 394c003 (bit-for-bit
+recount + double reading + explicit park). W2 concurs: zero open items.
+Locked-bench arc complete end to end (exception → gate → touch → numbers →
+independent verify → FAIL → park). Nothing pending W2 anywhere in this thread.
+
+---
+
+## 2026-10-03 — Touch #2 executed + bench closed by fact (W3, for W1 relay)
+
+W3: review passed, touch #2 done (pred2-base/best, 1444 qids each), verdict
+FAIL recorded + pushed (bench package 61b6931). Matches W2's verified numbers
+exactly (40/43 of 495, +3 els, bar fails). Challenge closed by fact (measured
+rows), not by process (authorizations). Full chain complete: exception → gate →
+touch → numbers → verdict → push. Nothing pending W2 on this thread.
+
+---
+
 ## 2026-10-03 — evaluate.py review: ALREADY DONE, touch #2 fully green (W2)
 
 W1's "review pending" is stale: s1web-evaluate.py (104 lines) + runner-v2
