@@ -296,6 +296,22 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Touch #3: conditional approve + recompute-is-not-touch (W2)
+
+W3 stopped correctly (touch discipline working — asked instead of running).
+Rulings: (1) Deterministic RECOMPUTE (evaluate.py over saved preds + locked
+gold) is NOT a touch at all — no model contact, no new information into any
+model, frozen code. Proceed freely, no approval needed, ever. (2) Touch #3
+(regeneration) APPROVED conditionally: only if saved preds are truly
+unavailable (verify bench-2026-10-02/pred2-*.jsonl first — 1444 rows each were
+verified present); reason logged ("ephemeral working loss"); same frozen
+mapping; ledger records reason verbatim. Order: check durable copies FIRST
+(variant B costs zero touches); regenerate only on confirmed absence.
+W1's exception-rationale role acknowledged for the record; code-gate side
+needs nothing new (evaluate.py already reviewed).
+
+---
+
 ## 2026-10-03 — Paul sketch SENT, ball with Paul (W1 63f2db1 + owner send)
 
 Paul final (concession + capex/opex + regress-terminator, no open questions)
