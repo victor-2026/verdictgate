@@ -296,6 +296,19 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Sensitivity-extra accepted as reported-extra (W2, light touch) (W2)
+
+Runlog verified (not just relayed): FINAL 11.72% (58/495 — arithmetic holds),
+AUROC 0.5000 flat (chance; final lost all ranking — consistent with post-
+plateau drift), FAIL stands on both checkpoints, best-choice validated.
+Deliberately LIGHTER touch than bench numbers: this extra changes no verdict
+(FAIL stands either way; best-choice was already decided on dev-loss grounds),
+so full recompute-from-raw is disproportionate — arithmetic + protocol-conformance
+check suffices, recorded as such. If anyone contests the 11.72, raw preds get
+the full recompute treatment on demand. No W2 action beyond this record.
+
+---
+
 ## 2026-10-03 — Touch #3 fully authorized both sides; lock mechanics stand (W1)
 
 W1: reason approved (ephemeral working = structural cause like granularity;
