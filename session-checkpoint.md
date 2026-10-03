@@ -296,6 +296,16 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Paul sketch SENT, ball with Paul (W1 63f2db1 + owner send)
+
+Paul final (concession + capex/opex + regress-terminator, no open questions)
+sent by owner; Jason/Bas comment stands (Mo absorbed, zero actions); §10
+without looping stands. Rest of W5's announcement parsed by owning windows.
+Paul track: awaiting his reply — ball with him. No W2 action (ethics inserts
+already in sent text per prior ruling; nothing further until reply).
+
+---
+
 ## 2026-10-03 — 5→10 gap: Perplexity right, my check missed arithmetic (W2)
 
 W4 relayed Perplexity catch: batch one had 5 survivors, bench items E1–E10
