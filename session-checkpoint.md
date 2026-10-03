@@ -400,6 +400,18 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — evaluate.py review: ALREADY DONE, touch #2 fully green (W2)
+
+W1's "review pending" is stale: s1web-evaluate.py (104 lines) + runner-v2
+(99 lines, both Oct-2 23:18) were read whole and PASSED days ago (a66cde9:
+SHA gate, lenient multi-y, confidence source, RENDER frozen, missing=exit-2,
+per-candidate granularity, smoke-first, pinned base, deterministic tie-break
++ 5 non-blocking annotations). Touch #2: W1's exception (done) + W2's code
+gate (done long ago) = BOTH conditions met. No review outstanding anywhere;
+W3 executes touch #2 whenever ready. Standing by for bench numbers.
+
+---
+
 ## 2026-10-03 — Harness already delivered; W1's "awaits harness" is stale (W2)
 
 Verified: scripts/locked-run.py committed 854cd57 (Oct 2), smoke-tested 4/4,
