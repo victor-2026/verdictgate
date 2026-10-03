@@ -602,6 +602,18 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Matrix CLOSED exemplarily, D6 negative control holds (W1 a024e66)
+
+Recorded: D6 PASS (cosmetics unflagged — no oversensitivity) completes the
+full class spread + control. Matrix reads: correct-behavior (D2a SUCCESS, D6
+PASS) + catches (D1, D4 CAUGHT) + genuine gaps (D2b, D3 SURVIVED) — calibrated
+at BOTH ends (neither fail-everything nor blind). Report: 14h/40 runs/4
+findings/$1.53+2.5h T4; stand pristine (freeze-rule met); anchor "39/$1.53"
+kept as measured (40th run +~$0.04 post-ledger). W2 concurs: closure complete,
+no methodology gaps open on this matrix. Nothing pending W2.
+
+---
+
 ## 2026-10-03 — RMT-note facts DELIVERED (W2 → W4, Rule-7 paths+lines) (W2)
 
 (1) RMT one paragraph: Reverse Mutation Testing mutates test VERIFICATIONS
