@@ -6,6 +6,21 @@
 
 ---
 
+## 2026-10-03 — Paragraph approved; sensitivity scoped; touch#3 mechanics set (W1)
+
+RMT paragraph approved for citation as-is. Packs: trigger with owner (D2b
+exists; rest — full D-series or on request — owner clarifies, W2 assembles).
+Sensitivity-extra scoped: final weights, same protocol + reviewed evaluate.py
+unchanged, informational-only (FAIL stands regardless — bend-proofing now:
+this sentence preempts any future "but sensitivity shows X" revisionism).
+
+Touch#3 lock mechanics (W2, same as #2): locked-run.py SHA gate + one-touch
+ledger with reason + frozen mapping + pre-registered bar question answered
+BEFORE (report-only or verdict — decide upfront, never after seeing numbers).
+Nothing executes until trigger + bar both exist. No W2 action.
+
+---
+
 ## 2026-10-03 — RMT paragraph drafted standalone (W1 queue #1, deadline Wed 07.10)
 
 Text for W4's note (self-contained, citable, all numbers previously verified):
