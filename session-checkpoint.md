@@ -296,6 +296,15 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-04 01:49 — Session checkpoint (routine, on request)
+
+Tree was clean, HEAD 0f9e040 pushed. No new substance; standing by on all
+fronts (Ursa build/Katya reply, Klarent silence, Aamir pointer, Article 29
+post-publish mechanics, recheck 10-17, Victor's sends). Live file under cap
+post-rotations.
+
+---
+
 ## 2026-10-03 — Sensitivity-extra accepted as reported-extra (W2, light touch) (W2)
 
 Runlog verified (not just relayed): FINAL 11.72% (58/495 — arithmetic holds),
