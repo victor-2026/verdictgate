@@ -400,6 +400,33 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-03 — Matrix report cleaned, ready to send (W3; send = owner)
+
+Cost line removed (was present in W3's working copy — my read of the shared
+file showed none, so either already-cleaned here or lived in W3's local
+version; either way resolved, no conflict to adjudicate). Rotation without
+joint tail; stand verified. Report ready for Katya; W3's commit awaits owner's
+word (their repo, their rule). Sending to Katya = owner. No W2 action.
+
+---
+
+## 2026-10-03 — Matrix report VERIFIED row by row; cost line already absent (W2)
+
+Read whole (31 lines): D1 CAUGHT / D2a SUCCESS (+6 INVALID setup noted) /
+D2b SURVIVED (+nav confound noted) / D4 CAUGHT / D3 SURVIVED (+4 INVALID) /
+D5 SUCCESS / D6 PASS — all match W2 records exactly (D2b refinement, D5 7s
+norm, D6 control all as ruled). Vendor findings 1–4 with dispositions,
+incl. NEW item 4 (secrets:null → literals workaround) not previously in W2
+records — logged, no objection. Stand PRISTINE confirmed (D3 seed reverted —
+revert flag executed). Prompts set as ruled.
+
+Cost scrub: NO $ figure exists in this file (Costs = Kaggle quota only, no
+dollars) — nothing to scrub here; if $1.53 lives in another doc, point W2 at
+it, else the scrub item is already satisfied. W1 package text consistent with
+file on all checkable claims. No W2 action beyond this record.
+
+---
+
 ## 2026-10-03 — Note 1 fact-check: 4× PASS + 1 question (W2 → W4) (W2)
 
 Draft read whole (51 lines + metadata): (1) units labeled everywhere, no bare
