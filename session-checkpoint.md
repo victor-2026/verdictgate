@@ -138,6 +138,38 @@ bar or explicitly waives verdict in favor of report-only.
 
 ---
 
+## 2026-10-04 — Rook target: OrangeHRM local ONLY, 3 preconditions (W2 ruling) (W2)
+
+Triage by expendability (agent WRITES — target must survive it): UrsaMinor
+stand OUT (frozen till Monday, no debate); qaeverset-pilot-mini OUT (static
+page, no backend — nothing meaningful to write/break; also another track's
+instrument); local OrangeHRM (up 4d, db healthy) SOLE candidate.
+
+Three preconditions, all binding before Rook touches it: (1) D3-seed REVERT
+verified pristine first (seed still/might-be active from earlier flag — run on
+seeded ground voids everything); (2) snapshot/restore protocol (container
+recreate = pristine baseline; snapshot before, restore between runs); (3) EXCLUSIVE
+window or explicit coordination (OrangeHRM is shared env — Grafana/other tracks;
+concurrent use cross-contaminates baselines). W1/owner decide allocation;
+W3 executes prep. No W2 action beyond this ruling.
+
+---
+
+## 2026-10-04 — Rook target: NO suitable target, W2 recommendation WITHDRAWN (W2)
+
+W1 vetoed all three incl. W2's OrangeHRM pick (9ad0438) — correctly, on grounds
+beyond technical triage: (a) UrsaMinor not just frozen but HERS (adversarial
+writes = breach + relationship risk); (b) OrangeHRM pristine = HER repro until
+Monday (not free substrate as W2 assumed); (c) qaeverset-mini = paused RUPESH
+track instrument (vendor contamination — angle W2 missed entirely; logged as
+standing lesson: cross-track instrument reuse needs contamination check, not
+just writability). Prior triage entry above SUPERSEDED in recommendation (kept
+for audit trail). Load-bearing insight (W1): Rook needs an AGENT target,
+candidates are APPS — category mismatch, not shortlist problem. Paths: W3
+estimates toy writer-agent stub (hours?) or pilot waits. Direction: owner's.
+
+---
+
 ## 2026-10-03 — P2 packs BUILT (S4 + S5 single-row, D2b pattern) (W2)
 
 reviews/openclaw-s4-pack + reviews/openclaw-s5-pack (local-only): one row
