@@ -4166,3 +4166,167 @@ usage-corrected. If FAIL → back to analysis (assumption falsified, new cause
 sought). Ollama point correctly sequenced after (one variable at a time). No W2
 action.
 
+# VerdictGate — session checkpoint (append-only)
+
+> **Rotated 2026-10-03 (9th rotation):** history before this point lives in
+> `session-archive-2026-09.md` (appended, same repo). Nothing deleted, order
+> preserved. Rotation rule: monthly archive + live tail ≤ 32 KiB.
+
+---
+
+## 2026-10-03 — Paragraph approved; sensitivity scoped; touch#3 mechanics set (W1)
+
+RMT paragraph approved for citation as-is. Packs: trigger with owner (D2b
+exists; rest — full D-series or on request — owner clarifies, W2 assembles).
+Sensitivity-extra scoped: final weights, same protocol + reviewed evaluate.py
+unchanged, informational-only (FAIL stands regardless — bend-proofing now:
+this sentence preempts any future "but sensitivity shows X" revisionism).
+
+Touch#3 lock mechanics (W2, same as #2): locked-run.py SHA gate + one-touch
+ledger with reason + frozen mapping + pre-registered bar question answered
+BEFORE (report-only or verdict — decide upfront, never after seeing numbers).
+Nothing executes until trigger + bar both exist. No W2 action.
+
+---
+
+## 2026-10-03 — RMT paragraph drafted standalone (W1 queue #1, deadline Wed 07.10)
+
+Text for W4's note (self-contained, citable, all numbers previously verified):
+"Reverse Mutation Testing mutates test verifications, not app code: seed a
+broken assertion (e.g. expect(x).not.toBe(y) where y holds) and check the suite
+goes red — surviving mutants expose weak verifications, not app defects. It
+differs from classic mutation testing in seeding direction only (verification
+vs system); the verdict machinery (per-tier gates, evidence packs) is shared.
+Formulation to cite: Leonardo Lanni ('MT challenges the application, RMT
+challenges the test'). Our engine (rmt 0.1.0, deterministic, 2 operators +
+chain-unwrap + NO-OP guard + stamps): 95 seeded mutants across 98 run-records
+(OpenClaw batches #1–2), 91.4% kill on assertions vs 40% on behavioral app
+mutants (different layers, never blended)."
+
+Queue status: #1 delivered now; #2 P2-packs await pause-list trigger (which
+list? — flagging ambiguity, not blocking); #3 sensitivity-extra allowed but
+unscoped (no task defined — awaiting concrete ask); #4 hygiene parked (not
+burning). W2 needs nothing further except answers on #2-trigger and #3-scope
+if they activate.
+
+---
+
+## 2026-10-02 — setValue probe ordered; bank label CONDITIONAL (W1 b4725a3 + W2)
+
+W1: her move = requalification defect→usage (deflective but concrete →
+verifiable). Decider probe: swap to setValue, run login — SUCCESS = our usage
+error (deviation closed, crutch replaced), FAIL = defect stands. Cheap, final,
+no text-arguing. Concur fully.
+
+W2 records conditionally: "BaaS defect class" label on sendKeysToElement goes
+PROBE-CONDITIONAL effective immediately (holds unless probe says otherwise;
+flips to usage-corrected on SUCCESS). Bank correction pre-authorized on probe
+outcome — no second review needed for the flip itself. Baseline question
+refined in her favor (which function did HER SAM1-6 runs use? if setValue,
+her PASSes may be clean and the question dissolves — ask with the probe
+results, not before). Probe execution = W3 hands; question = owner channel.
+
+---
+
+## 2026-10-02 — Katya: use setValue (directive, not fix) + re-run rule (W2)
+
+Katya's answer confirms the diagnosis implicitly (sendKeysToElement doesn't
+sync Vue; setValue does) while declining to fix the footgun itself — author's
+prerogative, accepted. Consequences: (1) verify setValue EXISTS in pinned BaaS
+before rewriting (if newer than pin → upgrade + re-pin, version discipline
+holds); (2) llm-1 workaround REVERTED in favor of setValue (author-blessed
+path doctrine — same rule that rejected the Ollama trick); (3) D2a (recorded
+post-workaround) RE-RUN under setValue — old verdict stands as
+recorded-under-workaround (history not rewritten), clean verdict needs the
+blessed path; (4) llm*/Ollama-LAN question UNANSWERED — still open, no assumption.
+
+---
+
+## 2026-10-02 14:30 — Session checkpoint (routine, on request)
+
+Tree was clean, HEAD 6a7a67c pushed. No new substance since stand-down
+concurrence; this entry is the requested checkpoint. Open threads unchanged
+(Ursa build trigger pending owner "go" or stand-down decision; Klarent
+silence; Aamir pointer; fine-tune post-29th; Article 29 post-publish; recheck
+10-17). W2 stands by on all fronts.
+
+---
+
+## 2026-10-02 — Stand-down CONCURRED (W1 withdraws own advisory) (W2)
+
+W1 reverses "continue D3": night seed design risks confounded seeds (removed-
+validation vs server Invalid credentials ambiguity would poison D3's reading);
+tired-head-sows/fresh-parses rule stated. Concur: seed DESIGN is judgment work
+( which break isolates which mechanism?), and judgment degrades at night; one
+confounded seed costs more than one night's delay. Self-reversal on new grounds
+recorded as good practice, not inconsistency. Stand-down DECISION itself =
+owner's (Victor). No W2 action beyond this record.
+
+---
+
+## 2026-10-02 — Weights hash-verified + D3 matrix final + revert flag (W2)
+
+Local weights verified byte-level: adapter_model.safetensors = 1899e036…
+(best) + adapter_model_final.safetensors = d92a3f32… (final) — both match
+recorded hashes exactly; local = Kaggle, lineage closed end to end.
+D3 SURVIVED recorded as matrix-final (D1 CAUGHT / D2a SUCCESS / D2b SURVIVED /
+D4 CAUGHT / D3 SURVIVED) — matches every prior record, no drift.
+
+FLAG (action, not mine): OrangeHRM still carries ACTIVE D3 seed (username
+without required) — MUST revert to pristine before next works on that env,
+else the next campaign measures on seeded ground. Hands: whoever runs next
+there (W3 matrix-env owner); rule: no campaign starts on unverified-pristine
+env (check first, seed after). W2 records, does not execute.
+
+---
+
+## 2026-10-02 — locked-run harness BUILT + smoke-tested (W3 request, W2 scope)
+
+Scope as ruled: command-agnostic wrapper ONLY (SHA gate + one-touch ledger +
+audit rows) — NO inference code duplicated (caller's runner stays theirs;
+GLiNER/s1web runners live on PC, none on this machine to reuse). scripts/
+locked-run.py, stdlib only. Smoke-verified all 4 paths on fixtures: SHA-
+mismatch→refuse(2) · first-run→exec+ledger · rerun-without-reason→refuse(2) ·
+rerun-with-reason→exec+logged. Usage: locked-run --data --data-sha --tag
+--model-id --out ledger.jsonl --reason -- <command>. Model weights verified
+separately at load (out of wrapper scope by design — stated, not hidden).
+
+---
+
+## 2026-10-02 — Key rotation one-sided, W1 approved (W2 record, no action)
+
+W1: rotation one-sided (both ends ours) — joint would apply iff the key were
+hers; she gets notification + template-default update request (else her next
+redeploy restores the exposed default and kills the rotation). Sequence:
+secret first, rollback saved, trial-run verification. W2 records only —
+secrets never touch this window; execution owner/W3 hands on owner go.
+
+---
+
+## 2026-10-02 — Day closed: finetune + core5 + stand pristine + key rotated (W3)
+
+W3 day-close (61b6931 pushed): finetune closed (weights + SHA) · bench FAIL
+pre-registered + independently confirmed (W2 recompute) · core5 matrix closed ·
+stand pristine · key rotated. W2 concurs on all closures; every verdict this
+day was either pre-registered-then-measured or independently recomputed —
+zero post-hoc numbers stand anywhere. Standing by; next inputs: Monday gates,
+Klarent silence, Aamir pointer, Article 29 post-publish mechanics, recheck
+10-17, Victor's sends.
+
+---
+
+## 2026-10-02 — Bench FAIL CONFIRMED independently (W2 recompute, W3 relay)
+
+Recomputed whole (495 els, locked SHA ea675b59 verified, lenient multi-y):
+base 40/495 = 8.08% / AUROC 0.5295 · tuned 43/495 = 8.69% / 0.5302 · multi 355
+— bit-for-bit match with verdict.json on every figure. Non-regression bar
+(tuned ≤ base) FAILS: +3 elements = +0.606pp. Verdict stands as filed.
+
+Two readings recorded (both true, different uses): (1) bar verdict: FAIL, no
+adoption — binary as pre-registered; (2) statistical lens (NOT a verdict):
+±3 els on N=495 is noise-band (McNemar territory); the bar doesn't do p-values
+by design, so FAIL stands regardless — but any future claim "tuning HURTS"
+would need wider N, symmetric to "tuning helps". Fine-tune track outcome:
+no improvement demonstrated; track parked pending new decision (not failed
+forward — parked explicitly).
+
