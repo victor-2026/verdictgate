@@ -516,3 +516,16 @@ concurred exactly as drawn (stamp: shared record; NO-OP/soft: W2 delivered
 with lines; chains: finding W3 / implementation W2). Meat A concurred (prior
 ruling stands).
 
+---
+
+## 2026-10-04 — Concurrent-rotation incident closed, no loss (W2 post-mortem)
+
+During the P2-packs commit, a concurrent rotation moved ~159 lines live→archive
+between W2's read and commit — first seen as unexplained -159 deletions.
+Verified by presence matrix (P2 live×1; sensitivity/RMT-paragraph/touch#3/
+locked-run live×0 + archive×1 each): every entry exists EXACTLY ONCE across
+both files; live 26.8K under cap; no duplication, no loss. Rotation itself was
+correct and needed. Lesson extends commit-immediately rule: in shared-repo
+multi-writer reality, re-read tail + presence-matrix BEFORE committing, and
+verify AFTER — reads alone go stale mid-turn. No further action.
+
