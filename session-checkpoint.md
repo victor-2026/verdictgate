@@ -563,6 +563,16 @@ verify AFTER — reads alone go stale mid-turn. No further action.
 
 ---
 
+## 2026-10-04 — Handover hardening consensus complete (W1 de68297 ↔ W2) (W2)
+
+W1 accepts all three tightenings (branch-from-tag, contamination vector named,
+tree-clean-at-handover). Consensus is now bilateral and complete: no open
+methodology questions on the Rook→OpenClaw handover. Remaining items are pure
+execution (W3: branch + tree-clean check + runs) and owner decisions. W2 has
+nothing pending on this track.
+
+---
+
 ## 2026-10-04 — Agent-target shortlist: OpenClaw first, rest gated (W1 86cc177) (W2)
 
 Concurred in full: closed agents (Cursor/Windsurf/Copilot/Codex) lean veto —
