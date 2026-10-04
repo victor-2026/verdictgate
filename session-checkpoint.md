@@ -563,6 +563,18 @@ verify AFTER — reads alone go stale mid-turn. No further action.
 
 ---
 
+## 2026-10-04 — Agent-target shortlist: OpenClaw first, rest gated (W1 86cc177) (W2)
+
+Concurred in full: closed agents (Cursor/Windsurf/Copilot/Codex) lean veto —
+Rook derives scenarios FROM code, no code = no derivation (black-box-mode
+question left open as the single cheap resolver); open ones (Cline, OpenCode)
+second wave with MANDATORY sandbox (blast radius = repos: file writes + shell
+— unsandboxed agent-testing is how you lose a repo); OpenClaw first (ready
+today, reset proven, zero blockers). "Don't swap ready for unknown" endorsed
+as sequencing discipline. No W2 action.
+
+---
+
 ## 2026-10-04 — OpenClaw as Rook target: CONCURRED with teeth (W1 f2a811e) (W2)
 
 Real agent runtime (stream/computer-tool/oauth = Rook's exact domain) +
