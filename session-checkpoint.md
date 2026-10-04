@@ -561,3 +561,18 @@ correct and needed. Lesson extends commit-immediately rule: in shared-repo
 multi-writer reality, re-read tail + presence-matrix BEFORE committing, and
 verify AFTER — reads alone go stale mid-turn. No further action.
 
+---
+
+## 2026-10-04 — OpenClaw as Rook target: CONCURRED with teeth (W1 f2a811e) (W2)
+
+Real agent runtime (stream/computer-tool/oauth = Rook's exact domain) +
+local + resettable (expendable workflow PROVEN: RMT batches + 60 runs with
+reverts) + no freeze/vendor/pause entanglements — best candidate by elimination
+AND by fit (only agent in-house). W1's two conditions endorsed as load-bearing,
+not hygiene: (a) SEPARATE worktree/branch from RMT-mutated state (RMT seeds
++M-files live in that tree — running Rook on seeded ground voids everything;
+branch FROM baseline tag opclaw-baseline-2026-09-29); (b) reset procedure
+before first run, logged. W2 addition: verify tree-clean (git status + toggles
+off) AT handover moment, not from memory — the tree has hosted 100+ mutated
+runs since the tag. No W2 action beyond this record; prep W3 hands.
+
