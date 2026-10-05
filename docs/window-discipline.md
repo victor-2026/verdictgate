@@ -9,8 +9,8 @@ Mutation work is cross-cutting; recording is split. One file = one owner.
 | W1 Rupesh Commercial | Rupesh/* (Positions-CV-CL outreach tree) + client×product registry + monetization proposals + per-vendor strategy (stage, next step, owner) + joint promos. Commercial wording/pricing final word stays W1. Other windows feed facts, never negotiate. | verdictgate/**, 28 draft, Aamir/*, OrangeHRM* |
 | W2 Product | verdictgate/** + Article 28 draft + DevAssure pilot (frozen, unassigned elsewhere) | Rupesh/*, Aamir/*, OrangeHRM* |
 | W3 Pilots | company/pilots/** (all pilots) | Rupesh/*, verdictgate/**, 28 draft bodies |
-| W4 Articles | Articles/linkedin-posts/** + Articles/wiki/** + quotes.md (shared bank) | verdictgate/**, pilots/**, outreach/** |
-| W5 Career+Wiki | LinkedIn headline/career + post teardowns + Obsidian wiki + person↔company↔wiki links (paths: W5 to specify) | verdictgate/**, article bodies, pilots/** (reads only) |
+| W4 Articles | Articles/linkedin-posts/** + Articles/wiki/** (bodies only; quotes + digest consume read-only) | verdictgate/**, pilots/**, outreach/**, quotes.md, digest management (config/runs/routing) |
+| W5 Career+Wiki | LinkedIn headline/career + post teardowns + Obsidian wiki + person↔company↔wiki links (paths: W5 to specify) + quotes.md (shared bank, owns writes) + digest management (owns sources/runs/routing) | verdictgate/**, article bodies, pilots/** (reads only) |
 
 ## Rules
 
