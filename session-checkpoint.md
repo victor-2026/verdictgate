@@ -598,3 +598,9 @@ before first run, logged. W2 addition: verify tree-clean (git status + toggles
 off) AT handover moment, not from memory — the tree has hosted 100+ mutated
 runs since the tag. No W2 action beyond this record; prep W3 hands.
 
+---
+
+## 2026-10-05 — Routine: discipline move shipped, ledger rows banked, Notes 2–3 checked (W2)
+
+Discipline: quotes.md + digest management W4→W5 in table (`docs/window-discipline.md:12-13`, `23526e6`, pushed). Ledger: 3 Kravchenko rows + 4 qualifiers entered in `ai-qa-wiki/outputs/verdict-economics-ledger.md:20-22` as W5-provided/unverified-by-W2, short link `lnkd.in/p/e3dTH79v` (`cccbde4`, unpushed — push not ordered). Reviews: Notes 2–3 fact-check delivered (Note 2 PASS + N>=20 prose nit, vendor side to W1; Note 3 PASS + Kanaris quotes confirm in W5 bank). D2b: no VOID class in scorer — ruling-now/versioned-implementation-after-split stands, W1 concurred. `verdictgate.py` untouched (split precondition stands).
+
