@@ -628,3 +628,9 @@ Baseline: old-today/new-tomorrow + flip/flip-back + zero stand mutations concur;
 
 Sovereign open-weight MoE (Aleph Alpha, 78.1B/3.46B act, 1M ctx, Apache 2.0, abstention-trained) — W5 flag, primary blog 03.10.2026 verified W2, draft-post numbers ✓✓✓✓. Ledger row entered (`ai-qa-wiki/outputs/verdict-economics-ledger.md:23`) as judge-substrate candidate with iron caveat (H100-class, NOT 6GB-runnable). Pattern count 1× (no pages until 3× per digest-watch rule). Abstention-training noted as doctrine echo for W4.
 
+---
+
+## 2026-10-06 — Routine-5: split retired, naming landed, Jev identity closed (W2)
+
+Split: precondition found DISCHARGED (`9e3dc27`) → full selfcheck green locally + both RMT entries verified → stale lock retired in AGENTS.md (`f53e535`, pushed). Naming repair implemented post-sense-check (define-once + 11 qualified spots in `rmt-methodology.md`, `0180eca`, pushed). Leo :12 VERIFIED (W5 primary source), mapping adopted. Release-delta protocol APPROVED + latency baseline closed. #31 three-class pass delivered (quote/consent/timings PASS + 2 micros). Jev saga: CANNOT-CONFIRM → purpose-LICENSED/results-UNLICENSED → W3 run-record verified whole (runner docstring, 30/30 cloud, client :114/:130/:147) → NAMING GREEN (TypeSafe cloud + jev-latest); 1.13 red-unsourced, «paid» + version dropped by owner. `verdictgate.py` logic untouched throughout (no bump).
+
