@@ -622,3 +622,9 @@ Triage (W1→W2): finish accepted, generated-D3 parked with design, escape-fun-f
 
 Baseline: old-today/new-tomorrow + flip/flip-back + zero stand mutations concur; prompt pins per run required (ON versioned, OFF awaited). Config-beats-hardcode + document-knob banked. Ollama advice → stop (wrong repo for BaaS docs, no secrets in repo) → W3 landed settings in own lane; knob file read-verified 7 lines PASS (live `yes` W3-provided). Split accepted: W3 3× + excerpts, W2 verifies from records. Model confirmed gpt-4.1 all nodes (paths cited). Series banked: shorts 3/3 (fluke dead), huge 3/3 EOF; hardcode dispute adjudicated (compatible referents, POST-body decisive test, behaviorally-fixed interim) → closed by W1 (node fields + single-model inventory; 4o-mini/4.1 spread; temp-0.7 match); «hardcode» retired bilaterally. Providers-UI: vitrine-vs-selector fork + decisive check to W3; billing blind (her key) → our-side token accounting stands. Mechanism corrected per Katya: string-vs-JSON, VRAM withdrawn, verify on giants post-release.
 
+---
+
+## 2026-10-06 — Digest-watch sighting: Kolibri open MoE (W2, owner-approved)
+
+Sovereign open-weight MoE (Aleph Alpha, 78.1B/3.46B act, 1M ctx, Apache 2.0, abstention-trained) — W5 flag, primary blog 03.10.2026 verified W2, draft-post numbers ✓✓✓✓. Ledger row entered (`ai-qa-wiki/outputs/verdict-economics-ledger.md:23`) as judge-substrate candidate with iron caveat (H100-class, NOT 6GB-runnable). Pattern count 1× (no pages until 3× per digest-watch rule). Abstention-training noted as doctrine echo for W4.
+
