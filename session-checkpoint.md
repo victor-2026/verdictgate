@@ -616,3 +616,9 @@ Escape draft: re-fact-check PASS (b0a3a1 paragraph per W3 fact-pack, redactions 
 
 Triage (W1→W2): finish accepted, generated-D3 parked with design, escape-fun-fact → escape note (consent Monday), D-series/taxonomy unchanged — concur all. Memory datum banked: persisted escape program in run memory (6ac42686, from_memory replay), non-baselines demolished, New-Chat evidenced; flagged as new draft material for W1/W4. Escape re-read (61 lines): navigateStatus-by-name + third-variant fix + memory paragraph all per record, redactions hold; 1 micro-note (cover TODO vs DONE). 4-nodes-gpt-4.1 relay banked (generate-steps vs llm-1 attribution, Ollama exonerated); monoculture-correlated-blindness concur, diverse-judges-as-dissent noted. Angle-B draft: not my round, S1-absent consistent with my добро.
 
+---
+
+## 2026-10-06 — Routine-4: baseline protocol, Ollama live, hardcode retired (W2)
+
+Baseline: old-today/new-tomorrow + flip/flip-back + zero stand mutations concur; prompt pins per run required (ON versioned, OFF awaited). Config-beats-hardcode + document-knob banked. Ollama advice → stop (wrong repo for BaaS docs, no secrets in repo) → W3 landed settings in own lane; knob file read-verified 7 lines PASS (live `yes` W3-provided). Split accepted: W3 3× + excerpts, W2 verifies from records. Model confirmed gpt-4.1 all nodes (paths cited). Series banked: shorts 3/3 (fluke dead), huge 3/3 EOF; hardcode dispute adjudicated (compatible referents, POST-body decisive test, behaviorally-fixed interim) → closed by W1 (node fields + single-model inventory; 4o-mini/4.1 spread; temp-0.7 match); «hardcode» retired bilaterally. Providers-UI: vitrine-vs-selector fork + decisive check to W3; billing blind (her key) → our-side token accounting stands. Mechanism corrected per Katya: string-vs-JSON, VRAM withdrawn, verify on giants post-release.
+
