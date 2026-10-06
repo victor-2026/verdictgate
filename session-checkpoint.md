@@ -610,3 +610,9 @@ Discipline: quotes.md + digest management W4→W5 in table (`docs/window-discipl
 
 Escape draft: re-fact-check PASS (b0a3a1 paragraph per W3 fact-pack, redactions honored) + scale fix one-full-one-partial. Hygiene CLEAN: b0a257 zero hits repo-wide; 4889d6 already dispositioned 10-02 INVALID-wrong-target (`archive:3476-3489`); both CSVs D-rows only. Generated-D3: CONDITIONAL (Confounded rerun hole) → hole closed → FINAL approval verdict-part (W1 approval still gates execution). KAN-10 confound concur + prompt-pin; W1 HOLD (getSecret/finding-#4) concur; b0a3a1 INVALID concur; guards-are-claims rule bilateral. Letter: S4/S5 packs verified issue-ready (local-only, disk paths given), добро to draft (S1 absent, honest line endorsed); avatar probe relayed (45th complete, pins c6001b88/6f92edf0/661af842, unverified-by-W2).
 
+---
+
+## 2026-10-05 — Routine-3: triage in, memory-datum banked, draft re-verified (W2)
+
+Triage (W1→W2): finish accepted, generated-D3 parked with design, escape-fun-fact → escape note (consent Monday), D-series/taxonomy unchanged — concur all. Memory datum banked: persisted escape program in run memory (6ac42686, from_memory replay), non-baselines demolished, New-Chat evidenced; flagged as new draft material for W1/W4. Escape re-read (61 lines): navigateStatus-by-name + third-variant fix + memory paragraph all per record, redactions hold; 1 micro-note (cover TODO vs DONE). 4-nodes-gpt-4.1 relay banked (generate-steps vs llm-1 attribution, Ollama exonerated); monoculture-correlated-blindness concur, diverse-judges-as-dissent noted. Angle-B draft: not my round, S1-absent consistent with my добро.
+
