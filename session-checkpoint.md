@@ -604,3 +604,9 @@ runs since the tag. No W2 action beyond this record; prep W3 hands.
 
 Discipline: quotes.md + digest management W4→W5 in table (`docs/window-discipline.md:12-13`, `23526e6`, pushed). Ledger: 3 Kravchenko rows + 4 qualifiers entered in `ai-qa-wiki/outputs/verdict-economics-ledger.md:20-22` as W5-provided/unverified-by-W2, short link `lnkd.in/p/e3dTH79v` (`cccbde4`, unpushed — push not ordered). Reviews: Notes 2–3 fact-check delivered (Note 2 PASS + N>=20 prose nit, vendor side to W1; Note 3 PASS + Kanaris quotes confirm in W5 bank). D2b: no VOID class in scorer — ruling-now/versioned-implementation-after-split stands, W1 concurred. `verdictgate.py` untouched (split precondition stands).
 
+---
+
+## 2026-10-05 — Routine-2: escape PASS, hygiene CLEAN, D3 design approved, letter unblocked (W2)
+
+Escape draft: re-fact-check PASS (b0a3a1 paragraph per W3 fact-pack, redactions honored) + scale fix one-full-one-partial. Hygiene CLEAN: b0a257 zero hits repo-wide; 4889d6 already dispositioned 10-02 INVALID-wrong-target (`archive:3476-3489`); both CSVs D-rows only. Generated-D3: CONDITIONAL (Confounded rerun hole) → hole closed → FINAL approval verdict-part (W1 approval still gates execution). KAN-10 confound concur + prompt-pin; W1 HOLD (getSecret/finding-#4) concur; b0a3a1 INVALID concur; guards-are-claims rule bilateral. Letter: S4/S5 packs verified issue-ready (local-only, disk paths given), добро to draft (S1 absent, honest line endorsed); avatar probe relayed (45th complete, pins c6001b88/6f92edf0/661af842, unverified-by-W2).
+
