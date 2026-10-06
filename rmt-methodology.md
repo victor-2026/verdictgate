@@ -11,6 +11,8 @@
 
 RMT-lite is a lightweight mutation testing methodology adapted from Leonardo Lanni's Reverse Mutation Testing (RMT) for integration into VerdictGate. It focuses on mutating **assertions/verifications** rather than production code, measuring whether tests can detect deliberately broken assertions.
 
+**Terminology — defined once, used consistently (never bare "RMT"):** **world-side RMT** = breaks seeded into application behavior/code (our field usage: seeded breaks into chains); **verification-side RMT** = breaks seeded into test checks/assertions (Lanni's RMT; RMT-lite implements this side).
+
 ---
 
 ## Core Concept
@@ -166,19 +168,19 @@ Pilot actual: B0/B1 = EQ_NEGATION only; B2 = EQ_NEGATION + COLLECTION_EMPTY, uns
 
 ---
 
-## Evidence Contract (RMT Output → VerdictGate Input)
+## Evidence Contract (RMT-lite Output → VerdictGate Input)
 
-Each RMT mutant produces a row in the Evidence Contract:
+Each RMT-lite mutant produces a row in the Evidence Contract:
 
 | Field | Source | Description |
 |-------|--------|-------------|
-| `mutation_id` | RMT | Unique ID (M1, M2, ...) |
+| `mutation_id` | RMT-lite | Unique ID (M1, M2, ...) |
 | `behavior` | Test case | Human-readable behavior |
-| `operator` | RMT | Operator ID (EQ_NEGATION, etc.) |
+| `operator` | RMT-lite | Operator ID (EQ_NEGATION, etc.) |
 | `risk_tier` | Requirements | B0/B1/B2/B3 |
-| `expected` | RMT | Y/N/E |
+| `expected` | RMT-lite | Y/N/E |
 | `suite_result` | Test run | pass/fail |
-| `observed` | RMT | Optional observation notes |
+| `observed` | RMT-lite | Optional observation notes |
 | `decision` | VerdictGate | open/dismissed/fixed (for survivors) |
 
 ---
@@ -187,11 +189,11 @@ Each RMT mutant produces a row in the Evidence Contract:
 
 ### VerdictGate Pipeline
 ```
-Code Change → RMT Mutation → Test Run → Evidence Contract → VerdictGate → Verdict
+Code Change → RMT-lite Mutation → Test Run → Evidence Contract → VerdictGate → Verdict
 ```
 
 ### VerdictGate Input
-RMT produces standard `results.csv` that VerdictGate consumes directly:
+RMT-lite produces standard `results.csv` that VerdictGate consumes directly:
 - No format conversion needed
 - Same columns as traditional MT
 - Additional `operator` column for diagnostics
@@ -214,14 +216,14 @@ Only mutate assertions within changed files/modules.
 - [ ] Integrate with VerdictGate `results.csv` output
 - [ ] Add pre-seed relevance filter
 - [ ] Implement risk-steering operator selection per tier
-- [ ] Add RMT output to VerdictGate evidence pack
+- [ ] Add RMT-lite output to VerdictGate evidence pack
 - [ ] Document operator semantics and applicability
 
 ---
 
 ## References
 
-- Leonardo Lanni (RMT author) — architecture discussion 2026-09-21
+- Leonardo Lanni (verification-side RMT author) — architecture discussion 2026-09-21
 - VerdictGate per-risk-tier framework v0.3
 - TypeSafe Jev primitives (Choice, Noul, Score) — analogous typed outputs
 - TypeSafe Jev cookbooks (self-consistency, parallel questions)
