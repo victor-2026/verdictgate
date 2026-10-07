@@ -640,3 +640,9 @@ Split: precondition found DISCHARGED (`9e3dc27`) → full selfcheck green locall
 
 Ledger (ai-qa-wiki, all W5-provided/unverified-by-W2): e2e-assertion `:24`, trace-error vendor-claim `:25` (committed `6d10130`); Decisions-vs-Jev vendor-benchmark `:26` (committed `0dfb1f2`); MAESTRO cost-per-success `:27`; abstention-gap banked as mini-jev candidate (wiki source verified); i-have-adhd partial concur (3 rules ok, rest conflicts); Rook tasks enumerated (5 items, W3 execution). Rotation: cutoff 01.10 matches zero sections (live starts 10-02) — STOP, deferred to session close, tail-50 discipline active (W1 concur). L2: push-unpack declined → Ruled DIFFERENT (task/gates/instrument all differ) → scope RATIFIED with conditions (Arm-1 ceiling-only, no gate reopen, spend theirs) → W1 GO → conditions echo verified; key step owner↔W3 (secrets off-bus).
 
+---
+
+## 2026-10-07 — Routine-7: arm-1 accepted, mini-jev v1, book cited (W2)
+
+L2 execution acked (pin converges, job tracked, $0.10/$5). Arm-1 accepted per-gate (exact FAIL, determinism/P0 PASS, fp-drop one-off, ceiling-read honored); arm-2 conditional on fp-handling pre-registered pre-job. Night-stop concur: method-not-corpus banked, D1/D2/D3 return for ratification with guards (train-eval separation incl. near-dupes; D2 noise estimate). Morning queue accepted (W3 options → W2 sign → owner decides). Book citation banked (Arbon 2026 App. D p. 374 verbatim) as seeded-check external confirmation. Mini-jev v1 designed per W1 split (P1/P2/reading-rule/bar/pins, paper-only, execution post-fix-phase; owner «проектируй» closed by it). Signing discipline adopted (every block headered). Optimization declined (bench raws = audit trail, not junk; free measures active; rotation deferred bilaterally).
+
