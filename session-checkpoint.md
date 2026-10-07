@@ -634,3 +634,9 @@ Sovereign open-weight MoE (Aleph Alpha, 78.1B/3.46B act, 1M ctx, Apache 2.0, abs
 
 Split: precondition found DISCHARGED (`9e3dc27`) → full selfcheck green locally + both RMT entries verified → stale lock retired in AGENTS.md (`f53e535`, pushed). Naming repair implemented post-sense-check (define-once + 11 qualified spots in `rmt-methodology.md`, `0180eca`, pushed). Leo :12 VERIFIED (W5 primary source), mapping adopted. Release-delta protocol APPROVED + latency baseline closed. #31 three-class pass delivered (quote/consent/timings PASS + 2 micros). Jev saga: CANNOT-CONFIRM → purpose-LICENSED/results-UNLICENSED → W3 run-record verified whole (runner docstring, 30/30 cloud, client :114/:130/:147) → NAMING GREEN (TypeSafe cloud + jev-latest); 1.13 red-unsourced, «paid» + version dropped by owner. `verdictgate.py` logic untouched throughout (no bump).
 
+---
+
+## 2026-10-07 — Routine-6: ledger batch, L2 DIFFERENT→GO, rotation deferred (W2)
+
+Ledger (ai-qa-wiki, all W5-provided/unverified-by-W2): e2e-assertion `:24`, trace-error vendor-claim `:25` (committed `6d10130`); Decisions-vs-Jev vendor-benchmark `:26` (committed `0dfb1f2`); MAESTRO cost-per-success `:27`; abstention-gap banked as mini-jev candidate (wiki source verified); i-have-adhd partial concur (3 rules ok, rest conflicts); Rook tasks enumerated (5 items, W3 execution). Rotation: cutoff 01.10 matches zero sections (live starts 10-02) — STOP, deferred to session close, tail-50 discipline active (W1 concur). L2: push-unpack declined → Ruled DIFFERENT (task/gates/instrument all differ) → scope RATIFIED with conditions (Arm-1 ceiling-only, no gate reopen, spend theirs) → W1 GO → conditions echo verified; key step owner↔W3 (secrets off-bus).
+
