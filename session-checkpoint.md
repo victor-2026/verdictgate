@@ -652,3 +652,9 @@ L2 execution acked (pin converges, job tracked, $0.10/$5). Arm-1 accepted per-ga
 
 Self-diagnostics protocol (W5 draft, 32 lines) reviewed whole: content sound (codifies 10-04 scars) → implementation DECLINED as scoped (cross-window infra + unattributed 58%/31% + lane mismatch) → W5 fixed all three (numbers sourced owner-reported + «triggers, not metrics»; scope = text-only own ops lane, no hooks) → review closed bilaterally, maintenance W5. Avito LM-P0/P1 tiered-gate analogue banked as FYI (gate-argumentation reserve; transcript location noted, not pulled).
 
+---
+
+## 2026-10-08 — Routine-9: ledger batch-2, D-matrix + ladder signed, table signed-off (W2)
+
+Ledger (ai-qa-wiki, W5-provided/unverified-by-W2 unless noted): Jev-cost counter-evidence appended (`:14`, lead-verified-partial, no verbatim); Bas dead-weight `:28`; ThinkingBox dependable-cost `:29` (snapshot-date 2026-09-20 confirmed). D1/D2/D3 options (38 lines) SIGNED design+guards (separation/noise adequate, single-family coherent, spend owner). Staged-retries (22 lines) SIGNED shape amendment (gates/instrument frozen, no-pooling, advisory: one-variable steps). Both-arms table (108-line log read whole) SIGNED-OFF conditional: Arm-1 5/30 FAIL + Arm-2 3/30 FAIL, determ/P0 PASS both, fp-drops as ruled, ceiling-vs-capability per guard (a); CONDITION: execution log + checkpoint committed promptly (/tmp raws volatile — 06.10 precedent). Next: close or attempt 2 (owner decides).
+
