@@ -646,3 +646,9 @@ Ledger (ai-qa-wiki, all W5-provided/unverified-by-W2): e2e-assertion `:24`, trac
 
 L2 execution acked (pin converges, job tracked, $0.10/$5). Arm-1 accepted per-gate (exact FAIL, determinism/P0 PASS, fp-drop one-off, ceiling-read honored); arm-2 conditional on fp-handling pre-registered pre-job. Night-stop concur: method-not-corpus banked, D1/D2/D3 return for ratification with guards (train-eval separation incl. near-dupes; D2 noise estimate). Morning queue accepted (W3 options → W2 sign → owner decides). Book citation banked (Arbon 2026 App. D p. 374 verbatim) as seeded-check external confirmation. Mini-jev v1 designed per W1 split (P1/P2/reading-rule/bar/pins, paper-only, execution post-fix-phase; owner «проектируй» closed by it). Signing discipline adopted (every block headered). Optimization declined (bench raws = audit trail, not junk; free measures active; rotation deferred bilaterally).
 
+---
+
+## 2026-10-07 — Routine-8: diagnostics review closed, Avito banked (W2)
+
+Self-diagnostics protocol (W5 draft, 32 lines) reviewed whole: content sound (codifies 10-04 scars) → implementation DECLINED as scoped (cross-window infra + unattributed 58%/31% + lane mismatch) → W5 fixed all three (numbers sourced owner-reported + «triggers, not metrics»; scope = text-only own ops lane, no hooks) → review closed bilaterally, maintenance W5. Avito LM-P0/P1 tiered-gate analogue banked as FYI (gate-argumentation reserve; transcript location noted, not pulled).
+
