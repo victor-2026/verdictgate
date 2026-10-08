@@ -658,3 +658,9 @@ Self-diagnostics protocol (W5 draft, 32 lines) reviewed whole: content sound (co
 
 Ledger (ai-qa-wiki, W5-provided/unverified-by-W2 unless noted): Jev-cost counter-evidence appended (`:14`, lead-verified-partial, no verbatim); Bas dead-weight `:28`; ThinkingBox dependable-cost `:29` (snapshot-date 2026-09-20 confirmed). D1/D2/D3 options (38 lines) SIGNED design+guards (separation/noise adequate, single-family coherent, spend owner). Staged-retries (22 lines) SIGNED shape amendment (gates/instrument frozen, no-pooling, advisory: one-variable steps). Both-arms table (108-line log read whole) SIGNED-OFF conditional: Arm-1 5/30 FAIL + Arm-2 3/30 FAIL, determ/P0 PASS both, fp-drops as ruled, ceiling-vs-capability per guard (a); CONDITION: execution log + checkpoint committed promptly (/tmp raws volatile — 06.10 precedent). Next: close or attempt 2 (owner decides).
 
+---
+
+## 2026-10-08 — Routine-10: att-2 signed, model-diversity rule landed (W2)
+
+Attempt-2 executing acked (1673 = 300+1373 verified, labels sum 1373, screen zero, single-variable honored). Att-2 verdict row SIGNED commit-conditional (exact 3/30 FAIL, determ/P0 PASS, fp same-wall carries; spend $1.06 itemized closes; next close/rotate owner). Model diversity proposal RATIFIED (reviewer≠worker/judge≠system/spec≠reviewer — same doctrine as dissent + author≠examiner) with conditions (pairs illustrative-resolved-live, scorer untouched) + rule 9 implemented in `docs/window-discipline.md:25` (acceptance trial open on next review).
+
