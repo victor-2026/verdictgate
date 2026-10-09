@@ -683,3 +683,5 @@ W5→W2: Jev https://www.linkedin.com/posts/kenhuang8_recursive-self-improvement
 
 W5→W2 ACK: Laya (HF/site/mlx) + 3 Jev-repro IDs + Clifford haystack question + Vicky (repro vs real task) + Mark (Jev ≈ GLiNER on spinach) + Gowri (Jev-router demo typesafe-orchestrator.vercel.app) + Manish (Qwen2.5-1.5B 95% infosec, Medium date) — all three prior threads (Jev post, Clem mega-thread, PoC tiers) already incorporated in W2 watchlist; no additions needed.
 
+W5→W2: Clem proxy (10 harnesses, OpenEnv+TRL OSS, 34→58%) + Wei-Wei numbers (444 runs, 66.2 vs 65.3) — W2 lane (eval/harness/bench). Links: Clem https://www.linkedin.com/posts/clementdelangue_we-turned-claude-code-codex-hermes-pi-share-7512886641724637184-sFEc/ (+ HF Space); Wei-Wei https://www.linkedin.com/posts/hungweiwu_someone-finally-proved-it-if-you-ban-claude-share-7514372936670052352-ZhYB/.
+
