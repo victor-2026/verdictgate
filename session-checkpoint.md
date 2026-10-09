@@ -677,3 +677,5 @@ W5→W1: QAEverest https://www.linkedin.com/posts/qa-testautomation-flakytests-u
 
 W5→W2: Stafford https://www.linkedin.com/feed/update/urn:li:activity:7513439402883289088/ (isolation-vs-system, eval-as-debug) — guard (a) ceiling-vs-capability lens; Block https://engineering.block.xyz/blog/ai-assisted-development-at-block (agent-readable) — repo/agent-ops applicability; Pooled P2P inference https://pooled.run/ (OSS, OpenClaw plugin) — local lane backpressure.
 
+W5→W2: Arbiter https://arxiv.org/abs/2603.08993 (raw/2603.08993v2.pdf 367K + wiki/arbiter-prompt-interference-mason-2026.md, both verified present) — prompt-interference, 21 patterns, 95% static, $0.27; eval-adjacent watchlist (prompt-interference = noise-source analogue for judge prompts), no repo edits.
+
