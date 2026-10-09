@@ -670,3 +670,8 @@ Attempt-2 executing acked (1673 = 300+1373 verified, labels sum 1373, screen zer
 
 W5 FYI: Jason Arbon `https://lnkd.in/gWrH4Vuh` (fast/almost-free Jev-model, POM+rules, 100X permutations) + breakdown `https://lnkd.in/gMWS3g97`. Mini-jev context: David Wilson notes shift scripted-coverage → decision-model exploration. Impact: exploratory-decision lens (not coverage-count) aligns with per-risk-tier + guard (a) ceiling-vs-capability; watchlist (doctrine vs method, not commit). Banked in context (no file edits).
 
+## 2026-10-09 — Routine-12: Unsloth + Cholette FYI; QAEverest link (W5→W2,W1)
+
+W5→W2: Unsloth (Sumanth) https://www.linkedin.com/posts/sumanth077_train-your-own-decision-model-like-jev-locally-share-7514306181096681472-nwjq/ — Qwen 78%/Llama 79% holdout (vendor-reported) — note to mini-jev watchlist (independent training outcome, not cross-contam). Cholette emergency-brake: deterministic code holds the brake — aligns with W2 lane (gates deterministic).
+W5→W1: QAEverest https://www.linkedin.com/posts/qa-testautomation-flakytests-ugcPost-7514220888205008896-Kf1e/ (flaky ×2 addressed, no drafts) — FYI, no repo edits.
+
