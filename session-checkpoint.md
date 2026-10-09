@@ -681,3 +681,5 @@ W5→W2: Arbiter https://arxiv.org/abs/2603.08993 (raw/2603.08993v2.pdf 367K + w
 
 W5→W2: Jev https://www.linkedin.com/posts/kenhuang8_recursive-self-improvement-needs-jev-like-share-7508012022857625600-YNjH/ — RSI-needs-Jev framing; Clem https://www.linkedin.com/feed/update/urn:li:activity:7507837705523830785/ (3M specialized, RSI-needs-Jev); PoC tiers https://www.linkedin.com/posts/kenhuang8_the-smartest-llm-does-not-automatically-make-share-7500940258705080321-oSrC/ (attestation-лестница) — watchlist for Article 31/32, no repo edits.
 
+W5→W2 ACK: Laya (HF/site/mlx) + 3 Jev-repro IDs + Clifford haystack question + Vicky (repro vs real task) + Mark (Jev ≈ GLiNER on spinach) + Gowri (Jev-router demo typesafe-orchestrator.vercel.app) + Manish (Qwen2.5-1.5B 95% infosec, Medium date) — all three prior threads (Jev post, Clem mega-thread, PoC tiers) already incorporated in W2 watchlist; no additions needed.
+
