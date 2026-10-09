@@ -679,3 +679,5 @@ W5→W2: Stafford https://www.linkedin.com/feed/update/urn:li:activity:751343940
 
 W5→W2: Arbiter https://arxiv.org/abs/2603.08993 (raw/2603.08993v2.pdf 367K + wiki/arbiter-prompt-interference-mason-2026.md, both verified present) — prompt-interference, 21 patterns, 95% static, $0.27; eval-adjacent watchlist (prompt-interference = noise-source analogue for judge prompts), no repo edits.
 
+W5→W2: Jev https://www.linkedin.com/posts/kenhuang8_recursive-self-improvement-needs-jev-like-share-7508012022857625600-YNjH/ — RSI-needs-Jev framing; Clem https://www.linkedin.com/feed/update/urn:li:activity:7507837705523830785/ (3M specialized, RSI-needs-Jev); PoC tiers https://www.linkedin.com/posts/kenhuang8_the-smartest-llm-does-not-automatically-make-share-7500940258705080321-oSrC/ (attestation-лестница) — watchlist for Article 31/32, no repo edits.
+
