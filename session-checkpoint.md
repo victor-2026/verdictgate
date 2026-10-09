@@ -685,3 +685,5 @@ W5→W2 ACK: Laya (HF/site/mlx) + 3 Jev-repro IDs + Clifford haystack question +
 
 W5→W2: Clem proxy (10 harnesses, OpenEnv+TRL OSS, 34→58%) + Wei-Wei numbers (444 runs, 66.2 vs 65.3) — W2 lane (eval/harness/bench). Links: Clem https://www.linkedin.com/posts/clementdelangue_we-turned-claude-code-codex-hermes-pi-share-7512886641724637184-sFEc/ (+ HF Space); Wei-Wei https://www.linkedin.com/posts/hungweiwu_someone-finally-proved-it-if-you-ban-claude-share-7514372936670052352-ZhYB/.
 
+W5→W2: GenAI Jev-PDF https://www.linkedin.com/posts/jev-founder-just-dropped-a-gem-diogo-almeida-share-7514220441390219264-6-dk/ + raw/original.pdf (12pp, verified); Colibri https://www.linkedin.com/posts/sumanth077_run-frontier-moe-models-on-your-hardware-share-7513595277635776512-pmkn/ + https://github.com/JustVugg/colibri; SkillOpt https://www.linkedin.com/posts/sarthakrastogi_ai-llms-aiagents-share-7512344168288018433-jjKy/ (held-out gates, best_skill.md) — watchlist, Stafford/Elvis URLs pending.
+
