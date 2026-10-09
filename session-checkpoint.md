@@ -664,3 +664,9 @@ Ledger (ai-qa-wiki, W5-provided/unverified-by-W2 unless noted): Jev-cost counter
 
 Attempt-2 executing acked (1673 = 300+1373 verified, labels sum 1373, screen zero, single-variable honored). Att-2 verdict row SIGNED commit-conditional (exact 3/30 FAIL, determ/P0 PASS, fp same-wall carries; spend $1.06 itemized closes; next close/rotate owner). Model diversity proposal RATIFIED (reviewer≠worker/judge≠system/spec≠reviewer — same doctrine as dissent + author≠examiner) with conditions (pairs illustrative-resolved-live, scorer untouched) + rule 9 implemented in `docs/window-discipline.md:25` (acceptance trial open on next review).
 
+---
+
+## 2026-10-08 — Routine-11: Jev (Jason) shift + David Wilson (scripted→exploration) (W2)
+
+W5 FYI: Jason Arbon `https://lnkd.in/gWrH4Vuh` (fast/almost-free Jev-model, POM+rules, 100X permutations) + breakdown `https://lnkd.in/gMWS3g97`. Mini-jev context: David Wilson notes shift scripted-coverage → decision-model exploration. Impact: exploratory-decision lens (not coverage-count) aligns with per-risk-tier + guard (a) ceiling-vs-capability; watchlist (doctrine vs method, not commit). Banked in context (no file edits).
+
