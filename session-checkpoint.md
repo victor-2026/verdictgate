@@ -696,3 +696,20 @@ W5→W2: GenAI Jev-PDF https://www.linkedin.com/posts/jev-founder-just-dropped-a
 3. **Cloud $15 (резерв):** только при quality-fail на тире 2.
 Probe set: buzzhive-storefront (локальный), 10–15 actions, verdict-driven. Артефакты: run log + verdict table + cost + infra/quality split → W2 sign-off. Pull 3b — только по команде (pull-дисциплина). NanoMuse в backlog.
 
+---
+
+## 2026-10-09 — verdictgate.py housekeeping unpack (W1 92.8% → распаковка)
+
+**Источник:** Positions-checkpoint 05.10 строка 354 — «verdictgate.py extract + 2 тривии — housekeeping, anytime, not burning». В verdictgate-checkpoint деталей не было.
+**TODO (распаковка в W2-канал):**
+- [ ] `verdictgate.py extract` — CLI subcommand `extract` (или выделение функции) для извлечения verdict/evidence pack из CSV/JSON без полного gate-прогона. Use-case: CI artifact generation, PR comment payload. Зависит от `rmt.py` parse+validate path.
+- [ ] Тривия #1: type-hint coverage bump (verdictgate.py + rmt.py) → `mypy --strict` clean.
+- [ ] Тривия #2: template lint — `templates/mutation-matrix-lite.md` + `full.md` на соответствие current GATE_RULES (post-0.2.40).
+Прогресс 92.8% = код почти готов, осталось интеграционная проверка + docstring. Без дедлайна.
+
+---
+
+## 2026-10-09 — Cloudflare decision models (W5→W2)
+
+**Source:** InfoQ https://www.infoq.com/news/2026/10/clef-decision-models/ — Cloudflare «Clef» decision models (LLM-as-judge для routing/optimization, structured output, calibration, abstention). Твой lane (eval/harness/bench/decision-model taxonomy). В watchlist для Article 31/32 + per-risk-tier judge taxonomy.
+
