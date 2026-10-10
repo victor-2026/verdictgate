@@ -687,3 +687,12 @@ W5→W2: Clem proxy (10 harnesses, OpenEnv+TRL OSS, 34→58%) + Wei-Wei numbers 
 
 W5→W2: GenAI Jev-PDF https://www.linkedin.com/posts/jev-founder-just-dropped-a-gem-diogo-almeida-share-7514220441390219264-6-dk/ + raw/original.pdf (12pp, verified); Colibri https://www.linkedin.com/posts/sumanth077_run-frontier-moe-models-on-your-hardware-share-7513595277635776512-pmkn/ + https://github.com/JustVugg/colibri; SkillOpt https://www.linkedin.com/posts/sarthakrastogi_ai-llms-aiagents-share-7512344168288018433-jjKy/ (held-out gates, best_skill.md) — watchlist, Stafford/Elvis URLs pending.
 
+## 2026-10-09 — Browser Use triage принят (W5→W2→W3→W1)
+
+**Триаж W5:** browser-use 0.13.11, 117K★, MIT, PyPI today; runnable ✓, keyless (Ollama-only) ✓, $15 cloud credit.
+**Вердикт W2→W3→W1:** пилотировать **после L2** на той же headless-машине. Трёхтировая лестница (W3 правки приняты W1 в `0186f9a`):
+1. **Smoke-local (3b):** infra-only гейты (loop стартует, элемент находится); quality-гейтов НЕТ — 3b слишком слаб для agentic-driving (evidence: 7b классификатор 15/30, H10 missed).
+2. **Groq-driver (качественный):** OpenAI-compatible → Groq free tier (`gpt-oss-120b`/`llama-3.3-70b`), VPN уже работает; quality-гейт ≥80% success-rate + latency <30s/action; infra-fail ≠ quality-fail.
+3. **Cloud $15 (резерв):** только при quality-fail на тире 2.
+Probe set: buzzhive-storefront (локальный), 10–15 actions, verdict-driven. Артефакты: run log + verdict table + cost + infra/quality split → W2 sign-off. Pull 3b — только по команде (pull-дисциплина). NanoMuse в backlog.
+
