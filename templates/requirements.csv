@@ -1,0 +1,9 @@
+# Pre-run template: define the behaviors your suite claims to verify.
+# Fill BEFORE seeding mutations — one behavior per row, then pick one mutation each
+# (see templates/mutation-matrix-lite.md for the minimal mutation set).
+# risk_tier declares the tier up front (planning-time, not post-hoc): the
+# --requirements cross-check refuses results rows whose tier disagrees
+# (tier-laundering guard). behavior_name must match results.csv `behavior`
+# VERBATIM (same spelling, same case) — the checker enforces it.
+behavior_name,risk_tier,acceptance_criteria,description
+Valid login shows welcome,B0,"Given valid username and password when clicking Sign in then the welcome message is visible",User can sign in

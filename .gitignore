@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+# Generated verdict artifacts (reproducible from the CSVs)
+*.verdict.md
+*.verdict.json
+!examples/*/expected.verdict.json
+/tmp/

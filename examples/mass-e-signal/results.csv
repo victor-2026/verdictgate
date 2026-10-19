@@ -1,0 +1,25 @@
+# Example: B2 mass-equivalent signal (scorer 0.2.0).
+# 18 Y rows (17 caught, 1 survived with decision) + 2 assessed E rows.
+# e_rate = 2/20 = 10% > 5% band → mass-E SIGNAL fires, gate stays PASS (exit 0).
+# Golden-covers: E-justification validation, equivalent display with basis, mass-signal path.
+mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision,e_reason,e_assessor,e_basis,observed_by,observed_run_ref,observed_element
+M1,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M2,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M3,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M4,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M5,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M6,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M7,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M8,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M9,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M10,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M11,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M12,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M13,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M14,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M15,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M16,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M17,Export CSV completes,text_change,B2,Y,fail,,,,,,,,
+M18,Export filename custom,id_change,B2,Y,pass,,fixed,,,,,,
+M19,Legacy format flag,x_gte,B2,E,pass,,,integer-only range,reviewer,no-observable-path,,,
+M20,Legacy format flag,x_gte,B2,E,pass,,,integer-only range,reviewer,no-observable-path,,,
