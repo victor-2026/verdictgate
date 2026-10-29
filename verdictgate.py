@@ -40,7 +40,7 @@ GATE_RULES = {
     "B3": {"trend_only": True},
 }
 # mass_e_pct / mass_observed_pct are D1 Option C SIGNALS — presence/rate only, never gate.
-# Do not wire into `ok` without a new explicit decision .
+# Do not wire into `ok` without a new explicit decision.
 
 REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result")
 NOOP_TOKENS = {"NOOP", "NO-OP"}
