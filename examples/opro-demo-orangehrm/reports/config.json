@@ -1,9 +1,0 @@
-{
-  "workspace_name": "orangepro-clean",
-  "created_at": "2026-10-31T13:26:45.573Z",
-  "local_only": true,
-  "privacy": {
-    "upload_enabled": false,
-    "source_snippets_in_pack": false
-  }
-}
