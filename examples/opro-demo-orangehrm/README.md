@@ -44,5 +44,4 @@ npx @orangepro/mcp-server@0.2.58 start <path> --no-ai
 
 ## Scrub
 
-Scrubbed with: `grep -E 'Users|/tmp|scratchpad|AGENTS|PRECONDITION'` (all matches are false positives:
-test names containing "Users", filename "AGENTS.md" — legitimate content, not sensitive info).
+Scrubbed with: `grep -E 'Users|/tmp|scratchpad|AGENTS|PRECONDITION'`. Two internal file nodes (AGENTS.md, session-checkpoint.md) and their manifest entries were removed (structural leak, not content). Remaining "AGENTS" hits are test names containing "Users".
