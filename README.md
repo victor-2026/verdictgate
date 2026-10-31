@@ -135,7 +135,7 @@ Unexercised - OrangePro's current Playwright runner is unsupported).
 | B2 Medium | ≤ 5% survived (N ≥ 20) or max 1 survivor with a recorded decision (N < 20) | < 90% → mandatory signed Assessor comment |
 | B3 Low | never blocks; trend vs rolling-3-run baseline | — |
 
-Survived count is the hard gate; mutation score is a signal bar — a low score triggers a mandatory signed comment, never a silent auto-fail. Displayed rates are rounded to one decimal; the B2 band gate itself uses exact integer arithmetic. Observed-only has its own budget at survived=0 (B0 ≤ 10%, B1 ≤ 20%): exceeding it is a signal, not a pass. Mass-exclusion signals (0.2.0, provisional values from sweep-v1 — review triggers, not calibrated boundaries): any Equivalent rows on B0/B1 fire a review-exclusions signal; mass-E over 5% / mass-observed over 10% of B2 fire review signals. Presence signals are a REVIEW QUEUE ("review the exclusions"), not an alarm.
+Survived count is the hard gate; mutation score is a signal bar — a low score triggers a mandatory signed comment, never a silent auto-fail. Displayed rates are rounded to one decimal; the B2 band gate itself uses exact integer arithmetic. Observed-only has its own budget at survived=0 (B0 ≤ 10%, B1 ≤ 20%): exceeding it is a signal, not a pass. Mass-exclusion signals (0.2.0, provisional values from sweep-v1 — review triggers, not calibrated boundaries): any Equivalent rows on B0/B1 fire a review-exclusions signal; mass-E over 5% / mass-observed over 10% of B2 fire review signals. Presence signals are a REVIEW QUEUE ("review the exclusions"), not an alarm — see sweep provenance in AGENTS.md D1.
 
 B0/B1 zero-tolerance is **not** configurable: no decision can pass a zero-tolerance tier. The B2 band is the one disputed knob, so it is CLI-configurable with a strict default (`--b2-band-pct`, default 5; `--b2-small-n-max`, default 1).
 
@@ -174,7 +174,7 @@ Per-risk-tier gating and the mutation matrix come from the field methodology des
 
 Beta (0.2.x). MIT.
 
-Roadmap: scorer 0.2.2 shipped (E-justification, observed evidence, mass signals, --fail-on-unexercised, --requirements guard). Next: vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines.)
+Roadmap: scorer 0.4.0 shipped (vendor profiles, Unexercised class, Stryker + opro importers, v2 GitHub Action posting verdicts to PRs). Next: vendor profiles v2 · opro importer v2 · effectiveness recheck on accumulated honest-run volume. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines.)
 
 ## 1.0 exit criteria (public gate — 0.x means "contract maturing", not "unfinished")
 
