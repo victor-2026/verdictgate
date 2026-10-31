@@ -1,0 +1,4 @@
+behavior_name,risk_tier,acceptance_criteria,description
+add returns correct sum,B1,"Given operands when adding then the sum is correct",Covered by tests
+isPositive behaves correctly,B1,"Given a number when checking positivity then the sign is correct",Covered by tests
+multiply returns correct product,B2,"Given operands when multiplying then the product is correct",Deliberately uncovered (NoCoverage demo)

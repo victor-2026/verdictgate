@@ -8,21 +8,33 @@ actual run of StrykerJS against `src/math.js`, with `projectRoot` normalised to 
 
 ```
 src/math.js            source under mutation (mirrors examples/demo-math behaviors)
-test/math.test.js      Vitest suite (7 tests) that catches the mutants
+test/math.test.js      Vitest suite (7 tests) that catches the covered mutants
 stryker.config.json    vitest runner, mutate src/**, jsonReporter -> reports/report.json
 package.json           pinned tool versions (StrykerJS 8.7.1, vitest 2.1.9)
 reports/report.json    real captured report (schemaVersion 1.0)
+behavior-map.csv       authoritative mutant_id -> behavior_name map for THIS report
+requirements.csv       behavior_name -> risk_tier sidecar for THIS report
 ```
+
+The captured report contains **9 mutants: 7 `Killed` + 2 `NoCoverage`**. The two `NoCoverage`
+mutants come from `multiply()`, which no test calls — they exist to exercise the "not executed"
+path, not the "executed and survived" path.
+
+`behavior-map.csv` is authoritative for the committed report. Stryker mutant ids are specific to a
+report and are renumbered when the source changes: after regenerating, rebuild `behavior-map.csv`
+from the new `report.json` before using it. The map in the importer spec is illustrative; this file
+is the one that ships with the artifact.
 
 ## Regenerate
 
 ```
 npm install
 npx vitest run     # 7/7 pass
-npx stryker run    # writes reports/report.json
+npx stryker run    # writes reports/report.json (9 mutants: 7 Killed + 2 NoCoverage)
 ```
 
-The framework/version that produced the report is recorded in `report.json` under `framework`.
+After regenerating, re-scrub `projectRoot` to `.` and rebuild `behavior-map.csv` against the new
+ids. The framework/version that produced the report is recorded in `report.json` under `framework`.
 
 ## Report schema (as verified from this real artifact)
 
@@ -38,7 +50,7 @@ The framework/version that produced the report is recorded in `report.json` unde
 `ConditionalExpression`, `EqualityOperator`. `status` values in the wider Stryker vocabulary:
 `Killed`, `Survived`, `Timeout`, `NoCoverage`, `RuntimeError`, `Ignored`, `Pending`.
 
-## Status mapping (DRAFT — awaits the importer spec; not implemented yet)
+## Status mapping (specified in the importer spec; not implemented yet)
 
 | Stryker status | VerdictGate class | Notes |
 |---|---|---|

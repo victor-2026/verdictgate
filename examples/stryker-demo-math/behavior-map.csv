@@ -1,0 +1,10 @@
+file,mutant_id,behavior_name
+src/math.js,0,add returns correct sum
+src/math.js,1,add returns correct sum
+src/math.js,2,isPositive behaves correctly
+src/math.js,3,isPositive behaves correctly
+src/math.js,4,isPositive behaves correctly
+src/math.js,5,isPositive behaves correctly
+src/math.js,6,isPositive behaves correctly
+src/math.js,7,multiply returns correct product
+src/math.js,8,multiply returns correct product

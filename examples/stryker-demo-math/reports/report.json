@@ -4,6 +4,42 @@
       "language": "javascript",
       "mutants": [
         {
+          "id": "7",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "NoCoverage",
+          "static": false,
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 2,
+              "line": 12
+            },
+            "start": {
+              "column": 25,
+              "line": 10
+            }
+          }
+        },
+        {
+          "id": "8",
+          "mutatorName": "ArithmeticOperator",
+          "replacement": "a / b",
+          "status": "NoCoverage",
+          "static": false,
+          "coveredBy": [],
+          "location": {
+            "end": {
+              "column": 15,
+              "line": 11
+            },
+            "start": {
+              "column": 10,
+              "line": 11
+            }
+          }
+        },
+        {
           "id": "1",
           "mutatorName": "ArithmeticOperator",
           "replacement": "a - b",
@@ -195,7 +231,7 @@
           }
         }
       ],
-      "source": "function add(a, b) {\n  return a + b;\n}\n\nfunction isPositive(n) {\n  return n > 0;\n}\n\nexport { add, isPositive };\n"
+      "source": "function add(a, b) {\n  return a + b;\n}\n\nfunction isPositive(n) {\n  return n > 0;\n}\n\n// Deliberately not exercised by any test: produces NoCoverage mutants.\nfunction multiply(a, b) {\n  return a * b;\n}\n\nexport { add, isPositive, multiply };\n"
     }
   },
   "schemaVersion": "1.0",
