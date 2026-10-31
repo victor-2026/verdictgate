@@ -1,6 +1,10 @@
 {
-  "scorer_version": "0.2.2",
+  "scorer_version": "0.3.0",
   "deterministic": true,
+  "profile": {
+    "name": null,
+    "sha256": null
+  },
   "b2_band_pct": 5,
   "b2_small_n_max": 1,
   "totals": {

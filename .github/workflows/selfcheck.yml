@@ -104,3 +104,81 @@ jobs:
         run: |
           python3 verdictgate.py examples/demo-math/results.csv --out-dir /tmp/vg/shim
           diff /tmp/vg/shim/results.verdict.json /tmp/vg/gold-math/results.verdict.json
+
+      - name: Profile - default ≡ no-profile (byte-identical modulo profile block)
+        run: |
+          python3 verdictgate.py verdict examples/demo-math/results.csv --profile default --out-dir /tmp/vg/prof-default
+          python3 - <<'PY'
+          import json
+          a=json.load(open('/tmp/vg/prof-default/results.verdict.json'))
+          b=json.load(open('/tmp/vg/gold-math/results.verdict.json'))
+          a.pop('profile'); b.pop('profile')
+          assert a==b, "default profile must match no-profile run"
+          assert a['scorer_version']=='0.3.0'
+          PY
+
+      - name: Profile - qeaverest stamp present
+        run: |
+          python3 verdictgate.py verdict examples/web-login/results.csv --profile qeaverest --out-dir /tmp/vg/prof-qe
+          python3 - <<'PY'
+          import json
+          v=json.load(open('/tmp/vg/prof-qe/results.verdict.json'))
+          assert v['profile']['name']=='qeaverest'
+          assert v['profile']['sha256'] is not None
+          assert 'profile=qeaverest' in open('/tmp/vg/prof-qe/results.verdict.md').read()
+          PY
+
+      - name: Profile - precedence (CLI flag wins, stamp shows both)
+        run: |
+          python3 verdictgate.py verdict examples/demo-math/results.csv --profile qeaverest --b2-band-pct 99 --out-dir /tmp/vg/prof-prec
+          python3 - <<'PY'
+          import json
+          v=json.load(open('/tmp/vg/prof-prec/results.verdict.json'))
+          assert v['b2_band_pct']==99
+          assert v['profile']['name']=='qeaverest'
+          PY
+
+      - name: Profile - unknown key -> exit 2
+        run: |
+          printf '{"name":"x","foo":1}' > /tmp/vg/badprof.json
+          set +e
+          python3 verdictgate.py verdict examples/demo-math/results.csv --profile /tmp/vg/badprof.json --out-dir /tmp/vg/badprof >/dev/null 2>&1
+          code=$?
+          set -e
+          [ "$code" -eq 2 ]
+
+      - name: Profile - out-of-range value -> exit 2
+        run: |
+          printf '{"name":"x","b2_band_pct":101}' > /tmp/vg/rangeprof.json
+          set +e
+          python3 verdictgate.py verdict examples/demo-math/results.csv --profile /tmp/vg/rangeprof.json --out-dir /tmp/vg/rangeprof >/dev/null 2>&1
+          code=$?
+          set -e
+          [ "$code" -eq 2 ]
+
+      - name: Profile - behavior diff (B1 observed budget 0% vs 20%) and B2 score target
+        run: |
+          python3 verdictgate.py verdict examples/web-login/results.csv --out-dir /tmp/vg/beh-none
+          python3 verdictgate.py verdict examples/web-login/results.csv --profile qeaverest --out-dir /tmp/vg/beh-qe
+          python3 - <<'PY'
+          import json
+          n=json.load(open('/tmp/vg/beh-none/results.verdict.json'))
+          q=json.load(open('/tmp/vg/beh-qe/results.verdict.json'))
+          nB1=n['tiers']['B1']['signals']; qB1=q['tiers']['B1']['signals']
+          assert any('exceeds budget 20%' in s for s in nB1), nB1
+          assert any('exceeds budget 0%' in s for s in qB1), qB1
+          # B2 score target: 70% synthetic must signal under default (90) and not under qeaverest (60)
+          import subprocess, os
+          os.makedirs('/tmp/vg/synth', exist_ok=True)
+          with open('/tmp/vg/synth/b2.csv','w') as f:
+              f.write('mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\n')
+              for i in range(1,8): f.write(f'M{i},f{i},text_change,B2,Y,fail,,\n')
+              for i in range(8,11): f.write(f'M{i},f{i},text_change,B2,Y,pass,,open\n')
+          subprocess.run(['python3','verdictgate.py','verdict','/tmp/vg/synth/b2.csv','--out-dir','/tmp/vg/synth/none'])
+          subprocess.run(['python3','verdictgate.py','verdict','/tmp/vg/synth/b2.csv','--profile','qeaverest','--out-dir','/tmp/vg/synth/qe'])
+          nd=json.load(open('/tmp/vg/synth/none/b2.verdict.json'))
+          qd=json.load(open('/tmp/vg/synth/qe/b2.verdict.json'))
+          assert any('below target 90%' in s for s in nd['tiers']['B2']['signals']), nd['tiers']['B2']['signals']
+          assert not any('below target' in s for s in qd['tiers']['B2']['signals']), qd['tiers']['B2']['signals']
+          print('behavior diff OK')
+          PY

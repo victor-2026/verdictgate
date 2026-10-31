@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.2.2"
+SCORER_VERSION = "0.3.0"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -40,7 +40,7 @@ GATE_RULES = {
     "B3": {"trend_only": True},
 }
 # mass_e_pct / mass_observed_pct are D1 Option C SIGNALS — presence/rate only, never gate.
-# Do not wire into `ok` without a new explicit decision.
+# Do not wire into `ok` without a new explicit decision (see AGENTS.md D1).
 
 REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result")
 NOOP_TOKENS = {"NOOP", "NO-OP"}
@@ -55,6 +55,97 @@ KNOWN_COLUMNS = REQUIRED_COLUMNS + ("observed", "decision", "e_reason", "e_asses
 
 class InputError(Exception):
     pass
+
+PROFILE_KNOWN_KEYS = {"name", "version", "score_target", "observed_budget_pct",
+                      "mass_e_pct", "mass_observed_pct", "small_n_threshold",
+                      "b2_band_pct", "b2_small_n_max", "provisional"}
+
+
+def load_profile(name_or_path):
+    """Return (profile_dict, sha256_hex, resolved_name) or (None, None, None) if no profile."""
+    if not name_or_path:
+        return None, None, None
+    # resolve path
+    p = Path(name_or_path)
+    if not p.is_absolute() and ("/" in name_or_path or name_or_path.endswith(".json")):
+        p = Path(name_or_path)
+    if not p.exists():
+        # NAME -> profiles/<name>.json relative to this file
+        candidate = Path(__file__).resolve().parent / "profiles" / (name_or_path if name_or_path.endswith(".json") else name_or_path + ".json")
+        if candidate.exists():
+            p = candidate
+    if not p.exists():
+        raise InputError(f"profile not found: {name_or_path}")
+    try:
+        raw = p.read_bytes()
+        data = json.loads(raw.decode("utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise InputError(f"profile parse error: {exc}")
+    if not isinstance(data, dict):
+        raise InputError("profile must be a JSON object")
+    unknown = set(data) - PROFILE_KNOWN_KEYS
+    if unknown:
+        raise InputError(f"profile: unknown keys {sorted(unknown)}")
+    # validate ranges
+    for key in ("score_target", "observed_budget_pct", "mass_e_pct", "mass_observed_pct"):
+        if key in data and data[key] is not None:
+            v = data[key]
+            if not isinstance(v, dict):
+                raise InputError(f"profile.{key} must be an object")
+            for tier, val in v.items():
+                if tier not in TIER_ORDER:
+                    raise InputError(f"profile.{key}: unknown tier {tier}")
+                if not isinstance(val, int) or isinstance(val, bool) or not (0 <= val <= 100):
+                    raise InputError(f"profile.{key}.{tier} must be int 0..100")
+    if "small_n_threshold" in data and data["small_n_threshold"] is not None:
+        v = data["small_n_threshold"]
+        if not isinstance(v, int) or isinstance(v, bool) or not (1 <= v <= 100):
+            raise InputError("profile.small_n_threshold must be int 1..100")
+    for key in ("b2_band_pct",):
+        if key in data and data[key] is not None:
+            v = data[key]
+            if not isinstance(v, int) or isinstance(v, bool) or not (0 <= v <= 100):
+                raise InputError(f"profile.{key} must be int 0..100")
+    if "b2_small_n_max" in data and data["b2_small_n_max"] is not None:
+        v = data["b2_small_n_max"]
+        if not isinstance(v, int) or isinstance(v, bool) or not (0 <= v <= 19):
+            raise InputError("profile.b2_small_n_max must be int 0..19")
+    if "version" in data and data["version"] is not None:
+        if not isinstance(data["version"], int) or isinstance(data["version"], bool):
+            raise InputError("profile.version must be int")
+    if "provisional" in data and data["provisional"] is not None:
+        if not isinstance(data["provisional"], bool):
+            raise InputError("profile.provisional must be bool")
+    import hashlib
+    sha = hashlib.sha256(raw).hexdigest()
+    resolved_name = data.get("name") if isinstance(data.get("name"), str) else p.stem
+    return data, sha, resolved_name
+
+
+def apply_profile(profile, rules_base):
+    """Return (rules_merged, profile_b2_band_default, profile_b2_small_n_default)."""
+    import copy
+    rules = copy.deepcopy(rules_base)
+    if not profile:
+        return rules, None, None
+    # score_target / observed_budget_pct per tier
+    for key, rule_key in (("score_target", "score_target"), ("observed_budget_pct", "observed_budget_pct")):
+        if profile.get(key):
+            for tier, val in profile[key].items():
+                if tier in rules and rule_key in rules[tier]:
+                    rules[tier][rule_key] = val
+    # mass_e_pct / mass_observed_pct
+    for key in ("mass_e_pct", "mass_observed_pct"):
+        if profile.get(key):
+            for tier, val in profile[key].items():
+                if tier in rules and key in rules[tier]:
+                    rules[tier][key] = val
+    # small_n_threshold (B2)
+    if profile.get("small_n_threshold") is not None:
+        rules["B2"]["small_n_threshold"] = profile["small_n_threshold"]
+    b2_band_default = profile.get("b2_band_pct", None)
+    b2_small_n_default = profile.get("b2_small_n_max", None)
+    return rules, b2_band_default, b2_small_n_default
 
 
 def parse_requirements(path):
@@ -259,7 +350,10 @@ def pct(part, whole):
     return round(part * 100 / whole, 1) if whole else 0.0
 
 
-def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
+def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
+                  rules=None, profile_name=None, profile_sha=None):
+    if rules is None:
+        rules = GATE_RULES
     enriched = []
     for r in rows:
         e = dict(r)
@@ -322,7 +416,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
                     f"informational: {e3} equivalent + {d['observed_only']} observed-only in {tier} (trend-only tier)"
                 )
         else:
-            rule = GATE_RULES[tier]
+            rule = rules[tier]
             ok = True
             if tier in ("B0", "B1"):
                 if d["survived"] > 0:
@@ -355,7 +449,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
                         "evidence (presence review, not budget)"
                     )
             elif tier == "B2":
-                threshold = GATE_RULES["B2"]["small_n_threshold"]
+                threshold = rules["B2"]["small_n_threshold"]
                 if d["seeded"] >= threshold:
                     if d["survived"] * 100 > b2_band_pct * d["seeded"]:
                         ok = False
@@ -400,9 +494,9 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
                         f"evidence ({d['observed_only']} of {d['seeded']}) - review observed_element "
                         "distribution for genuine passive coverage vs blanket-flagging"
                     )
-                if d["mutation_score"] < GATE_RULES["B2"]["score_target"]:
+                if d["mutation_score"] < rules["B2"]["score_target"]:
                     d["signals"].append(
-                        f"mutation score {d['mutation_score']}% below target {GATE_RULES['B2']['score_target']}% - mandatory signed Assessor comment"
+                        f"mutation score {d['mutation_score']}% below target {rules['B2']['score_target']}% - mandatory signed Assessor comment"
                     )
             d["gate"] = "PASS" if ok else "FAIL"
             if not ok:
@@ -451,6 +545,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False):
     verdict = {
         "scorer_version": SCORER_VERSION,
         "deterministic": True,
+        "profile": {"name": profile_name, "sha256": profile_sha},
         "b2_band_pct": b2_band_pct,
         "b2_small_n_max": b2_small_n_max,
         "totals": totals,
@@ -475,7 +570,7 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
-    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'}")
+    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'}, profile={verdict.get('profile', {}).get('name') or 'none'}")
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
@@ -554,12 +649,14 @@ def main():
     verdict_parser = subparsers.add_parser("verdict", help="Run verdict on mutation results CSV")
     verdict_parser.add_argument("results", help="recorded mutation results CSV")
     verdict_parser.add_argument("--out-dir", default=None, help="output directory (default: alongside the input)")
-    verdict_parser.add_argument("--b2-band-pct", type=int, default=5, help="B2 survived band in percent at N>=20 (default: 5)")
-    verdict_parser.add_argument("--b2-small-n-max", type=int, default=1, help="B2 max survivors below the small-N threshold (default: 1)")
+    verdict_parser.add_argument("--b2-band-pct", type=int, default=None, help="B2 survived band in percent at N>=20 (default: 5 or profile)")
+    verdict_parser.add_argument("--b2-small-n-max", type=int, default=None, help="B2 max survivors below the small-N threshold (default: 1 or profile)")
     verdict_parser.add_argument("--fail-on-unexercised", action="store_true",
                                 help="treat unexercised B0/B1 tiers as release blockers (default: off)")
     verdict_parser.add_argument("--requirements", default=None, metavar="REQUIREMENTS_CSV",
                                 help="cross-check behavior tiers against requirements.csv (tier-laundering guard; default: off, tiers unverified)")
+    verdict_parser.add_argument("--profile", default=None, metavar="NAME_OR_PATH",
+                                help="named threshold bundle (profiles/<name>.json) or path to a custom profile JSON")
     verdict_parser.add_argument("--json", action="store_true", help="print verdict JSON to stdout, write no files")
     verdict_parser.add_argument("--md", action="store_true", help="print verdict markdown to stdout, write no files")
 
@@ -588,9 +685,23 @@ def main():
         args.command = "verdict"
 
     if args.command == "verdict":
+        # load profile (if any)
+        try:
+            profile, profile_sha, profile_name = load_profile(args.profile)
+        except InputError as exc:
+            print(f"verdictgate: input error: {exc}", file=sys.stderr)
+            return 2
+        rules, prof_band_default, prof_small_default = apply_profile(profile, GATE_RULES)
+
+        # resolve b2_band_pct with precedence CLI > profile > default
+        if args.b2_band_pct is None:
+            args.b2_band_pct = prof_band_default if prof_band_default is not None else 5
+        if args.b2_small_n_max is None:
+            args.b2_small_n_max = prof_small_default if prof_small_default is not None else 1
+
         if not 0 <= args.b2_band_pct <= 100:
             ap.error("--b2-band-pct must be 0..100")
-        small_n_cap = GATE_RULES["B2"]["small_n_threshold"] - 1
+        small_n_cap = rules["B2"]["small_n_threshold"] - 1
         if not 0 <= args.b2_small_n_max <= small_n_cap:
             ap.error(f"--b2-small-n-max must be 0..{small_n_cap} (at the small-N threshold the floor is vacuous)")
 
@@ -602,7 +713,8 @@ def main():
             print(f"verdictgate: input error: {exc}", file=sys.stderr)
             return 2
 
-        verdict = build_verdict(rows, args.b2_band_pct, args.b2_small_n_max, args.fail_on_unexercised)
+        verdict = build_verdict(rows, args.b2_band_pct, args.b2_small_n_max, args.fail_on_unexercised,
+                               rules=rules, profile_name=profile_name, profile_sha=profile_sha)
         verdict["requirements_checked"] = bool(args.requirements)
         input_name = Path(args.results).name
         md_text = render_md(verdict, input_name)
@@ -626,7 +738,7 @@ def main():
         print(f"evidence pack: {out_dir / (stem + '.verdict.md')}", file=sys.stderr)
         return verdict["exit_code"]
 
-    # RMT subcommand (single implementation lives in rmt.py)
+    # RMT subcommand (single implementation lives in rmt.py — see PRECONDITION in AGENTS.md)
     elif args.command == "rmt":
         from rmt import run_rmt
         return run_rmt(args)
