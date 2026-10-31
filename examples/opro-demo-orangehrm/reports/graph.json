@@ -317,6 +317,25 @@
       "content_hash": "sha256:ed5d31f835a52e1e1d1a792453edfbd0302f92eece97b00f3f5471435f084d80"
     },
     {
+      "id": "File:0ea6e02a08ac",
+      "external_id": "AGENTS.md",
+      "kind": "File",
+      "title": "agents.md",
+      "properties": {
+        "language": "markdown",
+        "role": "doc"
+      },
+      "evidence_strength": "hard",
+      "review_status": "auto_detected",
+      "confidence": 1,
+      "provenance": {
+        "source_scope_id": "repo:orangepro-clean",
+        "source_ref": "AGENTS.md",
+        "detector": "repo_analyzer"
+      },
+      "content_hash": "sha256:3d352ffb3aa8cc23775f8bdbc8dc25e6b0027addd31a6f271df2d5c37fa44151"
+    },
+    {
       "id": "File:c6b28a103e00",
       "external_id": "ALLURE_TESTOPS_ACTIVATION.md",
       "kind": "File",
@@ -11608,6 +11627,25 @@
       "content_hash": "sha256:227e6ebcbc79450f8079dced0211ac9ec8132be91406bf33398a30e4f6e20345"
     },
     {
+      "id": "File:179ac1dabcc9",
+      "external_id": "session-checkpoint.md",
+      "kind": "File",
+      "title": "session-checkpoint.md",
+      "properties": {
+        "language": "markdown",
+        "role": "doc"
+      },
+      "evidence_strength": "hard",
+      "review_status": "auto_detected",
+      "confidence": 1,
+      "provenance": {
+        "source_scope_id": "repo:orangepro-clean",
+        "source_ref": "session-checkpoint.md",
+        "detector": "repo_analyzer"
+      },
+      "content_hash": "sha256:bc66ffbc4e52a86abd349c4fd579d258df13bc6bffeeda68fb0e35df5b81074f"
+    },
+    {
       "id": "File:ff11ec22fe4f",
       "external_id": "SORCAR.md",
       "kind": "File",
@@ -19284,6 +19322,11 @@
         "size": 1649,
         "kind": "doc"
       },
+      "AGENTS.md": {
+        "hash": "sha256:3d352ffb3aa8cc23775f8bdbc8dc25e6b0027addd31a6f271df2d5c37fa44151",
+        "size": 3610,
+        "kind": "doc"
+      },
       "ALLURE_TESTOPS_ACTIVATION.md": {
         "hash": "sha256:17aeea464cb07de2dc9ef0b35ba88331809346fd05eae3cfa8952914a07adec4",
         "size": 4230,
@@ -19778,6 +19821,11 @@
         "hash": "sha256:227e6ebcbc79450f8079dced0211ac9ec8132be91406bf33398a30e4f6e20345",
         "size": 5540,
         "kind": "code"
+      },
+      "session-checkpoint.md": {
+        "hash": "sha256:bc66ffbc4e52a86abd349c4fd579d258df13bc6bffeeda68fb0e35df5b81074f",
+        "size": 34847,
+        "kind": "doc"
       },
       "SORCAR.md": {
         "hash": "sha256:733081dbd0aa991a11d182f195c2f09b21698bc5fc4b2c0a0742c2d5165e2da0",
