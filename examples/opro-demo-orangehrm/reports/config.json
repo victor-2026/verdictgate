@@ -1,0 +1,9 @@
+{
+  "workspace_name": "orangepro-fixture-clean",
+  "created_at": "2026-10-31T15:42:44.217Z",
+  "local_only": true,
+  "privacy": {
+    "upload_enabled": false,
+    "source_snippets_in_pack": false
+  }
+}
