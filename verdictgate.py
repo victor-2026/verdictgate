@@ -1046,7 +1046,7 @@ def main():
         print(f"evidence pack: {out_dir / (stem + '.verdict.md')}", file=sys.stderr)
         return verdict["exit_code"]
 
-    # RMT subcommand (single implementation lives in rmt.py — see PRECONDITION in AGENTS.md)
+    # RMT subcommand (single implementation lives in rmt.py)
     elif args.command == "rmt":
         from rmt import run_rmt
         return run_rmt(args)
