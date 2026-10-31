@@ -55,13 +55,39 @@ Fix first: **B0 · M1 · Payment submits successfully (element_remove) — SURVI
 | `operator` | mutation type (`id_change`, `text_change`, `element_remove`, `swap_targets`, ...) |
 | `risk_tier` | `B0` Critical · `B1` High · `B2` Medium · `B3` Low |
 | `expected` | `Y` = this suite should catch it · `N` = out of scope for this suite · `E` = assessed equivalent (recorded, excluded from the denominator) |
-| `suite_result` | `pass` = suite stayed green on the mutant · `fail` = suite went red |
+| `suite_result` | `pass` = suite stayed green on the mutant · `fail` = suite went red · `unexercised` = never executed by any test (coverage gap; visible, excluded from the denominator) |
 | `observed` | optional: passive observation flag (any text); empty = silent |
 | `decision` | optional: `open` / `dismissed` / `fixed` — required for B2 survivors (`dismissed` fires a mandatory signal) |
 | `e_reason` / `e_assessor` / `e_basis` | required when `expected=E`: reason ≤280 chars, who assessed, basis enum (`code-review` / `diff-analysis` / `no-observable-path` / `dead-code` / `other`) |
 | `observed_by` / `observed_run_ref` / `observed_element` | required when `observed` non-empty: who, which run (opaque ref, never a timestamp), firing element |
 
-Verdict per row: **Caught** (suite went red) · **Observed-only** (green but flagged — reported separately, never inflates the score) · **Survived** (green and silent — the only outcome that fails a gate) · **Equivalent** (assessed: no observable behavior change — recorded, excluded from the denominator, never silent) · **n/a** (expected=N, out of the denominator).
+Verdict per row: **Caught** (suite went red) · **Observed-only** (green but flagged — reported separately, never inflates the score) · **Survived** (green and silent — the only outcome that fails a gate) · **Unexercised** (never executed by any test — a coverage gap, reported and excluded from the denominator, never counted as Survived) · **Equivalent** (assessed: no observable behavior change — recorded, excluded from the denominator, never silent) · **n/a** (expected=N, out of the denominator).
+
+## Importing a Stryker report (v1)
+
+```
+python3 verdictgate.py import stryker report.json \
+  --behavior-map behavior-map.csv \
+  --requirements requirements.csv \
+  --out results.csv
+```
+
+The importer converts a real Stryker JSON report into `results.csv`; it never runs mutations.
+
+- `requirements.csv` is the behavior -> risk tier sidecar. Tiers are **not** invented: a behavior
+  missing from it is refused (verbatim linkage).
+- `behavior-map.csv` binds each report mutant id to a behavior: `file,mutant_id,behavior_name`.
+  Ids are report-specific; rebuild the map when the source changes.
+- Status mapping: `Killed`/`Timeout` -> Caught · `Survived` -> Survived · `NoCoverage` ->
+  **Unexercised** (never Survived) · `RuntimeError`/`Pending`/`Ignored` -> `expected=N` (out of
+  scope, still recorded). Unknown statuses are refused.
+- `--no-coverage survived` is an explicit opt-in escape hatch (prints a warning) and is stamped into
+  the verdict.
+- Output is deterministic: provenance comment lines (`# import: framework=...`,
+  `framework-version=`, `schema-version=`, `report_sha256=`, `no-coverage=`) plus a
+  `<stem>.import.json` summary. The verdict carries the same stamp.
+
+A real fixture lives in `examples/stryker-demo-math/` (9 mutants: 7 Killed + 2 NoCoverage).
 
 ## Verdict rules
 

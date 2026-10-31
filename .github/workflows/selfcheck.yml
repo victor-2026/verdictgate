@@ -233,3 +233,76 @@ jobs:
           assert v['import']['no_coverage']=='survived', v.get('import')
           assert 'import-no-coverage=survived' in open('/tmp/vg/imp/o/a.verdict.md').read()
           PY
+
+      - name: Import stryker - deterministic + E2E verdict
+        run: |
+          python3 verdictgate.py import stryker examples/stryker-demo-math/reports/report.json --behavior-map examples/stryker-demo-math/behavior-map.csv --requirements examples/stryker-demo-math/requirements.csv --out /tmp/vg/imp1/results.csv
+          python3 verdictgate.py import stryker examples/stryker-demo-math/reports/report.json --behavior-map examples/stryker-demo-math/behavior-map.csv --requirements examples/stryker-demo-math/requirements.csv --out /tmp/vg/imp2/results.csv
+          diff /tmp/vg/imp1/results.csv /tmp/vg/imp2/results.csv
+          diff /tmp/vg/imp1/results.import.json /tmp/vg/imp2/results.import.json
+          python3 verdictgate.py verdict /tmp/vg/imp1/results.csv --out-dir /tmp/vg/impv
+          python3 - <<'PY'
+          import json
+          v=json.load(open('/tmp/vg/impv/results.verdict.json'))
+          assert v['tiers']['B1']['seeded']==7 and v['tiers']['B1']['caught']==7, v['tiers']['B1']
+          assert v['tiers']['B2']['seeded']==0 and v['tiers']['B2']['unexercised']==2, v['tiers']['B2']
+          assert len(v['unexercised_rows'])==2, v['unexercised_rows']
+          assert v['import']['no_coverage']=='unexercised', v.get('import')
+          PY
+
+      - name: Import stryker - B2 unexercised does not trip --fail-on-unexercised
+        run: |
+          mkdir -p /tmp/vg/impiso
+          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b0,op,B0,Y,fail,,\nM2,b1,op,B1,Y,fail,,\nM3,b2,op,B2,Y,unexercised,,\n' > /tmp/vg/impiso/a.csv
+          set +e
+          python3 verdictgate.py verdict /tmp/vg/impiso/a.csv --fail-on-unexercised --out-dir /tmp/vg/impiso/o >/dev/null 2>&1
+          code=$?
+          set -e
+          [ "$code" -eq 0 ]
+
+      - name: Import stryker - fail-closed exit 2 paths
+        run: |
+          python3 - <<'PY'
+          import json
+          r=json.load(open('examples/stryker-demo-math/reports/report.json'))
+          r['files']['src/math.js']['mutants'][0]['status']='Weird'
+          json.dump(r,open('/tmp/vg/report-weird.json','w'))
+          r2=json.load(open('examples/stryker-demo-math/reports/report.json'))
+          r2['schemaVersion']='2.0'
+          json.dump(r2,open('/tmp/vg/report-schema2.json','w'))
+          lines=open('examples/stryker-demo-math/behavior-map.csv').read().splitlines()
+          open('/tmp/vg/map-missing.csv','w').write('\n'.join(lines[:-1])+'\n')
+          open('/tmp/vg/map-double.csv','w').write('\n'.join(lines+[lines[-1]])+'\n')
+          open('/tmp/vg/map-badbehavior.csv','w').write('\n'.join(
+              l.replace('add returns correct sum','NOT IN REQUIREMENTS') for l in lines)+'\n')
+          open('/tmp/vg/map-absent.csv','w').write('\n'.join(lines+['src/math.js,99,add returns correct sum'])+'\n')
+          PY
+          check() { set +e; python3 verdictgate.py import stryker "$1" --behavior-map "$2" --requirements examples/stryker-demo-math/requirements.csv --out /tmp/vg/impbad/results.csv >/dev/null 2>&1; c=$?; set -e; [ "$c" -eq 2 ] || { echo "FAIL: $3 exit $c"; exit 1; }; }
+          check examples/stryker-demo-math/reports/report.json /tmp/vg/map-missing.csv missing-map
+          check examples/stryker-demo-math/reports/report.json /tmp/vg/map-double.csv double-map
+          check /tmp/vg/report-weird.json examples/stryker-demo-math/behavior-map.csv unknown-status
+          check /tmp/vg/report-schema2.json examples/stryker-demo-math/behavior-map.csv schema-version
+          check examples/stryker-demo-math/reports/report.json /tmp/vg/map-badbehavior.csv behavior-outside-requirements
+          check examples/stryker-demo-math/reports/report.json /tmp/vg/map-absent.csv map-absent-from-report
+
+      - name: Import stryker - --no-coverage survived opt-in
+        run: |
+          python3 verdictgate.py import stryker examples/stryker-demo-math/reports/report.json --behavior-map examples/stryker-demo-math/behavior-map.csv --requirements examples/stryker-demo-math/requirements.csv --no-coverage survived --out /tmp/vg/imps/results.csv 2>/tmp/vg/imps.stderr
+          grep -qi 'warning' /tmp/vg/imps.stderr
+          python3 - <<'PY'
+          import json, csv
+          rows=list(csv.DictReader([l for l in open('/tmp/vg/imps/results.csv') if not l.startswith('#')]))
+          unex=[r for r in rows if r['suite_result']=='unexercised']
+          assert not unex, unex
+          s=json.load(open('/tmp/vg/imps/results.import.json'))
+          assert s['no_coverage_policy']=='survived', s
+          PY
+          set +e
+          python3 verdictgate.py verdict /tmp/vg/imps/results.csv --out-dir /tmp/vg/impsv
+          set -e
+          python3 - <<'PY'
+          import json
+          v=json.load(open('/tmp/vg/impsv/results.verdict.json'))
+          assert v['import']['no_coverage']=='survived', v.get('import')
+          assert 'import-no-coverage=survived' in open('/tmp/vg/impsv/results.verdict.md').read()
+          PY

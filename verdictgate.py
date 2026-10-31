@@ -15,6 +15,7 @@ Python stdlib only. MIT license.
 
 import argparse
 import csv
+import io
 import json
 import sys
 from pathlib import Path
@@ -40,7 +41,7 @@ GATE_RULES = {
     "B3": {"trend_only": True},
 }
 # mass_e_pct / mass_observed_pct are D1 Option C SIGNALS — presence/rate only, never gate.
-# Do not wire into `ok` without a new explicit decision (see AGENTS.md D1).
+# Do not wire into `ok` without a new explicit decision.
 
 REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result")
 NOOP_TOKENS = {"NOOP", "NO-OP"}
@@ -214,6 +215,36 @@ def parse_import_meta(path):
                 key, value = body.split("=", 1)
                 meta[key.strip().replace("-", "_")] = value.strip()
     return meta
+
+
+def parse_behavior_map(path):
+    """(file, mutant_id) -> behavior_name map for the Stryker importer."""
+    try:
+        text = Path(path).read_text(encoding="utf-8-sig")
+    except OSError as exc:
+        raise InputError(f"cannot read behavior map {path}: {exc}")
+    lines = [ln for ln in text.splitlines() if ln.strip() and not ln.lstrip().startswith("#")]
+    if not lines:
+        raise InputError("empty behavior map")
+    reader = csv.DictReader(lines)
+    fieldnames = reader.fieldnames or []
+    for col in ("file", "mutant_id", "behavior_name"):
+        if col not in fieldnames:
+            raise InputError(f"behavior map missing required column: {col}")
+    mapping = {}
+    for idx, raw in enumerate(reader, start=2):
+        f = (raw.get("file") or "").strip().replace("\\", "/")
+        mid = (raw.get("mutant_id") or "").strip()
+        beh = (raw.get("behavior_name") or "").strip()
+        if not f or not mid or not beh:
+            raise InputError(f"behavior map line {idx}: file, mutant_id, behavior_name are required")
+        key = (f, mid)
+        if key in mapping:
+            raise InputError(f"behavior map line {idx}: duplicate mapping for {f}:{mid}")
+        mapping[key] = beh
+    if not mapping:
+        raise InputError("no behavior map rows found")
+    return mapping
 
 
 def parse_rows(path):
@@ -717,6 +748,186 @@ def render_md(verdict, input_name):
     return "\n".join(lines)
 
 
+STRIKER_SUPPORTED_SCHEMA = "1.0"
+STRIKER_STATUS_MAP = {
+    "Killed": ("Y", "fail"),
+    "Timeout": ("Y", "fail"),
+    "Survived": ("Y", "pass"),
+    "NoCoverage": ("Y", "unexercised"),
+}
+STRIKER_EXCLUDE_DEFAULT = "Pending,Ignored,RuntimeError"
+
+
+def import_stryker(args):
+    import hashlib
+    report_path = Path(args.report)
+    try:
+        raw = report_path.read_bytes()
+        report = json.loads(raw.decode("utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"verdictgate: import error: cannot read report: {exc}", file=sys.stderr)
+        return 2
+    if not isinstance(report, dict):
+        print("verdictgate: import error: report is not a JSON object", file=sys.stderr)
+        return 2
+    schema = str(report.get("schemaVersion", ""))
+    if schema != STRIKER_SUPPORTED_SCHEMA:
+        print(f"verdictgate: import error: unsupported Stryker schemaVersion {schema!r} "
+              f"(supported: {STRIKER_SUPPORTED_SCHEMA})", file=sys.stderr)
+        return 2
+    files = report.get("files")
+    if not isinstance(files, dict) or not files:
+        print("verdictgate: import error: report has no files/mutants", file=sys.stderr)
+        return 2
+
+    if args.no_coverage not in ("unexercised", "survived"):
+        print("verdictgate: import error: --no-coverage must be unexercised or survived", file=sys.stderr)
+        return 2
+    exclude = {s.strip() for s in args.exclude_status.split(",") if s.strip()}
+    collide = exclude & set(STRIKER_STATUS_MAP)
+    if collide:
+        print(f"verdictgate: import error: --exclude-status cannot name mapped status(es): "
+              f"{', '.join(sorted(collide))}", file=sys.stderr)
+        return 2
+
+    try:
+        requirements = parse_requirements(args.requirements)
+        behavior_map = parse_behavior_map(args.behavior_map)
+    except InputError as exc:
+        print(f"verdictgate: import error: {exc}", file=sys.stderr)
+        return 2
+
+    report_keys = set()
+    for fk, fentry in files.items():
+        if not isinstance(fentry, dict):
+            print(f"verdictgate: import error: malformed file entry {fk!r}", file=sys.stderr)
+            return 2
+        for m in fentry.get("mutants") or []:
+            if isinstance(m, dict):
+                mid = str(m.get("id", "")).strip()
+                if mid:
+                    report_keys.add((fk.replace("\\", "/"), mid))
+    for key in behavior_map:
+        if key not in report_keys:
+            print(f"verdictgate: import error: behavior map references mutant "
+                  f"{key[0]}:{key[1]} not present in the report", file=sys.stderr)
+            return 2
+
+    framework = report.get("framework") or {}
+    fw_name = framework.get("name") or "unknown"
+    fw_version = framework.get("version") or "unknown"
+
+    counts = {}
+    excluded = []
+    rows = []
+    unmapped_count = 0
+    for file_ordinal, fk in enumerate(sorted(files.keys()), start=1):
+        fentry = files[fk]
+        if not isinstance(fentry, dict):
+            print(f"verdictgate: import error: malformed file entry {fk!r}", file=sys.stderr)
+            return 2
+        mutants = fentry.get("mutants") or []
+        norm_fk = fk.replace("\\", "/")
+        def _id_key(m):
+            mid = m.get("id")
+            try:
+                return (0, int(mid))
+            except (TypeError, ValueError):
+                return (1, str(mid))
+        for m in sorted(mutants, key=_id_key):
+            mid = str(m.get("id", "")).strip()
+            mutator = (m.get("mutatorName") or "").strip()
+            status = (m.get("status") or "").strip()
+            if not mid or not mutator or not status:
+                print(f"verdictgate: import error: malformed mutant in {fk}: "
+                      "id, mutatorName, status required", file=sys.stderr)
+                return 2
+            counts[status] = counts.get(status, 0) + 1
+            behavior = behavior_map.get((norm_fk, mid))
+            if behavior is None:
+                if args.unmapped == "skip":
+                    unmapped_count += 1
+                    excluded.append({"file": norm_fk, "mutant_id": mid, "status": status,
+                                     "reason": "unmapped (--unmapped skip)"})
+                    continue
+                print(f"verdictgate: import error: mutant {norm_fk}:{mid} is not in the behavior map "
+                      "(add it, or pass --unmapped skip)", file=sys.stderr)
+                return 2
+            if behavior not in requirements:
+                print(f"verdictgate: import error: behavior '{behavior}' (mutant {norm_fk}:{mid}) "
+                      "matches no requirements.csv behavior_name (verbatim linkage rule)", file=sys.stderr)
+                return 2
+            tier = requirements[behavior]
+            mutation_id = f"S{file_ordinal}-{mid}"
+            if status in STRIKER_STATUS_MAP:
+                expected, result = STRIKER_STATUS_MAP[status]
+                if status == "NoCoverage" and args.no_coverage == "survived":
+                    expected, result = "Y", "pass"
+                rows.append({
+                    "mutation_id": mutation_id, "behavior": behavior, "operator": mutator,
+                    "risk_tier": tier, "expected": expected, "suite_result": result,
+                    "observed": "", "decision": "",
+                })
+            elif status in exclude:
+                # out of scope from scoring; still a row, so provenance survives to the verdict
+                rows.append({
+                    "mutation_id": mutation_id, "behavior": behavior, "operator": mutator,
+                    "risk_tier": tier, "expected": "N", "suite_result": "pass",
+                    "observed": "", "decision": "",
+                })
+                excluded.append({"file": norm_fk, "mutant_id": mid, "status": status,
+                                 "reason": "excluded by status policy"})
+            else:
+                print(f"verdictgate: import error: unknown Stryker status {status!r} "
+                      f"(mutant {norm_fk}:{mid}); add a mapping or an --exclude-status entry",
+                      file=sys.stderr)
+                return 2
+
+    if not rows and not excluded:
+        print("verdictgate: import error: no mutants to import", file=sys.stderr)
+        return 2
+
+    counts["unmapped"] = unmapped_count
+    report_sha = hashlib.sha256(raw).hexdigest()
+
+    if args.no_coverage == "survived":
+        print("verdictgate: warning: --no-coverage survived maps NoCoverage to Survived "
+              "(inflates survival rate; opt-in only)", file=sys.stderr)
+
+    header = ["mutation_id", "behavior", "operator", "risk_tier", "expected",
+              "suite_result", "observed", "decision"]
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=header, lineterminator="\n")
+    buf.write(f"# import: framework={fw_name}\n")
+    buf.write(f"# import: framework-version={fw_version}\n")
+    buf.write(f"# import: schema-version={schema}\n")
+    buf.write(f"# import: report_sha256={report_sha}\n")
+    buf.write(f"# import: no-coverage={args.no_coverage}\n")
+    writer.writeheader()
+    for r in rows:
+        writer.writerow(r)
+
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(buf.getvalue(), encoding="utf-8")
+
+    summary = {
+        "source": {"framework": fw_name, "version": fw_version,
+                   "schemaVersion": schema, "report_sha256": report_sha},
+        "counts": dict(sorted(counts.items())),
+        "excluded": excluded,
+        "no_coverage_policy": args.no_coverage,
+    }
+    summary_path = out_path.with_name(out_path.stem + ".import.json")
+    summary_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+                            encoding="utf-8")
+
+    written = len(rows)
+    print(f"imported {written} mutant(s) from {report_path.name} -> {out_path}", file=sys.stderr)
+    print(f"import summary: {summary_path}", file=sys.stderr)
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(
         prog="verdictgate",
@@ -746,13 +957,28 @@ def main():
     rmt_parser.add_argument("--format", choices=["json", "summary", "csv"], default="summary", help="output format (stdout)")
     rmt_parser.add_argument("--exclude", default="node_modules", help="comma-separated directories to exclude from recursive scan")
 
+    import_parser = subparsers.add_parser("import", help="Import a vendor mutation report into results.csv")
+    import_parser.add_argument("format", choices=["stryker"], help="report format")
+    import_parser.add_argument("report", help="report JSON path")
+    import_parser.add_argument("--behavior-map", required=True, metavar="MAP.csv",
+                               help="mutant_id -> behavior_name map (required; tiers are not guessed)")
+    import_parser.add_argument("--requirements", required=True, metavar="REQUIREMENTS_CSV",
+                               help="behavior_name -> risk_tier sidecar (required; verbatim linkage)")
+    import_parser.add_argument("--out", required=True, metavar="RESULTS.csv", help="output results CSV")
+    import_parser.add_argument("--unmapped", choices=["error", "skip"], default="error",
+                               help="policy for mutants absent from the map (default: error)")
+    import_parser.add_argument("--no-coverage", choices=["unexercised", "survived"], default="unexercised",
+                               help="NoCoverage mapping (default: unexercised; survived is opt-in)")
+    import_parser.add_argument("--exclude-status", default=STRIKER_EXCLUDE_DEFAULT,
+                               help=f"comma-separated statuses mapped to expected=N (default: {STRIKER_EXCLUDE_DEFAULT})")
+
     # Backward-compat shim (pre-subcommand CLI, broke in 08b158b): a bare
     # `verdictgate.py results.csv ...` must still route to `verdict`.
     # argparse rejects an unknown subcommand at parse time, so the old
     # post-parse default never fires — insert before parsing instead.
     if (
         len(sys.argv) > 1
-        and sys.argv[1] not in ("verdict", "rmt", "-h", "--help")
+        and sys.argv[1] not in ("verdict", "rmt", "import", "-h", "--help")
         and not sys.argv[1].startswith("-")
     ):
         sys.argv.insert(1, "verdict")
@@ -824,6 +1050,11 @@ def main():
     elif args.command == "rmt":
         from rmt import run_rmt
         return run_rmt(args)
+
+    elif args.command == "import":
+        if args.format == "stryker":
+            return import_stryker(args)
+        ap.error(f"Unknown import format: {args.format}")
     else:
         ap.error(f"Unknown command: {args.command}")
 
