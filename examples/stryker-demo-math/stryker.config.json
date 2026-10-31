@@ -1,0 +1,8 @@
+{
+  "testRunner": "vitest",
+  "mutate": ["src/**/*.js"],
+  "reporters": ["json", "clear-text", "progress"],
+  "jsonReporter": { "fileName": "reports/report.json" },
+  "concurrency": 2,
+  "coverageAnalysis": "perTest"
+}
