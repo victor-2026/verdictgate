@@ -26,6 +26,9 @@ hand-authored.
   start --no-ai --fresh --json .` (shim and engine both pinned to 0.2.58).
 - Pre-run status gate printed `CLEAN-OK` for each run. OrangePro-generated `.orangepro/` files
   were removed between runs before checking cleanliness again.
+- The generated graph/proof metadata marks the repository dirty after startup (`graph.json`:19219;
+  `proof-attempts.json`:6,20; `report-data.json`:2800) because the run itself writes `.orangepro/`
+  outputs. The independently captured pre-run Git status was empty.
 - Surface gate: pin and derived runs both report 113 mapped / 110 ranked and 113 RTM behaviors.
 - Repeatability: report-data, RTM, config, and proof-attempt payloads match after removing wall-clock fields;
   graph payload matches after removing generated/verification timestamps.
