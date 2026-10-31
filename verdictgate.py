@@ -41,6 +41,17 @@ GATE_RULES = {
     "B3": {"trend_only": True},
 }
 # mass_e_pct / mass_observed_pct are D1 Option C SIGNALS — presence/rate only, never gate.
+
+OPRO_STATUS_MAP = {
+    ("non_killing", "unrunnable"): ("Y", "unexercised"),
+}
+OPRO_PROVISIONAL = {
+    ("killing", "killed"): ("Y", "fail"),
+    ("non_killing", "survived"): ("Y", "pass"),
+    ("timeout", "any"): ("Y", "unexercised"),
+    ("inconclusive", "any"): ("Y", "unexercised"),
+}
+
 # Do not wire into `ok` without a new explicit decision.
 
 REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result")
@@ -215,6 +226,292 @@ def parse_import_meta(path):
                 key, value = body.split("=", 1)
                 meta[key.strip().replace("-", "_")] = value.strip()
     return meta
+
+
+def import_opro(args):
+    import hashlib
+    srcdir = Path(args.srcdir) if args.srcdir else None
+    if srcdir is None or not srcdir.is_dir():
+        print("verdictgate: import error: --from <dir> is required for opro", file=sys.stderr)
+        return 2
+    graph_path = srcdir / "graph.json"
+    report_path = srcdir / "report-data.json"
+    proof_path = srcdir / "proof-attempts.json"
+    for pth in (graph_path, report_path, proof_path):
+        if not pth.is_file():
+            print(f"verdictgate: import error: missing artifact {pth.name} in {srcdir}", file=sys.stderr)
+            return 2
+    try:
+        graph = json.loads(graph_path.read_text(encoding="utf-8"))
+        report_data = json.loads(report_path.read_text(encoding="utf-8"))
+        proof = json.loads(proof_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"verdictgate: import error: cannot read artifact: {exc}", file=sys.stderr)
+        return 2
+    if not isinstance(graph, dict) or not isinstance(report_data, dict) or not isinstance(proof, dict):
+        print("verdictgate: import error: artifacts must be JSON objects", file=sys.stderr)
+        return 2
+
+    if str(proof.get("schema_version", "")) != "orangepro.proof_attempts.v2":
+        print(f"verdictgate: import error: unsupported proof schema "
+              f"{proof.get('schema_version')!r} (supported: orangepro.proof_attempts.v2)", file=sys.stderr)
+        return 2
+    ai = proof.get("artifact_identity") or {}
+    if not isinstance(ai, dict):
+        print("verdictgate: import error: proof artifact_identity missing", file=sys.stderr)
+        return 2
+    if graph.get("schema_version") != ai.get("graph_schema_version"):
+        print(f"verdictgate: import error: graph schema {graph.get('schema_version')!r} != "
+              f"artifact_identity {ai.get('graph_schema_version')!r}", file=sys.stderr)
+        return 2
+    pf = ai.get("run_fingerprint")
+    rd_run = report_data.get("run") or {}
+    rd_fp = None
+    for e in rd_run.get("fingerprints", []) or []:
+        if e.get("k") == "Run":
+            rd_fp = e.get("v")
+    if pf is not None and rd_fp is not None:
+        pf_norm = pf.split(":", 1)[-1] if ":" in pf else pf
+        rd_norm = rd_fp.split(":", 1)[-1] if ":" in rd_fp else rd_fp
+        # proof fingerprint is the full 64-hex sha256; report-data stores a truncated 16-hex prefix
+        if not pf_norm.startswith(rd_norm):
+            print("verdictgate: import error: run fingerprint mismatch between proof and report-data", file=sys.stderr)
+            return 2
+    if ai.get("git_commit") is not None and (report_data.get("repo") or {}).get("commit") is not None:
+        if ai.get("git_commit") != report_data["repo"].get("commit"):
+            print("verdictgate: import error: git_commit mismatch between proof and report-data", file=sys.stderr)
+            return 2
+
+    if args.no_coverage not in ("unexercised", "survived"):
+        print("verdictgate: import error: --no-coverage must be unexercised or survived", file=sys.stderr)
+        return 2
+    try:
+        requirements = parse_requirements(args.requirements)
+    except InputError as exc:
+        print(f"verdictgate: import error: {exc}", file=sys.stderr)
+        return 2
+    alias = None
+    if args.behavior_alias:
+        try:
+            alias = parse_behavior_alias(args.behavior_alias)
+        except InputError as exc:
+            print(f"verdictgate: import error: {exc}", file=sys.stderr)
+            return 2
+
+    attempts = proof.get("attempts") or []
+    skipped = proof.get("skipped") or []
+    if not isinstance(attempts, list) or not isinstance(skipped, list):
+        print("verdictgate: import error: attempts/skipped must be arrays", file=sys.stderr)
+        return 2
+    by_symbol = {}
+    for a in attempts:
+        if not isinstance(a, dict):
+            print("verdictgate: import error: malformed attempt record", file=sys.stderr)
+            return 2
+        sym = (a.get("target_symbol") or "").strip()
+        cls = (a.get("classification") or "").strip()
+        status = (a.get("mutant_status") or "").strip()
+        if not sym or not cls or not status:
+            print("verdictgate: import error: attempt missing target_symbol/classification/mutant_status", file=sys.stderr)
+            return 2
+        key = (cls, status)
+        if key not in OPRO_STATUS_MAP and not (args.allow_provisional_statuses and key in OPRO_PROVISIONAL):
+            print(f"verdictgate: import error: unobserved status combo {cls!r}/{status!r} "
+                  f"(mutant {sym}); pass --allow-provisional-statuses to use the provisional mapping",
+                  file=sys.stderr)
+            return 2
+        by_symbol.setdefault(sym, []).append(a)
+
+    rows = []
+    symbols_summary = []
+    counts = {}
+    excluded = []
+    for sym in sorted(by_symbol):
+        atts = by_symbol[sym]
+        tests = sorted({(a.get("test_path") or "").strip() for a in atts if (a.get("test_path") or "").strip()})
+        reasons = sorted({(a.get("reason") or "").strip() for a in atts if (a.get("reason") or "").strip()})
+        has_proven = (args.allow_provisional_statuses
+                      and any((a.get("classification") or "").strip() == "killing" for a in atts))
+        has_runnable_nonkilling = (args.allow_provisional_statuses
+                                  and any((a.get("classification") or "").strip() == "non_killing"
+                                          and (a.get("mutant_status") or "").strip() not in ("unrunnable",)
+                                          for a in atts))
+        all_unrunnable = all((a.get("mutant_status") or "").strip() == "unrunnable" for a in atts)
+
+        if has_proven:
+            expected, result = "Y", "fail"
+            verdict = "Caught"
+            counts["killing"] = counts.get("killing", 0) + 1
+        elif has_runnable_nonkilling:
+            expected, result = "Y", "pass"
+            verdict = "Survived"
+            counts["non_killing_runnable"] = counts.get("non_killing_runnable", 0) + 1
+        elif all_unrunnable:
+            if args.no_coverage == "survived":
+                expected, result = "Y", "pass"
+                verdict = "Survived"
+            else:
+                expected, result = "Y", "unexercised"
+                verdict = "Unexercised"
+            counts["unrunnable"] = counts.get("unrunnable", 0) + 1
+        else:
+            expected, result = "N", "pass"
+            verdict = "n/a"
+            counts["excluded"] = counts.get("excluded", 0) + 1
+
+        if alias is not None and sym not in alias:
+            if args.unmapped == "skip":
+                excluded.append({"target_symbol": sym, "reason": "unmapped (--unmapped skip)"})
+                continue
+            print(f"verdictgate: import error: symbol {sym} is not in the behavior alias map "
+                  "(add it, or pass --unmapped skip)", file=sys.stderr)
+            return 2
+
+        behavior = alias.get(sym, sym) if alias else sym
+        if behavior not in requirements:
+            print(f"verdictgate: import error: behavior '{behavior}' (symbol {sym}) "
+                  "matches no requirements.csv behavior_name (verbatim linkage rule)", file=sys.stderr)
+            return 2
+        tier = requirements[behavior]
+
+        ordinal = sorted(by_symbol).index(sym) + 1
+        rows.append({
+            "mutation_id": f"P{ordinal}",
+            "behavior": behavior,
+            "operator": "opro:dynamic_proof",
+            "risk_tier": tier,
+            "expected": expected,
+            "suite_result": result,
+            "observed": "", "decision": "",
+        })
+        symbols_summary.append({
+            "target_symbol": sym, "verdict": verdict, "attempts": len(atts),
+            "tests": tests, "reasons": reasons,
+        })
+
+    for s in skipped:
+        if not isinstance(s, dict):
+            continue
+        sym = (s.get("target_symbol") or "").strip()
+        if not sym:
+            continue
+        if alias is not None and sym not in alias:
+            if args.unmapped == "skip":
+                excluded.append({"target_symbol": sym, "reason": "unmapped skipped entry"})
+                continue
+            print(f"verdictgate: import error: skipped symbol {sym} is not in the behavior alias map", file=sys.stderr)
+            return 2
+        if alias is not None and sym not in alias:
+            if args.unmapped == "skip":
+                excluded.append({"target_symbol": sym, "reason": "unmapped skipped entry"})
+                continue
+            print(f"verdictgate: import error: skipped symbol {sym} is not in the behavior alias map", file=sys.stderr)
+            return 2
+        behavior = alias.get(sym, sym) if alias else sym
+        if behavior not in requirements:
+            print(f"verdictgate: import error: behavior '{behavior}' (skipped symbol {sym}) "
+                  "matches no requirements.csv behavior_name", file=sys.stderr)
+            return 2
+        tier = requirements[behavior]
+        ordinal = (sorted(by_symbol).index(sym) + 1) if sym in by_symbol else (len(by_symbol) + len(excluded) + 1)
+        rows.append({
+            "mutation_id": f"P{ordinal}",
+            "behavior": behavior, "operator": "opro:dynamic_proof",
+            "risk_tier": tier, "expected": "N", "suite_result": "pass",
+            "observed": "", "decision": "",
+        })
+        counts["skipped"] = counts.get("skipped", 0) + 1
+        symbols_summary.append({"target_symbol": sym, "verdict": "n/a",
+                                "attempts": 0, "tests": [], "reasons": ["skipped"]})
+        excluded.append({"target_symbol": sym, "reason": "skipped (not attempted)"})
+
+    if not rows and not excluded:
+        print("verdictgate: import error: no rows to import", file=sys.stderr)
+        return 2
+
+    if args.no_coverage == "survived":
+        unrunnable_rows = [r for r in rows if r["suite_result"] == "unexercised"]
+        if unrunnable_rows:
+            print("verdictgate: warning: --no-coverage survived maps unrunnable to Survived "
+                  "(inflates survival rate; opt-in only)", file=sys.stderr)
+
+    fw = ai.get("tool_version") or "unknown"
+    proof_sha = hashlib.sha256(proof_path.read_bytes()).hexdigest()
+    header = ["mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result", "observed", "decision"]
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=header, lineterminator="\n")
+    buf.write("# import: framework=OrangePro\n")
+    buf.write(f"# import: framework-version={fw}\n")
+    buf.write("# import: schema-version=orangepro.proof_attempts.v2\n")
+    buf.write(f"# import: report_sha256={proof_sha}\n")
+    buf.write(f"# import: run-fingerprint={ai.get('run_fingerprint','')}\n")
+    buf.write(f"# import: unrunnable={args.no_coverage}\n")
+    writer.writeheader()
+    for r in rows:
+        writer.writerow(r)
+
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(buf.getvalue(), encoding="utf-8")
+
+    provisional_used = bool(args.allow_provisional_statuses) and any(
+        ((a.get("classification") or "").strip(), (a.get("mutant_status") or "").strip()) in OPRO_PROVISIONAL
+        for a in attempts
+    )
+    summary = {
+        "source": {"framework": "OrangePro", "tool_version": fw,
+                   "proof_schema": "orangepro.proof_attempts.v2",
+                   "graph_schema": graph.get("schema_version"),
+                   "run_fingerprint": ai.get("run_fingerprint"),
+                   "git_commit": ai.get("git_commit"),
+                   "git_dirty": ai.get("git_dirty")},
+        "counts": {"attempts": len(attempts), "symbols": len(by_symbol),
+                   "skipped": len(skipped), "unmapped": 0,
+                   "by_mutant_status": dict(sorted(counts.items()))},
+        "aggregation": {"unit": "target_symbol",
+                        "order": ["Caught", "Survived", "Unexercised", "excluded"]},
+        "symbols": symbols_summary,
+        "excluded": excluded,
+        "unrunnable_policy": args.no_coverage,
+        "provisional_statuses_used": provisional_used,
+    }
+    summary_path = out_path.with_name(out_path.stem + ".import.json")
+    summary_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+                            encoding="utf-8")
+
+    print(f"imported {len(rows)} row(s) from {srcdir} -> {out_path}", file=sys.stderr)
+    print(f"import summary: {summary_path}", file=sys.stderr)
+    return 0
+
+
+
+
+def parse_behavior_alias(path):
+    """target_symbol -> behavior_name map for the opro importer."""
+    try:
+        text = Path(path).read_text(encoding="utf-8-sig")
+    except OSError as exc:
+        raise InputError(f"cannot read behavior alias {path}: {exc}")
+    lines = [ln for ln in text.splitlines() if ln.strip() and not ln.lstrip().startswith("#")]
+    if not lines:
+        raise InputError("empty behavior alias")
+    reader = csv.DictReader(lines)
+    fieldnames = reader.fieldnames or []
+    for col in ("target_symbol", "behavior_name"):
+        if col not in fieldnames:
+            raise InputError(f"behavior alias missing required column: {col}")
+    mapping = {}
+    for idx, raw in enumerate(reader, start=2):
+        sym = (raw.get("target_symbol") or "").strip()
+        beh = (raw.get("behavior_name") or "").strip()
+        if not sym or not beh:
+            raise InputError(f"behavior alias line {idx}: target_symbol, behavior_name are required")
+        if sym in mapping:
+            raise InputError(f"behavior alias line {idx}: duplicate target_symbol '{sym}'")
+        mapping[sym] = beh
+    if not mapping:
+        raise InputError("no behavior alias rows found")
+    return mapping
 
 
 def parse_behavior_map(path):
@@ -673,6 +970,8 @@ def render_md(verdict, input_name):
     import_meta = verdict.get("import") or {}
     if import_meta.get("no_coverage"):
         config_line += f", import-no-coverage={import_meta['no_coverage']}"
+    if import_meta.get("unrunnable"):
+        config_line += f", import-unrunnable={import_meta['unrunnable']}"
     lines.append(config_line)
     lines.append("")
     lines.append("## Per-tier results")
@@ -958,10 +1257,16 @@ def main():
     rmt_parser.add_argument("--exclude", default="node_modules", help="comma-separated directories to exclude from recursive scan")
 
     import_parser = subparsers.add_parser("import", help="Import a vendor mutation report into results.csv")
-    import_parser.add_argument("format", choices=["stryker"], help="report format")
-    import_parser.add_argument("report", help="report JSON path")
-    import_parser.add_argument("--behavior-map", required=True, metavar="MAP.csv",
-                               help="mutant_id -> behavior_name map (required; tiers are not guessed)")
+    import_parser.add_argument("format", choices=["stryker", "opro"], help="report format")
+    import_parser.add_argument("report", nargs="?", help="report JSON path (Stryker only)")
+    import_parser.add_argument("--behavior-map", default=None, metavar="MAP.csv",
+                               help="mutant_id -> behavior_name map (Stryker only)")
+    import_parser.add_argument("--from", dest="srcdir", metavar="DIR",
+                               help="directory holding graph.json/report-data.json/proof-attempts.json (opro only)")
+    import_parser.add_argument("--behavior-alias", default=None, metavar="MAP.csv",
+                               help="target_symbol -> behavior_name map (optional; opro only)")
+    import_parser.add_argument("--allow-provisional-statuses", action="store_true",
+                               help="enable the provisional Caught/Survived mapping (spec-only; default off)")
     import_parser.add_argument("--requirements", required=True, metavar="REQUIREMENTS_CSV",
                                help="behavior_name -> risk_tier sidecar (required; verbatim linkage)")
     import_parser.add_argument("--out", required=True, metavar="RESULTS.csv", help="output results CSV")
@@ -1054,6 +1359,8 @@ def main():
     elif args.command == "import":
         if args.format == "stryker":
             return import_stryker(args)
+        if args.format == "opro":
+            return import_opro(args)
         ap.error(f"Unknown import format: {args.format}")
     else:
         ap.error(f"Unknown command: {args.command}")
