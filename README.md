@@ -89,6 +89,43 @@ The importer converts a real Stryker JSON report into `results.csv`; it never ru
 
 A real fixture lives in `examples/stryker-demo-math/` (9 mutants: 7 Killed + 2 NoCoverage).
 
+## Importing an OrangePro (opro) report (v1)
+
+```
+python3 verdictgate.py import opro \
+  --from reports/ \
+  --requirements requirements.csv \
+  --out results.csv
+```
+
+The importer converts an OrangePro dynamic-proof ledger (`proof-attempts.json`) into
+`results.csv`; it never runs mutations. OrangePro has no risk tiers and no mutation scores:
+each row is a proof attempt's outcome, graded by the same per-tier gates.
+
+- `requirements.csv` is the behavior -> risk tier sidecar (verbatim linkage, reusing the
+  tier-laundering guard). The default `behavior` is the OrangePro `target_symbol`
+  (e.g. `sym:pom/ClaimPage.ts#ClaimPage.getHeading`); `--behavior-alias MAP.csv`
+  (`target_symbol,behavior_name`) maps to human names.
+- Status mapping: `non_killing` + `unrunnable` -> **Unexercised** (the mutant was never
+  executed - baseline failed). Provisional `killing`/`survived` mappings are spec-only and
+  ship inert (default off) until a real proven fixture exists.
+- Multiple attempts of the same symbol collapse into **one** row (stability data attaches
+  to the row, never inflates the denominator), in the order Caught > Survived >
+  Unexercised > excluded.
+- `--unrunnable excluded` writes `expected=N` (out of scope, still recorded).
+- Output is deterministic: provenance comment lines (`# import: framework=OrangePro`,
+  `framework-version=`, `schema-version=`, `report_sha256=`, `run-fingerprint=`,
+  `unrunnable=`) plus a `<stem>.import.json` summary carrying the integrity stamp
+  (proof schema, graph schema, run fingerprint, git commit, git_dirty). The verdict
+  carries the same stamp (`import-unrunnable=...`).
+
+Integrity is fail-closed: a mismatched `schemaVersion`, run fingerprint, or git commit between
+`proof-attempts.json`, `graph.json`, and `report-data.json` is refused (exit 2).
+
+A real fixture lives in `examples/opro-demo-orangehrm/` (3 symbols, 5 attempts, all
+Unexercised - OrangePro's current Playwright runner is unsupported).
+
+
 ## Verdict rules
 
 | Tier | Hard gate | Score signal |
@@ -137,13 +174,13 @@ Per-risk-tier gating and the mutation matrix come from the field methodology des
 
 Beta (0.2.x). MIT.
 
-Roadmap: scorer 0.2.2 shipped (E-justification, observed evidence, mass signals, --fail-on-unexercised, --requirements guard). Next: vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines.)
+Roadmap: scorer 0.2.2 shipped (E-justification, observed evidence, mass signals, --fail-on-unexercised, --requirements guard). Next: vendor threshold profiles · v1 importers (Stryker / opro JSON as input) · v2 GitHub Action posting verdicts to PRs. (Versioning: `scorer x.y.z` = this calculator; `framework v0.x` = the co-developed methodology — different lines, see AGENTS.md.)
 
 ## 1.0 exit criteria (public gate — 0.x means "contract maturing", not "unfinished")
 
 1. CSV schema frozen ≥ 4 weeks (no new columns/flags).
 2. ≥ 3 independent pilot verdicts on record.
-3. Mass thresholds calibrated from Step-7 volume (recheck ongoing).
+3. Mass thresholds calibrated from Step-7 volume (effectiveness recheck DUE 2026-10-17).
 4. Vendor threshold profiles shipped.
 
 Seeding mutants is out of scope — by design. This is the verdict layer, not another executor.
