@@ -1,2 +1,2 @@
 mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
-M1,Math add,operator_flip,B1,Y,fail,,,,
+M1,Math add,operator_flip,B1,Y,fail,,
