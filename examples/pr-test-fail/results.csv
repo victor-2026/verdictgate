@@ -1,2 +1,2 @@
 mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision
-M1,Critical path,element_remove,B0,Y,pass,,,,
+M1,Critical path,element_remove,B0,Y,pass,,
