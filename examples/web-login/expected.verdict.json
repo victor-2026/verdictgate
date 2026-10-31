@@ -1,5 +1,5 @@
 {
-  "scorer_version": "0.3.0",
+  "scorer_version": "0.4.0",
   "deterministic": true,
   "profile": {
     "name": null,
@@ -13,6 +13,7 @@
     "caught": 4,
     "observed_only": 1,
     "survived": 2,
+    "unexercised": 0,
     "equivalent": 0
   },
   "note": "gates and scores are per-tier by design; no global percentage is computed",
@@ -24,6 +25,7 @@
       "caught": 2,
       "observed_only": 0,
       "survived": 0,
+      "unexercised": 0,
       "equivalent": 0,
       "mutation_score": 100.0,
       "survival_rate": 0.0,
@@ -42,6 +44,7 @@
       "caught": 1,
       "observed_only": 1,
       "survived": 0,
+      "unexercised": 0,
       "equivalent": 0,
       "mutation_score": 50.0,
       "survival_rate": 0.0,
@@ -62,6 +65,7 @@
       "caught": 1,
       "observed_only": 0,
       "survived": 1,
+      "unexercised": 0,
       "equivalent": 0,
       "mutation_score": 50.0,
       "survival_rate": 50.0,
@@ -87,6 +91,7 @@
       "caught": 0,
       "observed_only": 0,
       "survived": 1,
+      "unexercised": 0,
       "equivalent": 0,
       "mutation_score": 0.0,
       "survival_rate": 100.0,
@@ -136,6 +141,7 @@
       "context": "observed-only"
     }
   ],
+  "unexercised_rows": [],
   "unexercised_policy_applied": false,
   "gate_summary": "PASS",
   "exit_code": 0,

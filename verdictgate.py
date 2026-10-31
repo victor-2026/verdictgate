@@ -19,7 +19,7 @@ import json
 import sys
 from pathlib import Path
 
-SCORER_VERSION = "0.3.0"
+SCORER_VERSION = "0.4.0"
 
 TIER_ORDER = ("B0", "B1", "B2", "B3")
 TIER_LABELS = {"B0": "Critical", "B1": "High", "B2": "Medium", "B3": "Low"}
@@ -45,7 +45,7 @@ GATE_RULES = {
 REQUIRED_COLUMNS = ("mutation_id", "behavior", "operator", "risk_tier", "expected", "suite_result")
 NOOP_TOKENS = {"NOOP", "NO-OP"}
 VALID_EXPECTED = {"Y", "N", "E"}
-VALID_RESULT = {"pass", "fail"}
+VALID_RESULT = {"pass", "fail", "unexercised"}
 VALID_DECISIONS = {"open", "dismissed", "fixed"}
 VALID_E_BASIS = {"code-review", "diff-analysis", "no-observable-path", "dead-code", "other"}
 E_REASON_MAX_LEN = 280
@@ -195,6 +195,27 @@ def cross_check_tiers(rows, requirements):
             )
 
 
+def parse_import_meta(path):
+    """Read leading '# import: key=value' comment directives (importer provenance stamp)."""
+    meta = {}
+    try:
+        text = Path(path).read_text(encoding="utf-8-sig")
+    except OSError:
+        return meta
+    for ln in text.splitlines():
+        s = ln.strip()
+        if not s:
+            continue
+        if not s.startswith("#"):
+            break
+        if s.startswith("# import:"):
+            body = s[len("# import:"):].strip()
+            if "=" in body:
+                key, value = body.split("=", 1)
+                meta[key.strip().replace("-", "_")] = value.strip()
+    return meta
+
+
 def parse_rows(path):
     try:
         text = Path(path).read_text(encoding="utf-8-sig")
@@ -264,10 +285,20 @@ def parse_rows(path):
             raise InputError(f"{rowno} ({mid}): expected must be Y, N, or E (Equivalent: recorded, excluded from the denominator)")
         result = (raw.get("suite_result") or "").strip().lower()
         if result not in VALID_RESULT:
-            raise InputError(f"{rowno} ({mid}): suite_result must be pass or fail")
+            raise InputError(f"{rowno} ({mid}): suite_result must be pass, fail, or unexercised")
+        if result == "unexercised" and expected != "Y":
+            raise InputError(
+                f"{rowno} ({mid}): suite_result=unexercised requires expected=Y "
+                "(a mutant that was never run cannot be out-of-scope or equivalent)"
+            )
         decision = (raw.get("decision") or "").strip().lower()
         if decision and decision not in VALID_DECISIONS:
             raise InputError(f"{rowno} ({mid}): decision must be one of open, dismissed, fixed (or empty)")
+        if result == "unexercised" and decision:
+            raise InputError(
+                f"{rowno} ({mid}): suite_result=unexercised cannot carry a decision "
+                "(nothing to decide - the mutant was never executed)"
+            )
         if expected == "E" and result == "fail":
             raise InputError(
                 f"{rowno} ({mid}): contradictory row: expected=E claims no observable behavior change, "
@@ -311,6 +342,11 @@ def parse_rows(path):
                 f"{rowno} ({mid}): observed_by/observed_run_ref/observed_element are only valid "
                 "when observed is non-empty"
             )
+        if result == "unexercised" and observed:
+            raise InputError(
+                f"{rowno} ({mid}): suite_result=unexercised cannot carry observed evidence "
+                "(the mutant was never executed)"
+            )
         rows.append(
             {
                 "mutation_id": mid,
@@ -339,6 +375,8 @@ def row_verdict(row):
         return "Equivalent"
     if row["expected"] == "N":
         return "n/a"
+    if row["suite_result"] == "unexercised":
+        return "Unexercised"
     if row["suite_result"] == "fail":
         return "Caught"
     if row["observed"]:
@@ -365,7 +403,8 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
     fix_first = []
     for tier in TIER_ORDER:
         t_rows = [e for e in enriched if e["risk_tier"] == tier]
-        seeded = [e for e in t_rows if e["verdict"] not in ("n/a", "Equivalent")]
+        seeded = [e for e in t_rows if e["verdict"] not in ("n/a", "Equivalent", "Unexercised")]
+        unexercised = [e for e in t_rows if e["verdict"] == "Unexercised"]
         caught = [e for e in seeded if e["verdict"] == "Caught"]
         observed = [e for e in seeded if e["verdict"] == "Observed-only"]
         survivors = [e for e in seeded if e["verdict"] == "Survived"]
@@ -376,6 +415,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
             "caught": len(caught),
             "observed_only": len(observed),
             "survived": len(survivors),
+            "unexercised": len(unexercised),
             "equivalent": len([e for e in t_rows if e["verdict"] == "Equivalent"]),
             "mutation_score": pct(len(caught), len(seeded)),
             "survival_rate": pct(len(survivors), len(seeded)),
@@ -393,14 +433,21 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
             ],
             "not_expected": [e["mutation_id"] for e in t_rows if e["verdict"] == "n/a"],
         }
+        if d["unexercised"]:
+            d["signals"].append(
+                f"{d['unexercised']} mutant(s) never executed by the suite (no coverage) - "
+                "coverage gap, review; excluded from the mutation-score denominator"
+            )
         if d["seeded"] == 0:
             d["gate"] = "NOT EXERCISED"
-            d["gate_detail"] = "no seeded mutants (expected=Y) in this tier"
+            d["gate_detail"] = "no executed seeded mutants (expected=Y) in this tier"
+            if d["unexercised"]:
+                d["gate_detail"] += f"; {d['unexercised']} unexercised"
             if fail_on_unexercised and tier in ("B0", "B1"):
                 d["gate_detail"] += "; --fail-on-unexercised treats this as a release blocker"
                 any_fail = True
                 fix_first.append(
-                    f"{tier} · NOT EXERCISED - no seeded mutants recorded; "
+                    f"{tier} · NOT EXERCISED - no executed seeded mutants recorded; "
                     "--fail-on-unexercised treats this as a release blocker"
                 )
         elif tier == "B3":
@@ -501,6 +548,12 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
             d["gate"] = "PASS" if ok else "FAIL"
             if not ok:
                 any_fail = True
+        if fail_on_unexercised and tier in ("B0", "B1") and d["unexercised"] and d["seeded"] > 0:
+            any_fail = True
+            fix_first.append(
+                f"{tier} · {d['unexercised']} unexercised mutant(s) - "
+                "--fail-on-unexercised treats coverage gaps as release blockers"
+            )
         tiers[tier] = d
 
     for tier in TIER_ORDER:
@@ -533,12 +586,21 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
         if e["observed"] and e["verdict"] in ("Observed-only", "Caught")
     ]
 
+    unexercised_rows = [
+        {"mutation_id": e["mutation_id"], "behavior": e["behavior"],
+         "operator": e["operator"], "risk_tier": e["risk_tier"],
+         "reason": "no coverage: never executed by any test"}
+        for e in enriched
+        if e["verdict"] == "Unexercised"
+    ]
+
     totals = {
         "rows": len(enriched),
         "seeded": sum(tiers[t]["seeded"] for t in TIER_ORDER),
         "caught": sum(tiers[t]["caught"] for t in TIER_ORDER),
         "observed_only": sum(tiers[t]["observed_only"] for t in TIER_ORDER),
         "survived": sum(tiers[t]["survived"] for t in TIER_ORDER),
+        "unexercised": sum(tiers[t]["unexercised"] for t in TIER_ORDER),
         "equivalent": sum(tiers[t]["equivalent"] for t in TIER_ORDER),
     }
 
@@ -555,6 +617,7 @@ def build_verdict(rows, b2_band_pct, b2_small_n_max, fail_on_unexercised=False,
         "not_expected_rows": not_expected_rows,
         "equivalent_rows": equivalent_rows,
         "observed_rows": observed_rows,
+        "unexercised_rows": unexercised_rows,
         "unexercised_policy_applied": fail_on_unexercised,
         "gate_summary": "FAIL" if any_fail else "PASS",
         "exit_code": 1 if any_fail else 0,
@@ -570,17 +633,26 @@ def render_md(verdict, input_name):
     lines.append(
         f"verdictgate v{SCORER_VERSION} · deterministic: same input → same verdict · gates are per-tier, never blended"
     )
-    lines.append(f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'}, profile={verdict.get('profile', {}).get('name') or 'none'}")
+    config_line = (
+        f"config: B2 band {verdict['b2_band_pct']}% at N>=20, B2 small-N max {verdict['b2_small_n_max']} survivor(s), "
+        f"fail-on-unexercised={'on' if verdict['unexercised_policy_applied'] else 'off'}, "
+        f"requirements-cross-check={'on' if verdict.get('requirements_checked') else 'off — tiers unverified'}, "
+        f"profile={verdict.get('profile', {}).get('name') or 'none'}"
+    )
+    import_meta = verdict.get("import") or {}
+    if import_meta.get("no_coverage"):
+        config_line += f", import-no-coverage={import_meta['no_coverage']}"
+    lines.append(config_line)
     lines.append("")
     lines.append("## Per-tier results")
     lines.append("")
-    lines.append("| Tier | Seeded | Caught | Observed-only | Survived | Mutation score | Survival rate | Gate |")
-    lines.append("|---|---|---|---|---|---|---|---|")
+    lines.append("| Tier | Seeded | Caught | Observed-only | Survived | Unexercised | Mutation score | Survival rate | Gate |")
+    lines.append("|---|---|---|---|---|---|---|---|---|")
     for tier in TIER_ORDER:
         d = t[tier]
         lines.append(
             f"| {tier} {d['label']} | {d['seeded']} | {d['caught']} | {d['observed_only']} | {d['survived']} "
-            f"| {d['mutation_score']}% | {d['survival_rate']}% | {d['gate']} |"
+            f"| {d['unexercised']} | {d['mutation_score']}% | {d['survival_rate']}% | {d['gate']} |"
         )
     lines.append("")
     lines.append("## Gate verdicts")
@@ -618,6 +690,13 @@ def render_md(verdict, input_name):
             tag = "" if r["context"] == "observed-only" else " [on Caught row — note, not verdict]"
             lines.append(f"- {r['mutation_id']} ({r['risk_tier']}) - element: {r['observed_element']} "
                          f"(by {r['observed_by']}, ref {r['observed_run_ref']}){tag}")
+        lines.append("")
+    if verdict["unexercised_rows"]:
+        lines.append("## Unexercised (coverage gap - not counted)")
+        lines.append("")
+        for r in verdict["unexercised_rows"]:
+            lines.append(f"- {r['mutation_id']} ({r['risk_tier']}) - {r['behavior']} "
+                         f"({r['operator']}) - {r['reason']}")
         lines.append("")
     signal_count = sum(len(t[tier]["signals"]) for tier in TIER_ORDER)
     assessor_note = "signed comment required - signals fired" if signal_count else "none required - no signals fired"
@@ -716,6 +795,9 @@ def main():
         verdict = build_verdict(rows, args.b2_band_pct, args.b2_small_n_max, args.fail_on_unexercised,
                                rules=rules, profile_name=profile_name, profile_sha=profile_sha)
         verdict["requirements_checked"] = bool(args.requirements)
+        import_meta = parse_import_meta(args.results)
+        if import_meta:
+            verdict["import"] = import_meta
         input_name = Path(args.results).name
         md_text = render_md(verdict, input_name)
         json_text = json.dumps(verdict, indent=2, ensure_ascii=False) + "\n"

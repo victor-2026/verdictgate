@@ -182,3 +182,54 @@ jobs:
           assert not any('below target' in s for s in qd['tiers']['B2']['signals']), qd['tiers']['B2']['signals']
           print('behavior diff OK')
           PY
+
+      - name: Unexercised - excluded from denominator, visible, NOT EXERCISED
+        run: |
+          mkdir -p /tmp/vg/unex
+          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b,op,B1,Y,unexercised,,\n' > /tmp/vg/unex/a.csv
+          python3 verdictgate.py verdict /tmp/vg/unex/a.csv --out-dir /tmp/vg/unex/o
+          python3 - <<'PY'
+          import json
+          v=json.load(open('/tmp/vg/unex/o/a.verdict.json'))
+          assert v['tiers']['B1']['seeded']==0, v['tiers']['B1']
+          assert v['tiers']['B1']['unexercised']==1, v['tiers']['B1']
+          assert v['tiers']['B1']['gate']=='NOT EXERCISED', v['tiers']['B1']['gate']
+          assert v['totals']['unexercised']==1, v['totals']
+          assert len(v['unexercised_rows'])==1, v['unexercised_rows']
+          assert any('never executed' in s for s in v['tiers']['B1']['signals']), v['tiers']['B1']['signals']
+          PY
+
+      - name: Unexercised - --fail-on-unexercised blocks B0/B1
+        run: |
+          set +e
+          python3 verdictgate.py verdict /tmp/vg/unex/a.csv --fail-on-unexercised --out-dir /tmp/vg/unex/f >/dev/null 2>&1
+          code=$?
+          set -e
+          [ "$code" -eq 1 ]
+
+      - name: Unexercised - invalid combinations exit 2
+        run: |
+          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b,op,B1,N,unexercised,,\n' > /tmp/vg/unex/bad1.csv
+          set +e
+          python3 verdictgate.py verdict /tmp/vg/unex/bad1.csv --out-dir /tmp/vg/unex/b1 >/dev/null 2>&1
+          c1=$?
+          set -e
+          [ "$c1" -eq 2 ]
+          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b,op,B1,Y,unexercised,,open\n' > /tmp/vg/unex/bad2.csv
+          set +e
+          python3 verdictgate.py verdict /tmp/vg/unex/bad2.csv --out-dir /tmp/vg/unex/b2 >/dev/null 2>&1
+          c2=$?
+          set -e
+          [ "$c2" -eq 2 ]
+
+      - name: Import stamp - no-coverage directive reaches verdict
+        run: |
+          mkdir -p /tmp/vg/imp
+          printf '# import: source=StrykerJS 8.7.1 schemaVersion=1.0\n# import: report_sha256=deadbeef\n# import: no-coverage=survived\nmutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b,op,B1,Y,pass,,\n' > /tmp/vg/imp/a.csv
+          python3 verdictgate.py verdict /tmp/vg/imp/a.csv --out-dir /tmp/vg/imp/o
+          python3 - <<'PY'
+          import json
+          v=json.load(open('/tmp/vg/imp/o/a.verdict.json'))
+          assert v['import']['no_coverage']=='survived', v.get('import')
+          assert 'import-no-coverage=survived' in open('/tmp/vg/imp/o/a.verdict.md').read()
+          PY
