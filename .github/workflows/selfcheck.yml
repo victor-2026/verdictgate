@@ -312,8 +312,9 @@ jobs:
       - name: Import opro - basic E2E
         run: |
           mkdir -p /tmp/vg/opro
-          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements examples/opro-demo-orangehrm/requirements.csv --out /tmp/vg/opro/results.csv
-          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements examples/opro-demo-orangehrm/requirements.csv --out /tmp/vg/opro/results2.csv
+          printf 'behavior_name,risk_tier,acceptance_criteria,description\nsym:pom/ClaimPage.ts#ClaimPage.getHeading,B1,x,y\nsym:pom/ClaimPage.ts#ClaimPage.getSuccessToast,B1,x,y\nsym:pom/ClaimPage.ts#ClaimPage.searchClaims,B1,x,y\n' > /tmp/vg/opro-req.csv
+          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements /tmp/vg/opro-req.csv --out /tmp/vg/opro/results.csv
+          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements /tmp/vg/opro-req.csv --out /tmp/vg/opro/results2.csv
           diff /tmp/vg/opro/results.csv /tmp/vg/opro/results2.csv
           diff /tmp/vg/opro/results.import.json /tmp/vg/opro/results2.import.json
           python3 verdictgate.py verdict /tmp/vg/opro/results.csv --out-dir /tmp/vg/opro/v
@@ -346,7 +347,8 @@ jobs:
           json.dump(g, open('/tmp/vg/graph-badschema.json','w'))
           PY
           mkdir -p /tmp/vg/oprobad
-          check() { set +e; python3 verdictgate.py import opro --from "$1" --requirements examples/opro-demo-orangehrm/requirements.csv --out /tmp/vg/oprobad/o.csv >/dev/null 2>&1; c=$?; set -e; [ "$c" -eq 2 ] || { echo "FAIL $2 exit $c"; exit 1; }; echo "$2 OK"; }
+          printf 'behavior_name,risk_tier,acceptance_criteria,description\nsym:pom/ClaimPage.ts#ClaimPage.getHeading,B1,x,y\nsym:pom/ClaimPage.ts#ClaimPage.getSuccessToast,B1,x,y\nsym:pom/ClaimPage.ts#ClaimPage.searchClaims,B1,x,y\n' > /tmp/vg/opro-req.csv
+          check() { set +e; python3 verdictgate.py import opro --from "$1" --requirements /tmp/vg/opro-req.csv --out /tmp/vg/oprobad/o.csv >/dev/null 2>&1; c=$?; set -e; [ "$c" -eq 2 ] || { echo "FAIL $2 exit $c"; exit 1; }; echo "$2 OK"; }
           mkdir -p /tmp/vg/oprobad/fp && cp examples/opro-demo-orangehrm/reports/* /tmp/vg/oprobad/fp/ && cp /tmp/vg/proof-badfp.json /tmp/vg/oprobad/fp/proof-attempts.json
           check /tmp/vg/oprobad/fp bad-fingerprint
           mkdir -p /tmp/vg/oprobad/bc && cp examples/opro-demo-orangehrm/reports/* /tmp/vg/oprobad/bc/ && cp /tmp/vg/proof-badcommit.json /tmp/vg/oprobad/bc/proof-attempts.json
@@ -375,68 +377,3 @@ jobs:
           set -e
           [ "$code" -eq 0 ]
 
-
-      - name: Import opro - basic E2E
-        run: |
-          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements examples/opro-demo-orangehrm/requirements.csv --out /tmp/vg/opro/results.csv
-          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements examples/opro-demo-orangehrm/requirements.csv --out /tmp/vg/opro/results2.csv
-          diff /tmp/vg/opro/results.csv /tmp/vg/opro/results2.csv
-          diff /tmp/vg/opro/results.import.json /tmp/vg/opro/results2.import.json
-          python3 verdictgate.py verdict /tmp/vg/opro/results.csv --out-dir /tmp/vg/opro/v
-          python3 - <<'PY'
-          import json
-          v=json.load(open('/tmp/vg/opro/v/results.verdict.json'))
-          assert v['tiers']['B1']['seeded']==0, v['tiers']['B1']
-          assert v['tiers']['B1']['unexercised']==3, v['tiers']['B1']
-          assert len(v['unexercised_rows'])==3, v['unexercised_rows']
-          assert v['import']['unrunnable']=='unexercised', v.get('import')
-          assert 'import-unrunnable=unexercised' in open('/tmp/vg/opro/v/results.verdict.md').read()
-          PY
-
-      - name: Import opro - fail-closed integrity
-        run: |
-          python3 - <<'PY'
-          import json
-          base='examples/opro-demo-orangehrm/reports'
-          r=json.load(open(base+'/proof-attempts.json'))
-          r['artifact_identity']['run_fingerprint']='sha256:0000000000000000000000000000000000000000000000000000000000000000'
-          json.dump(r,open('/tmp/vg/pbadfp.json','w'))
-          r2=json.load(open(base+'/proof-attempts.json'))
-          r2['artifact_identity']['git_commit']='deadbeef'
-          json.dump(r2,open('/tmp/vg/pbadcommit.json','w'))
-          r3=json.load(open(base+'/proof-attempts.json'))
-          r3['schema_version']='orangepro.proof_attempts.v9'
-          json.dump(r3,open('/tmp/vg/pbadschema.json','w'))
-          g=json.load(open(base+'/graph.json'))
-          g['schema_version']='orangepro.local_graph.v9'
-          json.dump(g,open('/tmp/vg/gbadschema.json','w'))
-          PY
-          mkdir -p /tmp/vg/oprobad
-          check() { set +e; python3 verdictgate.py import opro --from "$1" --requirements examples/opro-demo-orangehrm/requirements.csv --out /tmp/vg/oprobad/o.csv >/dev/null 2>&1; c=$?; set -e; [ "$c" -eq 2 ] || { echo "FAIL $2 exit $c"; exit 1; }; echo "$2 OK"; }
-          mkdir -p /tmp/vg/oprobad/fp && cp examples/opro-demo-orangehrm/reports/* /tmp/vg/oprobad/fp/ && cp /tmp/vg/pbadfp.json /tmp/vg/oprobad/fp/proof-attempts.json
-          check /tmp/vg/oprobad/fp bad-fingerprint
-          mkdir -p /tmp/vg/oprobad/bc && cp examples/opro-demo-orangehrm/reports/* /tmp/vg/oprobad/bc/ && cp /tmp/vg/pbadcommit.json /tmp/vg/oprobad/bc/proof-attempts.json
-          check /tmp/vg/oprobad/bc bad-git-commit
-          mkdir -p /tmp/vg/oprobad/bs && cp examples/opro-demo-orangehrm/reports/* /tmp/vg/oprobad/bs/ && cp /tmp/vg/pbadschema.json /tmp/vg/oprobad/bs/proof-attempts.json
-          check /tmp/vg/oprobad/bs bad-proof-schema
-          mkdir -p /tmp/vg/oprobad/gs && cp examples/opro-demo-orangehrm/reports/* /tmp/vg/oprobad/gs/ && cp /tmp/vg/gbadschema.json /tmp/vg/oprobad/gs/graph.json
-          check /tmp/vg/oprobad/gs bad-graph-schema
-
-      - name: Import opro - missing behavior exits 2
-        run: |
-          printf 'behavior_name,risk_tier,acceptance_criteria,description\nother,B1,x,y\n' > /tmp/vg/opro-req-bad.csv
-          set +e
-          python3 verdictgate.py import opro --from examples/opro-demo-orangehrm/reports --requirements /tmp/vg/opro-req-bad.csv --out /tmp/vg/opro-badreq/results.csv >/dev/null 2>&1
-          code=$?
-          set -e
-          [ "$code" -eq 2 ]
-
-      - name: Import opro - B2 isolation (unexercised does not trip fail-on-unexercised)
-        run: |
-          mkdir -p /tmp/vg/oproiso
-          printf 'mutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b0,op,B0,Y,fail,,\nM2,b1,op,B1,Y,fail,,\nM3,b2,op,B2,Y,unexercised,,\n' > /tmp/vg/oproiso/a.csv
-          set +e
-          python3 verdictgate.py verdict /tmp/vg/oproiso/a.csv --fail-on-unexercised --out-dir /tmp/vg/oproiso/o >/dev/null 2>&1
-          code=$?
-          set -e
-          [ "$code" -eq 0 ]
