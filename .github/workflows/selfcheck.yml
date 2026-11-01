@@ -226,7 +226,9 @@ jobs:
         run: |
           mkdir -p /tmp/vg/imp
           printf '# import: source=StrykerJS 8.7.1 schemaVersion=1.0\n# import: report_sha256=deadbeef\n# import: no-coverage=survived\nmutation_id,behavior,operator,risk_tier,expected,suite_result,observed,decision\nM1,b,op,B1,Y,pass,,\n' > /tmp/vg/imp/a.csv
+          set +e
           python3 verdictgate.py verdict /tmp/vg/imp/a.csv --out-dir /tmp/vg/imp/o
+          set -e
           python3 - <<'PY'
           import json
           v=json.load(open('/tmp/vg/imp/o/a.verdict.json'))
